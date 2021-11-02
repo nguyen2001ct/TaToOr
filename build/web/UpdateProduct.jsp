@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
     <head>
@@ -654,7 +655,7 @@
                                 <label class="block text-sm">
                                     <span class="text-gray-700 dark:text-gray-400">Giá tiền sản phẩm</span>
                                     <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                           value="${product.giatien}" type="text" name="giaTien"/>
+                                           value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${product.giatien}"></fmt:formatNumber>" type="text" name="giaTien"/>
                                 </label>
                                 <div class="mt-4 text-sm">
                                     <span class="text-gray-700 dark:text-gray-400">Thuộc tính sản phẩm</span>
