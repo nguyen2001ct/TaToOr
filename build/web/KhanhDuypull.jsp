@@ -12,7 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
+<<<<<<< HEAD
         <h1>DO NguD</h1>
-        <h2> Please commit your changes or stash them before you merge.</h2>
+=======
+        <h1>Do ngu qua z</h1>
+        <h1>Do ngu</h1>
+>>>>>>> 917614cfb64022b7ce2babbb5f222b83ccdee7aa
     </body>
 </html>
