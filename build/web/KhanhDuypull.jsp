@@ -15,8 +15,8 @@
         <h1>DO NguD</h1>
         <h1>Do ngu qua z</h1>
         <h1>Do ngu</h1>
-        <h2>Chi Nguyen Khung</h2>
-        <h2>Chi Nguyen ko Khung</h2>
-        <h2>Chi Nguyen ko Khung</h2>
+        <h2>Khanh Duy Khung</h2>
+        <h2>Khanh Duy ko Khung</h2>
+        <h2>Khanh ko Khung</h2>
     </body>
 </html>
