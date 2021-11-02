@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
     <head>
@@ -905,7 +906,7 @@
                                                         <div>
                                                             <p class="font-semibold">${show.ten}</p>
                                                             <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                                ID: ${show.id}
+                                                                ID: <fmt:formatNumber type="number" maxFractionDigits="0" value="${show.id}"></fmt:formatNumber>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -914,10 +915,8 @@
                                                     ${show.thuoctinh}
                                                 </td>
                                                 <td class="px-4 py-3 text-xs">
-                                                    <span
-                                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                                                        >
-                                                        ${show.giatien}
+                                                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                                        <fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber> VNĐ
                                                     </span>
                                                 </td>
                                                 <td class="px-4 py-3 text-sm">
