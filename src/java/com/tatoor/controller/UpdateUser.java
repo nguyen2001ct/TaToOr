@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -72,18 +73,26 @@ public class UpdateUser extends HttpServlet {
         //processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        float id = Float.parseFloat(request.getParameter("id"));
-        String taiKhoan = request.getParameter("taiKhoan");
-        String matKhau = request.getParameter("matKhau");
+        HttpSession session = request.getSession();
         String ten = request.getParameter("ten");
         String gioiTinh = request.getParameter("gioiTinh");
         String namSinh = request.getParameter("ngaySinh");
         String sdt = request.getParameter("sdt");
         String diaChi = request.getParameter("diaChi");
-        int loai = Integer.parseInt(request.getParameter("loai"));
         DAO d = new DAO();
+        int loai = (int) session.getAttribute("loai");
         try {
-            d.updateUser(id, taiKhoan, matKhau, ten, gioiTinh, namSinh, sdt, diaChi, loai);
+            if (loai == 1) {
+                String taiKhoan = request.getParameter("taiKhoan");
+                String matKhau = request.getParameter("matKhau");
+                float id2 = Float.parseFloat(request.getParameter("id"));
+                int chinhsualoai = Integer.parseInt(request.getParameter("loai"));
+                d.updateUserAdmin(id2, taiKhoan, matKhau, ten, gioiTinh, namSinh, sdt, diaChi, chinhsualoai);
+            }
+            if (loai == 0) {
+                float id = Float.parseFloat(session.getAttribute("id").toString());
+                d.updateUserNormal(id, ten, gioiTinh, namSinh, sdt, diaChi);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(UpdateUser.class.getName()).log(Level.SEVERE, null, ex);
         }
