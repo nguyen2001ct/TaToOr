@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -15,9 +16,10 @@
         <meta name="keywords" content="Cake, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <title>Cake | Template</title>
+
+        <title>Giỏ Hàng</title>
+        <link rel="ICON" href="./pictures/logo3.png" type="image/ico" />
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -63,18 +65,6 @@
             <div id="mobile-menu-wrap"></div>
             <div class="offcanvas__option">
                 <ul>
-                    <li>USD <span class="arrow_carrot-down"></span>
-                        <ul>
-                            <li>EUR</li>
-                            <li>USD</li>
-                        </ul>
-                    </li>
-                    <li>ENG <span class="arrow_carrot-down"></span>
-                        <ul>
-                            <li>Spanish</li>
-                            <li>ENG</li>
-                        </ul>
-                    </li>
                     <li><a href="LoginForm.jsp"><img src="img/icon/login.png" alt="" height="25px" width="25px"> Login</a> <span class="arrow_carrot-down"></span>
                         <ul>
                             <li class="Login"><a href="LoginForm.jsp">Login</a></li>
@@ -126,10 +116,6 @@
                                     <a href="./index.html"><img src="img/logo.png" alt=""></a>
                                 </div>
                                 <div class="header__top__right">
-                                    <div class="header__top__right__links">
-                                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                                    </div>
                                     <div class="header__top__right__cart">
                                         <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                                         <div class="cart__price">Cart: <span>$0.00</span></div>
@@ -150,7 +136,6 @@
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
-                                        <li><a href="./shop-details.jsp">Thông Tin Sản Phẩm</a></li>
                                         <li class="active"><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
                                         <li><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
@@ -320,7 +305,7 @@
         <!-- Shopping Cart Section End -->
 
         <!-- Footer Section Begin -->
-       <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
