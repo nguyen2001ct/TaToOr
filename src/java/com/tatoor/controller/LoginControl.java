@@ -47,12 +47,15 @@ public class LoginControl extends HttpServlet {
                 request.setAttribute("error1", "Sai tài khoản hoặc mật khẩu ");
                 request.setAttribute("Username", user);
             } else {
-                String url ="<a name=\"id\" href=\"ProfileAll\" method =\"POST\" class=\"Login\" value="+users.getId()+">Thông tin</a>";
-                System.err.println(url);
+                String url ="<a href=\"ProfileAll\" class=\"Login\">Thông tin</a>";
                 if (users.getLoai() == 0) {
                     session.setAttribute("Admin", url);
+                    session.setAttribute("id", users.getId());
+                    session.setAttribute("loai", users.getLoai());
                 } else {
                     session.setAttribute("Admin", "<a href=\"ShowUser\" class=\"Login\">Quản Lý</a>");
+                    session.setAttribute("id", users.getId());
+                    session.setAttribute("loai", users.getLoai());
                 }
                 session.setAttribute("User", user);
                 page = "index.jsp";

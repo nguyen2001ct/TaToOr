@@ -154,7 +154,7 @@ public class DAO {
         return null;
     }
 
-    public void updateUser(float id, String taiKhoan, String matKhau, String ten, String gioiTinh, String ngaySinh, String sdt, String diaChi, int loai) throws SQLException {
+    public void updateUserAdmin(float id, String taiKhoan, String matKhau, String ten, String gioiTinh, String ngaySinh, String sdt, String diaChi, int loai) throws SQLException {
         String sql = "UPDATE NguoiDung\n"
                 + "set NguoiDung_TaiKhoan = ?,\n"
                 + "NguoiDung_MatKhau = ?,\n"
@@ -181,7 +181,28 @@ public class DAO {
         } catch (Exception e) {
         }
     }
-
+    public void updateUserNormal(float id, String ten, String gioiTinh, String ngaySinh, String sdt, String diaChi) throws SQLException {
+        String sql = "UPDATE NguoiDung\n"
+                + "set NguoiDung_Ten = ?,\n"
+                + "NguoiDung_GioiTinh = ?,\n"
+                + "NguoiDung_NgaySinh =?,\n"
+                + "NguoiDung_SDT = ?,\n"
+                + "NguoiDung_DiaChi = ?\n"
+                + "WHERE NguoiDung_ID = ?";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, ten);
+            ps.setString(2, gioiTinh);
+            ps.setString(3, ngaySinh);
+            ps.setString(4, sdt);
+            ps.setString(5, diaChi);
+            ps.setFloat(6, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
     public List<Product> getAllProduct() {
         List<Product> list = new ArrayList<>();
         ResultSet resultSet = DBConnection.querySet("select * from SanPham");
@@ -324,6 +345,6 @@ public class DAO {
 //        Product p = d.getProductByID(1);
 //        System.out.println(p.getTen());
 
-        d.updateProduct(9, "Cơm sườnnnnnnn", 25000, "Ăn Chính", "Gì vậy", 0, "https://statics.vinpearl.com/com-tam-ngon-o-sai-gon-0_1630562640.jpg");
+        d.updateUserNormal(2, "CkiNguyn", "nam", "2003", "0932132341", "CanTho");
     }
 }
