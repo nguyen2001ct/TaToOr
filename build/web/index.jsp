@@ -17,7 +17,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <title>TaToOr - Trang chủ</title>
+        <title>TaToOr - Trang Chủ</title>
         <link rel="ICON" href="./pictures/logo3.png" type="image/ico" />
 
         <!-- Google Font -->
@@ -62,18 +62,6 @@
             <div id="mobile-menu-wrap"></div>
             <div class="offcanvas__option">
                 <ul>
-                    <li>USD <span class="arrow_carrot-down"></span>
-                        <ul>
-                            <li>EUR</li>
-                            <li>USD</li>
-                        </ul>
-                    </li>
-                    <li>ENG <span class="arrow_carrot-down"></span>
-                        <ul>
-                            <li>Spanish</li>
-                            <li>ENG</li>
-                        </ul>
-                    </li>
                     <li><a href="LoginForm.jsp">Login</a> <span class="arrow_carrot-down"></span>
                         <ul>
                             <li class="Login"><a href="LoginForm.jsp">Login</a></li>
@@ -126,10 +114,6 @@
                                     <a href="./index.html"><img src="img/logo.png" alt=""></a>
                                 </div>
                                 <div class="header__top__right">
-                                    <div class="header__top__right__links">
-                                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                                    </div>
                                     <div class="header__top__right__cart">
                                         <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                                         <div class="cart__price">Cart: <span>$0.00</span></div>
@@ -150,7 +134,6 @@
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
-                                        <li><a href="./shop-details.jsp">Thông Tin Sản Phẩm</a></li>
                                         <li><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
                                         <li><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
@@ -194,7 +177,7 @@
                                 <span>Đôi nét về TaToOr</span>
                                 <h2>Là một dự án của nhóm 6</h2>
                             </div>
-                            <p>Trang web này được tạo ra để passed môn</p>
+                            <p>Trang web này được tạo ra để pass môn</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -226,12 +209,6 @@
                 </div>
             </div>
         </section>
-        <!-- About Section End -->
-
-
-
-
-
         <!-- Team Section Begin -->
         <section class="team spad">
             <div class="container">
@@ -448,19 +425,19 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-7">
                         <div class="map__inner">
-                            <h6>COlorado</h6>
+                            <h6>TaToOr</h6>
                             <ul>
-                                <li>1000 Lakepoint Dr, Frisco, CO 80443, USA</li>
-                                <li>Sweetcake@support.com</li>
-                                <li>+1 800-786-1000</li>
+                                <li>2P7J+JM Ninh Kiều, Cần Thơ</li>
+                                <li>Tatoor@support.com</li>
+                                <li>+842927303636</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="map__iframe">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10784.188505644011!2d19.053119335158936!3d47.48899529453826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1543907528304" height="300" style="border:0;" allowfullscreen=""
-                        aria-hidden="false" tabindex="0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15716.114740023777!2d105.73175248117843!3d10.01448919140329!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3916a227d0b95a64!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgQ-G6p24gVGjGoQ!5e0!3m2!1sen!2s!4v1635948892586!5m2!1sen!2s" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
             </div>
         </div>
         <!-- Map End -->
