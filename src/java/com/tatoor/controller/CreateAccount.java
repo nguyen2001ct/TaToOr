@@ -42,7 +42,6 @@ public class CreateAccount extends HttpServlet {
         String url = "index.jsp";
         String taiKhoan = request.getParameter("taiKhoan");
         String pass = request.getParameter("pass");
-
         String ten = request.getParameter("ten");
         String gioitinh = request.getParameter("gioitinh");
         String namsinh = request.getParameter("namsinh");
@@ -50,14 +49,17 @@ public class CreateAccount extends HttpServlet {
         int loai = Integer.parseInt(session.getAttribute("loai").toString());
         try {
             DAO dao = new DAO();
-            float ID = dao.getAllUser().size() + 1;
+            float ID=0;
+            for(int i=0;i<dao.getAllUser().size();i++){
+                ID=dao.getAllUser().get(i).getId()+1;
+            }
+            System.out.println(ID);
             if (loai == 0) {
                 String repass = request.getParameter("repass");
                 if (!pass.equals(repass)) {
                     request.setAttribute("error5", "ko hop le");
                     request.getRequestDispatcher("Register.jsp").forward(request, response);
                 } else {
-
                     boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);
                     if (check) {
                         url = Success_Page;
