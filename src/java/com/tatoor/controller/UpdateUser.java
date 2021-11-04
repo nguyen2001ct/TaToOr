@@ -88,15 +88,25 @@ public class UpdateUser extends HttpServlet {
                 float id2 = Float.parseFloat(request.getParameter("id"));
                 int chinhsualoai = Integer.parseInt(request.getParameter("loai"));
                 d.updateUserAdmin(id2, taiKhoan, matKhau, ten, gioiTinh, namSinh, sdt, diaChi, chinhsualoai);
+                response.sendRedirect("ShowUser");
+
             }
             if (loai == 0) {
                 float id = Float.parseFloat(session.getAttribute("id").toString());
-                d.updateUserNormal(id, ten, gioiTinh, namSinh, sdt, diaChi);
+                boolean check = d.updateUserNormal(id, ten, gioiTinh, namSinh, sdt, diaChi);
+                if (check) {
+                    request.setAttribute("ThongBao", "Bạn đã cập nhật thông tin thành công!!!");
+                    request.getRequestDispatcher("ProfileAll").forward(request, response);
+                } else {
+                    request.setAttribute("ThongBao", "Bạn đã cập nhật thông tin Thất bại!!!");
+                    request.getRequestDispatcher("InfoPage.jsp").forward(request, response);
+                }
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(UpdateUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("ShowUser");
+
     }
 
     /**
