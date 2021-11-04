@@ -8,6 +8,7 @@ package com.tatoor.Dao;
 import com.tatoor.connect.DBConnection;
 import static com.tatoor.connect.DBConnection.querySet;
 import com.tatoor.entity.Product;
+import com.tatoor.entity.Review;
 import com.tatoor.entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,7 +54,7 @@ public class DAO {
         return list;
     }
 
-    public boolean CreateAccount(float ID, String taiKhoan, String pass, String Ten, String gioitinh, String namsinh, String sdt) throws SQLException {
+    public boolean CreateAccount(float ID, String taiKhoan, String pass, String Ten, String gioitinh, String namsinh, String sdt, int loai) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
 
@@ -69,7 +70,7 @@ public class DAO {
             ps.setString(6, namsinh);
             ps.setString(7, sdt);
             ps.setString(8, " ");
-            ps.setInt(9, 0);
+            ps.setInt(9, loai);
             int row = ps.executeUpdate();
             if (row > 0) {
                 return true;
@@ -345,7 +346,27 @@ public class DAO {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
 
+    public List<Review> getAllReview() {
+        List<Review> list = new ArrayList<>();
+        ResultSet resultSet = DBConnection.querySet("select * from DanhGia");
+        if (resultSet != null) {
+            try {
+                while (resultSet.next()) {
+                    list.add(new Review(
+                            resultSet.getFloat(1),
+                            resultSet.getFloat(2),
+                            resultSet.getFloat(3),
+                            resultSet.getInt(4),
+                            resultSet.getString(5),
+                            resultSet.getInt(6)
+                    ));
+                }
+            } catch (Exception e) {
+            }
+        }
+        return list;
     }
 
     public static void main(String[] args) throws SQLException {
