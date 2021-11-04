@@ -376,7 +376,7 @@
                                 <p>Ngon lắm, 4.5 sao</p>
                             </div>
                         </div>
-                                <div class="col-lg-6">
+                        <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
@@ -397,7 +397,27 @@
                                 <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>
                             </div>
                         </div>
-                                
+<div class="col-lg-6">
+                            <div class="testimonial__item">
+                                <div class="testimonial__author">
+                                    <div class="testimonial__author__pic">
+                                        <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.6435-9/149363543_2891514991127902_298257690163312688_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=6lhWfWbKHrUAX_NIyof&_nc_ht=scontent.fsgn5-1.fna&oh=deb41648e6a2893f6cf559db8f3b604c&oe=61A74348" alt="">
+                                    </div>
+                                    <div class="testimonial__author__text">
+                                        <h5>Nguyễn Trọng Nghĩa</h5>
+                                        <span>Trà Vinh</span>
+                                    </div>
+                                </div>
+                                <div class="rating">
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                </div>
+                                <p>Ăn xong có sức hít đất 30 ngày trend luôn</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
