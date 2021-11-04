@@ -14,6 +14,15 @@ public class Review {
     private int sao,hienthi;
     private String binhluan;
 
+    public Review(float id, float nguoidung_id, float sanpham_id, int sao, String binhluan, int hienthi) {
+        this.id = id;
+        this.nguoidung_id = nguoidung_id;
+        this.sanpham_id = sanpham_id;
+        this.sao = sao;
+        this.hienthi = hienthi;
+        this.binhluan = binhluan;
+    }
+
     public float getId() {
         return id;
     }

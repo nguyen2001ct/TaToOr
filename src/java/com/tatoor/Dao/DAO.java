@@ -8,6 +8,7 @@ package com.tatoor.Dao;
 import com.tatoor.connect.DBConnection;
 import static com.tatoor.connect.DBConnection.querySet;
 import com.tatoor.entity.Product;
+import com.tatoor.entity.Review;
 import com.tatoor.entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -345,7 +346,26 @@ public class DAO {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-
+    }
+    public List<Review> getAllReview (){
+        List<Review> list = new ArrayList<>();
+        ResultSet resultSet = DBConnection.querySet("select * from DanhGia");
+        if (resultSet != null) {
+            try {
+                while (resultSet.next()) {
+                    list.add(new Review(
+                            resultSet.getFloat(1),
+                            resultSet.getFloat(2),
+                            resultSet.getFloat(3),
+                            resultSet.getInt(4),
+                            resultSet.getString(5),
+                            resultSet.getInt(6)
+                    ));
+                }
+            } catch (Exception e) {
+            }
+        }
+        return list;
     }
 
     public static void main(String[] args) throws SQLException {
