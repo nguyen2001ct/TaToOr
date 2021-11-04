@@ -54,7 +54,7 @@ public class DAO {
         return list;
     }
 
-    public boolean CreateAccount(float ID, String taiKhoan, String pass, String Ten, String gioitinh, String namsinh, String sdt) throws SQLException {
+    public boolean CreateAccount(float ID, String taiKhoan, String pass, String Ten, String gioitinh, String namsinh, String sdt, int loai) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
 
@@ -70,7 +70,7 @@ public class DAO {
             ps.setString(6, namsinh);
             ps.setString(7, sdt);
             ps.setString(8, " ");
-            ps.setInt(9, 0);
+            ps.setInt(9, loai);
             int row = ps.executeUpdate();
             if (row > 0) {
                 return true;
@@ -347,7 +347,8 @@ public class DAO {
             System.err.println(e.getMessage());
         }
     }
-    public List<Review> getAllReview (){
+
+    public List<Review> getAllReview() {
         List<Review> list = new ArrayList<>();
         ResultSet resultSet = DBConnection.querySet("select * from DanhGia");
         if (resultSet != null) {

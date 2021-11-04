@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,23 +38,36 @@ public class CreateAccount extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        HttpSession session = request.getSession();
         String url = "index.jsp";
         String taiKhoan = request.getParameter("taiKhoan");
         String pass = request.getParameter("pass");
-        String repass = request.getParameter("repass");
+
         String ten = request.getParameter("ten");
         String gioitinh = request.getParameter("gioitinh");
         String namsinh = request.getParameter("namsinh");
         String sdt = request.getParameter("sdt");
+        int loai = Integer.parseInt(session.getAttribute("loai").toString());
         try {
-            if (!pass.equals(repass)) {
-                request.setAttribute("error5", "ko hop le");
-                request.getRequestDispatcher("Register.jsp").forward(request, response);
-            } else {
-                DAO dao = new DAO();
-                float ID = dao.getAllUser().size() + 1;
-                boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt);
+            DAO dao = new DAO();
+            float ID = dao.getAllUser().size() + 1;
+            if (loai == 0) {
+                String repass = request.getParameter("repass");
+                if (!pass.equals(repass)) {
+                    request.setAttribute("error5", "ko hop le");
+                    request.getRequestDispatcher("Register.jsp").forward(request, response);
+                } else {
+
+                    boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);
+                    if (check) {
+                        url = Success_Page;
+                    } else {
+                        url = Failed_Page;
+                    }
+                }
+            } else if (loai == 1) {
+                int chinhloai = Integer.parseInt(request.getParameter("loai"));
+                boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, chinhloai);
                 if (check) {
                     url = Success_Page;
                 } else {
