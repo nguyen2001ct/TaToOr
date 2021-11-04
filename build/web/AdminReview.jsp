@@ -431,7 +431,8 @@
                                         Tổng Đánh Giá Xấu
                                     </p>
                                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                        <c:out default="lỗi" value="${danhgiathap}"/>
+                                        <fmt:formatNumber var="SoChan" type="number" maxFractionDigits="0" value="${danhgiathap}"></fmt:formatNumber>
+                                        <c:out value="${SoChan}"/>
                                     </p>
                                 </div>
                             </div>

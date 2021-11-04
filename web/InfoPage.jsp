@@ -13,28 +13,30 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Quản Lí Người Dùng</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet"
-            />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./css/tailwind.output.css" />
         <link rel="stylesheet" href="./css/infopage.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
-        <script
-            src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-            defer
-        ></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer ></script>
         <script src="./js/init-alpine.js"></script>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-            />
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-            defer
-        ></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer ></script>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+        <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+        <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+        <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
         <script src="./js/charts-lines.js" defer></script>
         <script src="./js/charts-pie.js" defer></script>
         <style type="text/css">
@@ -52,6 +54,77 @@
         </style>
     </head>
     <body>
+        <header class="header">
+            <div class="header__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="header__top__inner">
+                                <div class="header__top__left">
+                                    <ul>
+                                        <li>
+                                            <img src="img/icon/login.png" alt="" height="25px" width="25px">
+                                            <c:if test="${sessionScope.User == null}">
+                                                <a href="LoginForm.jsp">Đăng nhập</a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.User != null}">
+                                                ${sessionScope.User}
+                                            </c:if>
+                                        </li>
+                                        <li>
+                                            <c:if test="${sessionScope.User == null}">
+                                                <a href="Register.jsp"  class="Login">Đăng ký</a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.User != null}">
+                                                ${Admin}
+                                            </c:if>
+                                        </li>
+                                        <li>
+                                            <c:if test="${sessionScope.User == null}">
+
+                                            </c:if>
+                                            <c:if test="${sessionScope.User != null}">
+                                                <a href="LogOutAccount" class="Login">Đăng xuất</a>
+                                            </c:if>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="header__logo">
+                                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                                </div>
+                                <div class="header__top__right">
+                                    <div class="header__top__right__cart">
+                                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                        <div class="cart__price">Cart: <span>$0.00</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="canvas__open"><i class="fa fa-bars"></i></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="./index.jsp">Trang chủ</a></li>
+                                <li><a href="IndexProduct">Chọn Món</a></li>
+                                <li><a href="#">Tùy chọn</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
+                                        <li><a href="./checkout.jsp">Thanh Toán</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./blog.jsp">Thuyết Trình</a></li>
+                                <li><a href="./contact.jsp">Liên Hệ</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
         <!-- New Table -->
         <section class="vh-100 bg-image" id="gradient-custom-4" > 
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -101,7 +174,9 @@
                                         <div class="col-md-12"><label class="labels">Mật khẩu mới</label><input name="newpass" type="password" class="form-control" placeholder="" value=""></div>
                                         <div class="col-md-12"><label class="labels">Nhập lại mật khẩu mới</label><input name="renewpass" type="password" class="form-control" placeholder="" value=""></div>
                                         <h class="text-danger"> ${ThongBaoPass} </h>
-                                        <div class="mt-3 text-center"><button class="btn btn-primary profile-button" type="submit" onclick="if (!confirm('Bạn có chắc chắn muốn đổi mật khẩu ?')) { return false }">Đổi mật khẩu</button></div>
+                                        <div class="mt-3 text-center"><button class="btn btn-primary profile-button" type="submit" onclick="if (!confirm('Bạn có chắc chắn muốn đổi mật khẩu ?')) {
+                                                    return false
+                                                }">Đổi mật khẩu</button></div>
                                     </div>
                                 </form>
                             </div>

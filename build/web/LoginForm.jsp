@@ -173,7 +173,7 @@ and open the template in the editor.
                     </div>
                     <div class="form">
                         <input type="password" class="form-input" name="password" id="pass" placeholder=" " required>
-                        <label for="password" class="form-label">Mật khẩu </label><br>
+                        <label for="password" class="form-label">Mật Khẩu </label><br>
 
 
                     </div>
@@ -188,7 +188,6 @@ and open the template in the editor.
 
                 <div class="container" style="background-color:#f1f1f1">
                     <button type="button" class="cancelbtn">Huỷ</button>
-                    <span class="psw"> <a href="#">Quên Mật khẩu?</a></span>
                 </div>
             </form>
         </div>
