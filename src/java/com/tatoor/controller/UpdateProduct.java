@@ -89,7 +89,7 @@ public class UpdateProduct extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         float id = Float.parseFloat(request.getParameter("id"));
         String ten = request.getParameter("ten");
-        float giaTien = Float.parseFloat(request.getParameter("giaTien"));
+        float giaTien = Float.parseFloat(request.getParameter("giaTien").replace(",", ""));
         String thuocTinh = request.getParameter("thuocTinh");
         String moTa = request.getParameter("moTa");
         int danhGia = Integer.parseInt(request.getParameter("danhGia"));
