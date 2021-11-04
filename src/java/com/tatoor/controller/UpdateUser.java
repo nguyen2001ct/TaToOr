@@ -52,6 +52,7 @@ public class UpdateUser extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         float id = Float.parseFloat(request.getParameter("sid"));
         DAO d = new DAO();
         User u = d.getUserByID(id);
