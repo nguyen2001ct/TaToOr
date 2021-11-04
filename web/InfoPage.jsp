@@ -64,13 +64,12 @@
                                 <div class="header__top__left">
                                     <ul>
                                         <li>
-                                            <img src="img/icon/login.png" alt="" height="25px" width="25px">
-                                            <c:if test="${sessionScope.User == null}">
-                                                <a href="LoginForm.jsp">Đăng nhập</a>
-                                            </c:if>
-                                            <c:if test="${sessionScope.User != null}">
-                                                ${sessionScope.User}
-                                            </c:if>
+                                            <a href="index.jsp" class="Login">Trang chủ</a>
+
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-user-circle"></i>
+                                            ${sessionScope.User} 
                                         </li>
                                         <li>
                                             <c:if test="${sessionScope.User == null}">
@@ -88,41 +87,16 @@
                                                 <a href="LogOutAccount" class="Login">Đăng xuất</a>
                                             </c:if>
                                         </li>
+
                                     </ul>
                                 </div>
                                 <div class="header__logo">
-                                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                                </div>
-                                <div class="header__top__right">
-                                    <div class="header__top__right__cart">
-                                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                        <div class="cart__price">Cart: <span>$0.00</span></div>
-                                    </div>
+                                    <a href="index.jsp"><img src="img/logo.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="canvas__open"><i class="fa fa-bars"></i></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li class="active"><a href="./index.jsp">Trang chủ</a></li>
-                                <li><a href="IndexProduct">Chọn Món</a></li>
-                                <li><a href="#">Tùy chọn</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
-                                        <li><a href="./checkout.jsp">Thanh Toán</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="./blog.jsp">Thuyết Trình</a></li>
-                                <li><a href="./contact.jsp">Liên Hệ</a></li>
-                            </ul>
-                        </nav>
-                    </div>
                 </div>
             </div>
         </header>
@@ -162,7 +136,7 @@
 
                                         </div>
                                         <h class="text-danger"> ${ThongBao} </h>
-                                        <div class="mt-3 text-center"><button class="btn btn-primary profile-button" type="submit">Cập Nhật Thông Tin</button></div>
+                                        <div class="mt-3 text-center d-flex justify-content-center"><button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit" id="gradient-custom-4">Cập Nhật Thông Tin</button></div>
                                     </div>
                                 </form>
                             </div>
@@ -170,12 +144,12 @@
                             <div class="col-md-4">
                                 <form action="ChangePassword" method="POST"> 
                                     <div class="p-3 py-5">
-                                        <div class="d-flex justify-content-between align-items-center experience"><span><h4>Đổi Mật Khẩu</h4></span></div><br>
+                                        <div class="d-flex justify-content-between align-items-center experience"<span><h4>Đổi Mật Khẩu</h4></span></div><br>
                                         <div class="col-md-12"><label class="labels">Mật khẩu cũ</label><input name="oldpass" type="password" class="form-control" placeholder="" value=""></div> <br>
                                         <div class="col-md-12"><label class="labels">Mật khẩu mới</label><input name="newpass" type="password" class="form-control" placeholder="" value=""></div>
                                         <div class="col-md-12"><label class="labels">Nhập lại mật khẩu mới</label><input name="renewpass" type="password" class="form-control" placeholder="" value=""></div>
                                         <h class="text-danger"> ${ThongBaoPass} </h>
-                                        <div class="mt-3 text-center"><button class="btn btn-primary profile-button" type="submit" onclick="if (!confirm('Bạn có chắc chắn muốn đổi mật khẩu ?')) {
+                                        <div class="mt-3 text-center d-flex justify-content-center "><button id="gradient-custom-4" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit" onclick="if (!confirm('Bạn có chắc chắn muốn đổi mật khẩu ?')) {
                                                     return false
                                                 }">Đổi mật khẩu</button></div>
                                     </div>
@@ -186,101 +160,82 @@
                 </div>
             </div>
         </section>
-        <div class="map">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-7">
-                        <div class="map__inner">
-                            <h6>TaToOr</h6>
-                            <ul>
-                                <li>2P7J+JM Ninh Kiều, Cần Thơ</li>
-                                <li>Tatoor@support.com</li>
-                                <li>+842927303636</li>
-                            </ul>
+    </div>
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Giờ Chạy DeadLine</h6>
+                        <ul>
+                            <li>Thứ Hai - Thứ 6: 07:00 chiều – 10:00 tối</li>
+                            <li>Thứ Bảy: 10:00 sáng – 11:30 trưa </li>
+                            <li>và 2:30 chiều - 4:30 chiều</li>
+                            <li>Chủ Nhật: Tùy Hứng</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>From SE1504 with Love</p>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="map__iframe">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15716.114740023777!2d105.73175248117843!3d10.01448919140329!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3916a227d0b95a64!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgQ-G6p24gVGjGoQ!5e0!3m2!1sen!2s!4v1635948892586!5m2!1sen!2s" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__newslatter">
+                        <h6>Đăng ký</h6>
+                        <p>Nhận thông tin món ăn mới nhất từ chúng tôi.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send-o"></i></button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer__widget">
-                            <h6>Giờ Chạy DeadLine</h6>
+                    <div class="col-lg-7">
+                        <p class="copyright__text text-white">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="copyright__widget">
                             <ul>
-                                <li>Thứ Hai - Thứ 6: 07:00 chiều – 10:00 tối</li>
-                                <li>Thứ Bảy: 10:00 sáng – 11:30 trưa </li>
-                                <li>và 2:30 chiều - 4:30 chiều</li>
-                                <li>Chủ Nhật: Tùy Hứng</li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Site Map</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer__about">
-                            <div class="footer__logo">
-                                <a href="#"><img src="img/footer-logo.png" alt=""></a>
-                            </div>
-                            <p>From SE1504 with Love</p>
-                            <div class="footer__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer__newslatter">
-                            <h6>Đăng ký</h6>
-                            <p>Nhận thông tin món ăn mới nhất từ chúng tôi.</p>
-                            <form action="#">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send-o"></i></button>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <p class="copyright__text text-white">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="copyright__widget">
-                                <ul>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Site Map</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.nice-select.min.js"></script>
-        <script src="js/jquery.barfiller.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/jquery.slicknav.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.nicescroll.min.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+        </div>
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
 
