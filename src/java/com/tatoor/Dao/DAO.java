@@ -347,7 +347,35 @@ public class DAO {
             System.err.println(e.getMessage());
         }
     }
+    public boolean CreateReview(float ID, float NguoiDung_ID,float SanPham_ID,int sao, String BinhLuan, int hienthi, int damua) throws SQLException {
+        Connection con = null;
+        PreparedStatement ps = null;
 
+        try {
+            con = DBConnection.getConnection();
+            String sql = "INSERT INTO DanhGia VALUES(?,?,?,?,?,?,?)";
+            ps = con.prepareStatement(sql);
+            ps.setFloat(1, ID);
+            ps.setFloat(2, NguoiDung_ID);
+            ps.setFloat(3, SanPham_ID);
+            ps.setInt(4, sao);
+            ps.setString(5, BinhLuan);
+            ps.setInt(6, hienthi);
+            ps.setInt(7, damua);
+            int row = ps.executeUpdate();
+            if (row > 0) {
+                return true;
+            }
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return false;
+    }
     public List<Review> getAllReview() {
         List<Review> list = new ArrayList<>();
         ResultSet resultSet = DBConnection.querySet("select * from DanhGia");
@@ -408,6 +436,6 @@ public class DAO {
 //        Product p = d.getProductByID(1);
 //        System.out.println(p.getTen());
 
-        d.setReviewtype(2, 1);
+        d.CreateReview(5, 2, 3, 5, "ko gi", 0, 0);
     }
 }
