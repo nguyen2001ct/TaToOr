@@ -5,17 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="zxx">
-
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Cake Template">
         <meta name="keywords" content="Cake, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
         <title>TaToOr - Trang Chủ</title>
         <link rel="ICON" href="./pictures/logo3.png" type="image/ico" />

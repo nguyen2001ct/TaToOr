@@ -12,7 +12,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Quản Lí Người Dùng</title>
+        <title>Thông Tin Cá Nhân </title>
+        <link rel="ICON" href="./pictures/logo3.png" type="image/ico" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./css/tailwind.output.css" />
         <link rel="stylesheet" href="./css/infopage.css"/>
@@ -126,7 +127,7 @@
             </div>
         </header>
         <!-- New Table -->
-        <section class="vh-100 bg-image" id="gradient-custom-4" > 
+        <section class="vh-180 bg-image" id="gradient-custom-4" > 
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
                     <div class="container rounded bg-white mt-5 mb-5">
@@ -185,6 +186,101 @@
                 </div>
             </div>
         </section>
+        <div class="map">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-7">
+                        <div class="map__inner">
+                            <h6>TaToOr</h6>
+                            <ul>
+                                <li>2P7J+JM Ninh Kiều, Cần Thơ</li>
+                                <li>Tatoor@support.com</li>
+                                <li>+842927303636</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map__iframe">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15716.114740023777!2d105.73175248117843!3d10.01448919140329!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3916a227d0b95a64!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgQ-G6p24gVGjGoQ!5e0!3m2!1sen!2s!4v1635948892586!5m2!1sen!2s" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            </div>
+        </div>
+        <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Giờ Chạy DeadLine</h6>
+                            <ul>
+                                <li>Thứ Hai - Thứ 6: 07:00 chiều – 10:00 tối</li>
+                                <li>Thứ Bảy: 10:00 sáng – 11:30 trưa </li>
+                                <li>và 2:30 chiều - 4:30 chiều</li>
+                                <li>Chủ Nhật: Tùy Hứng</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                            </div>
+                            <p>From SE1504 with Love</p>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__newslatter">
+                            <h6>Đăng ký</h6>
+                            <p>Nhận thông tin món ăn mới nhất từ chúng tôi.</p>
+                            <form action="#">
+                                <input type="text" placeholder="Email">
+                                <button type="submit"><i class="fa fa-send-o"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <p class="copyright__text text-white">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="copyright__widget">
+                                <ul>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery.barfiller.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
 
