@@ -453,18 +453,20 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+
                                         <c:forEach var="review" items="${listreview}">
                                             <c:forEach var="product" items="${listproduct}">
                                                 <c:forEach var="user" items="${listuser}">
                                                     <c:if test="${fn:trim(review.nguoidung_id==user.id)}">
                                                         <c:if test="${fn:trim(review.sanpham_id==product.id)}"> 
+
                                                             <tr class="text-gray-700 dark:text-gray-400">
                                                                 <td class="px-4 py-3">
                                                                     <div class="flex items-center text-sm">
                                                                         <!-- Avatar with inset shadow -->
                                                                         <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                                                             <img class="object-cover w-full h-full rounded-full"
-                                                                                 src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                                                                                 src="${product.anh}"
                                                                                  alt=""
                                                                                  loading="lazy"/>
                                                                             <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
@@ -494,27 +496,29 @@
                                                                     <td class="px-4 py-3 text-xs">
                                                                     ${review.binhluan}
                                                                 </td>
-                                                                <td class="px-4 py-3 text-sm">
-                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
-                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                               name ="anhien" value="0" class="form-check-input" type="radio" > Ẩn
-                                                                    </label>
-                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
-                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                               name ="anhien" value="1" class="form-check-input" type="radio"> Hiện
-                                                                    </label>
-                                                                </td>
-                                                                <td class="px-4 py-3 text-xs">
-                                                                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
-                                                                        <a href="UpdateUser?sid=${user.id}">Cập Nhật</a>
-                                                                    </span>
-                                                                </td>
-                                                            </tr>
-                                                        </c:if>
+                                                        <form action="UpdateReview?id=${review.id}" method="post">
+                                                            <td class="px-4 py-3 text-sm">
+                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                           name ="anhien" value="0" class="form-check-input" type="radio" ${review.hienthi==0? "checked":""}> Ẩn
+                                                                </label>
+                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                           name ="anhien" value="1" class="form-check-input" type="radio" ${review.hienthi==1? "checked":""}> Hiện
+                                                                </label>
+                                                            </td>
+                                                            <td class="px-4 py-3 text-xs">
+                                                                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                    <button type="submit">Cập Nhật</button>
+                                                                </span>
+                                                            </td>
+                                                        </form>
+                                                        </tr>
                                                     </c:if>
-                                                </c:forEach>
+                                                </c:if>
                                             </c:forEach>
                                         </c:forEach>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

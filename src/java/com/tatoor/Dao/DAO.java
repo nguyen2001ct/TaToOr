@@ -288,7 +288,7 @@ public class DAO {
 
         try {
             Connection con = DBConnection.getConnection();
-            ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.executeQuery();
         } catch (Exception e) {
@@ -302,7 +302,7 @@ public class DAO {
 
         try {
             Connection con = DBConnection.getConnection();
-            ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setFloat(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -334,7 +334,7 @@ public class DAO {
                 + "where SanPham_ID = ?";
         try {
             Connection con = DBConnection.getConnection();
-            ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ten);
             ps.setFloat(2, giaTien);
             ps.setString(3, thuocTinh);
@@ -368,6 +368,19 @@ public class DAO {
         }
         return list;
     }
+    public void setReviewtype(float ID, int hienthi) {
+        String sql = "UPDATE DanhGia SET DanhGia_HienThi = ? WHERE DanhGia_ID = ? ";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,hienthi);
+            ps.setFloat(2, ID);
+            ps.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
@@ -394,6 +407,6 @@ public class DAO {
 //        Product p = d.getProductByID(1);
 //        System.out.println(p.getTen());
 
-        d.ChangePassword(2, "123123");
+        d.setReviewtype(2, 1);
     }
 }
