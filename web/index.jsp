@@ -285,17 +285,18 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="testimonial__slider owl-carousel">
                         <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
-                                        <img src="img/testimonial/ta-1.jpg" alt="">
+                                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t1.6435-9/127541583_1238316293221986_1426597242057875459_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=174925&_nc_ohc=l3uq3C_5g6QAX9HQCKy&_nc_ht=scontent.fsgn5-10.fna&oh=9d4b1373ded0a91fc644e0d77d63a16d&oe=61AB1D01" alt="">
                                     </div>
                                     <div class="testimonial__author__text">
-                                        <h5>Kerry D.Silva</h5>
-                                        <span>New york</span>
+                                        <h5>Đặng Ngọc Tùng Duy</h5>
+                                        <span>Đại Học FPT Cần Thơ</span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -303,20 +304,21 @@
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
-                                    <span class="icon_star-half_alt"></span>
+                                    <span class="icon_star"></span>
+                                    <%--<span class="icon_star-half_alt"></span>--%>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                                <p>Mua đồ ăn ở đây rồi làm vài chai bia là hết sẩy!!!</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
-                                        <img src="img/testimonial/ta-2.jpg" alt="">
+                                        <img src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.6435-9/248559541_1032075830960875_4020897884494738835_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=WIN4qe7mQtQAX-k99uH&_nc_ht=scontent.fsgn5-6.fna&oh=17c51a92b56bc9a984c8114f044ccdba&oe=61A7E341" alt="">
                                     </div>
                                     <div class="testimonial__author__text">
-                                        <h5>Kerry D.Silva</h5>
-                                        <span>New york</span>
+                                        <h5>Nguyễn Thành Đô</h5>
+                                        <span>Đại Học FPT Cần Thơ</span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -324,20 +326,21 @@
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
-                                    <span class="icon_star-half_alt"></span>
+                                    <span class="icon_star"></span>
+                                    <%--<span class="icon_star-half_alt"></span>--%>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                                <p>Tôi chọn món Bún Đậu Mắm Tôm nhưng được tặng thêm bịch nước tương tôi rất thích!!! <3</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
-                                        <img src="img/testimonial/ta-1.jpg" alt="">
+                                        <img src="https://image-us.24h.com.vn/upload/2-2020/images/2020-05-12/83395730_134841691333804_1955901610945150976_o-1589260776-4-width960height960.jpg" alt="">
                                     </div>
                                     <div class="testimonial__author__text">
-                                        <h5>Ophelia Nunez</h5>
-                                        <span>London</span>
+                                        <h5>Nguyễn Minh Hiếu</h5>
+                                        <span>Cai Lậy, Tiền Giang</span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -345,20 +348,21 @@
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
-                                    <span class="icon_star-half_alt"></span>
+                                    <span class="icon_star"></span>
+                                    <%--<span class="icon_star-half_alt"></span>--%>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                                <p>Ngon lắm, thơm lắm, y như mùi sầu riêng vậy đó</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
-                                        <img src="img/testimonial/ta-2.jpg" alt="">
+                                        <img src="https://i.ytimg.com/vi/9FCO8wTVaHI/hqdefault.jpg" alt="">
                                     </div>
                                     <div class="testimonial__author__text">
-                                        <h5>Kerry D.Silva</h5>
-                                        <span>New york</span>
+                                        <h5>Huấn Rose</h5>
+                                        <span>Yến Bái</span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -366,20 +370,21 @@
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
+
                                     <span class="icon_star-half_alt"></span>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                                <p>Ngon lắm, 4.5 sao</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
-                                        <img src="img/testimonial/ta-1.jpg" alt="">
+                                        <img src="https://i.vietgiaitri.com/2021/9/5/ba-phuong-hang-se-tang-luon-cai-dai-nam-neu-ai-tim-duoc-van-ban-nao-minh-keu-goi-quyen-gop-f94-6008990.jpg" alt="">
                                     </div>
                                     <div class="testimonial__author__text">
-                                        <h5>Ophelia Nunez</h5>
-                                        <span>London</span>
+                                        <h5>Nguyễn Phương Hằng</h5>
+                                        <span>Bình Dương</span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -387,20 +392,20 @@
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
-                                    <span class="icon_star-half_alt"></span>
+                                    <span class="icon_star"></span>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                                <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+<div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
-                                        <img src="img/testimonial/ta-2.jpg" alt="">
+                                        <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.6435-9/149363543_2891514991127902_298257690163312688_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=6lhWfWbKHrUAX_NIyof&_nc_ht=scontent.fsgn5-1.fna&oh=deb41648e6a2893f6cf559db8f3b604c&oe=61A74348" alt="">
                                     </div>
                                     <div class="testimonial__author__text">
-                                        <h5>Kerry D.Silva</h5>
-                                        <span>New york</span>
+                                        <h5>Nguyễn Trọng Nghĩa</h5>
+                                        <span>Trà Vinh</span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -408,9 +413,9 @@
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
                                     <span class="icon_star"></span>
-                                    <span class="icon_star-half_alt"></span>
+                                    <span class="icon_star"></span>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                                <p>Ăn xong có sức hít đất 30 ngày trend luôn</p>
                             </div>
                         </div>
                     </div>
