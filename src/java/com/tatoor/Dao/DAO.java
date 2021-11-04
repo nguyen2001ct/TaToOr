@@ -181,7 +181,8 @@ public class DAO {
         } catch (Exception e) {
         }
     }
-    public void updateUserNormal(float id, String ten, String gioiTinh, String ngaySinh, String sdt, String diaChi) throws SQLException {
+
+    public boolean updateUserNormal(float id, String ten, String gioiTinh, String ngaySinh, String sdt, String diaChi) throws SQLException {
         String sql = "UPDATE NguoiDung\n"
                 + "set NguoiDung_Ten = ?,\n"
                 + "NguoiDung_GioiTinh = ?,\n"
@@ -189,8 +190,10 @@ public class DAO {
                 + "NguoiDung_SDT = ?,\n"
                 + "NguoiDung_DiaChi = ?\n"
                 + "WHERE NguoiDung_ID = ?";
+        Connection con = null;
+        PreparedStatement ps = null;
         try {
-            Connection con = DBConnection.getConnection();
+            con = DBConnection.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, ten);
             ps.setString(2, gioiTinh);
@@ -198,11 +201,36 @@ public class DAO {
             ps.setString(4, sdt);
             ps.setString(5, diaChi);
             ps.setFloat(6, id);
-            ps.executeUpdate();
+            int row = ps.executeUpdate();
+            if (row > 0) {
+                return true;
+            }
         } catch (Exception e) {
             System.err.println(e.getMessage());
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return false;
+    }
+
+    public void ChangePassword(float id, String MatKhau) {
+        String sql = "UPDATE NguoiDung Set NguoiDung_MatKhau = ? where NguoiDung_ID = ? ";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, MatKhau);
+            ps.setFloat(2, id);
+            ps.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
+
     public List<Product> getAllProduct() {
         List<Product> list = new ArrayList<>();
         ResultSet resultSet = DBConnection.querySet("select * from SanPham");
@@ -345,6 +373,6 @@ public class DAO {
 //        Product p = d.getProductByID(1);
 //        System.out.println(p.getTen());
 
-        d.updateUserNormal(2, "CkiNguyn", "nam", "2003", "0932132341", "CanTho");
+        d.ChangePassword(2, "123123");
     }
 }

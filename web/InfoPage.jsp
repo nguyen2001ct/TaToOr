@@ -59,7 +59,7 @@
                     <div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
                             <div class="col-md-3 border-right">
-                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">${fn:trim(user.ten)}</span><span class="text-black-50">${fn:trim(user.sdt)}</span><span> </span></div>
                             </div>
 
                             <div class="col-md-5 border-right">
@@ -87,23 +87,27 @@
                                             <div class="col-md-12"><label class="labels">Ngày sinh ( Năm - Tháng - Ngày ) </label><input name="ngaySinh" type="text" class="form-control" placeholder="${fn:trim(user.ngaySinh)}" value="${fn:trim(user.ngaySinh)}"></div>
 
                                         </div>
-
+                                        <h class="text-danger"> ${ThongBao} </h>
                                         <div class="mt-3 text-center"><button class="btn btn-primary profile-button" type="submit">Cập Nhật Thông Tin</button></div>
                                     </div>
                                 </form>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="p-3 py-5">
-                                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                                </div>
+                                <form action="ChangePassword" method="POST"> 
+                                    <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center experience"><span><h4>Đổi Mật Khẩu</h4></span></div><br>
+                                        <div class="col-md-12"><label class="labels">Mật khẩu cũ</label><input name="oldpass" type="password" class="form-control" placeholder="" value=""></div> <br>
+                                        <div class="col-md-12"><label class="labels">Mật khẩu mới</label><input name="newpass" type="password" class="form-control" placeholder="" value=""></div>
+                                        <div class="col-md-12"><label class="labels">Nhập lại mật khẩu mới</label><input name="renewpass" type="password" class="form-control" placeholder="" value=""></div>
+                                        <h class="text-danger"> ${ThongBaoPass} </h>
+                                        <div class="mt-3 text-center"><button class="btn btn-primary profile-button" type="submit" onclick="if (!confirm('Bạn có chắc chắn muốn đổi mật khẩu ?')) { return false }">Đổi mật khẩu</button></div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </body>

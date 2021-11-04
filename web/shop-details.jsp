@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -187,7 +188,7 @@
                         <div class="product__details__text">
                             <div class="product__label">${product.thuoctinh}</div>
                             <h4>${product.ten}</h4>
-                            <h5>${product.giatien}</h5>
+                            <h5 style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${product.giatien} "></fmt:formatNumber>VNĐ</h5>
                             <p>${product.mota}</p>
                             <div class="product__details__option">
                                 <div class="quantity">
@@ -263,7 +264,7 @@
                                         </div>
                                         <div class="product__item__text">
                                             <h6><a href="ProductDetail?sid=${show.id}">${show.ten}</a></h6>
-                                            <div class="product__item__price">${show.giatien}</div>
+                                            <div class="product__item__price" style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber>VNĐ</div>
                                             <div class="cart_add">
                                                 <a href="#">Thêm vào giỏ hàng</a>
                                             </div>

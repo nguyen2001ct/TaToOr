@@ -5,6 +5,8 @@
  */
 package com.tatoor.controller;
 
+import com.tatoor.Dao.DAO;
+import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,10 +18,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author MACBOOK PRO
+ * @author nguye
  */
-@WebServlet(name = "LogOutAccount", urlPatterns = {"/LogOutAccount"})
-public class LogOutAccount extends HttpServlet {
+@WebServlet(name = "ChangePassword", urlPatterns = {"/ChangePassword"})
+public class ChangePassword extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,16 +37,24 @@ public class LogOutAccount extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            HttpSession session = request.getSession();
-            if(session != null){
-                  session.removeAttribute("User");
-                  session.removeAttribute("id");
-                  session.removeAttribute("loai");
-                  session.getAttributeNames();
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
-               
-               
+           HttpSession session = request.getSession();
+           DAO d = new DAO();
+           String oldpass = request.getParameter("oldpass");
+           String newpass = request.getParameter("newpass");
+           String renewpass = request.getParameter("renewpass");
+           float id = Float.parseFloat(session.getAttribute("id").toString());
+           User u = d.getUserByID(id);
+           if(!oldpass.equals(u.getMatKhau().trim())){
+               request.setAttribute("ThongBaoPass", "Mật Khẩu Cũ Không Hợp Lệ");
+               request.getRequestDispatcher("ProfileAll").forward(request, response);
+           }else if(!newpass.equals(renewpass)) {
+               request.setAttribute("ThongBaoPass", "Mật Khẩu Nhập Lại Không Khớp");
+               request.getRequestDispatcher("ProfileAll").forward(request, response);
+           }else{
+               d.ChangePassword(u.getId(), renewpass);
+               request.setAttribute("ThongBaoPass", "Đổi Mật Khẩu Thành Công!");
+               request.getRequestDispatcher("ProfileAll").forward(request, response);
+           }
         }
     }
 
