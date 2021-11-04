@@ -38,6 +38,8 @@ public class LogOutAccount extends HttpServlet {
             HttpSession session = request.getSession();
             if(session != null){
                   session.removeAttribute("User");
+                  session.removeAttribute("id");
+                  session.removeAttribute("loai");
                   session.getAttributeNames();
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }

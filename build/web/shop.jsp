@@ -183,7 +183,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="ProductDetail?sid=${show.id}">${show.ten}</a></h6>
-                                    <div class="product__item__price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber>VNĐ</div>
+                                    <div class="product__item__price" style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber>VNĐ</div>
                                     <div class="cart_add">
                                         <a href="#">Thêm vào giỏ hàng</a>
                                     </div>
