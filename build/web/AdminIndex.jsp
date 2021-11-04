@@ -30,6 +30,20 @@
                     window.location.href = 'DeleteAccount?sid=' + id;
                 }
             }
+            function checkUsername() {
+                tk = document.getElementById("txtUsername").value;
+                document.getElementById("txtUsernameMess").innerHTML = tk == "" ? "Tên không được bỏ trống" : "";
+            }
+            function checkName() {
+                ten = document.getElementById("txtName").value;
+                document.getElementById("txtNameMess").innerHTML = ten == "" ? "Tên không được bỏ trống" : "";
+            }
+            function checkYear() {
+                year = document.getElementById("txtYear").value;
+                var d = new Date(year);
+                var da = new Date();
+                document.getElementById("txtYearMess").innerHTML = d.getFullYear() > da.getFullYear() ? "Năm sinh phải nhỏ hơn năm hiện tại" : "";
+            }
         </script>
     </head>
     <body>
@@ -558,6 +572,98 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <form action="CreateAccount" method="POST">
+                                <table class="w-full whitespace-no-wrap">
+                                    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"> Thêm một người dùng </h4>
+                                    <tr class="text-gray-700 dark:text-gray-400">
+                                        <td>
+                                            <label class="left-0 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Tên tài khoản người dùng</span>
+                                                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                                       name="taiKhoan" type="text" placeholder="ví dụ: yenntn0708" style="background-color: graytext" id="txtUsername" onblur="checkUsername()"/>
+                                            </label>
+                                            <p  class="form-label" for="form3Example4cdg" id="txtUsernameMess" ></p>
+                                        </td>
+                                        <td>
+                                            <label class="left-0 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Mật khẩu</span>
+                                                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                                       name="pass" type="password" placeholder="ví dụ: 12345yen" style="background-color: graytext" />
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-gray-700 dark:text-gray-400">
+                                        <td>
+                                            <label class="left-0 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Họ và tên</span>
+                                                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                                       name="ten" type="text" placeholder="ví dụ: Nguyễn Thị Ngọc Yến" style="background-color: graytext" id="txtName" onblur="checkName()"/>
+                                                <p  class="form-label" for="form3Example4cdg" id="txtNameMess" ></p>
+                                            </label>
+                                        </td>
+                                        <td class="text-gray-700 dark:text-gray-400  form-check-label">
+                                            <label class="left-0 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Số điện thoại</span>
+                                                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                                       name="sdt" type="text" placeholder="0123456789" style="background-color: graytext" title="Nhập 10 kí tự chỉ bao gồm số." maxlength="10" pattern="[0][0-9]{9}"/>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-700 dark:text-gray-400  form-check-label">
+                                            <label class="left-0 text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Năm sinh</span>
+                                                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                                       name="namsinh" type="text" placeholder="ví dụ 2001" style="background-color: graytext" id="txtYear" maxlength="4" pattern="[1-2][0-9]{3}" title="Nhập 4 kí tự chỉ bao gồm số." onblur="checkYear()"/>
+                                                <p class="form-label" for="form3Example4cdg" id="txtYearMess"></p>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="block text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Giới tính</span>
+                                                <span><br></span>
+                                            </label>
+                                            <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                       name ="gioitinh" value="nam" class="form-check-input" type="radio" > Nam</span>
+                                            </label>
+                                            <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                       name ="gioitinh" value="nu" class="form-check-input" type="radio"> Nữ</span>
+                                            </label>
+                                            <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                       name ="gioitinh" value="khac" class="form-check-input" type="radio"> Khác</span>
+                                            </label>
+                                        </td>
+                                    </tr> 
+                                    <tr>
+                                        <td>
+                                            <label class="block text-sm">
+                                                <span class="text-gray-700 dark:text-gray-400">Loại người dùng</span>
+                                                <span><br></span>
+                                            </label>
+                                            <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                       name ="loai" class="form-check-input" type="radio" value="0"> Người dùng</span>
+                                            </label>
+                                            <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                       name ="loai" class="form-check-input" type="radio" value="1"> Quản lý</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table><br>
+                                <h1>
+                                    <button type="reset" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"       >
+                                        Reset
+                                    </button>
+                                    <button type="submit" class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"       >
+                                        Thêm
+                                    </button>
+                                </h1>
+                            </form> 
+
                             <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                                 <span class="flex items-center col-span-3">
                                     Showing 21-30 of 100

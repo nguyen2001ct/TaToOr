@@ -106,6 +106,12 @@ and open the template in the editor.
                                                     Nữ
                                                 </label>
                                             </div>
+                                             <div class="form-check-inline">
+                                                <input name ="gioitinh" class="form-check-input" type="radio" id="exampleRadios2" value="khac">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Khác
+                                                </label>
+                                            </div>
                                         </div>
                                         <p></p>
 
@@ -113,15 +119,10 @@ and open the template in the editor.
                                             <input type="text" name="namsinh" id="txtYear" class="form-control form-control-lg" placeholder="Năm sinh(yyyy)" maxlength="4" pattern="[1-2][0-9]{3}" title="Nhập 4 kí tự chỉ bao gồm số." onblur="checkYear()"/>
                                             <p class="form-label" for="form3Example4cdg" id="txtYearMess"></p>
                                         </div>
-
-
                                         <div class="form-outline mb-7">
                                             <input type="text" name="sdt" id="txtPhone" class="form-control form-control-lg" placeholder="Nhập số điện thoại" title="Nhập 10 kí tự chỉ bao gồm số." maxlength="10" pattern="[0][0-9]{9}"/>
                                             <label class="form-label" for="form3Example4cdg"></label>
                                         </div>
-
-
-
                                         <div class="d-flex justify-content-center">
                                             <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Đăng kí</button>
                                             <p class="form-label" for="form3Example1cg" id="txtDkiMess" ></p>
