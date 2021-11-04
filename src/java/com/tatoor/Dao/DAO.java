@@ -360,7 +360,8 @@ public class DAO {
                             resultSet.getFloat(3),
                             resultSet.getInt(4),
                             resultSet.getString(5),
-                            resultSet.getInt(6)
+                            resultSet.getInt(6),
+                            resultSet.getInt(7)
                     ));
                 }
             } catch (Exception e) {

@@ -7,6 +7,8 @@ package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
 import com.tatoor.entity.Product;
+import com.tatoor.entity.Review;
+import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -39,7 +41,11 @@ public class ProductDetail extends HttpServlet {
         DAO d = new DAO();
         Product p = d.getProductByID(id);
         List<Product> p1 = d.getAllProduct();
+        List<Review> review = d.getAllReview();
+        List<User> user = d.getAllUser();
         request.setAttribute("product", p);
+        request.setAttribute("listreview", review);
+        request.setAttribute("listuser", user);
         request.setAttribute("productlist", p1);
         request.getRequestDispatcher("shop-details.jsp").forward(request, response);
     }
