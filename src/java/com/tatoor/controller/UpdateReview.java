@@ -41,6 +41,8 @@ public class UpdateReview extends HttpServlet {
             int type = Integer.parseInt(request.getParameter("anhien"));
             d.setReviewtype(id, type);
             response.sendRedirect("ShowReview");
+        }else if (Float.parseFloat(session.getAttribute("loai").toString()) == 0){
+            
         }
 
     }

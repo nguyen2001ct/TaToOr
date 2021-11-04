@@ -207,7 +207,7 @@
                     <div class="col-lg-12">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Mô tả</a>
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Viết Đánh Giá</a>
                             </li>
 
                             <li class="nav-item">
@@ -218,20 +218,54 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-lg-8">
-                                        <p>${product.mota}</p>
+                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p>
+                                        <form >
+                                            <div class="product__details__option">
+                                                <div class="pro-qty">
+                                                    <input type="text" value="2" max="5">
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-8">
-                                        <p>This delectable Strawberry Pie is an extraordinary treat filled with sweet and
-                                            tasty chunks of delicious strawberries. Made with the freshest ingredients, one
-                                            bite will send you to summertime. Each gift arrives in an elegant gift box and
-                                            arrives with a greeting card of your choice that you can personalize online!3
-                                        </p>
-                                    </div>
+                                    <c:forEach var="review" items="${listreview}">
+                                        <c:forEach var="user" items="${listuser}">
+                                            <c:if test="${fn:trim(review.nguoidung_id==user.id)}">
+                                                <c:if test="${fn:trim(review.sanpham_id==product.id)}"> 
+                                                        <c:if test="${review.hienthi==1}">
+                                                            <c:if test="${review.damua==1}">
+                                                            <div class="col-lg-6">
+                                                                <div class="testimonial__item">
+                                                                    <div class="testimonial__author">
+                                                                        <div class="testimonial__author__pic">
+                                                                            <img src="https://i.ytimg.com/vi/4mwG_rPrfx8/maxresdefault.jpg" alt="">
+                                                                        </div>
+                                                                        <div class="testimonial__author__text">
+                                                                            <h5>${user.ten}</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rating">
+                                                                        <c:forEach begin="1" end="${review.sao}">
+
+                                                                            <span class="icon_star"></span>
+
+                                                                        </c:forEach>
+                                                                    </div>
+                                                                    <p>${review.binhluan}</p>
+                                                                </div>
+                                                            </div>
+                                                        </c:if>
+                                                    </c:if>
+                                                </c:if>
+                                            </c:if>
+                                        </c:forEach>
+
+                                    </c:forEach>
+
                                 </div>
                             </div>
                         </div>
@@ -265,12 +299,12 @@
                                         <div class="product__item__text">
                                             <h6><a href="ProductDetail?sid=${show.id}">${show.ten}</a></h6>
                                             <div class="product__item__price" style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber>VNĐ</div>
-                                            <div class="cart_add">
-                                                <a href="#">Thêm vào giỏ hàng</a>
+                                                <div class="cart_add">
+                                                    <a href="#">Thêm vào giỏ hàng</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </c:if>
                         </c:forEach>
                     </div>

@@ -54,17 +54,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"zxx\">\r\n");
-      out.write("\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta charset=\"UTF-8\">\r\n");
       out.write("        <meta name=\"description\" content=\"Cake Template\">\r\n");
       out.write("        <meta name=\"keywords\" content=\"Cake, unica, creative, html\">\r\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n");
       out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n");
-      out.write("        \r\n");
       out.write("\r\n");
       out.write("        <title>TaToOr - Trang Chủ</title>\r\n");
       out.write("        <link rel=\"ICON\" href=\"./pictures/logo3.png\" type=\"image/ico\" />\r\n");

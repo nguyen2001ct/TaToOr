@@ -10,17 +10,26 @@ package com.tatoor.entity;
  * @author nguye
  */
 public class Review {
-    private float id,nguoidung_id,sanpham_id;
-    private int sao,hienthi;
+
+    private float id, nguoidung_id, sanpham_id;
+    private int sao, hienthi, damua;
     private String binhluan;
 
-    public Review(float id, float nguoidung_id, float sanpham_id, int sao, String binhluan, int hienthi) {
+    public Review(float id, float nguoidung_id, float sanpham_id, int sao, String binhluan, int hienthi,int damua) {
         this.id = id;
         this.nguoidung_id = nguoidung_id;
         this.sanpham_id = sanpham_id;
         this.sao = sao;
         this.hienthi = hienthi;
         this.binhluan = binhluan;
+        this.damua=damua;
+    }
+    public int getDamua() {
+        return damua;
+    }
+
+    public void setDamua(int damua) {
+        this.damua = damua;
     }
 
     public float getId() {
@@ -70,5 +79,5 @@ public class Review {
     public void setBinhluan(String binhluan) {
         this.binhluan = binhluan;
     }
-    
+
 }
