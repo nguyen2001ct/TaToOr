@@ -23,7 +23,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
         <script src="./js/charts-lines.js" defer></script>
         <script src="./js/charts-pie.js" defer></script>
-        
+
     </head>
     <body>
         <div class="flex h-screen bg-gray-50 dark:bg-gray-900":class="{ 'overflow-hidden': isSideMenuOpen }">
@@ -490,13 +490,19 @@
                                                                         <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
                                                                             ${review.sao}
                                                                         </span> </c:if>
-                                                                   
-                                                                </td>
-                                                                <td class="px-4 py-3 text-xs">
-                                                                    ${review.binhluan}
                                                                     </td>
-                                                                    <td class="px-4 py-3 text-sm">
-                                                                    ${user.ngaySinh}
+                                                                    <td class="px-4 py-3 text-xs">
+                                                                    ${review.binhluan}
+                                                                </td>
+                                                                <td class="px-4 py-3 text-sm">
+                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                               name ="anhien" value="0" class="form-check-input" type="radio" > Ẩn
+                                                                    </label>
+                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                               name ="anhien" value="1" class="form-check-input" type="radio"> Hiện
+                                                                    </label>
                                                                 </td>
                                                                 <td class="px-4 py-3 text-xs">
                                                                     <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
