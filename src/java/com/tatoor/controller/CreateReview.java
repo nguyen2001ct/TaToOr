@@ -5,13 +5,8 @@
  */
 package com.tatoor.controller;
 
-import com.tatoor.Dao.DAO;
-import com.tatoor.entity.Product;
-import com.tatoor.entity.Review;
-import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nguye
  */
-@WebServlet(name = "ShowReview", urlPatterns = {"/ShowReview"})
-public class ShowReview extends HttpServlet {
+@WebServlet(name = "CreateReview", urlPatterns = {"/CreateReview"})
+public class CreateReview extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,21 +32,18 @@ public class ShowReview extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAO d = new DAO();
-        float count =0;
-        List<Review> review = d.getAllReview();
-        List<User> user = d.getAllUser();
-        List<Product> product = d.getAllProduct();
-        for(int i=0;i<review.size();i++){
-            if(review.get(i).getSao()<=3){
-                count+=1;
-            }
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet CreateReview</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet CreateReview at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        request.setAttribute("listreview", review);
-        request.setAttribute("listuser", user);
-        request.setAttribute("listproduct", product);
-        request.setAttribute("danhgiathap", count);
-        request.getRequestDispatcher("AdminReview.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

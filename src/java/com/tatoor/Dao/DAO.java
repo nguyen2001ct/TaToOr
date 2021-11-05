@@ -388,8 +388,10 @@ public class DAO {
                             resultSet.getFloat(3),
                             resultSet.getInt(4),
                             resultSet.getString(5),
-                            resultSet.getInt(6),
-                            resultSet.getInt(7)
+                            resultSet.getString(6),
+                            resultSet.getInt(7),
+                            resultSet.getInt(8),
+                            resultSet.getInt(9)
                     ));
                 }
             } catch (Exception e) {
@@ -405,6 +407,8 @@ public class DAO {
             ps.setInt(1,hienthi);
             ps.setFloat(2, ID);
             ps.execute();
+            con.close();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -436,6 +440,9 @@ public class DAO {
 //        Product p = d.getProductByID(1);
 //        System.out.println(p.getTen());
 
-        d.CreateReview(5, 2, 3, 5, "ko gi", 0, 0);
+        List<Review> r = d.getAllReview();
+        for(int i=0;i<r.size();i++){
+            System.out.println(r.get(i).getId());
+        }
     }
 }
