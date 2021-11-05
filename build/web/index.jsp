@@ -396,7 +396,7 @@
                                 <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>
                             </div>
                         </div>
-<div class="col-lg-6">
+                        <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
