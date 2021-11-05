@@ -87,10 +87,8 @@
                                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                                 aria-hidden="true"
                                 ></span>
-                            <a
-                                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                                href="ShowProduct"
-                                >
+                            <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                                href="ShowProduct">
                                 <svg
                                     class="w-5 h-5"
                                     aria-hidden="true"
@@ -99,8 +97,7 @@
                                     stroke-linejoin="round"
                                     stroke-width="2"
                                     viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    >
+                                    stroke="currentColor">
                                 <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                                 </svg>
                                 <span class="ml-4">Quản lý sản phẩm</span>

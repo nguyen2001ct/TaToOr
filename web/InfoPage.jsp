@@ -65,10 +65,9 @@
                                     <ul>
                                         <li>
                                             <a href="index.jsp" class="Login">Trang chủ</a>
-
                                         </li>
                                         <li>
-                                            <i class="fa fa-user-circle"></i>
+                                            <i class="fa fa-user-circle-o"></i>
                                             ${sessionScope.User} 
                                         </li>
                                         <li>
