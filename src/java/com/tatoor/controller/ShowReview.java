@@ -51,7 +51,6 @@ public class ShowReview extends HttpServlet {
         request.setAttribute("listuser", user);
         request.setAttribute("listproduct", product);
         request.setAttribute("danhgiathap", count);
-        
         request.getRequestDispatcher("AdminReview.jsp").forward(request, response);
     }
 

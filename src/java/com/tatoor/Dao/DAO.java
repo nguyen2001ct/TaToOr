@@ -347,21 +347,23 @@ public class DAO {
             System.err.println(e.getMessage());
         }
     }
-    public boolean CreateReview(float ID, float NguoiDung_ID,float SanPham_ID,int sao, String BinhLuan, int hienthi, int damua) throws SQLException {
+    public boolean CreateReview(float ID, float NguoiDung_ID,float SanPham_ID,int sao, String BinhLuan,String anh, int damua, int hienthi,int sua) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
 
         try {
             con = DBConnection.getConnection();
-            String sql = "INSERT INTO DanhGia VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO DanhGia VALUES(?,?,?,?,?,?,?,?,?)";
             ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.setFloat(2, NguoiDung_ID);
             ps.setFloat(3, SanPham_ID);
             ps.setInt(4, sao);
             ps.setString(5, BinhLuan);
-            ps.setInt(6, hienthi);
+            ps.setString(6, anh);
             ps.setInt(7, damua);
+            ps.setInt(8, hienthi);
+            ps.setInt(9, sua);
             int row = ps.executeUpdate();
             if (row > 0) {
                 return true;
@@ -388,8 +390,10 @@ public class DAO {
                             resultSet.getFloat(3),
                             resultSet.getInt(4),
                             resultSet.getString(5),
-                            resultSet.getInt(6),
-                            resultSet.getInt(7)
+                            resultSet.getString(6),
+                            resultSet.getInt(7),
+                            resultSet.getInt(8),
+                            resultSet.getInt(9)
                     ));
                 }
             } catch (Exception e) {
@@ -405,6 +409,8 @@ public class DAO {
             ps.setInt(1,hienthi);
             ps.setFloat(2, ID);
             ps.execute();
+            con.close();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -436,6 +442,9 @@ public class DAO {
 //        Product p = d.getProductByID(1);
 //        System.out.println(p.getTen());
 
-        d.CreateReview(5, 2, 3, 5, "ko gi", 0, 0);
+        List<Review> r = d.getAllReview();
+        for(int i=0;i<r.size();i++){
+            System.out.println(r.get(i).getId());
+        }
     }
 }

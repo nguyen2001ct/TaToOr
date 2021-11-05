@@ -33,7 +33,7 @@
                     <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"href="index.jsp"> Trang chủ</a>
                     <ul class="mt-6">
                         <li class="relative px-6 py-3">
-                           
+
                             <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                                href="ShowUser">                                <svg
                                     class="w-5 h-5"
@@ -73,7 +73,7 @@
                             </a>
                         </li>
                         <li class="relative px-6 py-3">
-                             <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
+                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
                             <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                                href="ShowReview">
                                 <svg
@@ -438,6 +438,7 @@
                         <!-- New Table -->
                         <div class="w-full overflow-hidden rounded-lg shadow-xs">
                             <div class="w-full overflow-x-auto">
+
                                 <table class="w-full whitespace-no-wrap">
                                     <thead>
                                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
@@ -456,7 +457,75 @@
                                                 <c:forEach var="user" items="${listuser}">
                                                     <c:if test="${fn:trim(review.nguoidung_id==user.id)}">
                                                         <c:if test="${fn:trim(review.sanpham_id==product.id)}"> 
+                                                            <c:if test="${review.hienthi==0}">
+                                                                <tr class="text-gray-700 dark:text-gray-400">
+                                                                    <td class="px-4 py-3">
+                                                                        <div class="flex items-center text-sm">
+                                                                            <!-- Avatar with inset shadow -->
+                                                                            <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                                                                <img class="object-cover w-full h-full rounded-full"
+                                                                                     src="${product.anh}"
+                                                                                     alt=""
+                                                                                     loading="lazy"/>
+                                                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                                                                            </div>
+                                                                            <%--Show Ten--%>
+                                                                            <div>
+                                                                                <p class="font-semibold">${user.ten}</p>
+                                                                                <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                                                    ID: <fmt:formatNumber type="number" maxFractionDigits="0" value="${user.id}"></fmt:formatNumber>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="px-4 py-3 text-sm">
+                                                                        ${product.ten}
+                                                                    </td>
+                                                                    <td class="px-4 py-3 text-sm">
+                                                                        <c:if test="${review.sao>=4}">
+                                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                                ${review.sao}
+                                                                            </span> </c:if>
+                                                                        <c:if test="${review.sao<=3}">
+                                                                            <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                                                                                ${review.sao}
+                                                                            </span> </c:if>
+                                                                        </td>
+                                                                        <td class="px-4 py-3 text-xs">
+                                                                        ${review.binhluan}
+                                                                    </td>
+                                                            <form action="UpdateReview?id=${review.id}" method="post">
+                                                                <td class="px-4 py-3 text-sm">
+                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                               name ="anhien" value="0" class="form-check-input" type="radio" ${review.hienthi==0? "checked":""}> Ẩn
+                                                                    </label>
+                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                               name ="anhien" value="1" class="form-check-input" type="radio" ${review.hienthi==1? "checked":""}> Hiện
+                                                                    </label>
+                                                                </td>
+                                                                <td class="px-4 py-3 text-xs">
+                                                                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                        <button type="submit">Cập Nhật</button>
+                                                                    </span>
+                                                                </td>
+                                                            </form>
 
+                                                            </tr>
+                                                        </c:if>
+
+                                                    </c:if>
+                                                </c:if>
+                                            </c:forEach>
+                                        </c:forEach>
+                                    </c:forEach>
+                                    <c:forEach var="review" items="${listreview}">
+                                        <c:forEach var="product" items="${listproduct}">
+                                            <c:forEach var="user" items="${listuser}">
+                                                <c:if test="${fn:trim(review.nguoidung_id==user.id)}">
+                                                    <c:if test="${fn:trim(review.sanpham_id==product.id)}"> 
+                                                        <c:if test="${review.hienthi==1}">
                                                             <tr class="text-gray-700 dark:text-gray-400">
                                                                 <td class="px-4 py-3">
                                                                     <div class="flex items-center text-sm">
@@ -493,24 +562,27 @@
                                                                     <td class="px-4 py-3 text-xs">
                                                                     ${review.binhluan}
                                                                 </td>
-                                                        <form action="UpdateReview?id=${review.id}" method="post">
-                                                            <td class="px-4 py-3 text-sm">
-                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
-                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                           name ="anhien" value="0" class="form-check-input" type="radio" ${review.hienthi==0? "checked":""}> Ẩn
-                                                                </label>
-                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
-                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                           name ="anhien" value="1" class="form-check-input" type="radio" ${review.hienthi==1? "checked":""}> Hiện
-                                                                </label>
-                                                            </td>
-                                                            <td class="px-4 py-3 text-xs">
-                                                                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
-                                                                    <button type="submit">Cập Nhật</button>
-                                                                </span>
-                                                            </td>
-                                                        </form>
-                                                        </tr>
+                                                            <form action="UpdateReview?id=${review.id}" method="post">
+                                                                <td class="px-4 py-3 text-sm">
+                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                               name ="anhien" value="0" class="form-check-input" type="radio" ${review.hienthi==0? "checked":""}> Ẩn
+                                                                    </label>
+                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                               name ="anhien" value="1" class="form-check-input" type="radio" ${review.hienthi==1? "checked":""}> Hiện
+                                                                    </label>
+                                                                </td>
+                                                                <td class="px-4 py-3 text-xs">
+                                                                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                        <button type="submit">Cập Nhật</button>
+                                                                    </span>
+                                                                </td>
+                                                            </form>
+
+                                                            </tr>
+                                                        </c:if>
+
                                                     </c:if>
                                                 </c:if>
                                             </c:forEach>
@@ -518,6 +590,7 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
+
                             </div>
                             <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                                 <span class="flex items-center col-span-3">

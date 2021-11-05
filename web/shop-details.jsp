@@ -215,20 +215,31 @@
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-8">
-                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p>
-                                        <form >
-                                            <div class="product__details__option">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="2" max="5">
+                            <form action="CreateReview?productid=${product.id}" method="post">
+                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-12">
+                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
+                                            <a>Số Sao: </a> 
+                                            <c:forEach var="sao" begin="1" end="5"> 
+                                                <div class="form-check-inline">
+                                                    <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                        ${sao}
+                                                    </label>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </c:forEach>
+                                            <br>
+                                            Bình Luận: <br><textarea name="binhluandanhgia" maxlength="1000" > </textarea><br>
+                                            Ảnh: <input name="anhdanhgia" type="text">
+                                            <br>
+                                            <h class="text-danger" >${ThongBaoDanhGia}</h>
+                                            <br>
+                                            <button type =submit class="primary-btn">Đánh giá</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
 
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
@@ -236,13 +247,13 @@
                                         <c:forEach var="user" items="${listuser}">
                                             <c:if test="${fn:trim(review.nguoidung_id==user.id)}">
                                                 <c:if test="${fn:trim(review.sanpham_id==product.id)}"> 
-                                                        <c:if test="${review.hienthi==1}">
-                                                            <c:if test="${review.damua==1}">
+                                                    <c:if test="${review.hienthi==1}">
+                                                        <c:if test="${review.damua==1}">
                                                             <div class="col-lg-6">
                                                                 <div class="testimonial__item">
                                                                     <div class="testimonial__author">
                                                                         <div class="testimonial__author__pic">
-                                                                            <img src="https://i.ytimg.com/vi/4mwG_rPrfx8/maxresdefault.jpg" alt="">
+                                                                            <img src="${review.anh}" alt="">
                                                                         </div>
                                                                         <div class="testimonial__author__text">
                                                                             <h5>${user.ten}</h5>

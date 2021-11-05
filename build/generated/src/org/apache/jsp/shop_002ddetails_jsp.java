@@ -302,10 +302,11 @@ static {
       out.write("                                    <div class=\"col-lg-8\">\r\n");
       out.write("                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p>\r\n");
       out.write("                                        <form >\r\n");
-      out.write("                                            <div class=\"product__details__option\">\r\n");
-      out.write("                                                <div class=\"pro-qty\">\r\n");
-      out.write("                                                    <input type=\"text\" value=\"2\" max=\"5\">\r\n");
-      out.write("                                                </div>\r\n");
+      out.write("                                            <div class=\"form-check-inline\">\r\n");
+      out.write("                                                <input name =\"gioitinh\" class=\"form-check-input\" type=\"radio\" id=\"exampleRadios2\" value=\"khac\">\r\n");
+      out.write("                                                <label class=\"form-check-label\" for=\"exampleRadios2\">\r\n");
+      out.write("                                                    Khác\r\n");
+      out.write("                                                </label>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                        </form>\r\n");
       out.write("                                    </div>\r\n");
@@ -773,7 +774,7 @@ static {
     if (_jspx_eval_c_if_7 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write(" \r\n");
-        out.write("                                                    ");
+        out.write("                                                        ");
         if (_jspx_meth_c_if_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_7, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
           return true;
         out.write("\r\n");
@@ -799,12 +800,12 @@ static {
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_8 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_8.setPageContext(_jspx_page_context);
     _jspx_th_c_if_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_7);
-    _jspx_th_c_if_8.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${review.damua==1}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_8.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${review.hienthi==1}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_8 = _jspx_th_c_if_8.doStartTag();
     if (_jspx_eval_c_if_8 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                                                        ");
+        out.write("                                                            ");
         if (_jspx_meth_c_if_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_8, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
           return true;
         out.write("\r\n");
@@ -830,7 +831,7 @@ static {
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_9 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_9.setPageContext(_jspx_page_context);
     _jspx_th_c_if_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_8);
-    _jspx_th_c_if_9.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${review.hienthi==1}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_9.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${review.damua==1}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_9 = _jspx_th_c_if_9.doStartTag();
     if (_jspx_eval_c_if_9 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
