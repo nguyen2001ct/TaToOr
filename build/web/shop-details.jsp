@@ -215,31 +215,40 @@
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <form action="CreateReview?productid=${product.id}" method="post">
-                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-lg-12">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-12">
+                                        <form action="CreateReview?productid=${product.id}" method="post">
                                             <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
-                                            <a>Số Sao: </a> 
-                                            <c:forEach var="sao" begin="1" end="5"> 
-                                                <div class="form-check-inline">
-                                                    <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
-                                                    <label class="form-check-label" for="exampleRadios2">
-                                                        ${sao}
-                                                    </label>
-                                                </div>
-                                            </c:forEach>
-                                            <br>
-                                            Bình Luận: <br><textarea name="binhluandanhgia" maxlength="1000" > </textarea><br>
-                                            Ảnh: <input name="anhdanhgia" type="text">
-                                            <br>
-                                            <h class="text-danger" >${ThongBaoDanhGia}</h>
-                                            <br>
-                                            <button type =submit class="primary-btn">Đánh giá</button>
-                                        </div>
+                                            <div class="row d-flex justify-content-center">
+                                                <label>Số sao:
+                                                    <c:forEach var="sao" begin="1" end="5"> 
+                                                        <div class="form-check-inline">
+                                                            <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
+                                                            <label class="form-check-label" for="exampleRadios2">
+                                                                ${sao}
+                                                            </label>
+                                                        </div>
+                                                    </c:forEach>
+                                                </label>
+                                            </div>
+                                            <div class="row d-flex justify-content-center">
+                                                 <span>Bình Luận:  </span>
+                                                <label> 
+                                                    <textarea name="binhluandanhgia" maxlength="1000" > </textarea></label>
+                                            </div>
+                                            <div class="row d-flex justify-content-center">
+                                                <label> Ảnh:  <input name="anhdanhgia" type="text"></label>
+                                            </div>
+                                            <div class="row d-flex justify-content-center">
+                                                <button type =submit class="primary-btn">Đánh giá</button>
+                                            </div>
+
+                                        </form>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+
 
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
@@ -261,9 +270,7 @@
                                                                     </div>
                                                                     <div class="rating">
                                                                         <c:forEach begin="1" end="${review.sao}">
-
                                                                             <span class="icon_star"></span>
-
                                                                         </c:forEach>
                                                                     </div>
                                                                     <p>${review.binhluan}</p>

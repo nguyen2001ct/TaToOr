@@ -39,25 +39,22 @@ public class CreateReview extends HttpServlet {
         String binhluan = request.getParameter("binhluandanhgia");
         Float ProductID = Float.parseFloat(request.getParameter("productid"));
         String AnhDanhGia = request.getParameter("anhdanhgia");
-        float danhgia_id=0;
+        float danhgia_id = 0;
         float nguoidung_id = Float.parseFloat(session.getAttribute("id").toString());
         DAO dao = new DAO();
         for (int i = 0; i < dao.getAllReview().size(); i++) {
             danhgia_id = dao.getAllReview().get(i).getId() + 1;
         }
         try {
+            String url = "ProductDetail?sid=" + ProductID;
+            System.out.println(url);
             boolean check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, 0, 0, 1);
-            if(check){
-                request.setAttribute("ThongBaoDanhGia", "Bạn đã đánh giá thành công!!!");
-                request.getRequestDispatcher("ProductDetail").forward(request, response);
-            }else{
-                request.setAttribute("ThongBaoDanhGia", "Bạn đã đánh giá thất bại!!!");
-                request.getRequestDispatcher("ProductDetail").forward(request, response);
+            if (check) {
+                response.sendRedirect(url);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        request.getRequestDispatcher("shop-details.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
