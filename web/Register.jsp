@@ -88,7 +88,7 @@ and open the template in the editor.
                                         <input name="repass" type="password" id="txtPass2" class="form-control form-control-lg" placeholder="Nhập lại mật khẩu" />
                                         <p class="form-label" for="form3Example4cdg"></p>
                                     </div>
-                                    <h class="text-danger"> ${error5}> </h>
+                                    <h class="text-danger"> ${error5} </h>
                                         <div class="form-outline mb-7">
                                             <input name="ten" type="text" id="txtUsername" class="form-control form-control-lg" placeholder="Họ và Tên" onblur="checkUsername()"/>
                                             <p class="form-label" for="form3Example1cg" id="txtUsernameMess" ></p>
