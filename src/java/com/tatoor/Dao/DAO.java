@@ -505,7 +505,6 @@ public class DAO {
                         rs.getFloat(3),
                         rs.getInt(4),
                         rs.getFloat(5)
-                       
                 ));
             }
         } catch (Exception e) {

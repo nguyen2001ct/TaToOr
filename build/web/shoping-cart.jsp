@@ -223,7 +223,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="continue__btn">
-                                        <a href="ShowProduct">Tiếp tục mua hàng</a>
+                                        <a href="IndexProduct">Tiếp tục mua hàng</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
