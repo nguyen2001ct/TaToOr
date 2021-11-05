@@ -232,8 +232,7 @@
                                             <br>
                                             Bình Luận: <br><textarea name="binhluandanhgia" maxlength="1000" > </textarea><br>
                                             Ảnh: <input name="anhdanhgia" type="text">
-                                            <br>
-                                            <h class="text-danger" >${ThongBaoDanhGia}</h>
+                                            
                                             <br>
                                             <button type =submit class="primary-btn">Đánh giá</button>
                                         </div>
@@ -261,9 +260,7 @@
                                                                     </div>
                                                                     <div class="rating">
                                                                         <c:forEach begin="1" end="${review.sao}">
-
                                                                             <span class="icon_star"></span>
-
                                                                         </c:forEach>
                                                                     </div>
                                                                     <p>${review.binhluan}</p>
