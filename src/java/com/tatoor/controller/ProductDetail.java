@@ -47,6 +47,13 @@ public class ProductDetail extends HttpServlet {
         request.setAttribute("listreview", review);
         request.setAttribute("listuser", user);
         request.setAttribute("productlist", p1);
+        for(int i=0;i<review.size();i++){
+            if(id==review.get(i).getSanpham_id()){
+                request.setAttribute("checkdanhgia", 1);
+            }else{
+                request.setAttribute("checkdanhgia", 0);
+            }
+        }
         request.getRequestDispatcher("shop-details.jsp").forward(request, response);
     }
 
