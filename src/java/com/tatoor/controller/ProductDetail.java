@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,21 +38,38 @@ public class ProductDetail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         float id = Float.parseFloat(request.getParameter("sid"));
+
         DAO d = new DAO();
+        HttpSession session = request.getSession();
+        float id = Float.parseFloat(request.getParameter("sid"));
+        float id_user = Float.parseFloat(session.getAttribute("id").toString());
         Product p = d.getProductByID(id);
         List<Product> p1 = d.getAllProduct();
         List<Review> review = d.getAllReview();
         List<User> user = d.getAllUser();
+
         request.setAttribute("product", p);
         request.setAttribute("listreview", review);
         request.setAttribute("listuser", user);
         request.setAttribute("productlist", p1);
-        for(int i=0;i<review.size();i++){
-            if(id==review.get(i).getSanpham_id()){
-                request.setAttribute("checkdanhgia", 1);
-            }else{
-                request.setAttribute("checkdanhgia", 0);
+        if (id_user == 0) {
+            request.setAttribute("checkdanhgia", 1);
+        } else {
+            for (int i = 0; i < review.size(); i++) {
+                if (id_user == review.get(i).getNguoidung_id()) {
+                    if (id == review.get(i).getSanpham_id()) {
+                        if (review.get(i).getSua() == 1) {
+                            request.setAttribute("suadanhgia", 1);
+                        } else {
+                            request.setAttribute("suadanhgia", 0);
+                        }
+                        request.setAttribute("checkdanhgia", 1);
+                    } else {
+                        request.setAttribute("checkdanhgia", 0);
+                    }
+                } else {
+                    request.setAttribute("checkdanhgia", 0);
+                }
             }
         }
         request.getRequestDispatcher("shop-details.jsp").forward(request, response);
@@ -70,7 +88,7 @@ public class ProductDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       
+
     }
 
     /**
