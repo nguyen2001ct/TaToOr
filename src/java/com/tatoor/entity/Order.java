@@ -32,7 +32,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", user_ID=" + user_ID + ", sp_ID=" + sp_ID + ", soLuong=" + soLuong + ", gia=" + gia + ", tongTien=" + tongTien + ", product=" + product + ", status=" + status + '}';
+        return "Order{" + "id=" + id + ", user_ID=" + user_ID + ", sp_ID=" + sp_ID + ", soLuong=" + soLuong + ", tongTien=" + tongTien + ", product=" + product + '}';
     }
 
     
