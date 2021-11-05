@@ -218,33 +218,35 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-lg-12">
-                                        <form action="CreateReview?productid=${product.id}" method="post">
-                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
-                                            <div class="row d-flex justify-content-center">
-                                                <label>Số sao:
-                                                    <c:forEach var="sao" begin="1" end="5"> 
-                                                        <div class="form-check-inline">
-                                                            <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
-                                                            <label class="form-check-label" for="exampleRadios2">
-                                                                ${sao}
-                                                            </label>
-                                                        </div>
-                                                    </c:forEach>
-                                                </label>
-                                            </div>
-                                            <div class="row d-flex justify-content-center">
-                                                 <span>Bình Luận:  </span>
-                                                <label> 
-                                                    <textarea name="binhluandanhgia" maxlength="1000" > </textarea></label>
-                                            </div>
-                                            <div class="row d-flex justify-content-center">
-                                                <label> Ảnh:  <input name="anhdanhgia" type="text"></label>
-                                            </div>
-                                            <div class="row d-flex justify-content-center">
-                                                <button type =submit class="primary-btn">Đánh giá</button>
-                                            </div>
 
-                                        </form>
+                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
+                                        <c:if test="${checkdanhgia==0}">
+                                            <form action="CreateReview?productid=${product.id}" method="post">
+                                                <div class="row d-flex justify-content-center">
+                                                    <label>Số sao:
+                                                        <c:forEach var="sao" begin="1" end="5"> 
+                                                            <div class="form-check-inline">
+                                                                <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
+                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                    ${sao}
+                                                                </label>
+                                                            </div>
+                                                        </c:forEach>
+                                                    </label>
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    <span>Bình Luận:  </span>
+                                                    <label> 
+                                                        <textarea name="binhluandanhgia" maxlength="1000" > </textarea></label>
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    <label> Ảnh:  <input name="anhdanhgia" type="text"></label>
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    <button type =submit class="primary-btn">Đánh giá</button>
+                                                </div>
+                                            </form>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>
