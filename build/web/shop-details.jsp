@@ -191,7 +191,7 @@
                             <h5 style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${product.giatien} "></fmt:formatNumber>VNĐ</h5>
                             <p>${product.mota}</p>
                             <div class="product__details__option">
-                                   <form action="AddToCartProductDetails">
+                                <form action="AddToCartProductDetails">
                                     <div class="quantity">
                                         <div class="pro-qty">
                                             <input type="text" name="soluongsp" value="1">
@@ -220,9 +220,26 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-lg-12">
-
-                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
+                                        <c:if test="${suadanhgia==1}">
+                                            <div class="testimonial__item">
+                                                <div class="testimonial__author">
+                                                    <div class="testimonial__author__pic">
+                                                        <img src="${anh}" alt="">
+                                                    </div>
+                                                    <div class="testimonial__author__text">
+                                                        <h5>ko</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="rating">
+                                                    <c:forEach begin="1" end="5">
+                                                        <span class="icon_star"></span>
+                                                    </c:forEach>
+                                                </div>
+                                                <p>ko</p>
+                                            </div>
+                                       </c:if>
                                         <c:if test="${checkdanhgia==0}">
+                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
                                             <form action="CreateReview?productid=${product.id}" method="post">
                                                 <div class="row d-flex justify-content-center">
                                                     <label>Số sao:

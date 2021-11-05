@@ -18,10 +18,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author MACBOOK PRO
+ * @author nguye
  */
-@WebServlet(name = "LoginControl", urlPatterns = {"/LoginControl"})
-public class LoginControl extends HttpServlet {
+@WebServlet(name = "Guest", urlPatterns = {"/Guest"})
+public class Guest extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,33 +35,10 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("Username").trim();
-        String pass = request.getParameter("password").trim();
-
-        try {
             HttpSession session = request.getSession();
             DAO dao = new DAO();
-            session.removeAttribute("id");
-            User users = dao.CheckAccount(user, pass);
-            String page = "LoginForm.jsp";
-            if (users == null) {
-                request.setAttribute("error1", "Sai tài khoản hoặc mật khẩu ");
-                request.setAttribute("Username", user);
-            } else {
-                String url = "<a href=\"ProfileAll\" class=\"Login\">Thông tin</a>";
-                if (users.getLoai() == 0) {
-                    session.setAttribute("Admin", url);
-                    session.setAttribute("id", users.getId());
-                    session.setAttribute("loai", users.getLoai());
-                } else {
-                    session.setAttribute("Admin", "<a href=\"ShowUser\" class=\"Login\">Quản Lý</a>");
-                    session.setAttribute("id", users.getId());
-                    session.setAttribute("loai", users.getLoai());
-                }
-                session.setAttribute("User", user);
-                page = "index.jsp";
-            }
-            request.getRequestDispatcher(page).forward(request, response);
+            session.setAttribute("id", 0);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
 
 //            HttpServletRequest HttpRequest = (HttpServletRequest) request;
 //            HttpServletResponse HttpRespone = (HttpServletResponse) response;
@@ -73,9 +50,6 @@ public class LoginControl extends HttpServlet {
 //            } else if (url.endsWith("AdminIndex.jsp") && users.getLoai() == 1) {
 //                request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
 //            }
-        } catch (Exception e) {
-
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
