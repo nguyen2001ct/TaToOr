@@ -7,6 +7,7 @@ package com.tatoor.Dao;
 
 import com.tatoor.connect.DBConnection;
 import static com.tatoor.connect.DBConnection.querySet;
+import com.tatoor.entity.Order;
 import com.tatoor.entity.Product;
 import com.tatoor.entity.Review;
 import com.tatoor.entity.User;
@@ -347,7 +348,8 @@ public class DAO {
             System.err.println(e.getMessage());
         }
     }
-    public boolean CreateReview(float ID, float NguoiDung_ID,float SanPham_ID,int sao, String BinhLuan,String anh, int damua, int hienthi,int sua) throws SQLException {
+
+    public boolean CreateReview(float ID, float NguoiDung_ID, float SanPham_ID, int sao, String BinhLuan, String anh, int damua, int hienthi, int sua) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
 
@@ -378,6 +380,7 @@ public class DAO {
         }
         return false;
     }
+
     public List<Review> getAllReview() {
         List<Review> list = new ArrayList<>();
         ResultSet resultSet = DBConnection.querySet("select * from DanhGia");
@@ -401,12 +404,13 @@ public class DAO {
         }
         return list;
     }
+
     public void setReviewtype(float ID, int hienthi) {
         String sql = "UPDATE DanhGia SET DanhGia_HienThi = ? WHERE DanhGia_ID = ? ";
         try {
             Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1,hienthi);
+            ps.setInt(1, hienthi);
             ps.setFloat(2, ID);
             ps.execute();
             con.close();
@@ -415,6 +419,147 @@ public class DAO {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    public boolean AddOrder(float ID, float NguoiDung_ID, float SanPham_ID, int SoLuong, float TongTien) {
+        String sql = "INSERT INTO GioHang VALUES (?,?,?,?,?);";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setFloat(1, ID);
+            ps.setFloat(2, NguoiDung_ID);
+            ps.setFloat(3, SanPham_ID);
+            ps.setInt(4, SoLuong);
+            ps.setFloat(5, TongTien);
+            int row = ps.executeUpdate();
+            if (row > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "khong chay dc");
+
+        }
+        return false;
+    }
+
+    public User getIDByUser(String User) {
+
+        String sql = "select * from NguoiDung where NguoiDung_TaiKhoan = ? ";
+
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, User);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new User(
+                        rs.getFloat(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9)
+                );
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+
+    public List<Order> getAllOrder() {
+        List<Order> list = new ArrayList<>();
+        ResultSet resultSet = DBConnection.querySet("select * from GioHang");
+        if (resultSet != null) {
+            try {
+                while (resultSet.next()) {
+                    list.add(new Order(
+                            resultSet.getFloat(1),
+                            resultSet.getFloat(2),
+                            resultSet.getFloat(3),
+                            resultSet.getInt(4),
+                            resultSet.getFloat(5)
+                    ));
+                }
+            } catch (Exception e) {
+            }
+        }
+        return list;
+    }
+
+    public List<Order> getOrderByUserID(float User_id) {
+        List<Order> list = new ArrayList<>();
+        String sql = "select * from GioHang where NguoiDung_ID = ?";
+        try {
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, User_id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(
+                        rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getFloat(3),
+                        rs.getInt(4),
+                        rs.getFloat(5)
+                ));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
+
+    public boolean UpdateSoLuongSP(float NguoiDung_ID, float SanPham_ID, int soLuong, float tongTien) {
+        String sql = "Update GioHang set GioHang_SoLuongSanPham = ?, GioHang_TongTien = ? where NguoiDung_ID = ? and SanPham_ID = ?";
+        try {
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, soLuong);
+            ps.setFloat(2, tongTien);
+            ps.setFloat(3, NguoiDung_ID);
+            ps.setFloat(4, SanPham_ID);
+            int row = ps.executeUpdate();
+            if (row > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "loi roi");
+        }
+        return false;
+    }
+
+    public void DeleteProductInCart(float ID) {
+        String sql = "Delete from GioHang where GioHang_ID= ?";
+
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setFloat(1, ID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public boolean UpdateGioHang(float GioHang_ID, int SoLuong, float TongTien) {
+        String sql = "Update GioHang set GioHang_SoLuongSanPham = ?, GioHang_TongTien = ? where GioHang_ID = ?";
+        try {
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, SoLuong);
+            ps.setFloat(2, TongTien);
+            ps.setFloat(3, GioHang_ID);
+            int row = ps.executeUpdate();
+            if (row > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     public static void main(String[] args) throws SQLException {
@@ -442,9 +587,13 @@ public class DAO {
 //        Product p = d.getProductByID(1);
 //        System.out.println(p.getTen());
 
-        List<Review> r = d.getAllReview();
-        for(int i=0;i<r.size();i++){
-            System.out.println(r.get(i).getId());
+//        List<Review> r = d.getAllReview();
+//        for (int i = 0; i < r.size(); i++) {
+//            System.out.println(r.get(i).getId());
+//        }
+List<Order> lst = d.getOrderByUserID(3);
+        for (int i = 0; i < lst.size(); i++) {
+            System.out.println(lst.get(i));
         }
     }
 }

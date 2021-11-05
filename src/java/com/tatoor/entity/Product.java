@@ -15,6 +15,13 @@ public class Product {
     private float id, giatien;
     private int danhgia;
 
+    public Product(String ten, String anh, float id, float giatien) {
+        this.ten = ten;
+        this.anh = anh;
+        this.id = id;
+        this.giatien = giatien;
+    }
+
     public String getTen() {
         return ten;
     }
@@ -71,7 +78,7 @@ public class Product {
         this.danhgia = danhgia;
     }
 
-    public Product(float id,String ten,float giatien, String thuoctinh, String mota,int danhgia, String anh  ) {
+    public Product(float id, String ten, float giatien, String thuoctinh, String mota, int danhgia, String anh) {
         this.ten = ten;
         this.thuoctinh = thuoctinh;
         this.mota = mota;

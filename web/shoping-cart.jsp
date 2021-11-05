@@ -175,112 +175,64 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="shopping__cart__table">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="product__cart__item">
-                                            <div class="product__cart__item__pic">
-                                                <img src="img/shop/cart/cart-1.jpg" alt="">
-                                            </div>
-                                            <div class="product__cart__item__text">
-                                                <h6>T-shirt Contrast Pocket</h6>
-                                                <h5>$98.49</h5>
-                                            </div>
-                                        </td>
-                                        <td class="quantity__item">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="cart__price">$ 30.00</td>
-                                        <td class="cart__close"><span class="icon_close"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product__cart__item">
-                                            <div class="product__cart__item__pic">
-                                                <img src="img/shop/cart/cart-2.jpg" alt="">
-                                            </div>
-                                            <div class="product__cart__item__text">
-                                                <h6>Diagonal Textured Cap</h6>
-                                                <h5>$98.49</h5>
-                                            </div>
-                                        </td>
-                                        <td class="quantity__item">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="cart__price">$ 32.50</td>
-                                        <td class="cart__close"><span class="icon_close"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product__cart__item">
-                                            <div class="product__cart__item__pic">
-                                                <img src="img/shop/cart/cart-3.jpg" alt="">
-                                            </div>
-                                            <div class="product__cart__item__text">
-                                                <h6>Basic Flowing Scarf</h6>
-                                                <h5>$98.49</h5>
-                                            </div>
-                                        </td>
-                                        <td class="quantity__item">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="cart__price">$ 47.00</td>
-                                        <td class="cart__close"><span class="icon_close"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product__cart__item">
-                                            <div class="product__cart__item__pic">
-                                                <img src="img/shop/cart/cart-4.jpg" alt="">
-                                            </div>
-                                            <div class="product__cart__item__text">
-                                                <h6>Basic Flowing Scarf</h6>
-                                                <h5>$98.49</h5>
-                                            </div>
-                                        </td>
-                                        <td class="quantity__item">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="cart__price">$ 30.00</td>
-                                        <td class="cart__close"><span class="icon_close"></span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="continue__btn">
-                                    <a href="#">Continue Shopping</a>
+                        <form action="UpdateShopingCart" method="post">
+                            <div class="shopping__cart__table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:set var="count" value="0"/>
+                                        <c:forEach var="list" items="${product}">
+                                            <c:forEach var="Order" items="${Orders}">
+                                                <c:if var="test" test="${list.id == Order.sp_ID}">
+                                                    <tr>
+                                                        <td class="product__cart__item">
+                                                            <div class="product__cart__item__pic">
+                                                                <img src="${list.anh}" alt="">
+                                                            </div>
+                                                            <div class="product__cart__item__text">
+                                                                <h6>${list.ten}</h6>
+                                                                <h5>${list.giatien}</h5>
+                                                            </div>
+                                                        </td>
+                                                        <td class="quantity__item">
+                                                            <div class="quantity">
+                                                                <div class="pro-qty">
+                                                                    <input type="text" value="${Order.soLuong}" name="SoluongSP${count}">
+                                                                    <c:set var="count" value="${count+1}"/>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="cart__price">${Order.tongTien}</td>
+                                                        <td class="cart__close">
+                                                            <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
+                                                        </td>
+                                                    </tr>
+                                                </c:if> 
+                                            </c:forEach>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="continue__btn">
+                                        <a href="ShowProduct">Tiếp tục mua hàng</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="continue__btn update__btn">
+                                        <input type="submit" name="submit" value="Cập nhật giỏ hàng" class="primary-btn">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="continue__btn update__btn">
-                                    <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="col-lg-4">
                         <div class="cart__discount">
