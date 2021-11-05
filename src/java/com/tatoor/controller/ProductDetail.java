@@ -56,19 +56,24 @@ public class ProductDetail extends HttpServlet {
             request.setAttribute("checkdanhgia", 1);
         } else {
             for (int i = 0; i < review.size(); i++) {
-                if (id_user == review.get(i).getNguoidung_id()) {
+                if (id_user != review.get(i).getNguoidung_id()) {
+                    request.setAttribute("checkdanhgia", 0);
+                } else {
                     if (id == review.get(i).getSanpham_id()) {
+                        request.setAttribute("nguoidung_danhgia_anh", review.get(i).getAnh());
+                        request.setAttribute("nguoidung_danhgia_sao", review.get(i).getSao());
+                        request.setAttribute("nguoidung_danhgia_binhluan", review.get(i).getBinhluan());
                         if (review.get(i).getSua() == 1) {
                             request.setAttribute("suadanhgia", 1);
+                            request.setAttribute("checkdanhgia", 1);
                         } else {
+
                             request.setAttribute("suadanhgia", 0);
+                            request.setAttribute("checkdanhgia", 1);
                         }
-                        request.setAttribute("checkdanhgia", 1);
-                    } else {
-                        request.setAttribute("checkdanhgia", 0);
+                        break;
                     }
-                } else {
-                    request.setAttribute("checkdanhgia", 0);
+
                 }
             }
         }
