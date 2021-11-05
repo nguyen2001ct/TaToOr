@@ -5,6 +5,7 @@
  */
 package com.tatoor.controller;
 
+import com.tatoor.Dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,18 +34,30 @@ public class CreateReview extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CreateReview</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CreateReview at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        HttpSession session = request.getSession();
+        int danhgiasao = Integer.parseInt(request.getParameter("danhgiasao"));
+        String binhluan = request.getParameter("binhluandanhgia");
+        Float ProductID = Float.parseFloat(request.getParameter("productid"));
+        String AnhDanhGia = request.getParameter("anhdanhgia");
+        float danhgia_id=0;
+        float nguoidung_id = Float.parseFloat(session.getAttribute("id").toString());
+        DAO dao = new DAO();
+        for (int i = 0; i < dao.getAllReview().size(); i++) {
+            danhgia_id = dao.getAllReview().get(i).getId() + 1;
         }
+        try {
+            boolean check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, 0, 0, 1);
+            if(check){
+                request.setAttribute("ThongBaoDanhGia", "Bạn đã đánh giá thành công!!!");
+                request.getRequestDispatcher("ProductDetail").forward(request, response);
+            }else{
+                request.setAttribute("ThongBaoDanhGia", "Bạn đã đánh giá thất bại!!!");
+                request.getRequestDispatcher("ProductDetail").forward(request, response);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        request.getRequestDispatcher("shop-details.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -215,7 +215,7 @@
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <form action="UpdateReview" >
+                            <form action="CreateReview?productid=${product.id}" method="post">
                                 <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-lg-12">
@@ -230,7 +230,10 @@
                                                 </div>
                                             </c:forEach>
                                             <br>
-                                            Bình Luận: <br><textarea name="binhluan" maxlength="1000" > </textarea>
+                                            Bình Luận: <br><textarea name="binhluandanhgia" maxlength="1000" > </textarea><br>
+                                            Ảnh: <input name="anhdanhgia" type="text">
+                                            <br>
+                                            <h class="text-danger" >${ThongBaoDanhGia}</h>
                                             <br>
                                             <button type =submit class="primary-btn">Đánh giá</button>
                                         </div>
@@ -250,7 +253,7 @@
                                                                 <div class="testimonial__item">
                                                                     <div class="testimonial__author">
                                                                         <div class="testimonial__author__pic">
-                                                                            <img src="https://i.ytimg.com/vi/4mwG_rPrfx8/maxresdefault.jpg" alt="">
+                                                                            <img src="${review.anh}" alt="">
                                                                         </div>
                                                                         <div class="testimonial__author__text">
                                                                             <h5>${user.ten}</h5>

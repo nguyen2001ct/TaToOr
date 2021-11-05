@@ -347,21 +347,23 @@ public class DAO {
             System.err.println(e.getMessage());
         }
     }
-    public boolean CreateReview(float ID, float NguoiDung_ID,float SanPham_ID,int sao, String BinhLuan, int hienthi, int damua) throws SQLException {
+    public boolean CreateReview(float ID, float NguoiDung_ID,float SanPham_ID,int sao, String BinhLuan,String anh, int damua, int hienthi,int sua) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
 
         try {
             con = DBConnection.getConnection();
-            String sql = "INSERT INTO DanhGia VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO DanhGia VALUES(?,?,?,?,?,?,?,?,?)";
             ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.setFloat(2, NguoiDung_ID);
             ps.setFloat(3, SanPham_ID);
             ps.setInt(4, sao);
             ps.setString(5, BinhLuan);
-            ps.setInt(6, hienthi);
+            ps.setString(6, anh);
             ps.setInt(7, damua);
+            ps.setInt(8, hienthi);
+            ps.setInt(9, sua);
             int row = ps.executeUpdate();
             if (row > 0) {
                 return true;
