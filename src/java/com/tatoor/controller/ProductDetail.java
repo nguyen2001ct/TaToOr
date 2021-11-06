@@ -67,7 +67,6 @@ public class ProductDetail extends HttpServlet {
                             request.setAttribute("suadanhgia", 1);
                             request.setAttribute("checkdanhgia", 1);
                         } else {
-
                             request.setAttribute("suadanhgia", 0);
                             request.setAttribute("checkdanhgia", 1);
                         }
