@@ -6,7 +6,6 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
-import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author MACBOOK PRO
  */
-@WebServlet(name = "LoginControl", urlPatterns = {"/LoginControl"})
-public class LoginControl extends HttpServlet {
+@WebServlet(name = "DeleteCartByCartID", urlPatterns = {"/DeleteCartByCartID"})
+public class DeleteCartByCartID extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,47 +33,15 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("Username").trim();
-        String pass = request.getParameter("password").trim();
-
+        DAO dao = new DAO();
+        String ID = request.getParameter("ghid");
+        float GioHang_id = Float.parseFloat(ID);
         try {
-            HttpSession session = request.getSession();
-            DAO dao = new DAO();
-            session.removeAttribute("id");
-            User users = dao.CheckAccount(user, pass);
-            String page = "LoginForm.jsp";
-            if (users == null) {
-                request.setAttribute("error1", "Sai tài khoản hoặc mật khẩu ");
-                request.setAttribute("Username", user);
-            } else {
-                String url = "<a href=\"ProfileAll\" class=\"Login\">Thông tin</a>";
-                if (users.getLoai() == 0) {
-                    session.setAttribute("Admin", url);
-                    session.setAttribute("id", users.getId());
-                    session.setAttribute("loai", users.getLoai());
-                } else {
-                    session.setAttribute("Admin", "<a href=\"ShowUser\" class=\"Login\">Quản Lý</a>");
-                    session.setAttribute("id", users.getId());
-                    session.setAttribute("loai", users.getLoai());
-                }
-                session.setAttribute("User", user);
-                page = "index.jsp";
-            }
-            request.getRequestDispatcher(page).forward(request, response);
-
-//            HttpServletRequest HttpRequest = (HttpServletRequest) request;
-//            HttpServletResponse HttpRespone = (HttpServletResponse) response;
-//            HttpSession session = HttpRequest.getSession();
-//
-//            String url = HttpRequest.getServletPath();
-//            if (url.endsWith("AdminIndex.jsp") && users.getLoai() == 0) {
-//                request.getRequestDispatcher("index.jsp").forward(request, response);
-//            } else if (url.endsWith("AdminIndex.jsp") && users.getLoai() == 1) {
-//                request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
-//            }
+            dao.DeleteProductInCart(GioHang_id);
         } catch (Exception e) {
-
+            System.err.println(e.getMessage());
         }
+        request.getRequestDispatcher("ShowOrder").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

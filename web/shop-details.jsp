@@ -191,18 +191,21 @@
                             <h5 style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${product.giatien} "></fmt:formatNumber>VNĐ</h5>
                             <p>${product.mota}</p>
                             <div class="product__details__option">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="2">
+                                <form action="AddToCartProductDetails">
+                                    <div class="quantity">
+                                        <div class="pro-qty">
+                                            <input type="text" name="soluongsp" value="1">
+                                            <c:set var = "spid" scope = "session" value = "${product.id}"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
-                                <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>
+                                    <input type="submit" name="submit" value="Thêm vào giỏ hàng" class="primary-btn">
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <%--Sửa Đánh Giá--%>
                 <div class="product__details__tab">
                     <div class="col-lg-12">
                         <ul class="nav nav-tabs" role="tablist">
@@ -218,33 +221,97 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-lg-12">
-                                        <form action="CreateReview?productid=${product.id}" method="post">
-                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
-                                            <div class="row d-flex justify-content-center">
-                                                <label>Số sao:
-                                                    <c:forEach var="sao" begin="1" end="5"> 
-                                                        <div class="form-check-inline">
-                                                            <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
-                                                            <label class="form-check-label" for="exampleRadios2">
-                                                                ${sao}
-                                                            </label>
+                                        <c:if test="${suadanhgia==1}">
+                                            <form action="CreateReview?productid=${product.id}" method="post">
+                                                <div class="testimonial__item">
+                                                    <div class="testimonial__author">
+                                                        <div class="testimonial__author__pic">
+                                                            <img src="${nguoidung_danhgia_anh}" alt="">
+                                                            <label> Ảnh:  <input name="anhdanhgia" type="text"></label>
                                                         </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <c:forEach begin="1" end="${nguoidung_danhgia_sao}" >
+                                                            <span class="icon_star"></span>
+                                                        </c:forEach>
+                                                        <br>
+                                                        Sửa lại số sao:
+                                                        <c:forEach var="sao" begin="1" end="5"> 
+                                                            <div class="form-check-inline">
+                                                                <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
+                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                    ${sao}
+                                                                </label>
+                                                            </div>
+                                                        </c:forEach>
+                                                    </div>
+                                                    <div class="row d-flex justify-content-center">
+                                                        Đánh giá cũ: ${nguoidung_danhgia_binhluan}
+                                                    </div>
+                                                    <div class="row d-flex justify-content-center">
+                                                        Đánh giá mới: <br> <textarea name="binhluandanhgia" maxlength="1000" > </textarea></div>
+                                                    <br> 
+                                                    <br> 
+                                                    <div class="row d-flex justify-content-center">
+                                                        <button type =submit class="primary-btn">Sửa Đánh Giá</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </c:if>
+                                        <c:if test="${suadanhgia==0}">
+                                            <div class="testimonial__item">
+                                                <div class="testimonial__author">
+                                                    <div class="testimonial__author__pic">
+                                                        <img src="${nguoidung_danhgia_anh}" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="rating">
+                                                    <c:forEach begin="1" end="${nguoidung_danhgia_sao}" >
+                                                        <span class="icon_star"></span>
                                                     </c:forEach>
-                                                </label>
+                                                    <br>
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    ${nguoidung_danhgia_binhluan}
+                                                </div>
+                                                <br> 
+                                                <br> 
+                                                <div class="row d-flex justify-content-center">
+                                                    <button  class="primary-btn" >Bạn Đã Hết Số Lần Sửa Đánh Giá</button>
+                                                </div>
                                             </div>
-                                            <div class="row d-flex justify-content-center">
-                                                 <span>Bình Luận:  </span>
-                                                <label> 
-                                                    <textarea name="binhluandanhgia" maxlength="1000" > </textarea></label>
-                                            </div>
-                                            <div class="row d-flex justify-content-center">
-                                                <label> Ảnh:  <input name="anhdanhgia" type="text"></label>
-                                            </div>
-                                            <div class="row d-flex justify-content-center">
-                                                <button type =submit class="primary-btn">Đánh giá</button>
-                                            </div>
+                                            </form>
+                                        </c:if>
 
-                                        </form>
+                                        <%-- Thêm đánh giá --%> 
+                                        <c:if test="${checkdanhgia==0}">
+                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
+                                            <form action="CreateReview?productid=${product.id}" method="post">
+                                                <div class="row d-flex justify-content-center">
+                                                    <label>Số sao:
+                                                        <c:forEach var="sao" begin="1" end="5"> 
+                                                            <div class="form-check-inline">
+                                                                <input name ="danhgiasao" class="form-check-input" type="radio" id="exampleRadios2" value="${sao}">
+                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                    ${sao}
+                                                                </label>
+                                                            </div>
+                                                        </c:forEach>
+                                                    </label>
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    <span>Bình Luận:  </span>
+                                                    <label> 
+                                                        <textarea name="binhluandanhgia" maxlength="1000" > </textarea></label>
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    <label> Ảnh:  <input name="anhdanhgia" type="text"></label>
+                                                </div>
+                                                <div class="row d-flex justify-content-center">
+                                                    <button type =submit class="primary-btn">Đánh giá</button>
+                                                </div>
+                                            </form>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>

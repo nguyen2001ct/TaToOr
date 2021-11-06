@@ -6,9 +6,10 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
-import com.tatoor.entity.User;
+import com.tatoor.entity.Order;
+import com.tatoor.entity.Product;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +21,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author MACBOOK PRO
  */
-@WebServlet(name = "LoginControl", urlPatterns = {"/LoginControl"})
-public class LoginControl extends HttpServlet {
+@WebServlet(name = "AddToCartProductDetails", urlPatterns = {"/AddToCartProductDetails"})
+public class AddToCartProductDetails extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,46 +36,41 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("Username").trim();
-        String pass = request.getParameter("password").trim();
-
+        request.setCharacterEncoding("UTF-8");
         try {
+            String SL = request.getParameter("soluongsp");
+            int SoLuong = Integer.parseInt(SL);
+            boolean check = false;
             HttpSession session = request.getSession();
             DAO dao = new DAO();
-            session.removeAttribute("id");
-            User users = dao.CheckAccount(user, pass);
-            String page = "LoginForm.jsp";
-            if (users == null) {
-                request.setAttribute("error1", "Sai tài khoản hoặc mật khẩu ");
-                request.setAttribute("Username", user);
+            String SanPham_id = session.getAttribute("spid").toString();
+            float SP_id = Float.parseFloat(SanPham_id);
+            Product product = dao.getProductByID(SP_id);
+            float TongTien = product.getGiatien();
+            if (session.getAttribute("User") == null) {
+                request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
             } else {
-                String url = "<a href=\"ProfileAll\" class=\"Login\">Thông tin</a>";
-                if (users.getLoai() == 0) {
-                    session.setAttribute("Admin", url);
-                    session.setAttribute("id", users.getId());
-                    session.setAttribute("loai", users.getLoai());
-                } else {
-                    session.setAttribute("Admin", "<a href=\"ShowUser\" class=\"Login\">Quản Lý</a>");
-                    session.setAttribute("id", users.getId());
-                    session.setAttribute("loai", users.getLoai());
+                String user = String.valueOf(session.getAttribute("User"));
+                float User_id = dao.getIDByUser(user).getId();
+                List<Order> list = dao.getOrderByUserID(User_id);
+                float ID = dao.getAllOrder().size() + 1;
+                for (int i = 0; i < list.size(); i++) {
+                    if (SP_id == list.get(i).getSp_ID()) {
+                        SoLuong = SoLuong + list.get(i).getSoLuong();
+                    }
                 }
-                session.setAttribute("User", user);
-                page = "index.jsp";
+                TongTien = TongTien * SoLuong;
+                check = dao.UpdateSoLuongSP(User_id, SP_id, SoLuong, TongTien);
+                if (check == true) {
+                    request.getRequestDispatcher("/ShowOrder").forward(request, response);
+                } else {
+                    dao.AddOrder(ID, User_id, SP_id, SoLuong, TongTien);
+                    request.getRequestDispatcher("/ShowOrder").forward(request, response);
+                }
             }
-            request.getRequestDispatcher(page).forward(request, response);
 
-//            HttpServletRequest HttpRequest = (HttpServletRequest) request;
-//            HttpServletResponse HttpRespone = (HttpServletResponse) response;
-//            HttpSession session = HttpRequest.getSession();
-//
-//            String url = HttpRequest.getServletPath();
-//            if (url.endsWith("AdminIndex.jsp") && users.getLoai() == 0) {
-//                request.getRequestDispatcher("index.jsp").forward(request, response);
-//            } else if (url.endsWith("AdminIndex.jsp") && users.getLoai() == 1) {
-//                request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
-//            }
         } catch (Exception e) {
-
+            System.err.println(e.getMessage());
         }
     }
 

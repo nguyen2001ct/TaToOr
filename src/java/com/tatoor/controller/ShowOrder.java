@@ -6,11 +6,10 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
+import com.tatoor.entity.Order;
 import com.tatoor.entity.Product;
-import com.tatoor.entity.Review;
-import com.tatoor.entity.User;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,10 +20,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author nguye
+ * @author MACBOOK PRO
  */
-@WebServlet(name = "ProductDetail", urlPatterns = {"/ProductDetail"})
-public class ProductDetail extends HttpServlet {
+@WebServlet(name = "ShowOrder", urlPatterns = {"/ShowOrder"})
+public class ShowOrder extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,49 +37,18 @@ public class ProductDetail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        DAO d = new DAO();
         HttpSession session = request.getSession();
-        float id = Float.parseFloat(request.getParameter("sid"));
-        float id_user = Float.parseFloat(session.getAttribute("id").toString());
-        Product p = d.getProductByID(id);
-        List<Product> p1 = d.getAllProduct();
-        List<Review> review = d.getAllReview();
-        List<User> user = d.getAllUser();
-
-        request.setAttribute("product", p);
-        request.setAttribute("listreview", review);
-        request.setAttribute("listuser", user);
-        request.setAttribute("productlist", p1);
-        if (id_user == 0) {
-            request.setAttribute("checkdanhgia", 1);
-        } else {
-            for (int i = 0; i < review.size(); i++) {
-                if (id_user != review.get(i).getNguoidung_id()) {
-                    request.setAttribute("checkdanhgia", 0);
-                } else {
-                    if (id == review.get(i).getSanpham_id()) {
-                        request.setAttribute("nguoidung_danhgia_anh", review.get(i).getAnh());
-                        request.setAttribute("nguoidung_danhgia_sao", review.get(i).getSao());
-                        request.setAttribute("nguoidung_danhgia_binhluan", review.get(i).getBinhluan());
-                        if (review.get(i).getSua() == 1) {
-                            request.setAttribute("suadanhgia", 1);
-                            request.setAttribute("checkdanhgia", 1);
-                        } else {
-
-                            request.setAttribute("suadanhgia", 0);
-                            request.setAttribute("checkdanhgia", 1);
-                        }
-                        break;
-                    }
-
-                }
-            }
-        }
-        request.getRequestDispatcher("shop-details.jsp").forward(request, response);
+        DAO dao = new DAO();
+        String user = session.getAttribute("User").toString();
+        float User_id = dao.getIDByUser(user).getId();
+        List<Order> or = dao.getOrderByUserID(User_id);
+        List<Product> l2 = dao.getAllProduct();
+        request.setAttribute("Orders", or);
+        request.setAttribute("product", l2);
+        request.getRequestDispatcher("shoping-cart.jsp").forward(request, response);
     }
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -93,7 +61,6 @@ public class ProductDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**
