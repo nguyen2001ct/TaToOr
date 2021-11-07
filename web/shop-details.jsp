@@ -222,12 +222,14 @@
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-lg-12">
                                         <c:if test="${suadanhgia==1}">
-                                            <form action="CreateReview?productid=${product.id}" method="post">
+                                            <%-- Cho phép người dùng sửa 1 lần đánh giá --%>
+                                            <form action="UpdateReview?id=${nguoidung_danhgia_id}&sid=${sanpham_id}" method="post">
                                                 <div class="testimonial__item">
                                                     <div class="testimonial__author">
                                                         <div class="testimonial__author__pic">
-                                                            <img src="${nguoidung_danhgia_anh}" alt="">
-                                                            <label> Ảnh:  <input name="anhdanhgia" type="text"></label>
+                                                            <img src="${nguoidung_danhgia_anh}" alt="Ảnh từ người đánh giá">
+                                                            <label> Ảnh:  <input name="danhgiaanh" type="text" placeholder="${fn:trim(nguoidung_danhgia_anh)}"><br>
+                                                                Đánh giá cũ: ${fn:trim(nguoidung_danhgia_binhluan)}</label>
                                                         </div>
                                                     </div>
                                                     <div class="rating">
@@ -244,38 +246,47 @@
                                                                 </label>
                                                             </div>
                                                         </c:forEach>
+
                                                     </div>
                                                     <div class="row d-flex justify-content-center">
-                                                        Đánh giá cũ: ${nguoidung_danhgia_binhluan}
-                                                    </div>
-                                                    <div class="row d-flex justify-content-center">
-                                                        Đánh giá mới: <br> <textarea name="binhluandanhgia" maxlength="1000" > </textarea></div>
+                                                        Đánh giá mới: <br> <textarea name="danhgiabinhluan" maxlength="1000" > </textarea></div>
                                                     <br> 
                                                     <br> 
                                                     <div class="row d-flex justify-content-center">
+                                                        <h6 class="text-danger"> ${danhgiatrangthai}</h6>
+                                                        <h6 style="color: gray"> ${danhgiatrangthai2}</h6>
+                                                        <br>
+                                                    </div>
+                                                    <div class="row d-flex justify-content-center">
+
                                                         <button type =submit class="primary-btn">Sửa Đánh Giá</button>
+
+
                                                     </div>
                                                 </div>
                                             </form>
                                         </c:if>
+
+                                        <%--Nếu người dùng đã sửa đánh giá 1 lần thì không được đánh giá nữa--%>
                                         <c:if test="${suadanhgia==0}">
                                             <div class="testimonial__item">
                                                 <div class="testimonial__author">
                                                     <div class="testimonial__author__pic">
                                                         <img src="${nguoidung_danhgia_anh}" alt="">
+                                                        Bình Luận của bạn: ${fn:trim(nguoidung_danhgia_binhluan)}
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <c:forEach begin="1" end="${nguoidung_danhgia_sao}" >
                                                         <span class="icon_star"></span>
                                                     </c:forEach>
-                                                    <br>
+                                                    <a><br> ${nguoidung_danhgia_sao} Sao!!!</a>
                                                 </div>
                                                 <div class="row d-flex justify-content-center">
-                                                    ${nguoidung_danhgia_binhluan}
-                                                </div>
-                                                <br> 
-                                                <br> 
+                                                        <h6 class="text-danger"> ${danhgiatrangthai}</h6>
+                                                        <h6 style="color: gray"> ${danhgiatrangthai2}</h6>
+                                                        <br>
+                                                    </div>
                                                 <div class="row d-flex justify-content-center">
                                                     <button  class="primary-btn" >Bạn Đã Hết Số Lần Sửa Đánh Giá</button>
                                                 </div>
@@ -283,9 +294,9 @@
                                             </form>
                                         </c:if>
 
-                                        <%-- Thêm đánh giá --%> 
+                                        <%-- Thêm đánh giá nếu chưa có đánh giá --%>
+                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
                                         <c:if test="${checkdanhgia==0}">
-                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
                                             <form action="CreateReview?productid=${product.id}" method="post">
                                                 <div class="row d-flex justify-content-center">
                                                     <label>Số sao:
@@ -315,8 +326,7 @@
                                     </div>
                                 </div>
                             </div>
-
-
+                            <%--Hiển thị đánh giá --%>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="row d-flex justify-content-center">
                                     <c:forEach var="review" items="${listreview}">
@@ -339,6 +349,7 @@
                                                                         <c:forEach begin="1" end="${review.sao}">
                                                                             <span class="icon_star"></span>
                                                                         </c:forEach>
+                                                                            <a><br> ${review.sao} Sao!!!</a>
                                                                     </div>
                                                                     <p>${review.binhluan}</p>
                                                                 </div>

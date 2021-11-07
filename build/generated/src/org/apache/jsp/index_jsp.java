@@ -454,7 +454,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
-      out.write("<div class=\"col-lg-6\">\r\n");
+      out.write("                        <div class=\"col-lg-6\">\r\n");
       out.write("                            <div class=\"testimonial__item\">\r\n");
       out.write("                                <div class=\"testimonial__author\">\r\n");
       out.write("                                    <div class=\"testimonial__author__pic\">\r\n");

@@ -49,6 +49,7 @@ public class DAO {
                             resultSet.getInt(9)
                     ));
                 }
+                rs.close();
             } catch (Exception e) {
             }
         }
@@ -150,6 +151,8 @@ public class DAO {
                 );
             }
             con.close();
+            ps.close();
+            rs.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -180,6 +183,8 @@ public class DAO {
             ps.setInt(8, loai);
             ps.setFloat(9, id);
             ps.executeUpdate();
+            ps.close();
+            con.close();
         } catch (Exception e) {
         }
     }
@@ -228,6 +233,7 @@ public class DAO {
             ps.setString(1, MatKhau);
             ps.setFloat(2, id);
             ps.execute();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -249,6 +255,7 @@ public class DAO {
                             resultSet.getString(7)
                     ));
                 }
+                resultSet.close();
             } catch (Exception e) {
             }
         }
@@ -292,6 +299,8 @@ public class DAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.executeQuery();
+            ps.close();
+            con.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -318,6 +327,8 @@ public class DAO {
                 );
             }
             con.close();
+            rs.close();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -344,6 +355,8 @@ public class DAO {
             ps.setString(6, anh);
             ps.setFloat(7, id);
             ps.executeUpdate();
+            ps.close();
+            con.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -399,6 +412,7 @@ public class DAO {
                             resultSet.getInt(9)
                     ));
                 }
+                resultSet.close();
             } catch (Exception e) {
             }
         }
@@ -418,7 +432,31 @@ public class DAO {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
 
+    public void editReview(float ID, String anh, String binhluan, int sao, int hienthi) {
+        String sql = "UPDATE DanhGia SET "
+                + "DanhGia_Anh = ? ,"
+                + "DanhGia_BinhLuan = ? ,"
+                + "DanhGia_Sao = ? ,"
+                + "DanhGia_HienThi = ? ,"
+                + "DanhGia_Sua = ? "
+                + "WHERE DanhGia_ID = ? ";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, anh);
+            ps.setString(2, binhluan);
+            ps.setInt(3, sao);
+            ps.setInt(4, hienthi);
+            ps.setInt(5, hienthi);
+            ps.setFloat(6, ID);
+            ps.execute();
+            con.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public boolean AddOrder(float ID, float NguoiDung_ID, float SanPham_ID, int SoLuong, float TongTien) {
@@ -435,6 +473,8 @@ public class DAO {
             if (row > 0) {
                 return true;
             }
+            ps.close();
+            con.close();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "khong chay dc");
 
@@ -464,6 +504,9 @@ public class DAO {
                         rs.getInt(9)
                 );
             }
+            ps.close();
+            rs.close();
+            con.close();
         } catch (Exception e) {
 
         }
@@ -484,6 +527,7 @@ public class DAO {
                             resultSet.getFloat(5)
                     ));
                 }
+                resultSet.close();
             } catch (Exception e) {
             }
         }
@@ -492,6 +536,7 @@ public class DAO {
 
     public List<Order> getOrderByUserID(float User_id) {
         List<Order> list = new ArrayList<>();
+        List<Product> listPro = getAllProduct();
         String sql = "select * from GioHang where NguoiDung_ID = ?";
         try {
             conn = DBConnection.getConnection();
@@ -499,14 +544,23 @@ public class DAO {
             ps.setFloat(1, User_id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Order(
-                        rs.getFloat(1),
-                        rs.getFloat(2),
-                        rs.getFloat(3),
-                        rs.getInt(4),
-                        rs.getFloat(5)
-                ));
+                for (int i = 0; i < listPro.size(); i++) {
+                    if (listPro.get(i).getId() == rs.getFloat(3)) {
+                        list.add(new Order(
+                                rs.getFloat(1),
+                                rs.getFloat(2),
+                                rs.getFloat(3),
+                                rs.getInt(4),
+                                rs.getFloat(5),
+                                listPro.get(i)
+                        ));
+                    }
+                }
+
             }
+            ps.close();
+            rs.close();
+            conn.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -526,6 +580,9 @@ public class DAO {
             if (row > 0) {
                 return true;
             }
+            ps.close();
+            conn.close();
+            rs.close();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "loi roi");
         }
@@ -540,6 +597,9 @@ public class DAO {
             ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.executeUpdate();
+            ps.close();
+            conn.close();
+            rs.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -557,6 +617,9 @@ public class DAO {
             if (row > 0) {
                 return true;
             }
+            ps.close();
+            conn.close();
+            rs.close();
         } catch (Exception e) {
         }
         return false;
@@ -564,32 +627,34 @@ public class DAO {
 
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
-        boolean check = d.CreateAccount(10, "thainguyen", "123456", "nguyen", "nu", "2002", "012345678", 0);
-//        boolean check = false;
-//        try {
-//            check = d.CreateProduct(0, " ", 9999, "Do An", "An Do", 5, "ko");
-//        } catch (Exception ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        if (check) {
-//            System.out.println("Thanh Cong");
-//        } else {
-//            System.out.println("fail");
-//        }
-//        try {
-//            String query = "select * from SanPham";
-//            ResultSet rs = querySet(query);
-//            while (rs.next()) {
-//                System.out.println(rs.getInt(1) + "  " + rs.getString(2)
-//                        + "  " + rs.getString(3));
-//            }
-//        } catch (Exception e) {
-//        }
-//        Product p = d.getProductByID(1);
-//        System.out.println(p.getTen());
-
-//        List<Review> r = d.getAllReview();
-//        for (int i = 0; i < r.size(); i++) {
-//            System.out.println(r.get(i).getId());
+        //        try {
+        //            check = d.CreateProduct(0, " ", 9999, "Do An", "An Do", 5, "ko");
+        //        } catch (Exception ex) {
+        //            System.out.println(ex.getMessage());
+        //        }
+        //        if (check) {
+        //            System.out.println("Thanh Cong");
+        //        } else {
+        //            System.out.println("fail");
+        //        }
+        //        try {
+        //            String query = "select * from SanPham";
+        //            ResultSet rs = querySet(query);
+        //            while (rs.next()) {
+        //                System.out.println(rs.getInt(1) + "  " + rs.getString(2)
+        //                        + "  " + rs.getString(3));
+        //            }
+        //        } catch (Exception e) {
+        //        }
+        //        Product p = d.getProductByID(1);
+        //        System.out.println(p.getTen());
+        //        List<Review> r = d.getAllReview();
+        //        for (int i = 0; i < r.size(); i++) {
+        //            System.out.println(r.get(i).getId());
+        //        }
+        //List<Order> lst = d.getOrderByUserID(3);
+        //        for (int i = 0; i < lst.size(); i++) {
+        //            System.out.println(lst.get(i));
+        //        }
     }
 }

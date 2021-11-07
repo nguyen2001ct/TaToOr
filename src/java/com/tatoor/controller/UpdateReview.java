@@ -42,7 +42,13 @@ public class UpdateReview extends HttpServlet {
             d.setReviewtype(id, type);
             response.sendRedirect("ShowReview");
         }else if (Float.parseFloat(session.getAttribute("loai").toString()) == 0){
-            
+            float id = Float.parseFloat(request.getParameter("id"));
+            float spid = Float.parseFloat(request.getParameter("sid"));
+            String anh = request.getParameter("danhgiaanh");
+            String binhluan = request.getParameter("danhgiabinhluan");
+            int sao = Integer.parseInt(request.getParameter("danhgiasao"));
+            d.editReview(id, anh, binhluan,sao,0);
+            response.sendRedirect("ProductDetail?sid="+spid);
         }
 
     }
