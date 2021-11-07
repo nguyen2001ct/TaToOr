@@ -136,7 +136,7 @@
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
-                                        <li class="active"><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
+                                        <li class="active"><a href="./ShowOrder">Giỏ Hàng</a></li>
                                         <li><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
                                 </li>
@@ -231,20 +231,14 @@
                         </form>
                     </div>
                     <div class="col-lg-4">
-                        <div class="cart__discount">
-                            <h6>Discount codes</h6>
-                            <form action="#">
-                                <input type="text" placeholder="Coupon code">
-                                <button type="submit">Apply</button>
-                            </form>
-                        </div>
+                        
                         <div class="cart__total">
                             <h6>Cart total</h6>
                             <ul>
                                 <li>Subtotal <span>$ 169.50</span></li>
                                 <li>Total <span>$ 169.50</span></li>
                             </ul>
-                            <a href="#" class="primary-btn">Proceed to checkout</a>
+                            <a href="ShowBill" class="primary-btn">Proceed to checkout</a>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@
         <meta name="keywords" content="Cake, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
         <title>Cake | Template</title>
 
@@ -36,6 +36,149 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <style>
+            #invoice {
+                padding: 30px;
+            }
+
+            .invoice {
+                position: relative;
+                background-color: #FFF;
+                min-height: 680px;
+                padding: 15px
+            }
+
+            .invoice .company-details {
+                text-align: right
+            }
+
+            .invoice .company-details .name {
+                margin-top: 0;
+                margin-bottom: 0
+            }
+
+            .invoice .contacts {
+                margin-bottom: 20px
+            }
+
+            .invoice .invoice-to {
+                text-align: left
+            }
+
+            .invoice .invoice-to .to {
+                margin-top: 0;
+                margin-bottom: 0
+            }
+
+            .invoice .invoice-details {
+                text-align: right
+            }
+
+            .invoice main {
+                padding-bottom: 50px
+            }
+
+            .invoice main .thanks {
+                margin-top: -100px;
+                font-size: 2em;
+                margin-bottom: 50px;
+            }
+
+            .invoice table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+                margin-bottom: 20px
+            }
+
+            .invoice table td,
+            .invoice table th {
+                padding: 15px;
+                background: #eee;
+                border-bottom: 1px solid #fff
+            }
+
+            .invoice table th {
+                white-space: nowrap;
+                font-weight: 400;
+                font-size: 16px
+            }
+
+            .invoice table td h3 {
+                margin: 0;
+                font-weight: 400;
+                color: #f08632;
+                font-size: 1.2em
+            }
+
+            .invoice table .qty,
+            .invoice table .total,
+            .invoice table .unit {
+                text-align: right;
+                font-size: 1.2em
+            }
+
+            .invoice table .no {
+                color: #fff;
+                font-size: 1.6em;
+                background: #f08632
+            }
+
+            .invoice table .unit {
+                background: #ddd
+            }
+
+            .invoice table .total {
+                background: #f08632;
+                color: #fff;
+            }
+
+            .invoice table tbody tr:last-child td {
+                border: none
+            }
+
+            .invoice table tfoot td {
+                background: 0 0;
+                border-bottom: none;
+                white-space: nowrap;
+                text-align: right;
+                padding: 10px 20px;
+                font-size: 1.2em;
+                border-top: 1px solid #aaa
+            }
+
+            .invoice table tfoot tr:first-child td {
+                border-top: none
+            }
+
+            .invoice table tfoot tr:last-child td {
+                color: #f08632;
+                font-size: 1.4em;
+                border-top: 1px solid #f08632
+            }
+
+            .invoice table tfoot tr td:first-child {
+                border: none
+            }
+            .thanks input{
+                margin-top: -50em;
+                margin-left: 1100px;
+                background-color:#f08632;
+                color: white;
+                width: 550px;
+                height: 50px;
+
+            }
+            @media print {
+                .invoice {
+                    font-size: 11px!important;
+                    overflow: hidden!important
+                }
+                .invoice>div:last-child {
+                    page-break-before: always
+                }
+            }
+        </style>
     </head>
 
     <body>
@@ -145,13 +288,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="header__menu mobile-menu">
-                           <ul>
+                            <ul>
                                 <li ><a href="./index.jsp">Trang chủ</a></li>
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
                                         <li><a href="./shop-details.jsp">Thông Tin Sản Phẩm</a></li>
-                                        <li><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
+                                        <li><a href="./ShowOrder">Giỏ Hàng</a></li>
                                         <li class="active"><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
                                 </li>
@@ -163,162 +306,88 @@
                 </div>
             </div>
         </header>
-        <!-- Header Section End -->
 
-        <!-- Breadcrumb Begin -->
-        <div class="breadcrumb-option">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="breadcrumb__text">
-                            <h2>Checkout</h2>
-                        </div>
+        <div id="invoice">
+            <div class="invoice overflow-auto">
+                <div style="min-width: 600px">
+                    <div class="breadcrumb__text">
+                        <h2 class="text-center">BILL ORDER</h2>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>Checkout</span>
+                    <main>
+                        <div class="col invoice-to">
+                            <div class="text-gray-light"><strong>Thông tin khách hàng:</strong></div>
+                            <h2 class="to">John Doe</h2>
+                            <div class="address">796 Silver Harbour, TX 79273, US</div>
+                            <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
                         </div>
+                        <div class="col invoice-details">
+                            <div class="date"><strong>Ngày thanh toán:</strong> 30/10/2018</div>
+                        </div>
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <th>Ảnh</th>
+                                    <th class="text-left">Tên sản phẩm</th>
+                                    <th class="text-right">Giá tiền</th>
+                                    <th class="text-right">Số lượng</th>
+                                    <th class="text-right">Tổng tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td class="no">01</td>
+                                    <td class="text-left">
+                                        <h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
+                                    <td class="unit">$40.00</td>
+                                    <td class="qty">30</td>
+                                    <td class="total">$1,200.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="no">02</td>
+                                    <td class="text-left">
+                                        <h3>Website Development</h3>Developing a Content Management System-based Website</td>
+                                    <td class="unit">$40.00</td>
+                                    <td class="qty">80</td>
+                                    <td class="total">$3,200.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="no">03</td>
+                                    <td class="text-left">
+                                        <h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
+                                    <td class="unit">$40.00</td>
+                                    <td class="qty">20</td>
+                                    <td class="total">$800.00</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td colspan="2">Phí ship</td>
+                                    <td>$5,200.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td colspan="2">Tổng thanh toán</td>
+                                    <td>$6,500.00</td>
+                                </tr>
+
+                            </tfoot>
+                        </table>
+                    </main>
+                    <div class="thanks text-center">
+                        <form>
+                            <input type="submit" name="thanhtoan" value="Thanh toán">
+                        </form>
                     </div>
                 </div>
+                <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
             </div>
         </div>
-        <!-- Breadcrumb End -->
-
-        <!-- Checkout Section Begin -->
-        <section class="checkout spad">
-            <div class="container">
-                <div class="checkout__form">
-                    <form action="#">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-6">
-                                <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                                        here</a> to enter your code</h6>
-                                <h6 class="checkout__title">Billing Details</h6>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Fist Name<span>*</span></p>
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Last Name<span>*</span></p>
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Country<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Address<span>*</span></p>
-                                    <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                    <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Town/City<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Country/State<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Postcode / ZIP<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Phone<span>*</span></p>
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Email<span>*</span></p>
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc">
-                                        Create an account?
-                                        <input type="checkbox" id="acc">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <p>Create an account by entering the information below. If you are a returning customer
-                                        please login at the top of the page</p>
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Account Password<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="diff-acc">
-                                        Note about your order, e.g, special noe for delivery
-                                        <input type="checkbox" id="diff-acc">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Order notes<span>*</span></p>
-                                    <input type="text"
-                                           placeholder="Notes about your order, e.g. special notes for delivery.">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="checkout__order">
-                                    <h6 class="order__title">Your order</h6>
-                                    <div class="checkout__order__products">Product <span>Total</span></div>
-                                    <ul class="checkout__total__products">
-                                        <li><samp>01.</samp> Vanilla salted caramel <span>$ 300.0</span></li>
-                                        <li><samp>02.</samp> German chocolate <span>$ 170.0</span></li>
-                                        <li><samp>03.</samp> Sweet autumn <span>$ 170.0</span></li>
-                                        <li><samp>04.</samp> Cluten free mini dozen <span>$ 110.0</span></li>
-                                    </ul>
-                                    <ul class="checkout__total__all">
-                                        <li>Subtotal <span>$750.99</span></li>
-                                        <li>Total <span>$750.99</span></li>
-                                    </ul>
-                                    <div class="checkout__input__checkbox">
-                                        <label for="acc-or">
-                                            Create an account?
-                                            <input type="checkbox" id="acc-or">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua.</p>
-                                    <div class="checkout__input__checkbox">
-                                        <label for="payment">
-                                            Check Payment
-                                            <input type="checkbox" id="payment">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <div class="checkout__input__checkbox">
-                                        <label for="paypal">
-                                            Paypal
-                                            <input type="checkbox" id="paypal">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="site-btn">PLACE ORDER</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
         <!-- Checkout Section End -->
 
         <!-- Footer Section Begin -->
-       <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
