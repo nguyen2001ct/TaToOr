@@ -49,6 +49,7 @@ public class DAO {
                             resultSet.getInt(9)
                     ));
                 }
+                rs.close();
             } catch (Exception e) {
             }
         }
@@ -150,6 +151,8 @@ public class DAO {
                 );
             }
             con.close();
+            ps.close();
+            rs.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -180,6 +183,8 @@ public class DAO {
             ps.setInt(8, loai);
             ps.setFloat(9, id);
             ps.executeUpdate();
+            ps.close();
+            con.close();
         } catch (Exception e) {
         }
     }
@@ -228,6 +233,7 @@ public class DAO {
             ps.setString(1, MatKhau);
             ps.setFloat(2, id);
             ps.execute();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -249,6 +255,7 @@ public class DAO {
                             resultSet.getString(7)
                     ));
                 }
+                resultSet.close();
             } catch (Exception e) {
             }
         }
@@ -292,6 +299,8 @@ public class DAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.executeQuery();
+            ps.close();
+            con.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -318,6 +327,8 @@ public class DAO {
                 );
             }
             con.close();
+            rs.close();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -344,6 +355,8 @@ public class DAO {
             ps.setString(6, anh);
             ps.setFloat(7, id);
             ps.executeUpdate();
+            ps.close();
+            con.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -399,6 +412,7 @@ public class DAO {
                             resultSet.getInt(9)
                     ));
                 }
+                resultSet.close();
             } catch (Exception e) {
             }
         }
@@ -435,6 +449,8 @@ public class DAO {
             if (row > 0) {
                 return true;
             }
+            ps.close();
+            con.close();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "khong chay dc");
 
@@ -464,6 +480,9 @@ public class DAO {
                         rs.getInt(9)
                 );
             }
+            ps.close();
+            rs.close();
+            con.close();
         } catch (Exception e) {
 
         }
@@ -484,6 +503,7 @@ public class DAO {
                             resultSet.getFloat(5)
                     ));
                 }
+                resultSet.close();
             } catch (Exception e) {
             }
         }
@@ -507,6 +527,9 @@ public class DAO {
                         rs.getFloat(5)
                 ));
             }
+            ps.close();
+            rs.close();
+            conn.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -526,6 +549,9 @@ public class DAO {
             if (row > 0) {
                 return true;
             }
+            ps.close();
+            conn.close();
+            rs.close();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "loi roi");
         }
@@ -540,6 +566,9 @@ public class DAO {
             ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.executeUpdate();
+             ps.close();
+            conn.close();
+            rs.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -557,6 +586,9 @@ public class DAO {
             if (row > 0) {
                 return true;
             }
+             ps.close();
+            conn.close();
+            rs.close();
         } catch (Exception e) {
         }
         return false;
