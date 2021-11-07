@@ -362,6 +362,46 @@ public class DAO {
         }
     }
 
+    public int getTotalProduct() {
+        String query = "select count(*) from SanPham";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public List<Product> pagingProduct(int index) {
+        List<Product> list = new ArrayList<>();
+        String query = "select * from SanPham \n"
+                + "ORDER BY SanPham_ID\n"
+                + "OFFSET ? ROWS FETCH NEXT 12 ROWS ONLY;";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, (index - 1) * 12);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getFloat(1),
+                        rs.getString(2),
+                        rs.getFloat(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     public boolean CreateReview(float ID, float NguoiDung_ID, float SanPham_ID, int sao, String BinhLuan, String anh, int damua, int hienthi, int sua) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
@@ -656,5 +696,10 @@ public class DAO {
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
         //        }
+        List<Product> list = d.pagingProduct(1);
+        for (Product p : list) {
+            System.out.println(p.toString());
+        }
+
     }
 }

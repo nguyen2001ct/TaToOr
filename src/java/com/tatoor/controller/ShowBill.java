@@ -5,11 +5,8 @@
  */
 package com.tatoor.controller;
 
-import com.tatoor.Dao.DAO;
-import com.tatoor.entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author nguye
+ * @author MACBOOK PRO
  */
-@WebServlet(name = "IndexProduct", urlPatterns = {"/IndexProduct"})
-public class IndexProduct extends HttpServlet {
+@WebServlet(name = "ShowBill", urlPatterns = {"/ShowBill"})
+public class ShowBill extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,22 +32,18 @@ public class IndexProduct extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String indexPage = request.getParameter("index");
-        if (indexPage == null) {
-            indexPage = "1";
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ShowBill</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ShowBill at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        int index = Integer.parseInt(indexPage);
-        DAO dao = new DAO();
-        int count = dao.getTotalProduct();
-        int endPage = count / 12;
-        if (count % 12 != 0) {
-            endPage++;
-        }
-        List<Product> listPro = dao.pagingProduct(index);
-        request.setAttribute("endP", endPage);
-        request.setAttribute("tag", index);
-        request.setAttribute("listPro", listPro);
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

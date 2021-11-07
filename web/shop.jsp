@@ -128,7 +128,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="header__menu mobile-menu">
-                           <ul>
+                            <ul>
                                 <li><a href="./index.jsp">Trang chủ</a></li>
                                 <li class="active"><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
@@ -173,7 +173,7 @@
 
 
                 <div class="row">
-                    <c:forEach var="show" items="${product}"> 
+                    <c:forEach var="show" items="${listPro}"> 
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="${show.anh}">
@@ -184,8 +184,8 @@
                                 <div class="product__item__text">
                                     <h6><a href="ProductDetail?sid=${show.id}">${show.ten}</a></h6>
                                     <div class="product__item__price" style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber>VNĐ</div>
-                                    <div class="cart_add">
-                                         <a href="AddToCartProduct?sid=${show.id}">Thêm vào giỏ hàng</a>
+                                        <div class="cart_add">
+                                            <a href="AddToCartProduct?sid=${show.id}">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -197,16 +197,19 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__pagination">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><span class="arrow_carrot-right"></span></a>
+                                <c:if test="${tag > 1}">
+                                    <a href="IndexProduct?index=${tag-1}"><i class="fa fa-long-arrow-left"></i></a>
+                                    </c:if>
+                                    <c:forEach begin="1" end="${endP}" var="i">
+                                    <a style="${tag == i?"background-color: orange":""}" href="IndexProduct?index=${i}">${i}</a>
+                                </c:forEach>
+                                <c:if test="${tag < endP}"> 
+                                    <a href="IndexProduct?index=${tag+1}"><i class="arrow_carrot-right"></i></a>
+                                    </c:if>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="shop__last__text">
-                                <p>Showing 1-9 of 10 results</p>
-                            </div>
+                            <div class="shop__last__text"></div>
                         </div>
                     </div>
                 </div>
