@@ -51,7 +51,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
+      out.write("    Document   : newjsp\r\n");
+      out.write("    Created on : Oct 26, 2021, 4:47:10 PM\r\n");
+      out.write("    Author     : nguye\r\n");
+      out.write("--%>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -454,7 +457,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
-      out.write("<div class=\"col-lg-6\">\r\n");
+      out.write("                        <div class=\"col-lg-6\">\r\n");
       out.write("                            <div class=\"testimonial__item\">\r\n");
       out.write("                                <div class=\"testimonial__author\">\r\n");
       out.write("                                    <div class=\"testimonial__author__pic\">\r\n");
