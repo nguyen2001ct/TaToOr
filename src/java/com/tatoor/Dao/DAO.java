@@ -561,7 +561,6 @@ public class DAO {
         }
         return false;
     }
-
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
 //        boolean check = false;
@@ -591,9 +590,9 @@ public class DAO {
 //        for (int i = 0; i < r.size(); i++) {
 //            System.out.println(r.get(i).getId());
 //        }
-List<Order> lst = d.getOrderByUserID(3);
-        for (int i = 0; i < lst.size(); i++) {
-            System.out.println(lst.get(i));
-        }
+//List<Order> lst = d.getOrderByUserID(3);
+//        for (int i = 0; i < lst.size(); i++) {
+//            System.out.println(lst.get(i));
+//        }
     }
 }
