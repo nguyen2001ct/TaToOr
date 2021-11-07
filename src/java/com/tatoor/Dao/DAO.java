@@ -362,6 +362,46 @@ public class DAO {
         }
     }
 
+    public int getTotalProduct() {
+        String query = "select count(*) from SanPham";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public List<Product> pagingProduct(int index) {
+        List<Product> list = new ArrayList<>();
+        String query = "select * from SanPham \n"
+                + "ORDER BY SanPham_ID\n"
+                + "OFFSET ? ROWS FETCH NEXT 12 ROWS ONLY;";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, (index - 1) * 12);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getFloat(1),
+                        rs.getString(2),
+                        rs.getFloat(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     public boolean CreateReview(float ID, float NguoiDung_ID, float SanPham_ID, int sao, String BinhLuan, String anh, int damua, int hienthi, int sua) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
@@ -433,7 +473,8 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
-    public void editReview(float ID, String anh, String binhluan, int sao,int hienthi) {
+
+    public void editReview(float ID, String anh, String binhluan, int sao, int hienthi) {
         String sql = "UPDATE DanhGia SET "
                 + "DanhGia_Anh = ? ,"
                 + "DanhGia_BinhLuan = ? ,"
@@ -457,6 +498,7 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
+
     public boolean AddOrder(float ID, float NguoiDung_ID, float SanPham_ID, int SoLuong, float TongTien) {
         String sql = "INSERT INTO GioHang VALUES (?,?,?,?,?);";
         try {
@@ -543,18 +585,18 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 for (int i = 0; i < listPro.size(); i++) {
-                    if (listPro.get(i).getId()== rs.getFloat(3)) {
+                    if (listPro.get(i).getId() == rs.getFloat(3)) {
                         list.add(new Order(
-                        rs.getFloat(1),
-                        rs.getFloat(2),
-                        rs.getFloat(3),
-                        rs.getInt(4),
-                        rs.getFloat(5),
-                        listPro.get(i)
-                ));
+                                rs.getFloat(1),
+                                rs.getFloat(2),
+                                rs.getFloat(3),
+                                rs.getInt(4),
+                                rs.getFloat(5),
+                                listPro.get(i)
+                        ));
                     }
                 }
-                
+
             }
             ps.close();
             rs.close();
@@ -625,37 +667,39 @@ public class DAO {
 
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
-        d.editReview(9, "ko","ko" , 1, 0);
-//        boolean check = false;
-//        try {
-//            check = d.CreateProduct(0, " ", 9999, "Do An", "An Do", 5, "ko");
-//        } catch (Exception ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        if (check) {
-//            System.out.println("Thanh Cong");
-//        } else {
-//            System.out.println("fail");
-//        }
-//        try {
-//            String query = "select * from SanPham";
-//            ResultSet rs = querySet(query);
-//            while (rs.next()) {
-//                System.out.println(rs.getInt(1) + "  " + rs.getString(2)
-//                        + "  " + rs.getString(3));
-//            }
-//        } catch (Exception e) {
-//        }
-//        Product p = d.getProductByID(1);
-//        System.out.println(p.getTen());
+        //        try {
+        //            check = d.CreateProduct(0, " ", 9999, "Do An", "An Do", 5, "ko");
+        //        } catch (Exception ex) {
+        //            System.out.println(ex.getMessage());
+        //        }
+        //        if (check) {
+        //            System.out.println("Thanh Cong");
+        //        } else {
+        //            System.out.println("fail");
+        //        }
+        //        try {
+        //            String query = "select * from SanPham";
+        //            ResultSet rs = querySet(query);
+        //            while (rs.next()) {
+        //                System.out.println(rs.getInt(1) + "  " + rs.getString(2)
+        //                        + "  " + rs.getString(3));
+        //            }
+        //        } catch (Exception e) {
+        //        }
+        //        Product p = d.getProductByID(1);
+        //        System.out.println(p.getTen());
+        //        List<Review> r = d.getAllReview();
+        //        for (int i = 0; i < r.size(); i++) {
+        //            System.out.println(r.get(i).getId());
+        //        }
+        //List<Order> lst = d.getOrderByUserID(3);
+        //        for (int i = 0; i < lst.size(); i++) {
+        //            System.out.println(lst.get(i));
+        //        }
+        List<Product> list = d.pagingProduct(1);
+        for (Product p : list) {
+            System.out.println(p.toString());
+        }
 
-//        List<Review> r = d.getAllReview();
-//        for (int i = 0; i < r.size(); i++) {
-//            System.out.println(r.get(i).getId());
-//        }
-//List<Order> lst = d.getOrderByUserID(3);
-//        for (int i = 0; i < lst.size(); i++) {
-//            System.out.println(lst.get(i));
-//        }
     }
 }
