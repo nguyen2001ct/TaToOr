@@ -70,9 +70,13 @@ public class ProductDetail extends HttpServlet {
                             request.setAttribute("suadanhgia", 0);
                             request.setAttribute("checkdanhgia", 1);
                         }
+                        if(review.get(i).getHienthi()==0){
+                            request.setAttribute("danhgiatrangthai", "Đánh giá của bạn chưa được duyệt!!!");
+                        }else{
+                            request.setAttribute("danhgiatrangthai2", "Đánh giá của bạn đã được duyệt!!!");
+                        }
                         break;
                     }
-
                 }
             }
         }
