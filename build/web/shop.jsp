@@ -133,7 +133,7 @@
                                 <li class="active"><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">                                        
-                                        <li><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
+                                        <li><a href="./ShowOrder">Giỏ Hàng</a></li>
                                         <li><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
                                 </li>
