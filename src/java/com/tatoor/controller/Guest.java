@@ -35,11 +35,14 @@ public class Guest extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            HttpSession session = request.getSession();
-            DAO dao = new DAO();
-            session.setAttribute("id", 0);
-            session.setAttribute("loai", 0);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        DAO dao = new DAO();
+        session.removeAttribute("User");
+        session.removeAttribute("id");
+        session.removeAttribute("loai");
+        session.setAttribute("id", 0);
+        session.setAttribute("loai", 0);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
 //            HttpServletRequest HttpRequest = (HttpServletRequest) request;
 //            HttpServletResponse HttpRespone = (HttpServletResponse) response;
