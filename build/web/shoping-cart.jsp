@@ -188,17 +188,15 @@
                                     </thead>
                                     <tbody>
                                         <c:set var="count" value="0"/>
-                                        <c:forEach var="list" items="${product}">
                                             <c:forEach var="Order" items="${Orders}">
-                                                <c:if var="test" test="${list.id == Order.sp_ID}">
                                                     <tr>
                                                         <td class="product__cart__item">
                                                             <div class="product__cart__item__pic">
-                                                                <img src="${list.anh}" alt="">
+                                                                <img src="${Order.product.anh}" alt="">
                                                             </div>
                                                             <div class="product__cart__item__text">
-                                                                <h6>${list.ten}</h6>
-                                                                <h5>${list.giatien}</h5>
+                                                                <h6>${Order.product.ten}</h6>
+                                                                <h5>${Order.product.giatien}</h5>
                                                             </div>
                                                         </td>
                                                         <td class="quantity__item">
@@ -214,8 +212,6 @@
                                                             <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
                                                         </td>
                                                     </tr>
-                                                </c:if> 
-                                            </c:forEach>
                                         </c:forEach>
                                     </tbody>
                                 </table>

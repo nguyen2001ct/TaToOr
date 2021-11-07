@@ -42,9 +42,7 @@ public class ShowOrder extends HttpServlet {
         String user = session.getAttribute("User").toString();
         float User_id = dao.getIDByUser(user).getId();
         List<Order> or = dao.getOrderByUserID(User_id);
-        List<Product> l2 = dao.getAllProduct();
         request.setAttribute("Orders", or);
-        request.setAttribute("product", l2);
         request.getRequestDispatcher("shoping-cart.jsp").forward(request, response);
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

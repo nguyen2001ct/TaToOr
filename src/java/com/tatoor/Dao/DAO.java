@@ -512,6 +512,7 @@ public class DAO {
 
     public List<Order> getOrderByUserID(float User_id) {
         List<Order> list = new ArrayList<>();
+        List<Product> listPro = getAllProduct();
         String sql = "select * from GioHang where NguoiDung_ID = ?";
         try {
             conn = DBConnection.getConnection();
@@ -519,13 +520,19 @@ public class DAO {
             ps.setFloat(1, User_id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Order(
+                for (int i = 0; i < listPro.size(); i++) {
+                    if (listPro.get(i).getId()== rs.getFloat(3)) {
+                        list.add(new Order(
                         rs.getFloat(1),
                         rs.getFloat(2),
                         rs.getFloat(3),
                         rs.getInt(4),
-                        rs.getFloat(5)
+                        rs.getFloat(5),
+                        listPro.get(i)
                 ));
+                    }
+                }
+                
             }
             ps.close();
             rs.close();
@@ -566,7 +573,7 @@ public class DAO {
             ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
             ps.executeUpdate();
-             ps.close();
+            ps.close();
             conn.close();
             rs.close();
         } catch (Exception e) {
@@ -586,7 +593,7 @@ public class DAO {
             if (row > 0) {
                 return true;
             }
-             ps.close();
+            ps.close();
             conn.close();
             rs.close();
         } catch (Exception e) {
@@ -623,9 +630,9 @@ public class DAO {
 //        for (int i = 0; i < r.size(); i++) {
 //            System.out.println(r.get(i).getId());
 //        }
-List<Order> lst = d.getOrderByUserID(3);
-        for (int i = 0; i < lst.size(); i++) {
-            System.out.println(lst.get(i));
-        }
+//List<Order> lst = d.getOrderByUserID(3);
+//        for (int i = 0; i < lst.size(); i++) {
+//            System.out.println(lst.get(i));
+//        }
     }
 }
