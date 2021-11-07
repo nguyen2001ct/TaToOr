@@ -223,7 +223,7 @@
                                     <div class="col-lg-12">
                                         <c:if test="${suadanhgia==1}">
                                             <%-- Cho phép người dùng sửa 1 lần đánh giá --%>
-                                            <form action="CreateReview?productid=${product.id}" method="post">
+                                            <form action="UpdateReview?id=${nguoidung_danhgia_id}&sid=${sanpham_id}" method="post">
                                                 <div class="testimonial__item">
                                                     <div class="testimonial__author">
                                                         <div class="testimonial__author__pic">

@@ -432,9 +432,31 @@ public class DAO {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
-
+    public void editReview(float ID, String anh, String binhluan, int sao,int hienthi) {
+        String sql = "UPDATE DanhGia SET "
+                + "DanhGia_Anh = ? ,"
+                + "DanhGia_BinhLuan = ? ,"
+                + "DanhGia_Sao = ? ,"
+                + "DanhGia_HienThi = ? ,"
+                + "DanhGia_Sua = ? "
+                + "WHERE DanhGia_ID = ? ";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, anh);
+            ps.setString(2, binhluan);
+            ps.setInt(3, sao);
+            ps.setInt(4, hienthi);
+            ps.setInt(5, hienthi);
+            ps.setFloat(6, ID);
+            ps.execute();
+            con.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     public boolean AddOrder(float ID, float NguoiDung_ID, float SanPham_ID, int SoLuong, float TongTien) {
         String sql = "INSERT INTO GioHang VALUES (?,?,?,?,?);";
         try {
@@ -603,6 +625,7 @@ public class DAO {
 
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
+        d.editReview(9, "ko","ko" , 1, 0);
 //        boolean check = false;
 //        try {
 //            check = d.CreateProduct(0, " ", 9999, "Do An", "An Do", 5, "ko");

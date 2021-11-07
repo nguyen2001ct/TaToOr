@@ -61,6 +61,8 @@ public class ProductDetail extends HttpServlet {
                 } else {
                     if (id == review.get(i).getSanpham_id()) {
                         request.setAttribute("nguoidung_danhgia_anh", review.get(i).getAnh());
+                        request.setAttribute("nguoidung_danhgia_id", review.get(i).getId());
+                        request.setAttribute("sanpham_id", review.get(i).getSanpham_id());
                         request.setAttribute("nguoidung_danhgia_sao", review.get(i).getSao());
                         request.setAttribute("nguoidung_danhgia_binhluan", review.get(i).getBinhluan());
                         if (review.get(i).getSua() == 1) {
