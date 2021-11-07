@@ -66,6 +66,7 @@ public class ProductDetail extends HttpServlet {
                         request.setAttribute("nguoidung_danhgia_sao", review.get(i).getSao());
                         request.setAttribute("nguoidung_danhgia_binhluan", review.get(i).getBinhluan());
                         if (review.get(i).getSua() == 1) {
+                            
                             request.setAttribute("suadanhgia", 1);
                             request.setAttribute("checkdanhgia", 1);
                         } else {

@@ -249,7 +249,7 @@
 
                                                     </div>
                                                     <div class="row d-flex justify-content-center">
-                                                        Đánh giá mới: <br> <textarea name="danhgiabinhbuan" maxlength="1000" > </textarea></div>
+                                                        Đánh giá mới: <br> <textarea name="danhgiabinhluan" maxlength="1000" > </textarea></div>
                                                     <br> 
                                                     <br> 
                                                     <div class="row d-flex justify-content-center">
@@ -273,19 +273,20 @@
                                                 <div class="testimonial__author">
                                                     <div class="testimonial__author__pic">
                                                         <img src="${nguoidung_danhgia_anh}" alt="">
+                                                        Bình Luận của bạn: ${fn:trim(nguoidung_danhgia_binhluan)}
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <c:forEach begin="1" end="${nguoidung_danhgia_sao}" >
                                                         <span class="icon_star"></span>
                                                     </c:forEach>
-                                                    <br>
+                                                    <a><br> ${nguoidung_danhgia_sao} Sao!!!</a>
                                                 </div>
                                                 <div class="row d-flex justify-content-center">
-                                                    ${nguoidung_danhgia_binhluan}
-                                                </div>
-                                                <br> 
-                                                <br> 
+                                                        <h6 class="text-danger"> ${danhgiatrangthai}</h6>
+                                                        <h6 style="color: gray"> ${danhgiatrangthai2}</h6>
+                                                        <br>
+                                                    </div>
                                                 <div class="row d-flex justify-content-center">
                                                     <button  class="primary-btn" >Bạn Đã Hết Số Lần Sửa Đánh Giá</button>
                                                 </div>
@@ -348,6 +349,7 @@
                                                                         <c:forEach begin="1" end="${review.sao}">
                                                                             <span class="icon_star"></span>
                                                                         </c:forEach>
+                                                                            <a><br> ${review.sao} Sao!!!</a>
                                                                     </div>
                                                                     <p>${review.binhluan}</p>
                                                                 </div>
