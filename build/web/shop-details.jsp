@@ -135,7 +135,7 @@
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
-                                        <li><a href="./shoping-cart.jsp">Giỏ Hàng</a></li>
+                                        <li><a href="./ShowOrder">Giỏ Hàng</a></li>
                                         <li><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
                                 </li>
@@ -396,7 +396,7 @@
                                             <h6><a href="ProductDetail?sid=${show.id}">${show.ten}</a></h6>
                                             <div class="product__item__price" style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber>VNĐ</div>
                                                 <div class="cart_add">
-                                                    <a href="#">Thêm vào giỏ hàng</a>
+                                                    <a href="AddToCartProduct?sid=${show.id}">Thêm vào giỏ hàng</a>
                                                 </div>
                                             </div>
                                         </div>
