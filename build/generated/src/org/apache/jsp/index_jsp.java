@@ -188,7 +188,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <li><a href=\"IndexProduct\">Chọn Món</a></li>\r\n");
       out.write("                                <li><a href=\"#\">Tùy chọn</a>\r\n");
       out.write("                                    <ul class=\"dropdown\">\r\n");
-      out.write("                                        <li><a href=\"./shoping-cart.jsp\">Giỏ Hàng</a></li>\r\n");
+      out.write("                                        <li><a href=\"./ShowOrder\">Giỏ Hàng</a></li>\r\n");
       out.write("                                        <li><a href=\"./checkout.jsp\">Thanh Toán</a></li>\r\n");
       out.write("                                    </ul>\r\n");
       out.write("                                </li>\r\n");
