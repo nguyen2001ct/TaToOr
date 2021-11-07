@@ -38,6 +38,7 @@ public class Guest extends HttpServlet {
             HttpSession session = request.getSession();
             DAO dao = new DAO();
             session.setAttribute("id", 0);
+            session.setAttribute("loai", 0);
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
 //            HttpServletRequest HttpRequest = (HttpServletRequest) request;

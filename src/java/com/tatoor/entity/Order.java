@@ -18,16 +18,16 @@ public class Order {
     private float sp_ID;
     private int soLuong;
     private float gia, tongTien;
-    private List<Product> product;
+    private Product product;
     private int status;
 
-    public Order(float id, float user_ID, float sp_ID, int soLuong,float tongTien, List<Product> product) {
+    public Order(float id, float user_ID, float sp_ID, int soLuong,float tongTien,Product product) {
         this.id = id;
         this.user_ID = user_ID;
         this.sp_ID = sp_ID;
         this.soLuong = soLuong;
-        this.product = product;
         this.tongTien = tongTien;
+        this.product = product;
     }
 
     @Override
@@ -94,11 +94,11 @@ public class Order {
         this.tongTien = tongTien;
     }
 
-    public List<Product> getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(List<Product> product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 

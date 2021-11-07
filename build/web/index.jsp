@@ -1,5 +1,4 @@
-<%-- 
-    Document   : newjsp
+<%--    Document   : newjsp
     Created on : Oct 26, 2021, 4:47:10 PM
     Author     : nguye
 --%>
@@ -129,7 +128,7 @@
                     <div class="col-lg-12">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.jsp">Trang chủ</a></li>
+                                <li class="active"><a href="Guest">Trang chủ</a></li>
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
@@ -396,7 +395,7 @@
                                 <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>
                             </div>
                         </div>
-<div class="col-lg-6">
+                        <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
