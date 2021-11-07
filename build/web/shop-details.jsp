@@ -294,9 +294,9 @@
                                             </form>
                                         </c:if>
 
-                                        <%-- Thêm đánh giá nếu chưa có đánh giá --%> 
+                                        <%-- Thêm đánh giá nếu chưa có đánh giá --%>
+                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
                                         <c:if test="${checkdanhgia==0}">
-                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
                                             <form action="CreateReview?productid=${product.id}" method="post">
                                                 <div class="row d-flex justify-content-center">
                                                     <label>Số sao:
