@@ -546,8 +546,8 @@
                                                         <fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber> VNĐ
                                                         </span>
                                                     </td>
-                                                    <td class="px-4 py-3 text-sm">
-                                                    ${show.mota}
+                                                    <td class="px-4 py-3 text-sm" >
+                                                        ${show.mota}
                                                 </td>
                                                 <td class="px-4 py-3">
                                                     <div class="flex items-center space-x-4 text-sm">
