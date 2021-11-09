@@ -442,152 +442,161 @@
                                 <table class="w-full whitespace-no-wrap">
                                     <thead>
                                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                            <th class="px-4 py-3">Tên Khách Hàng</th>
-                                            <th class="px-4 py-3">Tên Sản Phẩm</th>
-                                            <th class="px-4 py-3">Sao</th>
-                                            <th class="px-4 py-3">Nội Dung</th>
-                                            <th class="px-4 py-3">Hiển Thị</th>
+                                            <th class="px-4 py-3">Thông Tin Hóa Đơn</th>
+                                            <th class="px-4 py-3">Địa Chỉ</th>
+                                            <th class="px-4 py-3">Tổng Tiền</th>
+                                            <th class="px-4 py-3">Ngày Mua</th>
+                                            <th class="px-4 py-3">Phương Thức Thanh Toán</th>
                                             <th class="px-4 py-3">Tùy Chọn</th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
 
-                                        <c:forEach var="review" items="${listreview}">
-                                            <c:forEach var="product" items="${listproduct}">
-                                                <c:forEach var="user" items="${listuser}">
-                                                    <c:if test="${fn:trim(review.nguoidung_id==user.id)}">
-                                                        <c:if test="${fn:trim(review.sanpham_id==product.id)}"> 
-                                                            <c:if test="${review.hienthi==0}">
-                                                                <tr class="text-gray-700 dark:text-gray-400">
-                                                                    <td class="px-4 py-3">
-                                                                        <div class="flex items-center text-sm">
-                                                                            <!-- Avatar with inset shadow -->
-                                                                            <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                                                <img class="object-cover w-full h-full rounded-full"
-                                                                                     src="${product.anh}"
-                                                                                     alt=""
-                                                                                     loading="lazy"/>
-                                                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                                                                            </div>
-                                                                            <%--Show Ten--%>
-                                                                            <div>
-                                                                                <p class="font-semibold">${user.ten}</p>
-                                                                                <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                                                    ID: <fmt:formatNumber type="number" maxFractionDigits="0" value="${user.id}"></fmt:formatNumber>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td class="px-4 py-3 text-sm">
-                                                                        ${product.ten}
-                                                                    </td>
-                                                                    <td class="px-4 py-3 text-sm">
-                                                                        <c:if test="${review.sao>=4}">
-                                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
-                                                                                ${review.sao}
-                                                                            </span> </c:if>
-                                                                        <c:if test="${review.sao<=3}">
-                                                                            <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
-                                                                                ${review.sao}
-                                                                            </span> </c:if>
-                                                                        </td>
-                                                                        <td class="px-4 py-3 text-xs">
-                                                                        ${review.binhluan}
-                                                                    </td>
-                                                            <form action="UpdateReview?id=${review.id}" method="post">
-                                                                <td class="px-4 py-3 text-sm">
-                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
-                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                               name ="anhien" value="0" class="form-check-input" type="radio" ${review.hienthi==0? "checked":""}> Ẩn
-                                                                    </label>
-                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
-                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                               name ="anhien" value="1" class="form-check-input" type="radio" ${review.hienthi==1? "checked":""}> Hiện
-                                                                    </label>
-                                                                </td>
-                                                                <td class="px-4 py-3 text-xs">
-                                                                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
-                                                                        <button type="submit">Cập Nhật</button>
-                                                                    </span>
-                                                                </td>
-                                                            </form>
-
-                                                            </tr>
-                                                        </c:if>
-
-                                                    </c:if>
-                                                </c:if>
-                                            </c:forEach>
-                                        </c:forEach>
-                                    </c:forEach>
-                                    <c:forEach var="review" items="${listreview}">
-                                        <c:forEach var="product" items="${listproduct}">
+                                        <c:forEach var="bill" items="${listbill}">
                                             <c:forEach var="user" items="${listuser}">
-                                                <c:if test="${fn:trim(review.nguoidung_id==user.id)}">
-                                                    <c:if test="${fn:trim(review.sanpham_id==product.id)}"> 
-                                                        <c:if test="${review.hienthi==1}">
-                                                            <tr class="text-gray-700 dark:text-gray-400">
-                                                                <td class="px-4 py-3">
-                                                                    <div class="flex items-center text-sm">
-                                                                        <!-- Avatar with inset shadow -->
-                                                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                                            <img class="object-cover w-full h-full rounded-full"
-                                                                                 src="${product.anh}"
-                                                                                 alt=""
-                                                                                 loading="lazy"/>
-                                                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                                                                        </div>
-                                                                        <%--Show Ten--%>
-                                                                        <div>
-                                                                            <p class="font-semibold">${user.ten}</p>
+                                                <c:if test="${fn:trim(bill.nguoiDungid==user.id)}">
+                                                    <c:if test="${bill.damua==0}">
+                                                        <tr class="text-gray-700 dark:text-gray-400">
+                                                            <td class="px-4 py-3">
+                                                                <div class="flex items-center text-sm">
+                                                                    <!-- Avatar with inset shadow -->
+                                                                    <div
+                                                                        class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                                                                        >
+                                                                        <img
+                                                                            class="object-cover w-full h-full  "
+                                                                            src="https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/truck-2-icon-14-256.png"
+                                                                            alt=""
+                                                                            loading="lazy"
+                                                                            width="100px"
+                                                                            />
+                                                                        <div
+                                                                            class="absolute inset-0 rounded-full shadow-inner"
+                                                                            aria-hidden="true"
+                                                                            ></div>
+                                                                    </div>
+                                                                    <%--Show Ten--%>
+                                                                    <div>
+                                                                        <p class="font-semibold"> ID Đơn Hàng: <fmt:formatNumber type="number" maxFractionDigits="0" value="${bill.id}"></fmt:formatNumber></p>
                                                                             <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                                                ID: <fmt:formatNumber type="number" maxFractionDigits="0" value="${user.id}"></fmt:formatNumber>
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td class="px-4 py-3 text-sm">
-                                                                    ${product.ten}
-                                                                </td>
-                                                                <td class="px-4 py-3 text-sm">
-                                                                    <c:if test="${review.sao>=4}">
-                                                                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
-                                                                            ${review.sao}
-                                                                        </span> </c:if>
-                                                                    <c:if test="${review.sao<=3}">
-                                                                        <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
-                                                                            ${review.sao}
-                                                                        </span> </c:if>
-                                                                    </td>
-                                                                    <td class="px-4 py-3 text-xs">
-                                                                    ${review.binhluan}
-                                                                </td>
-                                                            <form action="UpdateReview?id=${review.id}" method="post">
-                                                                <td class="px-4 py-3 text-sm">
-                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
-                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                               name ="anhien" value="0" class="form-check-input" type="radio" ${review.hienthi==0? "checked":""}> Ẩn
-                                                                    </label>
-                                                                    <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
-                                                                        <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                                                               name ="anhien" value="1" class="form-check-input" type="radio" ${review.hienthi==1? "checked":""}> Hiện
-                                                                    </label>
+                                                                                Tên khách hàng: ${user.ten}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-4 py-3 text-sm">
+                                                                ${bill.diachi}
+                                                            </td>
+                                                            <td class="px-4 py-3 text-sm">
+
+                                                                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+
+                                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${bill.tongtien}"></fmt:formatNumber> VNĐ
+                                                                    </span> 
                                                                 </td>
                                                                 <td class="px-4 py-3 text-xs">
-                                                                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
-                                                                        <button type="submit">Cập Nhật</button>
-                                                                    </span>
-                                                                </td>
-                                                            </form>
+                                                                ${bill.ngaymua}
+                                                            </td>
+                                                    <form action="UpdateBill?id=${bill.id}" method="post">
+                                                        <td class="px-4 py-3 text-sm">
+                                                            <p class="font-semibold">${bill.phuongthuc}</p>
+                                                            <br>
+                                                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                           name ="trangthaimuahang" value="0" class="form-check-input" type="radio" ${bill.damua==0? "checked":""}> Chưa Giao Hàng
+                                                                </label> <br> <br>
+                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                           name ="trangthaimuahang" value="1" class="form-check-input" type="radio" ${bill.damua==1? "checked":""}> Đã Giao Hàng
+                                                                </label>
+                                                            </p>
+                                                        </td>
+                                                        <td class="px-4 py-3 text-xs">
+                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                <button type="submit">Cập Nhật</button>
+                                                            </span>
+                                                        </td>
+                                                    </form>
 
-                                                            </tr>
-                                                        </c:if>
-
-                                                    </c:if>
+                                                    </tr>
                                                 </c:if>
-                                            </c:forEach>
+                                            </c:if>    
                                         </c:forEach>
                                     </c:forEach>
+                                    <c:forEach var="bill" items="${listbill}">
+                                        <c:forEach var="user" items="${listuser}">
+                                            <c:if test="${fn:trim(bill.nguoiDungid==user.id)}">
+                                                <c:if test="${bill.damua==1}">
+                                                    <tr class="text-gray-700 dark:text-gray-400">
+                                                        <td class="px-4 py-3">
+                                                            <div class="flex items-center text-sm">
+                                                                <!-- Avatar with inset shadow -->
+                                                                <div
+                                                                    class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                                                                    >
+                                                                    <img
+                                                                        class="object-cover w-full h-full  "
+                                                                        src="https://cdn0.iconfinder.com/data/icons/transport-14/512/Truck_Green.png"
+                                                                        alt=""
+                                                                        loading="lazy"
+                                                                        width="100px"
+                                                                        />
+                                                                    <div
+                                                                        class="absolute inset-0 rounded-full shadow-inner"
+                                                                        aria-hidden="true"
+                                                                        ></div>
+                                                                </div>
+                                                                <%--Show Ten--%>
+                                                                <div>
+                                                                    <p class="font-semibold"> ID Đơn Hàng: <fmt:formatNumber type="number" maxFractionDigits="0" value="${bill.id}"></fmt:formatNumber></p>
+                                                                        <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                                            Tên khách hàng: ${user.ten}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-4 py-3 text-sm">
+                                                            ${bill.diachi}
+                                                        </td>
+                                                        <td class="px-4 py-3 text-sm">
+
+                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+
+                                                                <fmt:formatNumber type="number" maxFractionDigits="0" value="${bill.tongtien}"></fmt:formatNumber> VNĐ
+                                                                </span> 
+                                                            </td>
+                                                            <td class="px-4 py-3 text-xs">
+                                                            ${bill.ngaymua}
+                                                        </td>
+                                                    <form action="UpdateBill?id=${bill.id}" method="post">
+                                                        <td class="px-4 py-3 text-sm">
+                                                            <p class="font-semibold">${bill.phuongthuc}</p>
+                                                            <br>
+                                                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400 form-check-label">
+                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                           name ="trangthaimuahang" value="0" class="form-check-input" type="radio" ${bill.damua==0? "checked":""}> Chưa Giao Hàng
+                                                                </label> <br> <br>
+                                                                <label class="inline-flex text-sm text-gray-700 dark:text-gray-400">
+                                                                    <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                                                           name ="trangthaimuahang" value="1" class="form-check-input" type="radio" ${bill.damua==1? "checked":""}> Đã Giao Hàng
+                                                                </label>
+                                                            </p>
+                                                        </td>
+                                                        <td class="px-4 py-3 text-xs">
+                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                <button type="submit">Cập Nhật</button>
+                                                            </span>
+                                                        </td>
+                                                    </form>
+
+                                                    </tr>
+                                                </c:if>
+                                            </c:if>    
+                                        </c:forEach>
+                                    </c:forEach>
+
                                     </tbody>
                                 </table>
 

@@ -513,13 +513,13 @@ public class DAO {
         }
     }
 
-    public boolean AddOrder(float ID, float NguoiDung_ID, float SanPham_ID, int SoLuong, float TongTien) {
-        String sql = "INSERT INTO GioHang VALUES (?,?,?,?,?);";
+    public boolean AddOrder(float ID, float GioHangTong_ID, float SanPham_ID, int SoLuong, float TongTien) {
+        String sql = "INSERT INTO GioHangChiTiet VALUES (?,?,?,?,?);";
         try {
             Connection con = DBConnection.getConnection();
             ps = con.prepareStatement(sql);
             ps.setFloat(1, ID);
-            ps.setFloat(2, NguoiDung_ID);
+            ps.setFloat(2, GioHangTong_ID);
             ps.setFloat(3, SanPham_ID);
             ps.setInt(4, SoLuong);
             ps.setFloat(5, TongTien);
@@ -569,7 +569,7 @@ public class DAO {
 
     public List<Order> getAllOrder() {
         List<Order> list = new ArrayList<>();
-        ResultSet resultSet = DBConnection.querySet("select * from GioHang");
+        ResultSet resultSet = DBConnection.querySet("select * from GioHangChiTiet");
         if (resultSet != null) {
             try {
                 while (resultSet.next()) {
@@ -588,14 +588,14 @@ public class DAO {
         return list;
     }
 
-    public List<Order> getOrderByUserID(float User_id) {
+    public List<Order> getOrderByUserID(float GioHangTong_ID) {
         List<Order> list = new ArrayList<>();
         List<Product> listPro = getAllProduct();
-        String sql = "select * from GioHang where NguoiDung_ID = ?";
+        String sql = "select * from GioHangChiTiet where GioHangTong_ID = ?;";
         try {
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
-            ps.setFloat(1, User_id);
+            ps.setFloat(1, GioHangTong_ID);
             rs = ps.executeQuery();
             while (rs.next()) {
                 for (int i = 0; i < listPro.size(); i++) {
@@ -621,14 +621,14 @@ public class DAO {
         return list;
     }
 
-    public boolean UpdateSoLuongSP(float NguoiDung_ID, float SanPham_ID, int soLuong, float tongTien) {
-        String sql = "Update GioHang set GioHang_SoLuongSanPham = ?, GioHang_TongTien = ? where NguoiDung_ID = ? and SanPham_ID = ?";
+    public boolean UpdateSoLuongSP(float GioHangTong_ID, float SanPham_ID, int soLuong, float tongTien) {
+        String sql = "Update GioHangChiTiet set GioHang_SoLuongSanPham = ?, GioHang_TongTien = ? where GioHangTong_ID = ? and SanPham_ID = ?";
         try {
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setInt(1, soLuong);
             ps.setFloat(2, tongTien);
-            ps.setFloat(3, NguoiDung_ID);
+            ps.setFloat(3, GioHangTong_ID);
             ps.setFloat(4, SanPham_ID);
             int row = ps.executeUpdate();
             if (row > 0) {
@@ -644,7 +644,7 @@ public class DAO {
     }
 
     public void DeleteProductInCart(float ID) {
-        String sql = "Delete from GioHang where GioHang_ID= ?";
+        String sql = "Delete from GioHangChiTiet where GioHang_ID= ?";
 
         try {
             Connection con = DBConnection.getConnection();
@@ -682,17 +682,18 @@ public class DAO {
     public List<Bill> getAllBill() {
         List<Bill> list = new ArrayList<>();
         try {
-            String sql = "select * from HoaDon";
+            String sql = "select * from HoaDonTong";
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Bill(rs.getFloat(1),
                         rs.getFloat(2),
-                        rs.getDate(3),
+                        rs.getString(3),
                         rs.getFloat(4),
-                        rs.getInt(5),
-                        rs.getString(6)
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getInt(7)
                 ));
             }
             ps.close();
@@ -704,7 +705,7 @@ public class DAO {
     }
 
     public void setDonHangDaMua(float ID, int hienthi) {
-        String sql = "UPDATE DanhGia SET DonHang_DaMua = ? WHERE DonHang_ID = ? ";
+        String sql = "UPDATE HoaDon SET HoaDon_DaMua = ? WHERE HoaDon_ID = ? ";
         try {
             Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);

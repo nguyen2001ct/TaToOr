@@ -15,12 +15,12 @@ import java.util.List;
 public class Bill {
 
     private float id, nguoiDungid,tongtien;
-    private String phuongthuc;
+    private String phuongthuc,diachi;
     private Date ngaymua;
     private int damua;
     private List<Order> order;
 
-    public Bill(float id, float nguoiDungid, Date ngaymua, float tongtien, int damua, String phuongthuc, List<Order> order) {
+    public Bill(float id, float nguoiDungid,String diachi,  float tongtien,Date ngaymua,  String phuongthuc,int damua, List<Order> order) {
         this.id = id;
         this.nguoiDungid = nguoiDungid;
         this.tongtien = tongtien;
@@ -28,15 +28,25 @@ public class Bill {
         this.ngaymua = ngaymua;
         this.damua = damua;
         this.order = order;
+        this.diachi=this.diachi;
     }
 
-    public Bill(float id, float nguoiDungid, Date ngaymua,  float tongtien,int damua, String phuongthuc) {
+    public Bill(float id, float nguoiDungid,String diachi,  float tongtien,Date ngaymua, String phuongthuc,int damua) {
         this.id = id;
         this.nguoiDungid = nguoiDungid;
         this.tongtien = tongtien;
         this.phuongthuc = phuongthuc;
         this.ngaymua = ngaymua;
         this.damua = damua;
+        this.diachi=diachi;
+    }
+
+    public String getDiachi() {
+        return diachi;
+    }
+
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
     }
 
     public float getId() {
