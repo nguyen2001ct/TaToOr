@@ -121,7 +121,7 @@
             .invoice table .no {
                 color: #fff;
                 font-size: 1.6em;
-                background: #f08632
+                background: white;
             }
 
             .invoice table .unit {
@@ -293,7 +293,6 @@
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
-                                        <li><a href="./shop-details.jsp">Thông Tin Sản Phẩm</a></li>
                                         <li><a href="./ShowOrder">Giỏ Hàng</a></li>
                                         <li class="active"><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
@@ -326,45 +325,31 @@
                         <table border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>Ảnh</th>
+                                    
                                     <th class="text-left">Tên sản phẩm</th>
+                                    <th>Ảnh</th>
                                     <th class="text-right">Giá tiền</th>
                                     <th class="text-right">Số lượng</th>
                                     <th class="text-right">Tổng tiền</th>
                                 </tr>
                             </thead>
                             <tbody>
-
-                                <tr>
-                                    <td class="no">01</td>
-                                    <td class="text-left">
-                                        <h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
-                                    <td class="unit">$40.00</td>
-                                    <td class="qty">30</td>
-                                    <td class="total">$1,200.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="no">02</td>
-                                    <td class="text-left">
-                                        <h3>Website Development</h3>Developing a Content Management System-based Website</td>
-                                    <td class="unit">$40.00</td>
-                                    <td class="qty">80</td>
-                                    <td class="total">$3,200.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="no">03</td>
-                                    <td class="text-left">
-                                        <h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
-                                    <td class="unit">$40.00</td>
-                                    <td class="qty">20</td>
-                                    <td class="total">$800.00</td>
-                                </tr>
+                                <c:forEach var="showOrder" items="${listOr}">
+                                    <tr>
+                                        <td class="text-left">
+                                            <h3>${showOrder.product.ten}</h3></td>
+                                        <td class="no"><img src="${showOrder.product.anh}"></td>
+                                        <td class="unit">${showOrder.product.giatien}</td>
+                                        <td class="qty">${showOrder.soLuong}</td>
+                                        <td class="total">${showOrder.tongTien}</td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="2"></td>
                                     <td colspan="2">
-                                       Phương thức thanh toán
+                                        Phương thức thanh toán
                                     </td>
                                     <td>
                                         <select name="thanhtoan">

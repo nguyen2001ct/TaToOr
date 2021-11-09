@@ -6,8 +6,10 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
+import com.tatoor.entity.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,9 +38,10 @@ public class ShowBill extends HttpServlet {
         DAO dao = new DAO();
         HttpSession session = request.getSession();
         String user = session.getAttribute("User").toString();
-        float user_id;
-        dao.getOrderByUserID(0);
-        
+        float user_id = dao.getIDByUser(user).getId();
+       List<Order> listOr =  dao.getOrderByUserID(user_id);
+        request.setAttribute("listOr", listOr);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
         }
     
 
