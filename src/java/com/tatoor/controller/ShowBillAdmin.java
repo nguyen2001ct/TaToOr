@@ -39,8 +39,19 @@ public class ShowBillAdmin extends HttpServlet {
         DAO dao = new DAO();
         List<Bill> ListBill = dao.getAllBill();
         List<User> ListUser = dao.getAllUser();
+        int dagiaohang=0,chuagiaohang=0;
+        for (int i = 0; i < ListBill.size(); i++) {
+            if(ListBill.get(i).getDamua()==1){
+                dagiaohang+=1;
+            }else if(ListBill.get(i).getDamua()==0){
+                chuagiaohang+=1;
+            }
+        }
         request.setAttribute("listbill", ListBill);
         request.setAttribute("listuser", ListUser);
+        request.setAttribute("dagiaohang", dagiaohang);
+        request.setAttribute("chuagiaohang", chuagiaohang);
+        request.setAttribute("tonggiaohang", ListBill.size());
         request.getRequestDispatcher("AdminBill.jsp").forward(request, response);
     }
 

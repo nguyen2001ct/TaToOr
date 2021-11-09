@@ -5,6 +5,7 @@
  */
 package com.tatoor.controller;
 
+import com.tatoor.Dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,8 +34,15 @@ public class CreateBill extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session 
-        String User = se
+        HttpSession session = request.getSession();
+        DAO dao = new DAO();
+        String User = session.getAttribute("User").toString();
+        float user_id = dao.getIDByUser(User).getId();
+        String PhuongThucThanhToan = request.getParameter("PhuongThuc");
+        String tongBill = request.getParameter("tongBill");
+        float tongtienBill = Float.parseFloat(tongBill);
+        String DiaChi = request.getParameter("DiaChi");
+        int damua = 0;
         
     }
 

@@ -6,25 +6,24 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
+import com.tatoor.entity.Bill;
+import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author nguye
  */
-@WebServlet(name = "CreateAccount", urlPatterns = {"/CreateAccount"})
-public class CreateAccount extends HttpServlet {
-
-    private final String Success_Page = "index.jsp";
-    private final String Failed_Page = "Fail.jsp";
+@WebServlet(name = "SortShowBillAdmin", urlPatterns = {"/SortShowBillAdmin"})
+public class SortShowBillAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,53 +37,41 @@ public class CreateAccount extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        String url = "index.jsp";
-        String taiKhoan = request.getParameter("taiKhoan");
-        String pass = request.getParameter("pass");
-        String ten = request.getParameter("ten");
-        String gioitinh = request.getParameter("gioitinh");
-        String namsinh = request.getParameter("namsinh");
-        String sdt = request.getParameter("sdt");
-        int loai = Integer.parseInt(session.getAttribute("loai").toString());
-        try {
-            DAO dao = new DAO();
-            float ID=0;
-            for(int i=0;i<dao.getAllUser().size();i++){
-                ID=dao.getAllUser().get(i).getId()+1;
-            }
-            if (loai == 0) {
-                String repass = request.getParameter("repass");
-                if (!pass.equals(repass)) {
-                    request.setAttribute("error5", "ko hop le");
-                    request.getRequestDispatcher("Register.jsp").forward(request, response);
-                } else {
-                    boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);
-                    if (check) {
-                        float GioHang_id = ID;
-                        dao.AddUserToCart(GioHang_id, ID);
-                        url = Success_Page;
-                    } else {
-                        url = Failed_Page;
+        DAO dao = new DAO();
+        List<Bill> ListBill = dao.getAllBill();
+        List<User> ListUser = dao.getAllUser();
+        List<Bill> list1 = new ArrayList<>();
+        int getgiaohang = Integer.parseInt(request.getParameter("loaigiaohang"));
+        System.out.println(getgiaohang);
+        for (int i = 0; i < ListBill.size(); i++) {
+            if (getgiaohang == 0) {
+                if (getgiaohang == ListBill.get(i).getDamua()) {
+                    {
+                        list1.add(ListBill.get(i));
                     }
+
                 }
-            } else if (loai == 1) {
-                int chinhloai = Integer.parseInt(request.getParameter("loai"));
-                boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, chinhloai);
-                if (check) {
-                    url = Success_Page;
-                } else {
-                    url = Failed_Page;
+            } else if (getgiaohang == 1) {
+                if (getgiaohang == ListBill.get(i).getDamua()) {
+                    list1.add(ListBill.get(i));
                 }
             }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
         }
-
+        System.out.println(list1.toString());
+        int dagiaohang = 0, chuagiaohang = 0;
+        for (int i = 0; i < ListBill.size(); i++) {
+            if (ListBill.get(i).getDamua() == 1) {
+                dagiaohang += 1;
+            } else if (ListBill.get(i).getDamua() == 0) {
+                chuagiaohang += 1;
+            }
+        }
+        request.setAttribute("listbill", list1);
+        request.setAttribute("listuser", ListUser);
+        request.setAttribute("dagiaohang", dagiaohang);
+        request.setAttribute("chuagiaohang", chuagiaohang);
+        request.setAttribute("tonggiaohang", ListBill.size());
+        request.getRequestDispatcher("AdminBill.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
