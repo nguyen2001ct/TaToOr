@@ -130,7 +130,7 @@ public final class AdminProduct_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                        </li>\r\n");
       out.write("                        <li class=\"relative px-6 py-3\">\r\n");
       out.write("                            <a class=\"inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200\"\r\n");
-      out.write("                               href=\"buttons.html\">\r\n");
+      out.write("                               href=\"ShowReview\">\r\n");
       out.write("                                <svg\r\n");
       out.write("                                    class=\"w-5 h-5\"\r\n");
       out.write("                                    aria-hidden=\"true\"\r\n");
@@ -145,7 +145,7 @@ public final class AdminProduct_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                                    d=\"M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122\"\r\n");
       out.write("                                    ></path>\r\n");
       out.write("                                </svg>\r\n");
-      out.write("                                <span class=\"ml-4\">Buttons</span>\r\n");
+      out.write("                                <span class=\"ml-4\">Quản lý đánh giá</span>\r\n");
       out.write("                            </a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li class=\"relative px-6 py-3\">\r\n");
@@ -785,9 +785,9 @@ public final class AdminProduct_jsp extends org.apache.jasper.runtime.HttpJspBas
           out.write("                                                        </span>\r\n");
           out.write("                                                    </td>\r\n");
           out.write("                                                    <td class=\"px-4 py-3 text-sm\">\r\n");
-          out.write("                                                    ");
+          out.write("                                                        <pre>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${show.mota}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\r\n");
+          out.write("</pre> \r\n");
           out.write("                                                </td>\r\n");
           out.write("                                                <td class=\"px-4 py-3\">\r\n");
           out.write("                                                    <div class=\"flex items-center space-x-4 text-sm\">\r\n");

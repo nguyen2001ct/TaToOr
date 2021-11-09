@@ -20,7 +20,7 @@ public class Bill {
     private int damua;
     private List<Order> order;
 
-    public Bill(float id, float nguoiDungid, float tongtien, String phuongthuc, Date ngaymua, int damua, List<Order> order) {
+    public Bill(float id, float nguoiDungid, Date ngaymua, float tongtien, int damua, String phuongthuc, List<Order> order) {
         this.id = id;
         this.nguoiDungid = nguoiDungid;
         this.tongtien = tongtien;
@@ -28,6 +28,15 @@ public class Bill {
         this.ngaymua = ngaymua;
         this.damua = damua;
         this.order = order;
+    }
+
+    public Bill(float id, float nguoiDungid, Date ngaymua,  float tongtien,int damua, String phuongthuc) {
+        this.id = id;
+        this.nguoiDungid = nguoiDungid;
+        this.tongtien = tongtien;
+        this.phuongthuc = phuongthuc;
+        this.ngaymua = ngaymua;
+        this.damua = damua;
     }
 
     public float getId() {
