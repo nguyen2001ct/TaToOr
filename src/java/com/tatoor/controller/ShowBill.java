@@ -7,8 +7,10 @@ package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
 import com.tatoor.entity.Order;
+import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,15 +37,29 @@ public class ShowBill extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         DAO dao = new DAO();
         HttpSession session = request.getSession();
         String user = session.getAttribute("User").toString();
         float user_id = dao.getIDByUser(user).getId();
-       List<Order> listOr =  dao.getOrderByUserID(user_id);
+        String name = dao.getIDByUser(user).getTen();
+        String address = dao.getIDByUser(user).getDiaChi();
+        request.setAttribute("phone", dao.getIDByUser(user).getSdt());
+        request.setAttribute("name", name);
+        request.setAttribute("address", address);
+        List<Order> listOr = dao.getOrderByUserID(user_id);
         request.setAttribute("listOr", listOr);
-        request.getRequestDispatcher("checkout.jsp").forward(request, response);
+        float Tongtien = 0;
+        for (int i = 0; i < listOr.size(); i++) {
+            Tongtien = Tongtien + listOr.get(i).getTongTien();
         }
-    
+        request.setAttribute("tongBill", Tongtien);
+        Date date =java.util.Calendar.getInstance().getTime();
+        request.setAttribute("date", date);
+
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

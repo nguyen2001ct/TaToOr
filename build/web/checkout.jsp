@@ -16,6 +16,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
         <title>Cake | Template</title>
 
@@ -119,9 +121,11 @@
             }
 
             .invoice table .no {
-                color: #fff;
+                color: #eee;
                 font-size: 1.6em;
                 background: white;
+                width: 150px;
+                height: 100px;
             }
 
             .invoice table .unit {
@@ -167,7 +171,10 @@
                 color: white;
                 width: 550px;
                 height: 50px;
-
+            }
+            .no img{
+                width: 150px;
+                height: 100px;
             }
             @media print {
                 .invoice {
@@ -315,19 +322,18 @@
                     <main>
                         <div class="col invoice-to">
                             <div class="text-gray-light"><strong>Thông tin khách hàng:</strong></div>
-                            <h2 class="to">John Doe</h2>
-                            <div class="address">796 Silver Harbour, TX 79273, US</div>
-                            <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
+                            <h2 class="to">${name}</h2>
+                            <div class="email">${phone}</div>
+                            <div class="address">${address}</div>
                         </div>
                         <div class="col invoice-details">
-                            <div class="date"><strong>Ngày thanh toán:</strong> 30/10/2018</div>
+                            <div class="date"><strong>Ngày thanh toán:</strong>${date}</div>
                         </div>
                         <table border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    
-                                    <th class="text-left">Tên sản phẩm</th>
                                     <th>Ảnh</th>
+                                    <th class="text-left">Tên sản phẩm</th>
                                     <th class="text-right">Giá tiền</th>
                                     <th class="text-right">Số lượng</th>
                                     <th class="text-right">Tổng tiền</th>
@@ -336,12 +342,12 @@
                             <tbody>
                                 <c:forEach var="showOrder" items="${listOr}">
                                     <tr>
+                                        <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
                                         <td class="text-left">
                                             <h3>${showOrder.product.ten}</h3></td>
-                                        <td class="no"><img src="${showOrder.product.anh}"></td>
-                                        <td class="unit">${showOrder.product.giatien}</td>
+                                        <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
                                         <td class="qty">${showOrder.soLuong}</td>
-                                        <td class="total">${showOrder.tongTien}</td>
+                                        <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -361,12 +367,12 @@
                                 <tr>
                                     <td colspan="2"></td>
                                     <td colspan="2">Phí ship</td>
-                                    <td>$5,200.00</td>
+                                    <td>Free ship</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"></td>
                                     <td colspan="2">Tổng thanh toán</td>
-                                    <td>$6,500.00</td>
+                                    <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${tongBill}"></fmt:formatNumber>VNĐ</td>
                                 </tr>
 
                             </tfoot>

@@ -129,7 +129,20 @@ public class DAO {
             System.err.println(e.getMessage());
         }
     }
-
+    public void AddUserToCart(float id,float user_id){
+        try {
+            String sql="insert into GioHangTong Values(?,?)";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, id);
+            ps.setFloat(2, user_id);
+            ps.executeUpdate();
+            ps.close();
+            conn.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage()+"loi them cart");
+        }
+    }
     public User getUserByID(float id) {
 
         String sql = "select * from NguoiDung where NguoiDung_ID = ? ";

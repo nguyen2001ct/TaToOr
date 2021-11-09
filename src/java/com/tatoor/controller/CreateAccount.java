@@ -63,6 +63,8 @@ public class CreateAccount extends HttpServlet {
                 } else {
                     boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);
                     if (check) {
+                        float GioHang_id = ID;
+                        dao.AddUserToCart(GioHang_id, ID);
                         url = Success_Page;
                     } else {
                         url = Failed_Page;

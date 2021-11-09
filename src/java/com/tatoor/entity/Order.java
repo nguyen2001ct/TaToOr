@@ -14,16 +14,16 @@ import java.util.List;
 public class Order {
 
     private float id;
-    private float user_ID;
+    private float CartSum_id;
     private float sp_ID;
     private int soLuong;
     private float gia, tongTien;
     private Product product;
     private int status;
 
-    public Order(float id, float user_ID, float sp_ID, int soLuong,float tongTien,Product product) {
+    public Order(float id, float CartSum_id, float sp_ID, int soLuong,float tongTien,Product product) {
         this.id = id;
-        this.user_ID = user_ID;
+        this.CartSum_id = CartSum_id;
         this.sp_ID = sp_ID;
         this.soLuong = soLuong;
         this.tongTien = tongTien;
@@ -32,13 +32,13 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", user_ID=" + user_ID + ", sp_ID=" + sp_ID + ", soLuong=" + soLuong + ", tongTien=" + tongTien + ", product=" + product + '}';
+        return "Order{" + "id=" + id + ", user_ID=" + CartSum_id + ", sp_ID=" + sp_ID + ", soLuong=" + soLuong + ", tongTien=" + tongTien + ", product=" + product + '}';
     }
 
     
     public Order(float id, float user_ID,float sp_ID, int soLuong, float tongTien) {
         this.id = id;
-        this.user_ID = user_ID;
+        this.CartSum_id = user_ID;
         this.sp_ID = sp_ID;
         this.soLuong = soLuong;
         this.tongTien = tongTien;
@@ -55,11 +55,11 @@ public class Order {
     }
 
     public float getUser_ID() {
-        return user_ID;
+        return CartSum_id;
     }
 
     public void setUser_ID(float user_ID) {
-        this.user_ID = user_ID;
+        this.CartSum_id = user_ID;
     }
 
     public float getSp_ID() {

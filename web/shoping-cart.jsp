@@ -188,30 +188,30 @@
                                     </thead>
                                     <tbody>
                                         <c:set var="count" value="0"/>
-                                            <c:forEach var="Order" items="${Orders}">
-                                                    <tr>
-                                                        <td class="product__cart__item">
-                                                            <div class="product__cart__item__pic">
-                                                                <img src="${Order.product.anh}" alt="">
-                                                            </div>
-                                                            <div class="product__cart__item__text">
-                                                                <h6>${Order.product.ten}</h6>
-                                                                <h5>${Order.product.giatien}</h5>
-                                                            </div>
-                                                        </td>
-                                                        <td class="quantity__item">
-                                                            <div class="quantity">
-                                                                <div class="pro-qty">
-                                                                    <input type="text" value="${Order.soLuong}" name="SoluongSP${count}">
-                                                                    <c:set var="count" value="${count+1}"/>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="cart__price">${Order.tongTien}</td>
-                                                        <td class="cart__close">
-                                                            <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
-                                                        </td>
-                                                    </tr>
+                                        <c:forEach var="Order" items="${Orders}">
+                                            <tr>
+                                                <td class="product__cart__item">
+                                                    <div class="product__cart__item__pic">
+                                                        <img src="${Order.product.anh}" alt="">
+                                                        <h6>${Order.product.ten}</h6>
+                                                    </div>
+                                                    <div class="product__cart__item__text">
+                                                        <h5>${Order.product.giatien}</h5>
+                                                    </div>
+                                                </td>
+                                                <td class="quantity__item">
+                                                    <div class="quantity">
+                                                        <div class="pro-qty">
+                                                            <input type="text" value="${Order.soLuong}" name="SoluongSP${count}">
+                                                            <c:set var="count" value="${count+1}"/>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="cart__price">${Order.tongTien}</td>
+                                                <td class="cart__close">
+                                                    <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
+                                                </td>
+                                            </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
@@ -231,7 +231,7 @@
                         </form>
                     </div>
                     <div class="col-lg-4">
-                        
+
                         <div class="cart__total">
                             <h6>Cart total</h6>
                             <ul>
