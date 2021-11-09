@@ -660,7 +660,7 @@ public class DAO {
     }
 
     public boolean UpdateGioHang(float GioHang_ID, int SoLuong, float TongTien) {
-        String sql = "Update GioHang set GioHang_SoLuongSanPham = ?, GioHang_TongTien = ? where GioHang_ID = ?";
+        String sql = "Update GioHangChiTiet set GioHang_SoLuongSanPham = ?, GioHang_TongTien = ? where GioHang_ID = ?";
         try {
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
