@@ -363,6 +363,18 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="2"></td>
+                                    <td colspan="2">
+                                       Phương thức thanh toán
+                                    </td>
+                                    <td>
+                                        <select name="thanhtoan">
+                                            <option  value="trả sau">Thanh toán khi nhận hàng</option>
+                                            <option value="trả trước">Thanh toán trước bằng thẻ</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
                                     <td colspan="2">Phí ship</td>
                                     <td>$5,200.00</td>
                                 </tr>

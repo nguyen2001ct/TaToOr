@@ -7,6 +7,7 @@ package com.tatoor.Dao;
 
 import com.tatoor.connect.DBConnection;
 import static com.tatoor.connect.DBConnection.querySet;
+import com.tatoor.entity.Bill;
 import com.tatoor.entity.Order;
 import com.tatoor.entity.Product;
 import com.tatoor.entity.Review;
@@ -665,6 +666,45 @@ public class DAO {
         return false;
     }
 
+    public List<Bill> getAllBill() {
+        List<Bill> list = new ArrayList<>();
+        try {
+            String sql = "select * from HoaDon";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Bill(rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getDate(3),
+                        rs.getFloat(4),
+                        rs.getInt(5),
+                        rs.getString(6)
+                ));
+            }
+            ps.close();
+            conn.close();
+            rs.close();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public void setDonHangDaMua(float ID, int hienthi) {
+        String sql = "UPDATE DanhGia SET DonHang_DaMua = ? WHERE DonHang_ID = ? ";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, hienthi);
+            ps.setFloat(2, ID);
+            ps.execute();
+            con.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
         //        try {
@@ -696,8 +736,8 @@ public class DAO {
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
         //        }
-        List<Product> list = d.pagingProduct(1);
-        for (Product p : list) {
+        List<Bill> list = d.getAllBill();
+        for (Bill p : list) {
             System.out.println(p.toString());
         }
 
