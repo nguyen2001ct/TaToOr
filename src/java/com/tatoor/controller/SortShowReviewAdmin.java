@@ -6,25 +6,25 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
+import com.tatoor.entity.Product;
+import com.tatoor.entity.Review;
+import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author nguye
  */
-@WebServlet(name = "CreateAccount", urlPatterns = {"/CreateAccount"})
-public class CreateAccount extends HttpServlet {
-
-    private final String Success_Page = "index.jsp";
-    private final String Failed_Page = "Fail.jsp";
+@WebServlet(name = "SortShowReviewAdmin", urlPatterns = {"/SortShowReviewAdmin"})
+public class SortShowReviewAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,53 +38,39 @@ public class CreateAccount extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        String url = "index.jsp";
-        String taiKhoan = request.getParameter("taiKhoan");
-        String pass = request.getParameter("pass");
-        String ten = request.getParameter("ten");
-        String gioitinh = request.getParameter("gioitinh");
-        String namsinh = request.getParameter("namsinh");
-        String sdt = request.getParameter("sdt");
-        int loai = Integer.parseInt(session.getAttribute("loai").toString());
-        try {
-            DAO dao = new DAO();
-            float ID=0;
-            for(int i=0;i<dao.getAllUser().size();i++){
-                ID=dao.getAllUser().get(i).getId()+1;
+        DAO d = new DAO();
+        float count = 0, count1 = 0;
+        List<Review> review = d.getAllReview();
+        List<User> user = d.getAllUser();
+        List<Product> product = d.getAllProduct();
+        List<Review> list1 = new ArrayList<>();
+        List<Review> list2 = new ArrayList<>();
+        int getsao = Integer.parseInt(request.getParameter("loaisao"));
+        for (int i = 0; i < review.size(); i++) {
+            if (review.get(i).getSao() <= 3) {
+                count += 1;
+            } else {
+                count1 += 1;
             }
-            if (loai == 0) {
-                String repass = request.getParameter("repass");
-                if (!pass.equals(repass)) {
-                    request.setAttribute("error5", "ko hop le");
-                    request.getRequestDispatcher("Register.jsp").forward(request, response);
-                } else {
-                    boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);
-                    if (check) {
-                        float GioHang_id = ID;
-                        dao.AddUserToCart(GioHang_id, ID);
-                        url = Success_Page;
-                    } else {
-                        url = Failed_Page;
-                    }
-                }
-            } else if (loai == 1) {
-                int chinhloai = Integer.parseInt(request.getParameter("loai"));
-                boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, chinhloai);
-                if (check) {
-                    url = Success_Page;
-                } else {
-                    url = Failed_Page;
-                }
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
         }
-
+        for (int i = 0; i < review.size(); i++) {
+            if (getsao >= review.get(i).getSao()) {
+                list1.add(review.get(i));
+            } else {
+                list2.add(review.get(i));
+            }
+        }
+        if(getsao==3){
+            request.setAttribute("listreview", list1);
+        }else if (getsao==4){
+            request.setAttribute("listreview", list2);
+        }
+        request.setAttribute("tongdanhgia", review.size());
+        request.setAttribute("listuser", user);
+        request.setAttribute("listproduct", product);
+        request.setAttribute("danhgiathap", count);
+        request.setAttribute("danhgiacao", count1);
+        request.getRequestDispatcher("AdminReview.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
