@@ -676,10 +676,11 @@ public class DAO {
             while (rs.next()) {
                 list.add(new Bill(rs.getFloat(1),
                         rs.getFloat(2),
-                        rs.getDate(3),
+                        rs.getString(3),
                         rs.getFloat(4),
-                        rs.getInt(5),
-                        rs.getString(6)
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getInt(7)
                 ));
             }
             ps.close();
