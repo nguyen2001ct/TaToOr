@@ -669,7 +669,7 @@ public class DAO {
     public List<Bill> getAllBill() {
         List<Bill> list = new ArrayList<>();
         try {
-            String sql = "select * from HoaDon";
+            String sql = "select * from HoaDonTong";
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -692,7 +692,7 @@ public class DAO {
     }
 
     public void setDonHangDaMua(float ID, int hienthi) {
-        String sql = "UPDATE HoaDon SET HoaDon_DaMua = ? WHERE HoaDon_ID = ? ";
+        String sql = "UPDATE HoaDonTong SET HoaDon_DaMua = ? WHERE HoaDon_ID = ? ";
         try {
             Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
