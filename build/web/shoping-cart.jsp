@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -207,7 +208,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="cart__price">${Order.tongTien}</td>
+                                                <td class="cart__price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Order.tongTien}"></fmt:formatNumber>VNĐ</td>
                                                 <td class="cart__close">
                                                     <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
                                                 </td>
