@@ -705,7 +705,7 @@ public class DAO {
     }
 
     public void setDonHangDaMua(float ID, int hienthi) {
-        String sql = "UPDATE HoaDon SET HoaDon_DaMua = ? WHERE HoaDon_ID = ? ";
+        String sql = "UPDATE HoaDonTong SET HoaDon_DaMua = ? WHERE HoaDon_ID = ? ";
         try {
             Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
