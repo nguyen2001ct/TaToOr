@@ -431,7 +431,7 @@
                                     </div>
                                     <div>
                                         <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" >
-                                            Tổng Đánh Giá Xấu
+                                            Tổng Đánh Giá Thấp
                                         </p>
                                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                                             <fmt:formatNumber var="SoChan" type="number" maxFractionDigits="0" value="${danhgiathap}"></fmt:formatNumber>
