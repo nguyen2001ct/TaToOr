@@ -48,8 +48,10 @@ public class CheckAdminProduct implements Filter {
         HttpServletRequest HttpRequest = (HttpServletRequest) request;
         HttpServletResponse HttpRespone = (HttpServletResponse) response;
         HttpSession session = HttpRequest.getSession();
+        DAO dao = new DAO();
         String name = session.getAttribute("User").toString();
         String url = HttpRequest.getServletPath();
+        int loai = dao.getIDByUser(name).getLoai();
        if (url.endsWith("AdminProduct.jsp") && !name.contains("admin")) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else if (url.endsWith("AdminProduct.jsp") && name.contains("admin")) {
