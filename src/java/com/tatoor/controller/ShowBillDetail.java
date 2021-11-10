@@ -6,6 +6,7 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
+import com.tatoor.entity.Bill;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -40,8 +41,7 @@ public class ShowBillDetail extends HttpServlet {
         DAO dao = new DAO();
         String user = session.getAttribute("User").toString();
         float user_id = dao.getIDByUser(user).getId();
-        
-        List<Order> list;
+        List<Bill> list;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

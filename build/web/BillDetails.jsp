@@ -200,12 +200,12 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">S. No.</th>
-                                        <th>Order #</th>
-                                        <th>Company name</th>
-                                        <th>status</th>
-                                        <th>Total</th>
-                                        <th>Created</th>
+                                        <th class="text-center">Mã đơn hàng</th>
+                                        <th>tên</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Trạng thái</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Ngày mua</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -236,38 +236,6 @@
                                         <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
                                     </tr>
                                     <tr id="demo-2" class="collapse cell-1 row-child">
-                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
-                                        <td colspan="1">Product&nbsp;</td>
-                                        <td colspan="3">iphone SX with ratina display</td>
-                                        <td colspan="1">QTY</td>
-                                        <td colspan="2">2</td>
-                                    </tr>
-                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-3">
-                                        <td class="text-center">3</td>
-                                        <td>#SO-13489</td>
-                                        <td>Micro Steel</td>
-                                        <td><span class="badge badge-success">Placed</span></td>
-                                        <td>$2674.00</td>
-                                        <td>March 20, 2020</td>
-                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
-                                    </tr>
-                                    <tr id="demo-3" class="collapse cell-1 row-child">
-                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
-                                        <td colspan="1">Product&nbsp;</td>
-                                        <td colspan="3">iphone SX with ratina display</td>
-                                        <td colspan="1">QTY</td>
-                                        <td colspan="2">2</td>
-                                    </tr>
-                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-4">
-                                        <td class="text-center">4</td>
-                                        <td>#SO-13490</td>
-                                        <td>B Mobiles</td>
-                                        <td><span class="badge badge-success">Delivered</span></td>
-                                        <td>$4674.00</td>
-                                        <td>March 22, 2020</td>
-                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
-                                    </tr>
-                                    <tr id="demo-4" class="collapse cell-1 row-child">
                                         <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
                                         <td colspan="1">Product&nbsp;</td>
                                         <td colspan="3">iphone SX with ratina display</td>
