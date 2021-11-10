@@ -50,10 +50,11 @@ public class CheckAdminUser implements Filter {
         HttpSession session = HttpRequest.getSession();
         String name = session.getAttribute("User").toString();
         String url = HttpRequest.getServletPath();
-        if (url.endsWith("AdminIndex.jsp") && !name.contains("admin")) {
+         DAO dao = new DAO();
+        int loai = dao.getIDByUser(name).getLoai();
+        if (url.endsWith("AdminIndex.jsp") && loai == 0) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        } else if (url.endsWith("AdminIndex.jsp") && name.contains("admin")) {
-            DAO dao = new DAO();
+        } else if (url.endsWith("AdminIndex.jsp") && loai == 1) {
             List<User> l1 = dao.getAllUser();
             request.setAttribute("user", l1);
             request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
