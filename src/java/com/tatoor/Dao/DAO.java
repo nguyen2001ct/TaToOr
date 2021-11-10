@@ -8,7 +8,9 @@ package com.tatoor.Dao;
 import com.tatoor.connect.DBConnection;
 import static com.tatoor.connect.DBConnection.querySet;
 import com.tatoor.entity.Bill;
+import com.tatoor.entity.BillDetails;
 import com.tatoor.entity.Order;
+import com.tatoor.entity.OrderAll;
 import com.tatoor.entity.Product;
 import com.tatoor.entity.Review;
 import com.tatoor.entity.User;
@@ -682,6 +684,26 @@ public class DAO {
         return false;
     }
 
+    public List<OrderAll> getOrderAll() {
+        List<OrderAll> list = new ArrayList<>();
+        try {
+            String sql = "select * from GioHangTong";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderAll(rs.getFloat(1),
+                        rs.getFloat(2)
+                ));
+            }
+            ps.close();
+            conn.close();
+            rs.close();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     public List<Bill> getAllBill() {
         List<Bill> list = new ArrayList<>();
         try {
@@ -739,20 +761,59 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
-    public void CreateBillDetails(float id, float SanPham_id, float Tongtien, int soLuong) {
+
+    public List<BillDetails> getAllBillDetails() {
+        List<BillDetails> list = new ArrayList<>();
+        try {
+            String sql = "select * from HoaDonTong";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new BillDetails(rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getInt(3),
+                        rs.getFloat(4)
+                ));
+            }
+            ps.close();
+            conn.close();
+            rs.close();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public void CreateBillDetails(float id, float SanPham_id, int soLuong, float Tongtien) {
         try {
             String sql = "insert into HoaDonChiTiet Values(?,?,?,?)";
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setFloat(1, id);
             ps.setFloat(2, SanPham_id);
-            ps.setFloat(3, Tongtien);
-            ps.setInt(4, soLuong);
+            ps.setInt(3, soLuong);
+            ps.setFloat(4, Tongtien);
             ps.executeUpdate();
+            conn.close();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "Loi them bill");
         }
     }
+
+    public void DeleteOrderByGioHangTongId(float GHT_id) {
+        try {
+            String sql ="Delete from GioHangChiTiet where GioHangTong_ID = ?";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, GHT_id);
+            ps.executeUpdate();
+            conn.close();
+            ps.close();
+        } catch (Exception e) {
+        }
+    }
+
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
         //        try {
@@ -784,10 +845,9 @@ public class DAO {
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
         //        }
-        List<Bill> list = d.getAllBill();
-        for (Bill p : list) {
-            System.out.println(p.toString());
-        }
-
+//        List<Bill> list = d.getAllBill();
+//        for (Bill p : list) {
+//            System.out.println(p.toString());
+//        }
     }
 }

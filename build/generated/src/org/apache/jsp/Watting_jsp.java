@@ -216,10 +216,11 @@ public final class Watting_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                <a class=\"center\" href=\"index.jsp\">\n");
       out.write("                    <i class=\"fa fa-truck fa-5x\" aria-hidden=\"true\" style=\"color:orange;font-size:380px;\"></i>\n");
+      out.write("                    <h class=\"breadcrumb__text font-weight-bold\" style=\"font-size:35px;\" >Đơn hàng của bạn đang được xử lý...</h>\n");
+      out.write("                    \n");
       out.write("                </a>\n");
       out.write("               \n");
       out.write("                <a class=\"center\">\n");
-      out.write("                    <h class=\"breadcrumb__text font-weight-bold\" style=\"font-size:40px;\" >Đơn hàng của bạn đang được xử lý.</h>\n");
       out.write("                    <h class=\"breadcrumb__text font-weight-bold\" style=\"font-size:40px;\" >Bấm vào biểu tượng để quay lại trang chủ.</h>\n");
       out.write("                </a>\n");
       out.write("                \n");
