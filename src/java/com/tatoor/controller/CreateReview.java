@@ -53,13 +53,12 @@ public class CreateReview extends HttpServlet {
         List<Bill> lbill = dao.getAllBill();
         List<BillDetails> lbilld = dao.getAllBillDetails();
         boolean check = false;
-
         try {
             String url = "ProductDetail?sid=" + ProductID;
             for (int i = 0; i < lbilld.size(); i++) {
-                for (int j = 0; j < lbilld.size(); j++) {
-                    if (lbill.get(i).getId() == lbilld.get(j).getId()) {
-                        if (nguoidung_id == lbill.get(i).getNguoiDungid()) {
+                if (nguoidung_id == lbill.get(i).getNguoiDungid()) {
+                    for (int j = 0; j < lbilld.size(); j++) {
+                        if (lbill.get(i).getId() == lbilld.get(j).getId()) {
                             if (ProductID == lbilld.get(j).getSanPham_id()) {
                                 if (lbill.get(i).getDamua() == 1) {
                                     check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, lbill.get(i).getDamua(), 0, 1);
@@ -75,7 +74,7 @@ public class CreateReview extends HttpServlet {
                 response.sendRedirect(url);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "Nguyen");
         }
     }
 
