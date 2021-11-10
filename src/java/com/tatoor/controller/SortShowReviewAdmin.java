@@ -39,7 +39,7 @@ public class SortShowReviewAdmin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAO d = new DAO();
-        float count = 0, count1 = 0;
+        float count = 0, count1 = 0,count2=0;
         List<Review> review = d.getAllReview();
         List<User> user = d.getAllUser();
         List<Product> product = d.getAllProduct();
@@ -54,22 +54,32 @@ public class SortShowReviewAdmin extends HttpServlet {
             }
         }
         for (int i = 0; i < review.size(); i++) {
-            if (getsao >= review.get(i).getSao()) {
+            if (review.get(i).getSao() == 1) {
+                list1.add(review.get(i));
+            } else if (review.get(i).getSao() == 2) {
+                list1.add(review.get(i));
+            } else if (review.get(i).getSao() == 3) {
                 list1.add(review.get(i));
             } else {
                 list2.add(review.get(i));
             }
         }
-        if(getsao==3){
+        if (getsao == 3) {
             request.setAttribute("listreview", list1);
-        }else if (getsao==4){
+        } else if (getsao == 4) {
             request.setAttribute("listreview", list2);
+        }
+        for (int i = 0; i < review.size(); i++) {
+            if (review.get(i).getHienthi() == 0) {
+                count2 += 1;
+            }
         }
         request.setAttribute("tongdanhgia", review.size());
         request.setAttribute("listuser", user);
         request.setAttribute("listproduct", product);
         request.setAttribute("danhgiathap", count);
         request.setAttribute("danhgiacao", count1);
+        request.setAttribute("danhgiachuaduyet", count2);
         request.getRequestDispatcher("AdminReview.jsp").forward(request, response);
     }
 

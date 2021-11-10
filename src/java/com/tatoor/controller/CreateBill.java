@@ -8,6 +8,7 @@ package com.tatoor.controller;
 import com.tatoor.Dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,16 +35,27 @@ public class CreateBill extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         DAO dao = new DAO();
         String User = session.getAttribute("User").toString();
         float user_id = dao.getIDByUser(User).getId();
         String PhuongThucThanhToan = request.getParameter("PhuongThuc");
-        String tongBill = request.getParameter("tongBill");
+        String tongBill = request.getParameter("TongTienBill");
         float tongtienBill = Float.parseFloat(tongBill);
         String DiaChi = request.getParameter("DiaChi");
         int damua = 0;
-        
+        float ID = 0;
+        long millis = System.currentTimeMillis();
+        java.sql.Date NgayMua = new java.sql.Date(millis);
+        System.out.println(tongtienBill);
+        System.out.println(NgayMua);
+        for (int i = 0; i < dao.getAllBill().size(); i++) {
+            ID = dao.getAllBill().get(i).getId() + 1;
+        }
+        dao.AddAllBill(ID, user_id, DiaChi, tongtienBill, NgayMua, PhuongThucThanhToan, damua);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

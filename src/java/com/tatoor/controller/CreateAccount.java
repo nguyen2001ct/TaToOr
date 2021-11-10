@@ -50,14 +50,17 @@ public class CreateAccount extends HttpServlet {
         int loai = Integer.parseInt(session.getAttribute("loai").toString());
         try {
             DAO dao = new DAO();
-            float ID=0;
-            for(int i=0;i<dao.getAllUser().size();i++){
-                ID=dao.getAllUser().get(i).getId()+1;
+            float ID = 0;
+            for (int i = 0; i < dao.getAllUser().size(); i++) {
+                ID = dao.getAllUser().get(i).getId() + 1;
             }
             if (loai == 0) {
                 String repass = request.getParameter("repass");
                 if (!pass.equals(repass)) {
                     request.setAttribute("error5", "ko hop le");
+                    request.getRequestDispatcher("Register.jsp").forward(request, response);
+                }else if (taiKhoan.isEmpty() || pass.isEmpty() || ten.isEmpty() || gioitinh.isEmpty() || namsinh.isEmpty() || sdt.isEmpty()) {
+                    request.setAttribute("error5", "Vui lòng điền đầy đủ thông tin đăng ký!!!");
                     request.getRequestDispatcher("Register.jsp").forward(request, response);
                 } else {
                     boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);

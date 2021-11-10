@@ -38,7 +38,7 @@ public class ShowReview extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAO d = new DAO();
-        float count =0,count1=0;
+        float count =0,count1=0,count2=0;
         List<Review> review = d.getAllReview();
         List<User> user = d.getAllUser();
         List<Product> product = d.getAllProduct();
@@ -49,12 +49,18 @@ public class ShowReview extends HttpServlet {
                 count1+=1;
             }
         }
+         for(int i=0;i<review.size();i++){
+             if(review.get(i).getHienthi()==0){
+                 count2+=1;
+             }
+         }
         request.setAttribute("listreview", review);
         request.setAttribute("tongdanhgia", review.size());
         request.setAttribute("listuser", user);
         request.setAttribute("listproduct", product);
         request.setAttribute("danhgiathap", count);
         request.setAttribute("danhgiacao", count1);
+        request.setAttribute("danhgiachuaduyet", count2);
         request.getRequestDispatcher("AdminReview.jsp").forward(request, response);
     }
 

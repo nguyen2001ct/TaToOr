@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -129,9 +130,10 @@ public class DAO {
             System.err.println(e.getMessage());
         }
     }
-    public void AddUserToCart(float id,float user_id){
+
+    public void AddUserToCart(float id, float user_id) {
         try {
-            String sql="insert into GioHangTong Values(?,?)";
+            String sql = "insert into GioHangTong Values(?,?)";
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setFloat(1, id);
@@ -140,9 +142,10 @@ public class DAO {
             ps.close();
             conn.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage()+"loi them cart");
+            System.out.println(e.getMessage() + "loi them cart");
         }
     }
+
     public User getUserByID(float id) {
 
         String sql = "select * from NguoiDung where NguoiDung_ID = ? ";
@@ -702,6 +705,24 @@ public class DAO {
         } catch (Exception e) {
         }
         return list;
+    }
+
+    public void AddAllBill(float id, float Nd_id, String DiaChi, float TongBill, Date NgayMua, String Phuongthuc, int damua) {
+        try {
+            String sql = "insert into HoaDonTong Values(?,?,?,?,?,?,?)";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, id);
+            ps.setFloat(2, Nd_id);
+            ps.setString(3, DiaChi);
+            ps.setFloat(4, TongBill);
+            ps.setDate(5, (java.sql.Date) NgayMua);
+            ps.setString(6, Phuongthuc);
+            ps.setFloat(7, damua);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "Loi them bill");
+        }
     }
 
     public void setDonHangDaMua(float ID, int hienthi) {
