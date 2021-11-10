@@ -258,28 +258,7 @@ public class DAO {
         }
     }
 
-    public List<Product> getAllProduct() {
-        List<Product> list = new ArrayList<>();
-        ResultSet resultSet = DBConnection.querySet("select * from SanPham");
-        if (resultSet != null) {
-            try {
-                while (resultSet.next()) {
-                    list.add(new Product(
-                            resultSet.getFloat(1),
-                            resultSet.getString(2),
-                            resultSet.getFloat(3),
-                            resultSet.getString(4),
-                            resultSet.getString(5),
-                            resultSet.getInt(6),
-                            resultSet.getString(7)
-                    ));
-                }
-                resultSet.close();
-            } catch (Exception e) {
-            }
-        }
-        return list;
-    }
+   
 
     public int getTotalUser() {
         String query = "select count(*) from NguoiDung";
@@ -322,10 +301,35 @@ public class DAO {
         }
         return list;
     }
+//-------------------------------------------------------------------------------------------------------------------------------------      
 //-------------------------------------------------------------------------------------------------------------------------------------   
 //------------------------------------------------------PRODUCT------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------   
+//-------------------------------------------------------------------------------------------------------------------------------------   
 
+     public List<Product> getAllProduct() {
+        List<Product> list = new ArrayList<>();
+        ResultSet resultSet = DBConnection.querySet("select * from SanPham");
+        if (resultSet != null) {
+            try {
+                while (resultSet.next()) {
+                    list.add(new Product(
+                            resultSet.getFloat(1),
+                            resultSet.getString(2),
+                            resultSet.getFloat(3),
+                            resultSet.getString(4),
+                            resultSet.getString(5),
+                            resultSet.getInt(6),
+                            resultSet.getString(7)
+                    ));
+                }
+                resultSet.close();
+            } catch (Exception e) {
+            }
+        }
+        return list;
+    }
+     
     public boolean CreateProduct(float ID, String Ten, float GiaTien, String ThuocTinh, String Mota, int danhgia, String Anh) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
