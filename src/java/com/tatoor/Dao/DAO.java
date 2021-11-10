@@ -280,7 +280,50 @@ public class DAO {
         }
         return list;
     }
+    public int getTotalUser() {
+        String query = "select count(*) from NguoiDung";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
 
+    public List<User> pagingUser(int index) {
+        List<User> list = new ArrayList<>();
+        String query = "select * from NguoiDung \n"
+                + "ORDER BY NguoiDung_ID\n"
+                + "OFFSET ? ROWS FETCH NEXT 10 ROWS ONLY;";
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, (index - 1) * 10);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new User(
+                        rs.getFloat(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------------   
+//------------------------------------------------------PRODUCT------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------   
     public boolean CreateProduct(float ID, String Ten, float GiaTien, String ThuocTinh, String Mota, int danhgia, String Anh) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;

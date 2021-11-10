@@ -35,9 +35,24 @@ public class ShowUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+
         DAO dao = new DAO();
-        List<User> l1 = dao.getAllUser();
+        int count = dao.getTotalUser();
+        int endPage = count / 10;
+        if (count % 10 != 0) {
+            endPage++;
+        }
+
+        List<User> l1 = dao.pagingUser(index);
         request.setAttribute("user", l1);
+        request.setAttribute("endP", endPage);
+        request.setAttribute("tag", index);
+
         request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
     }
 
