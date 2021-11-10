@@ -222,13 +222,15 @@
                                             <td><span class="badge badge-danger">${showBill.damua}</span></td>
                                             <td class="table-elipse" data-toggle="collapse" data-target="#demo-${count}"><i class="fa fa-ellipsis-h text-black-50"></i></td>
                                         </tr>
+                                        <c:forEach var="ShowDetails" items="${BillDetail}">
                                         <tr id="demo-${count}" class="collapse cell-1 row-child">
                                             <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
                                             <td colspan="1">tên sản phẩm:</td>
-                                            <td colspan="3">iphone SX with ratina display</td>
+                                            <td colspan="2">${ShowDetails.id}</td>
                                             <td colspan="1">Số lượng:</td>
-                                            <td colspan="2">2</td>
+                                            <td colspan="1">${ShowDetails.soLuong}</td>
                                         </tr>
+                                        </c:forEach>
                                         <c:set var="count" value="${count+1}"/>
                                     </c:forEach>
 <!--                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">

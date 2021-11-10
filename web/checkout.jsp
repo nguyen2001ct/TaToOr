@@ -345,10 +345,6 @@
                                 <tbody>
                                     <c:forEach var="showOrder" items="${listOr}">
                                             <tr>
-                                                <td></td>
-                                                <td><h3>${Rong}</h3></td>
-                                            </tr>
-                                            <tr>
                                                 <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
                                                 <td class="text-left">
                                                     <h3>${showOrder.product.ten}</h3></td>
