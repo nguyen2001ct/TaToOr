@@ -8,6 +8,7 @@ package com.tatoor.Dao;
 import com.tatoor.connect.DBConnection;
 import static com.tatoor.connect.DBConnection.querySet;
 import com.tatoor.entity.Bill;
+import com.tatoor.entity.BillDetails;
 import com.tatoor.entity.Order;
 import com.tatoor.entity.OrderAll;
 import com.tatoor.entity.Product;
@@ -683,10 +684,10 @@ public class DAO {
         return false;
     }
 
-    public List<OrderAll> getDonHangTong() {
+    public List<OrderAll> getOrderAll() {
         List<OrderAll> list = new ArrayList<>();
         try {
-            String sql = "select * from DonHangTong";
+            String sql = "select * from GioHangTong";
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -760,7 +761,27 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
-
+    public List<BillDetails> getAllBillDetails() {
+        List<BillDetails> list = new ArrayList<>();
+        try {
+            String sql = "select * from HoaDonTong";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new BillDetails(rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getFloat(3),
+                        rs.getInt(4)
+                ));
+            }
+            ps.close();
+            conn.close();
+            rs.close();
+        } catch (Exception e) {
+        }
+        return list;
+    }
     public void CreateBillDetails(float id, float SanPham_id, float Tongtien, int soLuong) {
         try {
             String sql = "insert into HoaDonChiTiet Values(?,?,?,?)";
