@@ -41,16 +41,15 @@ public class UpdateReview extends HttpServlet {
             int type = Integer.parseInt(request.getParameter("anhien"));
             d.setReviewtype(id, type);
             response.sendRedirect("ShowReview");
-        }else if (Float.parseFloat(session.getAttribute("loai").toString()) == 0){
+        } else if (Float.parseFloat(session.getAttribute("loai").toString()) == 0) {
             float id = Float.parseFloat(request.getParameter("id"));
             float spid = Float.parseFloat(request.getParameter("sid"));
             String anh = request.getParameter("danhgiaanh");
             String binhluan = request.getParameter("danhgiabinhluan");
             int sao = Integer.parseInt(request.getParameter("danhgiasao"));
-            d.editReview(id, anh, binhluan,sao,0);
-            response.sendRedirect("ProductDetail?sid="+spid);
+            d.editReview(id, anh, binhluan, sao, 0);
+            response.sendRedirect("ProductDetail?sid=" + spid);
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

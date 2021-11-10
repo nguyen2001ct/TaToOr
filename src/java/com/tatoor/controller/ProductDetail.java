@@ -55,6 +55,7 @@ public class ProductDetail extends HttpServlet {
         if (id_user == 0) {
             request.setAttribute("checkdanhgia", 1);
         } else {
+            request.setAttribute("checkdanhgia", 0);
             for (int i = 0; i < review.size(); i++) {
                 if (id_user != review.get(i).getNguoidung_id()) {
                     request.setAttribute("checkdanhgia", 0);
@@ -66,16 +67,16 @@ public class ProductDetail extends HttpServlet {
                         request.setAttribute("nguoidung_danhgia_sao", review.get(i).getSao());
                         request.setAttribute("nguoidung_danhgia_binhluan", review.get(i).getBinhluan());
                         if (review.get(i).getSua() == 1) {
-                            
+
                             request.setAttribute("suadanhgia", 1);
                             request.setAttribute("checkdanhgia", 1);
                         } else {
                             request.setAttribute("suadanhgia", 0);
                             request.setAttribute("checkdanhgia", 1);
                         }
-                        if(review.get(i).getHienthi()==0){
+                        if (review.get(i).getHienthi() == 0) {
                             request.setAttribute("danhgiatrangthai", "Đánh giá của bạn chưa được duyệt!!!");
-                        }else{
+                        } else {
                             request.setAttribute("danhgiatrangthai2", "Đánh giá của bạn đã được duyệt!!!");
                         }
                         break;

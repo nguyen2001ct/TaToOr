@@ -40,7 +40,8 @@ public class ShowBillDetail extends HttpServlet {
         DAO dao = new DAO();
         String user = session.getAttribute("User").toString();
         float user_id = dao.getIDByUser(user).getId();
-        List<Order> list = dao.ge
+        
+        List<Order> list;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
