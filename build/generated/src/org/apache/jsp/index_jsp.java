@@ -169,7 +169,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"header__top__right\">\r\n");
       out.write("                                    <div class=\"header__top__right__cart\">\r\n");
-      out.write("                                        <a href=\"#\"><img src=\"img/icon/cart.png\" alt=\"\"> <span>0</span></a>\r\n");
+      out.write("                                        <a href=\"ShowBillDetail\"><img src=\"img/icon/cart.png\" alt=\"\"> <span>0</span></a>\r\n");
       out.write("                                        <div class=\"cart__price\">Cart: <span>$0.00</span></div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
@@ -189,7 +189,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <li><a href=\"#\">Tùy chọn</a>\r\n");
       out.write("                                    <ul class=\"dropdown\">\r\n");
       out.write("                                        <li><a href=\"./ShowOrder\">Giỏ Hàng</a></li>\r\n");
-      out.write("                                        <li><a href=\"./checkout.jsp\">Thanh Toán</a></li>\r\n");
+      out.write("                                        <li><a href=\"./ShowBill\">Thanh Toán</a></li>\r\n");
       out.write("                                    </ul>\r\n");
       out.write("                                </li>\r\n");
       out.write("                                <li><a href=\"./blog.jsp\">Thuyết Trình</a></li>\r\n");

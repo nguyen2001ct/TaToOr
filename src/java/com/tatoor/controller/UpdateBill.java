@@ -44,17 +44,16 @@ public class UpdateBill extends HttpServlet {
         List<Bill> lbill = dao.getAllBill();
         List<BillDetails> lbilld = dao.getAllBillDetails();
         List<Review> lreview = dao.getAllReview();
-        for (int i = 0; i < lbilld.size(); i++) {
-            for (int j = 0; j < lbilld.size(); j++) {
-                for (int k = 0; k < lreview.size(); k++) {
-                    if (lbill.get(i).getNguoiDungid() == lreview.get(k).getNguoidung_id()) {
-                        if (lbill.get(i).getId() == lbilld.get(j).getId()) {
-                            if (lbilld.get(j).getSanPham_id() == lreview.get(k).getSanpham_id()) {
+        for (int i = 0; i < lbill.size(); i++) {
+            for (int k = 0; k < lreview.size(); k++) {
+                if (lbill.get(i).getNguoiDungid() == lreview.get(k).getNguoidung_id()) {
+                    for (int d = 0; d < lbilld.size(); d++) {
+                        if (lbill.get(i).getId() == lbilld.get(d).getId()) {
+                            if (lbilld.get(d).getSanPham_id() == lreview.get(k).getSanpham_id()) {
                                 dao.setReviewDamua(lreview.get(k).getId(), type);
                             }
                         }
                     }
-
                 }
             }
         }
