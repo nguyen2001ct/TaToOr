@@ -52,7 +52,6 @@ public class CreateReview extends HttpServlet {
         }
         List<Bill> lbill = dao.getAllBill();
         List<BillDetails> lbilld = dao.getAllBillDetails();
-        System.out.println(lbill.size() + " " + lbilld.size() + " Nguyen");
         boolean check = false;
 
         try {
@@ -60,12 +59,10 @@ public class CreateReview extends HttpServlet {
             for (int i = 0; i < lbilld.size(); i++) {
                 for (int j = 0; j < lbilld.size(); j++) {
                     if (lbill.get(i).getId() == lbilld.get(j).getId()) {
-                        System.out.println(nguoidung_id + " " + lbill.get(i).getNguoiDungid());
                         if (nguoidung_id == lbill.get(i).getNguoiDungid()) {
                             if (ProductID == lbilld.get(j).getSanPham_id()) {
                                 if (lbill.get(i).getDamua() == 1) {
                                     check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, lbill.get(i).getDamua(), 0, 1);
-
                                 } else {
                                     System.out.println("elsene");
                                 }
