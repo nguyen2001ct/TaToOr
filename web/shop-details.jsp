@@ -283,21 +283,25 @@
                                                     <a><br> ${nguoidung_danhgia_sao} Sao!!!</a>
                                                 </div>
                                                 <div class="row d-flex justify-content-center">
-                                                        <h6 class="text-danger"> ${danhgiatrangthai}</h6>
-                                                        <h6 style="color: gray"> ${danhgiatrangthai2}</h6>
-                                                        <br>
-                                                    </div>
+                                                    <h6 class="text-danger"> ${danhgiatrangthai}</h6>
+                                                    <h6 style="color: gray"> ${danhgiatrangthai2}</h6>
+                                                    <br>
+                                                </div>
                                                 <div class="row d-flex justify-content-center">
                                                     <button  class="primary-btn" >Bạn Đã Hết Số Lần Sửa Đánh Giá</button>
                                                 </div>
                                             </div>
                                             </form>
+                                            
+                                            
                                         </c:if>
-
+                                        <div class="row d-flex justify-content-center">
+                                            <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
+                                            <h2 class="text-danger" > ${thongbaochuamua}</h2>
+                                        </div>
                                         <%-- Thêm đánh giá nếu chưa có đánh giá --%>
-                                        <p>Lưu ý: Bạn chỉ có thể mua hàng xong mới có thể đánh giá!!!</p><br>
-                                        <h1 class="text-danger" > ${thongbaochuamua}</h1>
-                                            <c:if test="${checkdanhgia==0}">
+
+                                        <c:if test="${checkdanhgia==0}">
                                             <form action="CreateReview?productid=${product.id}" method="post">
                                                 <div class="row d-flex justify-content-center">
                                                     <label>Số sao:
@@ -350,7 +354,7 @@
                                                                         <c:forEach begin="1" end="${review.sao}">
                                                                             <span class="icon_star"></span>
                                                                         </c:forEach>
-                                                                            <a><br> ${review.sao} Sao!!!</a>
+                                                                        <a><br> ${review.sao} Sao!!!</a>
                                                                     </div>
                                                                     <p>${review.binhluan}</p>
                                                                 </div>
@@ -398,10 +402,10 @@
                                             <div class="product__item__price" style="color: #009933"><fmt:formatNumber type="number" maxFractionDigits="0" value="${show.giatien}"></fmt:formatNumber>VNĐ</div>
                                                 <div class="cart_add">
                                                     <a href="AddToCartProduct?sid=${show.id}">Thêm vào giỏ hàng</a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                             </c:if>
                         </c:forEach>
                     </div>

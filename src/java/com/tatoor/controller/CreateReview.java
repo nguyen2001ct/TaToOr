@@ -52,25 +52,38 @@ public class CreateReview extends HttpServlet {
         }
         List<Bill> lbill = dao.getAllBill();
         List<BillDetails> lbilld = dao.getAllBillDetails();
-        boolean check = false;
+        int getdamua = 3;
+        int checkdamua = 0;
         try {
             String url = "ProductDetail?sid=" + ProductID;
-            for (int i = 0; i < lbilld.size(); i++) {
+            for (int i = 0; i < lbill.size(); i++) {
                 if (nguoidung_id == lbill.get(i).getNguoiDungid()) {
                     for (int j = 0; j < lbilld.size(); j++) {
                         if (lbill.get(i).getId() == lbilld.get(j).getId()) {
                             if (ProductID == lbilld.get(j).getSanPham_id()) {
                                 if (lbill.get(i).getDamua() == 1) {
-                                    check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, lbill.get(i).getDamua(), 0, 1);
+                                    getdamua = 1;
+                                    checkdamua = 1;
                                     break;
+                                }
+                            } else {
+                                if (checkdamua == 1) {
+                                    getdamua = 1;
+                                } else {
+                                    getdamua = 0;
                                 }
                             }
                         }
                     }
                 }
             }
-            if (check) {
+
+            if (getdamua == 1) {
+                boolean check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, getdamua, 0, 1);
                 response.sendRedirect(url);
+            } else if (getdamua == 0) {
+                request.setAttribute("thongbaochuamua", "Bạn chỉ mua hàng mới có thể đánh giá");
+                request.getRequestDispatcher(url).forward(request, response);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage() + "Nguyen");
