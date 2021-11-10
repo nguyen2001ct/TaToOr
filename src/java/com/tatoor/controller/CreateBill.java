@@ -73,7 +73,7 @@ public class CreateBill extends HttpServlet {
                 }
             }
             dao.AddAllBill(ID, user_id, DiaChi, tongtienBill, NgayMua, PhuongThucThanhToan, damua);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("Watting.jsp").forward(request, response);
         }
 
     }

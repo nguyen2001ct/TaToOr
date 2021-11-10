@@ -157,13 +157,13 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="breadcrumb__text">
-                            <h2>Shopping cart</h2>
+                            <h2>Giỏ hàng của bạn</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>Shopping cart</span>
+                            <a href="./index.jsp">Trang chủ</a>
+                            <span>Giỏ hàng</span>
                         </div>
                     </div>
                 </div>
@@ -181,9 +181,9 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
+                                            <th>Món ăn</th>
+                                            <th>Số lượng</th>
+                                            <th>Tổng cộng</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -236,7 +236,7 @@
                         <div class="cart__total">
                             <h6>Tổng tiền</h6>
                             <ul>
-                                <li>Tổng <span>${tongbill}</span></li>
+                                <li>Tổng <span><fmt:formatNumber type="number" maxFractionDigits="0" value="${tongbill}"></fmt:formatNumber>VNĐ</span></li>
                             </ul>
                             <a href="ShowBill" class="primary-btn">Thanh toán</a>
                         </div>

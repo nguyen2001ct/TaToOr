@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/src/java/com/tatoor/controller/CreateBill.java</file>
             <file>file:/E:/FPT/PRJ/Github/TaToOr/web/checkout.jsp</file>
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/contact.jsp</file>
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/Watting.jsp</file>
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/index.jsp</file>
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/blog.jsp</file>
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/shoping-cart.jsp</file>
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/src/java/com/tatoor/controller/ShowBill.java</file>
         </group>
     </open-files>
 </project-private>

@@ -19,7 +19,8 @@
         <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-        <title>Cake | Template</title>
+        <title>Thanh toán</title>
+        <link rel="ICON" href="./pictures/logo3.png" type="image/ico" />
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -81,7 +82,7 @@
             }
 
             .invoice main .thanks {
-                margin-top: -100px;
+
                 font-size: 2em;
                 margin-bottom: 50px;
             }
@@ -388,10 +389,8 @@
 
                                 </tfoot>
                             </table>
-
-
                         </main>
-                        <div class="thanks text-center">
+                        <div class="thanks text-center " style="margin-top:-60px;margin-right: -350px;"> 
                             <input type="submit" name="thanhtoan" value="Thanh toán">
                         </div>
                     </form>
