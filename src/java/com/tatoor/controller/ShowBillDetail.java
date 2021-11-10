@@ -8,6 +8,7 @@ package com.tatoor.controller;
 import com.tatoor.Dao.DAO;
 import com.tatoor.entity.Bill;
 import com.tatoor.entity.BillDetails;
+import com.tatoor.entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -43,11 +44,14 @@ public class ShowBillDetail extends HttpServlet {
         String user = session.getAttribute("User").toString();
         float user_id = dao.getIDByUser(user).getId();
         List<Bill> list = dao.getBillSumByUserID(user_id);
+        float HoaDon_ID = 0;
         for (int i = 0; i < list.size(); i++) {
-            float HoaDon_id = list.get(i).getId();
-            List<BillDetails> listDetail = dao.getBillDetailsByHoaDonID(HoaDon_id);
-            request.setAttribute("BillDetail", listDetail);
+            HoaDon_ID = list.get(i).getId();
+        List<BillDetails> listDetail = dao.getBillDetailsByHoaDonID(HoaDon_ID);
+        request.setAttribute("details", listDetail);
         }
+        List<Product> listpro = dao.getAllProduct();
+        request.setAttribute("product", listpro);
         request.setAttribute("BillSum", list);
         request.getRequestDispatcher("BillDetails.jsp").forward(request, response);
     }

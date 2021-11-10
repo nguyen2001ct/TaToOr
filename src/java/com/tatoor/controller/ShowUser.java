@@ -52,6 +52,7 @@ public class ShowUser extends HttpServlet {
         request.setAttribute("user", l1);
         request.setAttribute("endP", endPage);
         request.setAttribute("tag", index);
+        request.setAttribute("tong", count);
 
         request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
     }

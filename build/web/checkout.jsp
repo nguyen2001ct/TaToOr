@@ -382,7 +382,7 @@
                                 </tfoot>
                             </table>
                         </main>
-                        <div class="thanks text-center " style="margin-top:-60px;margin-right: -350px;"> 
+                        <div class="thanks text-center " style="margin-top:-60px;"> 
                             <input type="submit" name="thanhtoan" value="Thanh toán">
                         </div>
                     </form>

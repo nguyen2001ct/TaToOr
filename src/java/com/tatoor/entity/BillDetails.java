@@ -13,10 +13,10 @@ public class BillDetails {
     private float id,sanPham_id,tongtien;
     private int soLuong;
 
-    public BillDetails(float id, float SanPham_id, int soLuong, float Tongtien) {
+    public BillDetails(float id, float sanPham_id, int soLuong, float tongtien) {
         this.id = id;
-        this.sanPham_id = SanPham_id;
-        this.tongtien = Tongtien;
+        this.sanPham_id = sanPham_id;
+        this.tongtien = tongtien;
         this.soLuong = soLuong;
     }
 
@@ -32,16 +32,16 @@ public class BillDetails {
         return sanPham_id;
     }
 
-    public void setSanPham_id(float SanPham_id) {
-        this.sanPham_id = SanPham_id;
+    public void setSanPham_id(float sanPham_id) {
+        this.sanPham_id = sanPham_id;
     }
 
     public float getTongtien() {
         return tongtien;
     }
 
-    public void setTongtien(float Tongtien) {
-        this.tongtien = Tongtien;
+    public void setTongtien(float tongtien) {
+        this.tongtien = tongtien;
     }
 
     public int getSoLuong() {
