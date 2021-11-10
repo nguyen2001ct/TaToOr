@@ -234,12 +234,11 @@
                     <div class="col-lg-4">
 
                         <div class="cart__total">
-                            <h6>Cart total</h6>
+                            <h6>Tổng tiền</h6>
                             <ul>
-                                <li>Subtotal <span>$ 169.50</span></li>
-                                <li>Total <span>$ 169.50</span></li>
+                                <li>Tổng <span>${tongbill}</span></li>
                             </ul>
-                            <a href="ShowBill" class="primary-btn">Proceed to checkout</a>
+                            <a href="ShowBill" class="primary-btn">Thanh toán</a>
                         </div>
                     </div>
                 </div>

@@ -761,6 +761,7 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
+
     public List<BillDetails> getAllBillDetails() {
         List<BillDetails> list = new ArrayList<>();
         try {
@@ -773,7 +774,6 @@ public class DAO {
                         rs.getFloat(2),
                         rs.getInt(3),
                         rs.getFloat(4)
-                        
                 ));
             }
             ps.close();
@@ -783,6 +783,7 @@ public class DAO {
         }
         return list;
     }
+
     public void CreateBillDetails(float id, float SanPham_id, int soLuong, float Tongtien) {
         try {
             String sql = "insert into HoaDonChiTiet Values(?,?,?,?)";
@@ -790,11 +791,26 @@ public class DAO {
             ps = conn.prepareStatement(sql);
             ps.setFloat(1, id);
             ps.setFloat(2, SanPham_id);
-            ps.setFloat(3, Tongtien);
-            ps.setInt(4, soLuong);
+            ps.setInt(3, soLuong);
+            ps.setFloat(4, Tongtien);
             ps.executeUpdate();
+            conn.close();
+            ps.close();
         } catch (Exception e) {
             System.out.println(e.getMessage() + "Loi them bill");
+        }
+    }
+
+    public void DeleteOrderByGioHangTongId(float GHT_id) {
+        try {
+            String sql ="Delete from GioHangChiTiet where GioHangTong_ID = ?";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, GHT_id);
+            ps.executeUpdate();
+            conn.close();
+            ps.close();
+        } catch (Exception e) {
         }
     }
 
@@ -829,10 +845,9 @@ public class DAO {
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
         //        }
-        List<Bill> list = d.getAllBill();
-        for (Bill p : list) {
-            System.out.println(p.toString());
-        }
-
+//        List<Bill> list = d.getAllBill();
+//        for (Bill p : list) {
+//            System.out.println(p.toString());
+//        }
     }
 }

@@ -41,10 +41,8 @@ public class LogOutAccount extends HttpServlet {
                   session.removeAttribute("id");
                   session.removeAttribute("loai");
                   session.getAttributeNames();
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
-               
-               
+                request.getRequestDispatcher("Guest").forward(request, response);
+            }   
         }
     }
 
