@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -15,11 +17,9 @@
         <meta name="keywords" content="Cake, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-        <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-        <title>Thanh toán</title>
+
+        <title>Giỏ Hàng</title>
         <link rel="ICON" href="./pictures/logo3.png" type="image/ico" />
 
         <!-- Google Font -->
@@ -39,153 +39,43 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
         <style>
-            #invoice {
-                padding: 30px;
-            }
+            @import url('https://fonts.googleapis.com/css?family=Assistant');
 
-            .invoice {
-                position: relative;
-                background-color: #FFF;
-                min-height: 680px;
-                padding: 15px
-            }
-
-            .invoice .company-details {
-                text-align: right
-            }
-
-            .invoice .company-details .name {
-                margin-top: 0;
-                margin-bottom: 0
-            }
-
-            .invoice .contacts {
-                margin-bottom: 20px
-            }
-
-            .invoice .invoice-to {
-                text-align: left
-            }
-
-            .invoice .invoice-to .to {
-                margin-top: 0;
-                margin-bottom: 0
-            }
-
-            .invoice .invoice-details {
-                text-align: right
-            }
-
-            .invoice main {
-                padding-bottom: 50px
-            }
-
-            .invoice main .thanks {
-
-                font-size: 2em;
-                margin-bottom: 50px;
-            }
-
-            .invoice table {
-                width: 100%;
-                border-collapse: collapse;
-                border-spacing: 0;
-                margin-bottom: 20px
-            }
-
-            .invoice table td,
-            .invoice table th {
-                padding: 15px;
+            body {
                 background: #eee;
-                border-bottom: 1px solid #fff
+                font-family: Assistant, sans-serif
             }
 
-            .invoice table th {
-                white-space: nowrap;
-                font-weight: 400;
-                font-size: 16px
+            .cell-1 {
+                border-collapse: separate;
+                border-spacing: 0 4em;
+                background: #ffffff;
+                border-bottom: 5px solid transparent;
+                background-clip: padding-box;
+                cursor: pointer
             }
 
-            .invoice table td h3 {
-                margin: 0;
-                font-weight: 400;
-                color: #f08632;
-                font-size: 1.2em
+            thead {
+                background: #dddcdc
             }
 
-            .invoice table .qty,
-            .invoice table .total,
-            .invoice table .unit {
-                text-align: right;
-                font-size: 1.2em
+            .table-elipse {
+                cursor: pointer
             }
 
-            .invoice table .no {
-                color: #eee;
-                font-size: 1.6em;
-                background: white;
-                width: 150px;
-                height: 100px;
+            #demo {
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s 0.1s ease-in-out;
+                transition: all 0.3s ease-in-out
             }
 
-            .invoice table .unit {
-                background: #ddd
-            }
-
-            .invoice table .total {
-                background: #f08632;
-                color: #fff;
-            }
-
-            .invoice table tbody tr:last-child td {
-                border: none
-            }
-
-            .invoice table tfoot td {
-                background: 0 0;
-                border-bottom: none;
-                white-space: nowrap;
-                text-align: right;
-                padding: 10px 20px;
-                font-size: 1.2em;
-                border-top: 1px solid #aaa
-            }
-
-            .invoice table tfoot tr:first-child td {
-                border-top: none
-            }
-
-            .invoice table tfoot tr:last-child td {
-                color: #f08632;
-                font-size: 1.4em;
-                border-top: 1px solid #f08632
-            }
-
-            .invoice table tfoot tr td:first-child {
-                border: none
-            }
-            .thanks input{
-                margin-top: -50em;
-                margin-left: 1500px;
-                background-color:#f08632;
-                color: white;
-                width: 300px;
-                height: 50px;
-            }
-            .no img{
-                width: 150px;
-                height: 100px;
-            }
-            @media print {
-                .invoice {
-                    font-size: 11px!important;
-                    overflow: hidden!important
-                }
-                .invoice>div:last-child {
-                    page-break-before: always
-                }
-            }
+            .row-child {
+                background-color: #000;
+                color: #fff
+            }               
         </style>
     </head>
 
@@ -214,18 +104,6 @@
             <div id="mobile-menu-wrap"></div>
             <div class="offcanvas__option">
                 <ul>
-                    <li>USD <span class="arrow_carrot-down"></span>
-                        <ul>
-                            <li>EUR</li>
-                            <li>USD</li>
-                        </ul>
-                    </li>
-                    <li>ENG <span class="arrow_carrot-down"></span>
-                        <ul>
-                            <li>Spanish</li>
-                            <li>ENG</li>
-                        </ul>
-                    </li>
                     <li><a href="LoginForm.jsp"><img src="img/icon/login.png" alt="" height="25px" width="25px"> Login</a> <span class="arrow_carrot-down"></span>
                         <ul>
                             <li class="Login"><a href="LoginForm.jsp">Login</a></li>
@@ -277,10 +155,6 @@
                                     <a href="./index.html"><img src="img/logo.png" alt=""></a>
                                 </div>
                                 <div class="header__top__right">
-                                    <div class="header__top__right__links">
-                                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                                    </div>
                                     <div class="header__top__right__cart">
                                         <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                                         <div class="cart__price">Cart: <span>$0.00</span></div>
@@ -297,15 +171,15 @@
                     <div class="col-lg-12">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li ><a href="./index.jsp">Trang chủ</a></li>
+                                <li><a href="./index.jsp">Trang chủ</a></li>
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
-                                        <li><a href="./ShowOrder">Giỏ Hàng</a></li>
-                                        <li class="active"><a href="./checkout.jsp">Thanh Toán</a></li>
+                                        <li class="active"><a href="./ShowOrder">Giỏ Hàng</a></li>
+                                        <li><a href="./checkout.jsp">Thanh Toán</a></li>
                                     </ul>
                                 </li>
-                                <li ><a href="./blog.jsp">Thuyết Trình</a></li>
+                                <li><a href="./blog.jsp">Thuyết Trình</a></li>
                                 <li><a href="./contact.jsp">Liên Hệ</a></li>
                             </ul>
                         </nav>
@@ -313,88 +187,100 @@
                 </div>
             </div>
         </header>
+        <!-- Header Section End -->
 
-        <div id="invoice">
-            <div class="invoice overflow-auto">
-                <div style="min-width: 600px">
-                    <div class="breadcrumb__text">
-                        <h2 class="text-center">BILL ORDER</h2>
-                    </div>
-                    <form action="CreateBill" method="post">
-                        <main>
-                            <div class="col invoice-to">
-                                <div class="text-gray-light"><strong>Thông tin khách hàng:</strong></div>
-                                <h2 class="to">${name}</h2>
-                                <div class="email">${phone}</div>
-                                <div class="address">Địa chỉ: <input name="DiaChi" value="${address}"></div>
-                                <span style="color: red">${error}</span>
-                            </div>
-                            <div class="col invoice-details">
-                                <div class="date"><strong>Ngày thanh toán:</strong>${date}</div>
-                            </div>
-                            <table border="0" cellspacing="0" cellpadding="0">
+        <div class="breadcrumb__text">
+            <h2 style="text-align: center">Đơn hàng</h2>
+        </div>
+        <div class="container mt-5">
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-10">
+                    <div class="rounded">
+                        <div class="table-responsive table-borderless">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Ảnh</th>
-                                        <th class="text-left">Tên sản phẩm</th>
-                                        <th class="text-right">Giá tiền</th>
-                                        <th class="text-right">Số lượng</th>
-                                        <th class="text-right">Tổng tiền</th>
+                                        <th class="text-center">S. No.</th>
+                                        <th>Order #</th>
+                                        <th>Company name</th>
+                                        <th>status</th>
+                                        <th>Total</th>
+                                        <th>Created</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <c:forEach var="showOrder" items="${listOr}">
-                                            <tr>
-                                                <td></td>
-                                                <td><h3>${Rong}</h3></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
-                                                <td class="text-left">
-                                                    <h3>${showOrder.product.ten}</h3></td>
-                                                <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
-                                                <td class="qty">${showOrder.soLuong}</td>
-                                                <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
-                                                </tr>
-                                    </c:forEach>
+                                <tbody class="table-body">
+                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo">
+                                        <td class="text-center">1</td>
+                                        <td>#SO-13487</td>
+                                        <td>Gasper Antunes</td>
+                                        <td><span class="badge badge-danger">Fullfilled</span></td>
+                                        <td>$2674.00</td>
+                                        <td>Today</td>
+                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                    </tr>
+                                    <tr id="demo" class="collapse cell-1 row-child">
+                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                        <td colspan="1">Product&nbsp;</td>
+                                        <td colspan="3">iphone SX with ratina display</td>
+                                        <td colspan="1">QTY</td>
+                                        <td colspan="2">2</td>
+                                    </tr>
+                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">
+                                        <td class="text-center">2</td>
+                                        <td>#SO-13488</td>
+                                        <td>Tinder Steel</td>
+                                        <td><span class="badge badge-success">Fullfilled</span></td>
+                                        <td>$3664.00</td>
+                                        <td>Yesterday</td>
+                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                    </tr>
+                                    <tr id="demo-2" class="collapse cell-1 row-child">
+                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                        <td colspan="1">Product&nbsp;</td>
+                                        <td colspan="3">iphone SX with ratina display</td>
+                                        <td colspan="1">QTY</td>
+                                        <td colspan="2">2</td>
+                                    </tr>
+                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-3">
+                                        <td class="text-center">3</td>
+                                        <td>#SO-13489</td>
+                                        <td>Micro Steel</td>
+                                        <td><span class="badge badge-success">Placed</span></td>
+                                        <td>$2674.00</td>
+                                        <td>March 20, 2020</td>
+                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                    </tr>
+                                    <tr id="demo-3" class="collapse cell-1 row-child">
+                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                        <td colspan="1">Product&nbsp;</td>
+                                        <td colspan="3">iphone SX with ratina display</td>
+                                        <td colspan="1">QTY</td>
+                                        <td colspan="2">2</td>
+                                    </tr>
+                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-4">
+                                        <td class="text-center">4</td>
+                                        <td>#SO-13490</td>
+                                        <td>B Mobiles</td>
+                                        <td><span class="badge badge-success">Delivered</span></td>
+                                        <td>$4674.00</td>
+                                        <td>March 22, 2020</td>
+                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                    </tr>
+                                    <tr id="demo-4" class="collapse cell-1 row-child">
+                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                        <td colspan="1">Product&nbsp;</td>
+                                        <td colspan="3">iphone SX with ratina display</td>
+                                        <td colspan="1">QTY</td>
+                                        <td colspan="2">2</td>
+                                    </tr>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">
-                                            Phương thức thanh toán
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="PhuongThuc" value="Tiền mặt" checked="checked" id="Check1"/>
-                                            <label for="Check1"> Tiền mặt</label><i class="fas fa-money-bill-alt"></i>
-                                            <input type="radio" name="PhuongThuc" value="Card" id="check2"/>
-                                            <label for="check2">Credit Card</label> <i class="fab fa-apple-pay"></i>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">Phí ship</td>
-                                        <td>Free ship</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">Tổng thanh toán</td>
-                                        <td><input name="TongTienBill" value="${tongBill}" style="display: none"><fmt:formatNumber type="number" maxFractionDigits="0" value="${tongBill}"></fmt:formatNumber>VNĐ</td>
-                                    </tr>
-
-                                </tfoot>
                             </table>
-                        </main>
-                        <div class="thanks text-center " style="margin-top:-60px;margin-right: -350px;"> 
-                            <input type="submit" name="thanhtoan" value="Thanh toán">
                         </div>
-                    </form>
+                    </div>
                 </div>
-                <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
             </div>
         </div>
-        <!-- Checkout Section End -->
 
         <!-- Footer Section Begin -->
         <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">

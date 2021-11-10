@@ -11,7 +11,9 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -20,11 +22,15 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_if_test.release();
+    _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -64,7 +70,9 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta name=\"keywords\" content=\"Cake, unica, creative, html\">\r\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n");
       out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n");
-      out.write("                \r\n");
+      out.write("        \r\n");
+      out.write("        \r\n");
+      out.write("        \r\n");
       out.write("\r\n");
       out.write("        <title>Cake | Template</title>\r\n");
       out.write("\r\n");
@@ -85,6 +93,154 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"css/owl.carousel.min.css\" type=\"text/css\">\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"css/slicknav.min.css\" type=\"text/css\">\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"css/style.css\" type=\"text/css\">\r\n");
+      out.write("        <style>\r\n");
+      out.write("            #invoice {\r\n");
+      out.write("                padding: 30px;\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice {\r\n");
+      out.write("                position: relative;\r\n");
+      out.write("                background-color: #FFF;\r\n");
+      out.write("                min-height: 680px;\r\n");
+      out.write("                padding: 15px\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice .company-details {\r\n");
+      out.write("                text-align: right\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice .company-details .name {\r\n");
+      out.write("                margin-top: 0;\r\n");
+      out.write("                margin-bottom: 0\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice .contacts {\r\n");
+      out.write("                margin-bottom: 20px\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice .invoice-to {\r\n");
+      out.write("                text-align: left\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice .invoice-to .to {\r\n");
+      out.write("                margin-top: 0;\r\n");
+      out.write("                margin-bottom: 0\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice .invoice-details {\r\n");
+      out.write("                text-align: right\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice main {\r\n");
+      out.write("                padding-bottom: 50px\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice main .thanks {\r\n");
+      out.write("                margin-top: -100px;\r\n");
+      out.write("                font-size: 2em;\r\n");
+      out.write("                margin-bottom: 50px;\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table {\r\n");
+      out.write("                width: 100%;\r\n");
+      out.write("                border-collapse: collapse;\r\n");
+      out.write("                border-spacing: 0;\r\n");
+      out.write("                margin-bottom: 20px\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table td,\r\n");
+      out.write("            .invoice table th {\r\n");
+      out.write("                padding: 15px;\r\n");
+      out.write("                background: #eee;\r\n");
+      out.write("                border-bottom: 1px solid #fff\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table th {\r\n");
+      out.write("                white-space: nowrap;\r\n");
+      out.write("                font-weight: 400;\r\n");
+      out.write("                font-size: 16px\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table td h3 {\r\n");
+      out.write("                margin: 0;\r\n");
+      out.write("                font-weight: 400;\r\n");
+      out.write("                color: #f08632;\r\n");
+      out.write("                font-size: 1.2em\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table .qty,\r\n");
+      out.write("            .invoice table .total,\r\n");
+      out.write("            .invoice table .unit {\r\n");
+      out.write("                text-align: right;\r\n");
+      out.write("                font-size: 1.2em\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table .no {\r\n");
+      out.write("                color: #eee;\r\n");
+      out.write("                font-size: 1.6em;\r\n");
+      out.write("                background: white;\r\n");
+      out.write("                width: 150px;\r\n");
+      out.write("                height: 100px;\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table .unit {\r\n");
+      out.write("                background: #ddd\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table .total {\r\n");
+      out.write("                background: #f08632;\r\n");
+      out.write("                color: #fff;\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table tbody tr:last-child td {\r\n");
+      out.write("                border: none\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table tfoot td {\r\n");
+      out.write("                background: 0 0;\r\n");
+      out.write("                border-bottom: none;\r\n");
+      out.write("                white-space: nowrap;\r\n");
+      out.write("                text-align: right;\r\n");
+      out.write("                padding: 10px 20px;\r\n");
+      out.write("                font-size: 1.2em;\r\n");
+      out.write("                border-top: 1px solid #aaa\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table tfoot tr:first-child td {\r\n");
+      out.write("                border-top: none\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table tfoot tr:last-child td {\r\n");
+      out.write("                color: #f08632;\r\n");
+      out.write("                font-size: 1.4em;\r\n");
+      out.write("                border-top: 1px solid #f08632\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .invoice table tfoot tr td:first-child {\r\n");
+      out.write("                border: none\r\n");
+      out.write("            }\r\n");
+      out.write("            .thanks input{\r\n");
+      out.write("                margin-top: -50em;\r\n");
+      out.write("                margin-left: 1500px;\r\n");
+      out.write("                background-color:#f08632;\r\n");
+      out.write("                color: white;\r\n");
+      out.write("                width: 300px;\r\n");
+      out.write("                height: 50px;\r\n");
+      out.write("            }\r\n");
+      out.write("            .no img{\r\n");
+      out.write("                width: 150px;\r\n");
+      out.write("                height: 100px;\r\n");
+      out.write("            }\r\n");
+      out.write("            @media print {\r\n");
+      out.write("                .invoice {\r\n");
+      out.write("                    font-size: 11px!important;\r\n");
+      out.write("                    overflow: hidden!important\r\n");
+      out.write("                }\r\n");
+      out.write("                .invoice>div:last-child {\r\n");
+      out.write("                    page-break-before: always\r\n");
+      out.write("                }\r\n");
+      out.write("            }\r\n");
+      out.write("        </style>\r\n");
       out.write("    </head>\r\n");
       out.write("\r\n");
       out.write("    <body>\r\n");
@@ -200,13 +356,12 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"row\">\r\n");
       out.write("                    <div class=\"col-lg-12\">\r\n");
       out.write("                        <nav class=\"header__menu mobile-menu\">\r\n");
-      out.write("                           <ul>\r\n");
+      out.write("                            <ul>\r\n");
       out.write("                                <li ><a href=\"./index.jsp\">Trang chủ</a></li>\r\n");
       out.write("                                <li><a href=\"IndexProduct\">Chọn Món</a></li>\r\n");
       out.write("                                <li><a href=\"#\">Tùy chọn</a>\r\n");
       out.write("                                    <ul class=\"dropdown\">\r\n");
-      out.write("                                        <li><a href=\"./shop-details.jsp\">Thông Tin Sản Phẩm</a></li>\r\n");
-      out.write("                                        <li><a href=\"./shoping-cart.jsp\">Giỏ Hàng</a></li>\r\n");
+      out.write("                                        <li><a href=\"./ShowOrder\">Giỏ Hàng</a></li>\r\n");
       out.write("                                        <li class=\"active\"><a href=\"./checkout.jsp\">Thanh Toán</a></li>\r\n");
       out.write("                                    </ul>\r\n");
       out.write("                                </li>\r\n");
@@ -218,162 +373,98 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </header>\r\n");
-      out.write("        <!-- Header Section End -->\r\n");
       out.write("\r\n");
-      out.write("        <!-- Breadcrumb Begin -->\r\n");
-      out.write("        <div class=\"breadcrumb-option\">\r\n");
-      out.write("            <div class=\"container\">\r\n");
-      out.write("                <div class=\"row\">\r\n");
-      out.write("                    <div class=\"col-lg-6 col-md-6 col-sm-6\">\r\n");
-      out.write("                        <div class=\"breadcrumb__text\">\r\n");
-      out.write("                            <h2>Checkout</h2>\r\n");
-      out.write("                        </div>\r\n");
+      out.write("        <div id=\"invoice\">\r\n");
+      out.write("            <div class=\"invoice overflow-auto\">\r\n");
+      out.write("                <div style=\"min-width: 600px\">\r\n");
+      out.write("                    <div class=\"breadcrumb__text\">\r\n");
+      out.write("                        <h2 class=\"text-center\">BILL ORDER</h2>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                    <div class=\"col-lg-6 col-md-6 col-sm-6\">\r\n");
-      out.write("                        <div class=\"breadcrumb__links\">\r\n");
-      out.write("                            <a href=\"./index.html\">Home</a>\r\n");
-      out.write("                            <span>Checkout</span>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </div>\r\n");
-      out.write("        <!-- Breadcrumb End -->\r\n");
+      out.write("                    <form action=\"CreateBill\" method=\"post\">\r\n");
+      out.write("                        <main>\r\n");
+      out.write("                            <div class=\"col invoice-to\">\r\n");
+      out.write("                                <div class=\"text-gray-light\"><strong>Thông tin khách hàng:</strong></div>\r\n");
+      out.write("                                <h2 class=\"to\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</h2>\r\n");
+      out.write("                                <div class=\"email\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${phone}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</div>\r\n");
+      out.write("                                <div class=\"address\">Địa chỉ: <input name=\"DiaChi\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${address}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\"></div>\r\n");
+      out.write("                                <span style=\"color: red\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${error}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <div class=\"col invoice-details\">\r\n");
+      out.write("                                <div class=\"date\"><strong>Ngày thanh toán:</strong>");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${date}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</div>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n");
+      out.write("                                <thead>\r\n");
+      out.write("                                    <tr>\r\n");
+      out.write("                                        <th>Ảnh</th>\r\n");
+      out.write("                                        <th class=\"text-left\">Tên sản phẩm</th>\r\n");
+      out.write("                                        <th class=\"text-right\">Giá tiền</th>\r\n");
+      out.write("                                        <th class=\"text-right\">Số lượng</th>\r\n");
+      out.write("                                        <th class=\"text-right\">Tổng tiền</th>\r\n");
+      out.write("                                    </tr>\r\n");
+      out.write("                                </thead>\r\n");
+      out.write("                                <tbody>\r\n");
+      out.write("                                    ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("        <!-- Checkout Section Begin -->\r\n");
-      out.write("        <section class=\"checkout spad\">\r\n");
-      out.write("            <div class=\"container\">\r\n");
-      out.write("                <div class=\"checkout__form\">\r\n");
-      out.write("                    <form action=\"#\">\r\n");
-      out.write("                        <div class=\"row\">\r\n");
-      out.write("                            <div class=\"col-lg-8 col-md-6\">\r\n");
-      out.write("                                <h6 class=\"coupon__code\"><span class=\"icon_tag_alt\"></span> Have a coupon? <a href=\"#\">Click\r\n");
-      out.write("                                        here</a> to enter your code</h6>\r\n");
-      out.write("                                <h6 class=\"checkout__title\">Billing Details</h6>\r\n");
-      out.write("                                <div class=\"row\">\r\n");
-      out.write("                                    <div class=\"col-lg-6\">\r\n");
-      out.write("                                        <div class=\"checkout__input\">\r\n");
-      out.write("                                            <p>Fist Name<span>*</span></p>\r\n");
-      out.write("                                            <input type=\"text\">\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"col-lg-6\">\r\n");
-      out.write("                                        <div class=\"checkout__input\">\r\n");
-      out.write("                                            <p>Last Name<span>*</span></p>\r\n");
-      out.write("                                            <input type=\"text\">\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input\">\r\n");
-      out.write("                                    <p>Country<span>*</span></p>\r\n");
-      out.write("                                    <input type=\"text\">\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input\">\r\n");
-      out.write("                                    <p>Address<span>*</span></p>\r\n");
-      out.write("                                    <input type=\"text\" placeholder=\"Street Address\" class=\"checkout__input__add\">\r\n");
-      out.write("                                    <input type=\"text\" placeholder=\"Apartment, suite, unite ect (optinal)\">\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input\">\r\n");
-      out.write("                                    <p>Town/City<span>*</span></p>\r\n");
-      out.write("                                    <input type=\"text\">\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input\">\r\n");
-      out.write("                                    <p>Country/State<span>*</span></p>\r\n");
-      out.write("                                    <input type=\"text\">\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input\">\r\n");
-      out.write("                                    <p>Postcode / ZIP<span>*</span></p>\r\n");
-      out.write("                                    <input type=\"text\">\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"row\">\r\n");
-      out.write("                                    <div class=\"col-lg-6\">\r\n");
-      out.write("                                        <div class=\"checkout__input\">\r\n");
-      out.write("                                            <p>Phone<span>*</span></p>\r\n");
-      out.write("                                            <input type=\"text\">\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"col-lg-6\">\r\n");
-      out.write("                                        <div class=\"checkout__input\">\r\n");
-      out.write("                                            <p>Email<span>*</span></p>\r\n");
-      out.write("                                            <input type=\"text\">\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input__checkbox\">\r\n");
-      out.write("                                    <label for=\"acc\">\r\n");
-      out.write("                                        Create an account?\r\n");
-      out.write("                                        <input type=\"checkbox\" id=\"acc\">\r\n");
-      out.write("                                        <span class=\"checkmark\"></span>\r\n");
-      out.write("                                    </label>\r\n");
-      out.write("                                    <p>Create an account by entering the information below. If you are a returning customer\r\n");
-      out.write("                                        please login at the top of the page</p>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input\">\r\n");
-      out.write("                                    <p>Account Password<span>*</span></p>\r\n");
-      out.write("                                    <input type=\"text\">\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input__checkbox\">\r\n");
-      out.write("                                    <label for=\"diff-acc\">\r\n");
-      out.write("                                        Note about your order, e.g, special noe for delivery\r\n");
-      out.write("                                        <input type=\"checkbox\" id=\"diff-acc\">\r\n");
-      out.write("                                        <span class=\"checkmark\"></span>\r\n");
-      out.write("                                    </label>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"checkout__input\">\r\n");
-      out.write("                                    <p>Order notes<span>*</span></p>\r\n");
-      out.write("                                    <input type=\"text\"\r\n");
-      out.write("                                           placeholder=\"Notes about your order, e.g. special notes for delivery.\">\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-lg-4 col-md-6\">\r\n");
-      out.write("                                <div class=\"checkout__order\">\r\n");
-      out.write("                                    <h6 class=\"order__title\">Your order</h6>\r\n");
-      out.write("                                    <div class=\"checkout__order__products\">Product <span>Total</span></div>\r\n");
-      out.write("                                    <ul class=\"checkout__total__products\">\r\n");
-      out.write("                                        <li><samp>01.</samp> Vanilla salted caramel <span>$ 300.0</span></li>\r\n");
-      out.write("                                        <li><samp>02.</samp> German chocolate <span>$ 170.0</span></li>\r\n");
-      out.write("                                        <li><samp>03.</samp> Sweet autumn <span>$ 170.0</span></li>\r\n");
-      out.write("                                        <li><samp>04.</samp> Cluten free mini dozen <span>$ 110.0</span></li>\r\n");
-      out.write("                                    </ul>\r\n");
-      out.write("                                    <ul class=\"checkout__total__all\">\r\n");
-      out.write("                                        <li>Subtotal <span>$750.99</span></li>\r\n");
-      out.write("                                        <li>Total <span>$750.99</span></li>\r\n");
-      out.write("                                    </ul>\r\n");
-      out.write("                                    <div class=\"checkout__input__checkbox\">\r\n");
-      out.write("                                        <label for=\"acc-or\">\r\n");
-      out.write("                                            Create an account?\r\n");
-      out.write("                                            <input type=\"checkbox\" id=\"acc-or\">\r\n");
-      out.write("                                            <span class=\"checkmark\"></span>\r\n");
-      out.write("                                        </label>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt\r\n");
-      out.write("                                        ut labore et dolore magna aliqua.</p>\r\n");
-      out.write("                                    <div class=\"checkout__input__checkbox\">\r\n");
-      out.write("                                        <label for=\"payment\">\r\n");
-      out.write("                                            Check Payment\r\n");
-      out.write("                                            <input type=\"checkbox\" id=\"payment\">\r\n");
-      out.write("                                            <span class=\"checkmark\"></span>\r\n");
-      out.write("                                        </label>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"checkout__input__checkbox\">\r\n");
-      out.write("                                        <label for=\"paypal\">\r\n");
-      out.write("                                            Paypal\r\n");
-      out.write("                                            <input type=\"checkbox\" id=\"paypal\">\r\n");
-      out.write("                                            <span class=\"checkmark\"></span>\r\n");
-      out.write("                                        </label>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <button type=\"submit\" class=\"site-btn\">PLACE ORDER</button>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
+      out.write("                                </tbody>\r\n");
+      out.write("                                <tfoot>\r\n");
+      out.write("                                    <tr>\r\n");
+      out.write("                                        <td colspan=\"2\"></td>\r\n");
+      out.write("                                        <td colspan=\"2\">\r\n");
+      out.write("                                            Phương thức thanh toán\r\n");
+      out.write("                                        </td>\r\n");
+      out.write("                                        <td>\r\n");
+      out.write("                                            <input type=\"radio\" name=\"PhuongThuc\" value=\"Tiền mặt\" checked=\"checked\" id=\"Check1\"/>\r\n");
+      out.write("                                            <label for=\"Check1\"> Tiền mặt</label><i class=\"fas fa-money-bill-alt\"></i>\r\n");
+      out.write("                                            <input type=\"radio\" name=\"PhuongThuc\" value=\"Card\" id=\"check2\"/>\r\n");
+      out.write("                                            <label for=\"check2\">Credit Card</label> <i class=\"fab fa-apple-pay\"></i>\r\n");
+      out.write("\r\n");
+      out.write("                                        </td>\r\n");
+      out.write("                                    </tr>\r\n");
+      out.write("                                    <tr>\r\n");
+      out.write("                                        <td colspan=\"2\"></td>\r\n");
+      out.write("                                        <td colspan=\"2\">Phí ship</td>\r\n");
+      out.write("                                        <td>Free ship</td>\r\n");
+      out.write("                                    </tr>\r\n");
+      out.write("                                    <tr>\r\n");
+      out.write("                                        <td colspan=\"2\"></td>\r\n");
+      out.write("                                        <td colspan=\"2\">Tổng thanh toán</td>\r\n");
+      out.write("                                        <td><input name=\"TongTienBill\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tongBill}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" style=\"display: none\">");
+      if (_jspx_meth_fmt_formatNumber_2(_jspx_page_context))
+        return;
+      out.write("VNĐ</td>\r\n");
+      out.write("                                    </tr>\r\n");
+      out.write("\r\n");
+      out.write("                                </tfoot>\r\n");
+      out.write("                            </table>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                        </main>\r\n");
+      out.write("                        <div class=\"thanks text-center\">\r\n");
+      out.write("                            <input type=\"submit\" name=\"thanhtoan\" value=\"Thanh toán\">\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </form>\r\n");
       out.write("                </div>\r\n");
+      out.write("                <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->\r\n");
       out.write("            </div>\r\n");
-      out.write("        </section>\r\n");
+      out.write("        </div>\r\n");
       out.write("        <!-- Checkout Section End -->\r\n");
       out.write("\r\n");
       out.write("        <!-- Footer Section Begin -->\r\n");
-      out.write("       <footer class=\"footer set-bg\" data-setbg=\"img/footer-bg.jpg\">\r\n");
+      out.write("        <footer class=\"footer set-bg\" data-setbg=\"img/footer-bg.jpg\">\r\n");
       out.write("            <div class=\"container\">\r\n");
       out.write("                <div class=\"row\">\r\n");
       out.write("                    <div class=\"col-lg-4 col-md-6 col-sm-6\">\r\n");
@@ -647,6 +738,128 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setVar("showOrder");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listOr}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                            <tr>\r\n");
+          out.write("                                                <td></td>\r\n");
+          out.write("                                                <td><h3>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Rong}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h3></td>\r\n");
+          out.write("                                            </tr>\r\n");
+          out.write("                                            <tr>\r\n");
+          out.write("                                                <td class=\"no\" style=\"background-image: url('");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.product.anh}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("'); background-size: 100%;\"></td>\r\n");
+          out.write("                                                <td class=\"text-left\">\r\n");
+          out.write("                                                    <h3>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.product.ten}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h3></td>\r\n");
+          out.write("                                                <td class=\"unit\">");
+          if (_jspx_meth_fmt_formatNumber_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("VNĐ</td>\r\n");
+          out.write("                                                <td class=\"qty\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.soLuong}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                                <td class=\"total\">");
+          if (_jspx_meth_fmt_formatNumber_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("VNĐ</td>\r\n");
+          out.write("                                                </tr>\r\n");
+          out.write("                                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_formatNumber_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:formatNumber
+    org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_formatNumber_0 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
+    _jspx_th_fmt_formatNumber_0.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_formatNumber_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_fmt_formatNumber_0.setType("number");
+    _jspx_th_fmt_formatNumber_0.setMaxFractionDigits(0);
+    _jspx_th_fmt_formatNumber_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.product.giatien}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_fmt_formatNumber_0 = _jspx_th_fmt_formatNumber_0.doStartTag();
+    if (_jspx_th_fmt_formatNumber_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.reuse(_jspx_th_fmt_formatNumber_0);
+      return true;
+    }
+    _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.reuse(_jspx_th_fmt_formatNumber_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_formatNumber_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:formatNumber
+    org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_formatNumber_1 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
+    _jspx_th_fmt_formatNumber_1.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_formatNumber_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_fmt_formatNumber_1.setType("number");
+    _jspx_th_fmt_formatNumber_1.setMaxFractionDigits(0);
+    _jspx_th_fmt_formatNumber_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.tongTien}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_fmt_formatNumber_1 = _jspx_th_fmt_formatNumber_1.doStartTag();
+    if (_jspx_th_fmt_formatNumber_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.reuse(_jspx_th_fmt_formatNumber_1);
+      return true;
+    }
+    _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.reuse(_jspx_th_fmt_formatNumber_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_formatNumber_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:formatNumber
+    org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_formatNumber_2 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
+    _jspx_th_fmt_formatNumber_2.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_formatNumber_2.setParent(null);
+    _jspx_th_fmt_formatNumber_2.setType("number");
+    _jspx_th_fmt_formatNumber_2.setMaxFractionDigits(0);
+    _jspx_th_fmt_formatNumber_2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tongBill}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_fmt_formatNumber_2 = _jspx_th_fmt_formatNumber_2.doStartTag();
+    if (_jspx_th_fmt_formatNumber_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.reuse(_jspx_th_fmt_formatNumber_2);
+      return true;
+    }
+    _jspx_tagPool_fmt_formatNumber_value_type_maxFractionDigits_nobody.reuse(_jspx_th_fmt_formatNumber_2);
     return false;
   }
 }

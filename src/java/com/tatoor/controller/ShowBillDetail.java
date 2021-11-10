@@ -6,9 +6,6 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
-import com.tatoor.entity.Bill;
-import com.tatoor.entity.BillDetails;
-import com.tatoor.entity.Review;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,13 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author nguye
+ * @author MACBOOK PRO
  */
-@WebServlet(name = "UpdateBill", urlPatterns = {"/UpdateBill"})
-public class UpdateBill extends HttpServlet {
+@WebServlet(name = "ShowBillDetail", urlPatterns = {"/ShowBillDetail"})
+public class ShowBillDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,28 +35,13 @@ public class UpdateBill extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        float id = Float.parseFloat(request.getParameter("id"));
-        int type = Integer.parseInt(request.getParameter("trangthaimuahang"));
+        request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
         DAO dao = new DAO();
-        dao.setDonHangDaMua(id, type);
-        List<Bill> lbill = dao.getAllBill();
-        List<BillDetails> lbilld = dao.getAllBillDetails();
-        List<Review> lreview = dao.getAllReview();
-        for (int i = 0; i < lbilld.size(); i++) {
-            for (int j = 0; j < lbilld.size(); j++) {
-                for (int k = 0; k < lreview.size(); k++) {
-                    if (lbill.get(i).getNguoiDungid() == lreview.get(k).getNguoidung_id()) {
-                        if (lbill.get(i).getId() == lbilld.get(j).getId()) {
-                            if (lbilld.get(j).getSanPham_id() == lreview.get(k).getSanpham_id()) {
-                                dao.setReviewDamua(lreview.get(k).getId(), type);
-                            }
-                        }
-                    }
-
-                }
-            }
-        }
-        response.sendRedirect("ShowBillAdmin");
+        String user = session.getAttribute("User").toString();
+        float user_id = dao.getIDByUser(user).getId();
+        
+        List<Order> list;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

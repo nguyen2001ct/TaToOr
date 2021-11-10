@@ -518,6 +518,21 @@ public class DAO {
         }
     }
 
+    public void setReviewDamua(float ID, int damua) {
+        String sql = "UPDATE DanhGia SET DonHang_DaMua = ? WHERE DanhGia_ID = ? ";
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, damua);
+            ps.setFloat(2, ID);
+            ps.execute();
+            con.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public boolean AddOrder(float ID, float GioHangTong_ID, float SanPham_ID, int SoLuong, float TongTien) {
         String sql = "INSERT INTO GioHangChiTiet VALUES (?,?,?,?,?);";
         try {
@@ -765,7 +780,7 @@ public class DAO {
     public List<BillDetails> getAllBillDetails() {
         List<BillDetails> list = new ArrayList<>();
         try {
-            String sql = "select * from HoaDonTong";
+            String sql = "select * from HoaDonChiTiet";
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -803,7 +818,7 @@ public class DAO {
 
     public void DeleteOrderByGioHangTongId(float GHT_id) {
         try {
-            String sql ="Delete from GioHangChiTiet where GioHangTong_ID = ?";
+            String sql = "Delete from GioHangChiTiet where GioHangTong_ID = ?";
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setFloat(1, GHT_id);
@@ -849,5 +864,7 @@ public class DAO {
 //        for (Bill p : list) {
 //            System.out.println(p.toString());
 //        }
+        List<BillDetails> nguyen = d.getAllBillDetails();
+        System.out.println(nguyen.size());
     }
 }

@@ -167,10 +167,10 @@
             }
             .thanks input{
                 margin-top: -50em;
-                margin-left: 1200px;
+                margin-left: 1500px;
                 background-color:#f08632;
                 color: white;
-                width: 200px;
+                width: 300px;
                 height: 50px;
             }
             .no img{
@@ -344,13 +344,10 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach var="showOrder" items="${listOr}">
-                                        <c:if var="test" test="${showOrder == null}">
                                             <tr>
                                                 <td></td>
-                                                <td><h3>Chưa có sản phẩm</h3></td>
+                                                <td><h3>${Rong}</h3></td>
                                             </tr>
-                                        </c:if>
-                                        <c:if var="testshow" test="${showOrder != null}">
                                             <tr>
                                                 <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
                                                 <td class="text-left">
@@ -359,7 +356,6 @@
                                                 <td class="qty">${showOrder.soLuong}</td>
                                                 <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
                                                 </tr>
-                                        </c:if>
                                     </c:forEach>
                                 </tbody>
                                 <tfoot>

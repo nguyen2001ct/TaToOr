@@ -55,9 +55,7 @@ public class CheckShowUser implements Filter {
         if (url.contains("ShowUser") && loai == 0) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else if (url.contains("ShowUser") && loai == 1) {
-            List<User> l1 = dao.getAllUser();
-            request.setAttribute("user", l1);
-            request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
+            request.getRequestDispatcher("ShowUser").forward(request, response);
         }
         // Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
