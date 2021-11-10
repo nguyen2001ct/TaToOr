@@ -326,6 +326,7 @@
                                 <h2 class="to">${name}</h2>
                                 <div class="email">${phone}</div>
                                 <div class="address">Địa chỉ: <input name="DiaChi" value="${address}"></div>
+                                <span style="color: red">${error}</span>
                             </div>
                             <div class="col invoice-details">
                                 <div class="date"><strong>Ngày thanh toán:</strong>${date}</div>
@@ -342,14 +343,22 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach var="showOrder" items="${listOr}">
-                                        <tr>
-                                            <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
-                                            <td class="text-left">
-                                                <h3>${showOrder.product.ten}</h3></td>
-                                            <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
-                                            <td class="qty">${showOrder.soLuong}</td>
-                                            <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
+                                        <c:if var="test" test="${showOrder == null}">
+                                            <tr>
+                                                <td></td>
+                                                <td><h3>Chưa có sản phẩm</h3></td>
                                             </tr>
+                                        </c:if>
+                                        <c:if var="testshow" test="${showOrder != null}">
+                                            <tr>
+                                                <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
+                                                <td class="text-left">
+                                                    <h3>${showOrder.product.ten}</h3></td>
+                                                <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
+                                                <td class="qty">${showOrder.soLuong}</td>
+                                                <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
+                                                </tr>
+                                        </c:if>
                                     </c:forEach>
                                 </tbody>
                                 <tfoot>
