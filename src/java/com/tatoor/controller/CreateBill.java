@@ -24,8 +24,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author MACBOOK PRO
  */
-@WebServlet(name = "CreateBill2", urlPatterns = {"/CreateBill2"})
-public class CreateBill2 extends HttpServlet {
+@WebServlet(name = "CreateBill", urlPatterns = {"/CreateBill"})
+public class CreateBill extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
