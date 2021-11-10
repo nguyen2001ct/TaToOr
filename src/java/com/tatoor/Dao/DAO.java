@@ -791,6 +791,33 @@ public class DAO {
         return list;
     }
 
+    public Bill getBillByID(float id) {
+        String sql = "select * from HoaDonTong where HoaDon_ID = ? ";
+
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setFloat(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Bill(rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getString(3),
+                        rs.getFloat(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+                );
+            }
+            con.close();
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
     public void AddAllBill(float id, float Nd_id, String DiaChi, float TongBill, Date NgayMua, String Phuongthuc, int damua) {
         try {
             String sql = "insert into HoaDonTong Values(?,?,?,?,?,?,?)";
