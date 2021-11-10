@@ -41,24 +41,24 @@ public class UpdateBill extends HttpServlet {
         int type = Integer.parseInt(request.getParameter("trangthaimuahang"));
         DAO dao = new DAO();
         dao.setDonHangDaMua(id, type);
-        List<Bill> lbill = dao.getAllBill();
         List<BillDetails> lbilld = dao.getAllBillDetails();
         List<Review> lreview = dao.getAllReview();
-        for (int i = 0; i < lbill.size(); i++) {
-            for (int k = 0; k < lreview.size(); k++) {
-                for (int d = 0; d < lbilld.size(); d++) {
-                    if (lbill.get(i).getId() == lbilld.get(d).getId()) {
-                        if (id == lbill.get(i).getId()) {
-                            if (lbill.get(i).getNguoiDungid() == lreview.get(k).getNguoidung_id()) {
-                                if (lbilld.get(d).getSanPham_id() == lreview.get(k).getSanpham_id()) {
-                                    dao.setReviewDamua(lreview.get(k).getId(), type);
-                                }
-                            }
+        Bill b = dao.getBillByID(id);
+        System.out.println(b.toString());
+        for (int i = 0; i < lbilld.size(); i++) {
+            if (b.getId() == lbilld.get(i).getId()) {
+                for (int j = 0; j < lreview.size(); j++) {
+                    if ((float)b.getNguoiDungid() == lreview.get(j).getNguoidung_id()) {
+                        if (lbilld.get(i).getSanPham_id() == lreview.get(j).getSanpham_id()) {
+                            dao.setReviewDamua(lreview.get(j).getId(), type);
+                            System.out.println(lreview.get(j).getId() + "" + type);
                         }
                     }
                 }
             }
+
         }
+
         response.sendRedirect("ShowBillAdmin");
     }
 
