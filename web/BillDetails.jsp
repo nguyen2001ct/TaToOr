@@ -39,6 +39,44 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Assistant');
+
+            body {
+                background: #eee;
+                font-family: Assistant, sans-serif
+            }
+
+            .cell-1 {
+                border-collapse: separate;
+                border-spacing: 0 4em;
+                background: #ffffff;
+                border-bottom: 5px solid transparent;
+                background-clip: padding-box;
+                cursor: pointer
+            }
+
+            thead {
+                background: #dddcdc
+            }
+
+            .table-elipse {
+                cursor: pointer
+            }
+
+            #demo {
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s 0.1s ease-in-out;
+                transition: all 0.3s ease-in-out
+            }
+
+            .row-child {
+                background-color: #000;
+                color: #fff
+            }               
+        </style>
     </head>
 
     <body>
@@ -151,100 +189,66 @@
         </header>
         <!-- Header Section End -->
 
-        <!-- Breadcrumb Begin -->
-        <div class="breadcrumb-option">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="breadcrumb__text">
-                            <h2>Shopping cart</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>Shopping cart</span>
+        <div class="breadcrumb__text">
+            <h2 style="text-align: center">Đơn hàng</h2>
+        </div>
+        <div class="container mt-5">
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-10">
+                    <div class="rounded">
+                        <div class="table-responsive table-borderless">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Mã đơn hàng</th>
+                                        <th>tên</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Trạng thái</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Ngày mua</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-body">
+                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo">
+                                        <td class="text-center">1</td>
+                                        <td>#SO-13487</td>
+                                        <td>Gasper Antunes</td>
+                                        <td><span class="badge badge-danger">Fullfilled</span></td>
+                                        <td>$2674.00</td>
+                                        <td>Today</td>
+                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                    </tr>
+                                    <tr id="demo" class="collapse cell-1 row-child">
+                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                        <td colspan="1">Product&nbsp;</td>
+                                        <td colspan="3">iphone SX with ratina display</td>
+                                        <td colspan="1">QTY</td>
+                                        <td colspan="2">2</td>
+                                    </tr>
+                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">
+                                        <td class="text-center">2</td>
+                                        <td>#SO-13488</td>
+                                        <td>Tinder Steel</td>
+                                        <td><span class="badge badge-success">Fullfilled</span></td>
+                                        <td>$3664.00</td>
+                                        <td>Yesterday</td>
+                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                    </tr>
+                                    <tr id="demo-2" class="collapse cell-1 row-child">
+                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                        <td colspan="1">Product&nbsp;</td>
+                                        <td colspan="3">iphone SX with ratina display</td>
+                                        <td colspan="1">QTY</td>
+                                        <td colspan="2">2</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Breadcrumb End -->
-
-        <!-- Shopping Cart Section Begin -->
-        <section class="shopping-cart spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <form action="UpdateShopingCart" method="post">
-                            <div class="shopping__cart__table">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:set var="count" value="0"/>
-                                        <c:forEach var="Order" items="${Orders}">
-                                            <tr>
-                                                <td class="product__cart__item">
-                                                    <div class="product__cart__item__pic">
-                                                        <img src="${Order.product.anh}" alt="">
-                                                        <h6>${Order.product.ten}</h6>
-                                                    </div>
-                                                    <div class="product__cart__item__text">
-                                                        <h5>${Order.product.giatien}</h5>
-                                                    </div>
-                                                </td>
-                                                <td class="quantity__item">
-                                                    <div class="quantity">
-                                                        <div class="pro-qty">
-                                                            <input type="text" value="${Order.soLuong}" name="SoluongSP${count}">
-                                                            <c:set var="count" value="${count+1}"/>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="cart__price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Order.tongTien}"></fmt:formatNumber>VNĐ</td>
-                                                <td class="cart__close">
-                                                    <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="continue__btn">
-                                        <a href="IndexProduct">Tiếp tục mua hàng</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="continue__btn update__btn">
-                                        <input type="submit" name="submit" value="Cập nhật giỏ hàng" class="primary-btn">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-4">
-
-                        <div class="cart__total">
-                            <h6>Tổng tiền</h6>
-                            <ul>
-                                <li>Tổng <span><fmt:formatNumber type="number" maxFractionDigits="0" value="${tongbill}"></fmt:formatNumber>VNĐ</span></li>
-                            </ul>
-                            <a href="ShowBill" class="primary-btn">Thanh toán</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Shopping Cart Section End -->
 
         <!-- Footer Section Begin -->
         <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">

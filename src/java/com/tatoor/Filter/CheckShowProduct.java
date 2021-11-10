@@ -55,9 +55,7 @@ public class CheckShowProduct implements Filter {
         if (url.endsWith("ShowProduct") && loai == 0) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else if (url.endsWith("ShowProduct") && loai == 1) {
-            List<Product> l1 = dao.getAllProduct();
-            request.setAttribute("product", l1);
-            request.getRequestDispatcher("AdminProduct.jsp").forward(request, response);
+            request.getRequestDispatcher("ShowProduct").forward(request, response);
         }
         // Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.

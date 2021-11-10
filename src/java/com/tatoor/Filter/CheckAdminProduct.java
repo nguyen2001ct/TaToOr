@@ -52,13 +52,11 @@ public class CheckAdminProduct implements Filter {
         String name = session.getAttribute("User").toString();
         String url = HttpRequest.getServletPath();
         int loai = dao.getIDByUser(name).getLoai();
-       if (url.endsWith("AdminProduct.jsp") && loai == 0) {
+        if (url.endsWith("AdminProduct.jsp") && loai == 0) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else if (url.endsWith("AdminProduct.jsp") && loai == 1) {
-            List<Product> l1 = dao.getAllProduct();
-            request.setAttribute("product", l1);
-            request.getRequestDispatcher("AdminProduct.jsp").forward(request, response);
-        } 
+            request.getRequestDispatcher("ShowProduct").forward(request, response);
+        }
 // Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
         // For example, a logging filter might log items on the request object,

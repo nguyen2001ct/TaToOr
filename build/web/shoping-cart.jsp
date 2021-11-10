@@ -236,7 +236,7 @@
                         <div class="cart__total">
                             <h6>Tổng tiền</h6>
                             <ul>
-                                <li>Tổng <span>${tongbill}</span></li>
+                                <li>Tổng <span><fmt:formatNumber type="number" maxFractionDigits="0" value="${tongbill}"></fmt:formatNumber>VNĐ</span></li>
                             </ul>
                             <a href="ShowBill" class="primary-btn">Thanh toán</a>
                         </div>
