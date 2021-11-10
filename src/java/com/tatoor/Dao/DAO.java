@@ -9,6 +9,7 @@ import com.tatoor.connect.DBConnection;
 import static com.tatoor.connect.DBConnection.querySet;
 import com.tatoor.entity.Bill;
 import com.tatoor.entity.Order;
+import com.tatoor.entity.OrderAll;
 import com.tatoor.entity.Product;
 import com.tatoor.entity.Review;
 import com.tatoor.entity.User;
@@ -682,6 +683,26 @@ public class DAO {
         return false;
     }
 
+    public List<OrderAll> getDonHangTong() {
+        List<OrderAll> list = new ArrayList<>();
+        try {
+            String sql = "select * from DonHangTong";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderAll(rs.getFloat(1),
+                        rs.getFloat(2)
+                ));
+            }
+            ps.close();
+            conn.close();
+            rs.close();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     public List<Bill> getAllBill() {
         List<Bill> list = new ArrayList<>();
         try {
@@ -739,6 +760,7 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
+
     public void CreateBillDetails(float id, float SanPham_id, float Tongtien, int soLuong) {
         try {
             String sql = "insert into HoaDonChiTiet Values(?,?,?,?)";
@@ -753,6 +775,7 @@ public class DAO {
             System.out.println(e.getMessage() + "Loi them bill");
         }
     }
+
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
         //        try {
