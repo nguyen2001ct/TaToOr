@@ -427,7 +427,7 @@
                                         Tổng Người Dùng
                                     </p>
                                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                        <c:out default="lỗi" value="${user.size()}"/>
+                                        <c:out default="lỗi" value="${tong}"/>
                                     </p>
                                 </div>
                             </div>
@@ -658,14 +658,40 @@
 
                             <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                                 <span class="flex items-center col-span-3">
-                                    Showing 21-30 of 100
+                                    Showing ${user.size()} of ${tong}
                                 </span>
                                 <span class="col-span-2"></span>
                                 <!-- Pagination -->
                                 <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                                    <c:forEach begin="1" end="${endP}" var="i">
-                                        <a style="${tag == i?"background-color: orange":""}" href="ShowUser?index=${i}">${i}</a>
-                                    </c:forEach>
+                                    <nav aria-label="Table navigation">
+                                        <ul class="inline-flex items-center">
+                                            <c:if test="${tag > 1}">
+                                                <li>
+                                                    <a href="ShowUser?index=${tag-1}">
+                                                        <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"aria-label="Previous">
+                                                            <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                                            <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd" ></path>
+                                                            </svg>
+                                                        </button></a>
+                                                </li>
+                                            </c:if>
+                                            <li>
+                                                <c:forEach begin="1" end="${endP}" var="i">
+                                                    <a style="${tag == i?"background-color: #7e3af2; border-radius: 3px;":""}" href="ShowUser?index=${i}"><button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">${i}</button></a>
+                                                    </c:forEach> 
+                                            </li>
+                                            <c:if test="${tag < endP}"> 
+                                                <li> 
+                                                    <a href="ShowUser?index=${tag+1}"><button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
+                                                            <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20" >
+                                                            <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"fill-rule="evenodd"></path>
+                                                            </svg>
+                                                        </button></i>
+                                                    </a>
+                                                </li>
+                                            </c:if>
+                                        </ul>
+                                    </nav>
                                 </span>
                             </div>
                         </div>
@@ -676,4 +702,5 @@
 </div>
 </body>
 </html>
+
 

@@ -35,10 +35,22 @@ public class ShowProduct extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
         DAO dao = new DAO();
-        List<Product> l1 = dao.getAllProduct();
-        request.setAttribute("product", l1);
+        int count = dao.getTotalProduct();
+        int endPage = count / 12;
+        if (count % 12 != 0) {
+            endPage++;
+        }
+        List<Product> ls = dao.pagingProduct(index);
+        request.setAttribute("endP", endPage);
+        request.setAttribute("tag", index);
+        request.setAttribute("product", ls);
+        request.setAttribute("tongP", count);
         request.getRequestDispatcher("AdminProduct.jsp").forward(request, response);
     }
 
