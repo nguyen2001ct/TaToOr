@@ -62,8 +62,7 @@ public class CreateReview extends HttpServlet {
                             if (ProductID == lbilld.get(j).getSanPham_id()) {
                                 if (lbill.get(i).getDamua() == 1) {
                                     check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, lbill.get(i).getDamua(), 0, 1);
-                                } else {
-                                    System.out.println("elsene");
+                                    break;
                                 }
                             }
                         }
