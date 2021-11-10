@@ -55,7 +55,8 @@ public class ShowBill extends HttpServlet {
             Tongtien = Tongtien + listOr.get(i).getTongTien();
         }
         request.setAttribute("tongBill", Tongtien);
-        Date date =java.util.Calendar.getInstance().getTime();
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
         request.setAttribute("date", date);
 
         request.getRequestDispatcher("checkout.jsp").forward(request, response);

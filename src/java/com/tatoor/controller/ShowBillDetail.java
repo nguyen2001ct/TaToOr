@@ -41,7 +41,9 @@ public class ShowBillDetail extends HttpServlet {
         DAO dao = new DAO();
         String user = session.getAttribute("User").toString();
         float user_id = dao.getIDByUser(user).getId();
-        List<Bill> list;
+        List<Bill> list = dao.getAllBill();
+        request.setAttribute("BillSum", list);
+        request.getRequestDispatcher("BillDetails.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -156,7 +156,7 @@
                                 </div>
                                 <div class="header__top__right">
                                     <div class="header__top__right__cart">
-                                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                        <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                                         <div class="cart__price">Cart: <span>$0.00</span></div>
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
                                         <li class="active"><a href="./ShowOrder">Giỏ Hàng</a></li>
-                                        <li><a href="./checkout.jsp">Thanh Toán</a></li>
+                                        <li><a href="./ShowBill">Thanh Toán</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="./blog.jsp">Thuyết Trình</a></li>
@@ -200,33 +200,38 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Mã đơn hàng</th>
-                                        <th>tên</th>
+                                        <th class="text-center">Ngày mua</th>
+                                        <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
-                                        <th>Trạng thái</th>
+                                        <th>Phương thức thanh toán</th>
                                         <th>Tổng tiền</th>
-                                        <th>Ngày mua</th>
+                                        <th>Trạng thái</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-body">
-                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo">
-                                        <td class="text-center">1</td>
-                                        <td>#SO-13487</td>
-                                        <td>Gasper Antunes</td>
-                                        <td><span class="badge badge-danger">Fullfilled</span></td>
-                                        <td>$2674.00</td>
-                                        <td>Today</td>
-                                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fa fa-ellipsis-h text-black-50"></i></td>
-                                    </tr>
-                                    <tr id="demo" class="collapse cell-1 row-child">
-                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
-                                        <td colspan="1">Product&nbsp;</td>
-                                        <td colspan="3">iphone SX with ratina display</td>
-                                        <td colspan="1">QTY</td>
-                                        <td colspan="2">2</td>
-                                    </tr>
-                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">
+                                    <c:set var="count" value="1"/>
+                                    <c:forEach var="showBill" items="${BillSum}">
+                                    <c
+                                        <tr class="cell-1" data-toggle="collapse" data-target="#demo-${count}">
+                                            <td class="text-center">${showBill.ngaymua}</td>
+                                            <td>#SO-13487</td>
+                                            <td>${showBill.diachi}</td>
+                                            <td>${showBill.phuongthuc}</td>
+                                            <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${showBill.tongtien}"></fmt:formatNumber>VNĐ</td>
+                                            <td><span class="badge badge-danger">${showBill.damua}</span></td>
+                                            <td class="table-elipse" data-toggle="collapse" data-target="#demo-${count}"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                        </tr>
+                                        <tr id="demo-${count}" class="collapse cell-1 row-child">
+                                            <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                            <td colspan="1">tên sản phẩm:</td>
+                                            <td colspan="3">iphone SX with ratina display</td>
+                                            <td colspan="1">Số lượng:</td>
+                                            <td colspan="2">2</td>
+                                        </tr>
+                                        <c:set var="count" value="${count+1}"/>
+                                    </c:forEach>
+<!--                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">
                                         <td class="text-center">2</td>
                                         <td>#SO-13488</td>
                                         <td>Tinder Steel</td>
@@ -241,8 +246,8 @@
                                         <td colspan="3">iphone SX with ratina display</td>
                                         <td colspan="1">QTY</td>
                                         <td colspan="2">2</td>
-                                    </tr>
-                                </tbody>
+                                    </tr>-->
+                                    </tbody>
                             </table>
                         </div>
                     </div>
