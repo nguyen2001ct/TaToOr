@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="header__top__right">
                                     <div class="header__top__right__cart">
-                                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                        <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                                         <div class="cart__price">Cart: <span>$0.00</span></div>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
                                         <li class="active"><a href="./ShowOrder">Giỏ Hàng</a></li>
-                                        <li><a href="./checkout.jsp">Thanh Toán</a></li>
+                                        <li><a href="./ShowBill">Thanh Toán</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="./blog.jsp">Thuyết Trình</a></li>
@@ -157,13 +157,13 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="breadcrumb__text">
-                            <h2>Shopping cart</h2>
+                            <h2>Giỏ hàng của bạn</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>Shopping cart</span>
+                            <a href="./index.jsp">Trang chủ</a>
+                            <span>Giỏ hàng</span>
                         </div>
                     </div>
                 </div>
@@ -181,9 +181,9 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
+                                            <th>Món ăn</th>
+                                            <th>Số lượng</th>
+                                            <th>Tổng cộng</th>
                                             <th></th>
                                         </tr>
                                     </thead>

@@ -19,7 +19,8 @@
         <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-        <title>Cake | Template</title>
+        <title>Thanh toán</title>
+        <link rel="ICON" href="./pictures/logo3.png" type="image/ico" />
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -81,7 +82,7 @@
             }
 
             .invoice main .thanks {
-                margin-top: -100px;
+
                 font-size: 2em;
                 margin-bottom: 50px;
             }
@@ -281,7 +282,7 @@
                                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
                                     </div>
                                     <div class="header__top__right__cart">
-                                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                                        <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                                         <div class="cart__price">Cart: <span>$0.00</span></div>
                                     </div>
                                 </div>
@@ -301,7 +302,7 @@
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
                                         <li><a href="./ShowOrder">Giỏ Hàng</a></li>
-                                        <li class="active"><a href="./checkout.jsp">Thanh Toán</a></li>
+                                        <li class="active"><a href="./ShowBill">Thanh Toán</a></li>
                                     </ul>
                                 </li>
                                 <li ><a href="./blog.jsp">Thuyết Trình</a></li>
@@ -384,10 +385,8 @@
 
                                 </tfoot>
                             </table>
-
-
                         </main>
-                        <div class="thanks text-center">
+                        <div class="thanks text-center " style="margin-top:-60px;margin-right: -350px;"> 
                             <input type="submit" name="thanhtoan" value="Thanh toán">
                         </div>
                     </form>

@@ -176,7 +176,7 @@
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
                                         <li class="active"><a href="./ShowOrder">Giỏ Hàng</a></li>
-                                        <li><a href="./checkout.jsp">Thanh Toán</a></li>
+                                        <li><a href="./ShowBill">Thanh Toán</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="./blog.jsp">Thuyết Trình</a></li>
