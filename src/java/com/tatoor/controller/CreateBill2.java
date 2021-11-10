@@ -8,6 +8,7 @@ package com.tatoor.controller;
 import com.tatoor.Dao.DAO;
 import com.tatoor.entity.Bill;
 import com.tatoor.entity.Order;
+import com.tatoor.entity.OrderAll;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -23,8 +24,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author MACBOOK PRO
  */
-@WebServlet(name = "CreateBill", urlPatterns = {"/CreateBill"})
-public class CreateBill extends HttpServlet {
+@WebServlet(name = "CreateBill2", urlPatterns = {"/CreateBill2"})
+public class CreateBill2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,6 +49,8 @@ public class CreateBill extends HttpServlet {
         float tongtienBill = Float.parseFloat(tongBill);
         String DiaChi = request.getParameter("DiaChi");
         List<Bill> listbill = dao.getAllBill();
+        List<Order> listorder = dao.getAllOrder();
+        List<OrderAll> listoa= dao.getOrderAll();
         int damua = 0;
         float ID = 0;
         long millis = System.currentTimeMillis();
@@ -57,14 +60,15 @@ public class CreateBill extends HttpServlet {
         for (int i = 0; i < dao.getAllBill().size(); i++) {
             ID = dao.getAllBill().get(i).getId() + 1;
         }
-        List<Order> list1 = dao.getOrderByUserID(user_id);
-        for (int i = 0; i < list1.size(); i++) {
-            float sp_id = list1.get(i).getProduct().getId();
-            int soLuong = list1.get(i).getSoLuong();
-            float tong = list1.get(i).getTongTien();
+        for (int i = 0; i < listorder.size(); i++) {
+            if(listorder.get(i).getCartSum_id()==listoa.get(i).getId()){
+                if(listoa.get(i).getNguoidung_id()==user_id){
+                    dao.CreateBillDetails(ID, listorder.get(i).getSp_ID(),listorder.get(i).getTongTien(),listorder.get(i).getSoLuong());
+                }
+            }
         }
         dao.AddAllBill(ID, user_id, DiaChi, tongtienBill, NgayMua, PhuongThucThanhToan, damua);
-        dao.CreateBillDetails(ID, user_id, tongtienBill, damua);
+        
         request.getRequestDispatcher("checkout.jsp").forward(request, response);
 
     }
