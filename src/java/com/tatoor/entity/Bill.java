@@ -14,31 +14,36 @@ import java.util.List;
  */
 public class Bill {
 
-    private float id, nguoiDungid,tongtien;
-    private String phuongthuc,diachi;
+    private float id, nguoiDungid, tongtien;
+    private String phuongthuc, diachi;
     private Date ngaymua;
     private int damua;
-    private List<Order> order;
+    private BillDetails billDetails;
 
-    public Bill(float id, float nguoiDungid,String diachi,  float tongtien,Date ngaymua,  String phuongthuc,int damua, List<Order> order) {
+    public Bill(float id, float nguoiDungid, String diachi, float tongtien, Date ngaymua, String phuongthuc, int damua, BillDetails billDetails) {
         this.id = id;
         this.nguoiDungid = nguoiDungid;
         this.tongtien = tongtien;
         this.phuongthuc = phuongthuc;
         this.ngaymua = ngaymua;
         this.damua = damua;
-        this.order = order;
-        this.diachi=this.diachi;
+        this.diachi = diachi;
+        this.billDetails = billDetails;
     }
 
-    public Bill(float id, float nguoiDungid,String diachi,  float tongtien,Date ngaymua, String phuongthuc,int damua) {
+    @Override
+    public String toString() {
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Bill(float id, float nguoiDungid, String diachi, float tongtien, Date ngaymua, String phuongthuc, int damua) {
         this.id = id;
         this.nguoiDungid = nguoiDungid;
         this.tongtien = tongtien;
         this.phuongthuc = phuongthuc;
         this.ngaymua = ngaymua;
         this.damua = damua;
-        this.diachi=diachi;
+        this.diachi = diachi;
     }
 
     public String getDiachi() {
@@ -97,12 +102,13 @@ public class Bill {
         this.damua = damua;
     }
 
-    public List<Order> getOrder() {
-        return order;
+    public BillDetails getBillDetails() {
+        return billDetails;
     }
 
-    public void setOrder(List<Order> order) {
-        this.order = order;
+    public void setBillDetails(BillDetails billDetails) {
+        this.billDetails = billDetails;
     }
+
     
 }
