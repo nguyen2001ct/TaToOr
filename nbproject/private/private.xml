@@ -3,19 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/web/shoping-cart.jsp</file>
-            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/src/java/com/tatoor/controller/ShowBill.java</file>
-            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/web/checkout.jsp</file>
-            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/src/java/com/tatoor/Dao/DAO.java</file>
-=======
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/CreateBill.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/entity/OrderAll.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/entity/BillDetails.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/Dao/DAO.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/entity/Order.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/checkout.jsp</file>
->>>>>>> 265a8d5fd3e7e1ac1a0052a539f6707cb9d6f7fe
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/checkout.jsp</file>
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/contact.jsp</file>
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/Watting.jsp</file>
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/index.jsp</file>
+            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/blog.jsp</file>
         </group>
     </open-files>
 </project-private>
