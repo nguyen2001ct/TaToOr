@@ -56,7 +56,7 @@
                     <a href="#"><img src="img/icon/heart.png" alt=""></a>
                 </div>
                 <div class="offcanvas__cart__item">
-                    <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                    <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                     <div class="cart__price">Cart: <span>$0.00</span></div>
                 </div>
             </div>
