@@ -3,20 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/SortShowBillAdmin.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/entity/Bill.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/entity/BillDetails.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/index.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/Filter/CheckAdminUser.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/AddToCartProductDetails.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/connect/DBConnection.java</file>
-=======
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/src/java/com/tatoor/controller/ShowUser.java</file>
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/web/AdminProduct.jsp</file>
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/src/java/com/tatoor/Filter/CheckShowUser.java</file>
-            <file>file:/E:/FPT/PRJ/Github/TaToOr/src/java/com/tatoor/Dao/DAO.java</file>
->>>>>>> e5b62d4e2dc80711e1dfcd5ed81b0bbc4f79ea1f
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/web/Watting.jsp</file>
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/src/java/com/tatoor/controller/ShowBill.java</file>
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/web/shop-details.jsp</file>
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/src/java/com/tatoor/Dao/DAO.java</file>
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/src/java/com/tatoor/controller/ShowBillDetail.java</file>
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/web/blog.jsp</file>
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/web/BillDetails.jsp</file>
+            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/web/contact.jsp</file>
         </group>
     </open-files>
 </project-private>

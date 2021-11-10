@@ -280,6 +280,7 @@ public class DAO {
         }
         return list;
     }
+
     public int getTotalUser() {
         String query = "select count(*) from NguoiDung";
         try {
@@ -324,6 +325,7 @@ public class DAO {
 //-------------------------------------------------------------------------------------------------------------------------------------   
 //------------------------------------------------------PRODUCT------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------   
+
     public boolean CreateProduct(float ID, String Ten, float GiaTien, String ThuocTinh, String Mota, int danhgia, String Anh) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
@@ -872,6 +874,50 @@ public class DAO {
         }
     }
 
+    public List<Bill> getBillSumByUserID(float ND_id) {
+        List<Bill> list = new ArrayList<>();
+        try {
+            String sql = "select * from HoaDonTong where NguoiDung_ID = ?";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, ND_id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Bill(rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getString(3),
+                        rs.getFloat(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+                ));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage()+"loi truy van");
+        }
+        return list;
+    }
+
+    public List<BillDetails> getBillDetailsByHoaDonID(float GioHang_id) {
+        List<BillDetails> list = new ArrayList<>();
+        try {
+            String sql = "select * from HoaDonChiTiet where HoaDon_ID = ?";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, GioHang_id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new BillDetails(rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getInt(3),
+                        rs.getFloat(4)));
+            }
+        } catch (Exception e) {
+                        System.out.println(e.getMessage()+"loi truy van hdct");
+        }
+        return list;
+    }
+
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
         //        try {
@@ -903,11 +949,10 @@ public class DAO {
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
         //        }
-//        List<Bill> list = d.getAllBill();
-//        for (Bill p : list) {
-//            System.out.println(p.toString());
+//        List<BillDetails> list = d.getBillDetailsByHoaDonID(0);
+//        for (BillDetails p : list) {
+//            System.out.println(p.getTongtien());
 //        }
-        List<BillDetails> nguyen = d.getAllBillDetails();
-        System.out.println(nguyen.size());
+        
     }
 }
