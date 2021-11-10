@@ -52,7 +52,7 @@ public class CreateReview extends HttpServlet {
         }
         List<Bill> lbill = dao.getAllBill();
         List<BillDetails> lbilld = dao.getAllBillDetails();
-        int getdamua = 3;
+        int getdamua = 0;
         int checkdamua = 0;
         try {
             String url = "ProductDetail?sid=" + ProductID;
@@ -82,7 +82,7 @@ public class CreateReview extends HttpServlet {
                 boolean check = dao.CreateReview(danhgia_id, nguoidung_id, ProductID, danhgiasao, binhluan, AnhDanhGia, getdamua, 0, 1);
                 response.sendRedirect(url);
             } else if (getdamua == 0) {
-                request.setAttribute("thongbaochuamua", "Bạn chỉ mua hàng mới có thể đánh giá");
+                request.setAttribute("thongbaochuamua", "Sản phẩm đã giao hàng mới có thể đánh giá");
                 request.getRequestDispatcher(url).forward(request, response);
             }
         } catch (Exception e) {
