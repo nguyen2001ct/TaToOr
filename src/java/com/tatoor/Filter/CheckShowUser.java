@@ -29,31 +29,32 @@ import javax.servlet.http.HttpSession;
  */
 @WebFilter(filterName = "CheckShowUser", urlPatterns = {"/ShowUser"})
 public class CheckShowUser implements Filter {
-    
+
     private static final boolean debug = true;
 
     // The filter configuration object we are associated with.  If
     // this value is null, this filter instance is not currently
     // configured. 
     private FilterConfig filterConfig = null;
-    
+
     public CheckShowUser() {
-    }    
-    
+    }
+
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
             log("CheckShowUser:DoBeforeProcessing");
         }
- HttpServletRequest HttpRequest = (HttpServletRequest) request;
+        HttpServletRequest HttpRequest = (HttpServletRequest) request;
         HttpServletResponse HttpRespone = (HttpServletResponse) response;
         HttpSession session = HttpRequest.getSession();
+        DAO dao = new DAO();
         String name = session.getAttribute("User").toString();
         String url = HttpRequest.getServletPath();
-         if (url.contains("ShowUser") && !name.contains("admin")) {
+        int loai = dao.getIDByUser(name).getLoai();
+        if (url.contains("ShowUser") && loai == 0) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        } else if (url.contains("ShowUser") && name.contains("admin")) {
-            DAO dao = new DAO();
+        } else if (url.contains("ShowUser") && loai == 1) {
             List<User> l1 = dao.getAllUser();
             request.setAttribute("user", l1);
             request.getRequestDispatcher("AdminIndex.jsp").forward(request, response);
@@ -78,8 +79,8 @@ public class CheckShowUser implements Filter {
 	    log(buf.toString());
 	}
          */
-    }    
-    
+    }
+
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
@@ -117,13 +118,13 @@ public class CheckShowUser implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        
+
         if (debug) {
             log("CheckShowUser:doFilter()");
         }
-        
+
         doBeforeProcessing(request, response);
-        
+
         Throwable problem = null;
         try {
             chain.doFilter(request, response);
@@ -134,7 +135,7 @@ public class CheckShowUser implements Filter {
             problem = t;
             t.printStackTrace();
         }
-        
+
         doAfterProcessing(request, response);
 
         // If there was a problem, we want to rethrow it if it is
@@ -169,16 +170,16 @@ public class CheckShowUser implements Filter {
     /**
      * Destroy method for this filter
      */
-    public void destroy() {        
+    public void destroy() {
     }
 
     /**
      * Init method for this filter
      */
-    public void init(FilterConfig filterConfig) {        
+    public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (debug) {                
+            if (debug) {
                 log("CheckShowUser:Initializing filter");
             }
         }
@@ -197,20 +198,20 @@ public class CheckShowUser implements Filter {
         sb.append(")");
         return (sb.toString());
     }
-    
+
     private void sendProcessingError(Throwable t, ServletResponse response) {
-        String stackTrace = getStackTrace(t);        
-        
+        String stackTrace = getStackTrace(t);
+
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
                 response.setContentType("text/html");
                 PrintStream ps = new PrintStream(response.getOutputStream());
-                PrintWriter pw = new PrintWriter(ps);                
+                PrintWriter pw = new PrintWriter(ps);
                 pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
 
                 // PENDING! Localize this for next official release
-                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");                
-                pw.print(stackTrace);                
+                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
+                pw.print(stackTrace);
                 pw.print("</pre></body>\n</html>"); //NOI18N
                 pw.close();
                 ps.close();
@@ -227,7 +228,7 @@ public class CheckShowUser implements Filter {
             }
         }
     }
-    
+
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
         try {
@@ -241,9 +242,9 @@ public class CheckShowUser implements Filter {
         }
         return stackTrace;
     }
-    
+
     public void log(String msg) {
-        filterConfig.getServletContext().log(msg);        
+        filterConfig.getServletContext().log(msg);
     }
-    
+
 }

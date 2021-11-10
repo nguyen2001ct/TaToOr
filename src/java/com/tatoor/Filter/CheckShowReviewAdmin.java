@@ -6,12 +6,10 @@
 package com.tatoor.Filter;
 
 import com.tatoor.Dao.DAO;
-import com.tatoor.entity.Product;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.List;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -27,8 +25,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author MACBOOK PRO
  */
-@WebFilter(filterName = "CheckShowProduct", urlPatterns = {"/ShowProduct"})
-public class CheckShowProduct implements Filter {
+@WebFilter(filterName = "CheckShowReviewAdmin", urlPatterns = {"/ShowReview"})
+public class CheckShowReviewAdmin implements Filter {
 
     private static final boolean debug = true;
 
@@ -37,27 +35,25 @@ public class CheckShowProduct implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
 
-    public CheckShowProduct() {
+    public CheckShowReviewAdmin() {
     }
 
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("CheckShowProduct:DoBeforeProcessing");
+            log("CheckShowReviewAdmin:DoBeforeProcessing");
         }
         HttpServletRequest HttpRequest = (HttpServletRequest) request;
         HttpServletResponse HttpRespone = (HttpServletResponse) response;
         HttpSession session = HttpRequest.getSession();
         String name = session.getAttribute("User").toString();
         String url = HttpRequest.getServletPath();
-        DAO dao = new DAO();
-        int loai = dao.getIDByUser(name).getLoai();
-        if (url.endsWith("ShowProduct") && loai == 0) {
+        DAO d = new DAO();
+        int loai = d.getIDByUser(name).getLoai();
+        if (url.endsWith("ShowReview") && loai == 0) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        } else if (url.endsWith("ShowProduct") && loai == 1) {
-            List<Product> l1 = dao.getAllProduct();
-            request.setAttribute("product", l1);
-            request.getRequestDispatcher("AdminProduct.jsp").forward(request, response);
+        } else if (url.endsWith("ShowReview") && loai == 1) {
+            request.getRequestDispatcher("ShowReview").forward(request, response);
         }
         // Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
@@ -84,7 +80,7 @@ public class CheckShowProduct implements Filter {
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("CheckShowProduct:DoAfterProcessing");
+            log("CheckShowReviewAdmin:DoAfterProcessing");
         }
 
         // Write code here to process the request and/or response after
@@ -120,7 +116,7 @@ public class CheckShowProduct implements Filter {
             throws IOException, ServletException {
 
         if (debug) {
-            log("CheckShowProduct:doFilter()");
+            log("CheckShowReviewAdmin:doFilter()");
         }
 
         doBeforeProcessing(request, response);
@@ -180,7 +176,7 @@ public class CheckShowProduct implements Filter {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {
-                log("CheckShowProduct:Initializing filter");
+                log("CheckShowReviewAdmin:Initializing filter");
             }
         }
     }
@@ -191,9 +187,9 @@ public class CheckShowProduct implements Filter {
     @Override
     public String toString() {
         if (filterConfig == null) {
-            return ("CheckShowProduct()");
+            return ("CheckShowReviewAdmin()");
         }
-        StringBuffer sb = new StringBuffer("CheckShowProduct(");
+        StringBuffer sb = new StringBuffer("CheckShowReviewAdmin(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());
