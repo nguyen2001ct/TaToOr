@@ -50,7 +50,7 @@ public class CreateBill2 extends HttpServlet {
         String DiaChi = request.getParameter("DiaChi");
         List<Bill> listbill = dao.getAllBill();
         List<Order> listorder = dao.getAllOrder();
-        List<OrderAll> listoa= dao.getOrderAll();
+        List<OrderAll> listoa = dao.getOrderAll();
         int damua = 0;
         float ID = 0;
         long millis = System.currentTimeMillis();
@@ -60,15 +60,17 @@ public class CreateBill2 extends HttpServlet {
         for (int i = 0; i < dao.getAllBill().size(); i++) {
             ID = dao.getAllBill().get(i).getId() + 1;
         }
-        for (int i = 0; i < listorder.size(); i++) {
-            if(listorder.get(i).getCartSum_id()==listoa.get(i).getId()){
-                if(listoa.get(i).getNguoidung_id()==user_id){
-                    dao.CreateBillDetails(ID, listorder.get(i).getSp_ID(),listorder.get(i).getTongTien(),listorder.get(i).getSoLuong());
+        for (int i = 0; i < listoa.size(); i++) {
+            for (int j = 0; j < listorder.size(); j++) {
+                if (listorder.get(j).getCartSum_id() == listoa.get(i).getId()) {
+                    if (listoa.get(i).getNguoidung_id() == user_id) {
+                        dao.CreateBillDetails(ID, listorder.get(j).getSp_ID(), listorder.get(j).getSoLuong(), listorder.get(j).getTongTien());
+                    }
                 }
             }
         }
         dao.AddAllBill(ID, user_id, DiaChi, tongtienBill, NgayMua, PhuongThucThanhToan, damua);
-        
+
         request.getRequestDispatcher("checkout.jsp").forward(request, response);
 
     }

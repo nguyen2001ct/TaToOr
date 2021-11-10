@@ -771,8 +771,9 @@ public class DAO {
             while (rs.next()) {
                 list.add(new BillDetails(rs.getFloat(1),
                         rs.getFloat(2),
-                        rs.getFloat(3),
-                        rs.getInt(4)
+                        rs.getInt(3),
+                        rs.getFloat(4)
+                        
                 ));
             }
             ps.close();
@@ -782,7 +783,7 @@ public class DAO {
         }
         return list;
     }
-    public void CreateBillDetails(float id, float SanPham_id, float Tongtien, int soLuong) {
+    public void CreateBillDetails(float id, float SanPham_id, int soLuong, float Tongtien) {
         try {
             String sql = "insert into HoaDonChiTiet Values(?,?,?,?)";
             conn = DBConnection.getConnection();

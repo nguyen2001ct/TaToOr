@@ -319,7 +319,7 @@
                     <div class="breadcrumb__text">
                         <h2 class="text-center">BILL ORDER</h2>
                     </div>
-                    <form action="CreateBill" method="post">
+                    <form action="CreateBill2" method="post">
                         <main>
                             <div class="col invoice-to">
                                 <div class="text-gray-light"><strong>Thông tin khách hàng:</strong></div>

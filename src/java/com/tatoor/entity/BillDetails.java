@@ -13,7 +13,7 @@ public class BillDetails {
     private float id,sanPham_id,tongtien;
     private int soLuong;
 
-    public BillDetails(float id, float SanPham_id, float Tongtien, int soLuong) {
+    public BillDetails(float id, float SanPham_id, int soLuong, float Tongtien) {
         this.id = id;
         this.sanPham_id = SanPham_id;
         this.tongtien = Tongtien;
