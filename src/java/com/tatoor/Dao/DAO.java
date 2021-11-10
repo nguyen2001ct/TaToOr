@@ -739,7 +739,20 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
-
+    public void CreateBillDetails(float id, float SanPham_id, float Tongtien, int soLuong) {
+        try {
+            String sql = "insert into HoaDonChiTiet Values(?,?,?,?)";
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setFloat(1, id);
+            ps.setFloat(2, SanPham_id);
+            ps.setFloat(3, Tongtien);
+            ps.setInt(4, soLuong);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "Loi them bill");
+        }
+    }
     public static void main(String[] args) throws SQLException {
         DAO d = new DAO();
         //        try {

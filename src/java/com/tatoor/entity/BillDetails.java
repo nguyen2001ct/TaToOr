@@ -10,13 +10,13 @@ package com.tatoor.entity;
  * @author MACBOOK PRO
  */
 public class BillDetails {
-    private float id,SanPham_id,Tongtien;
+    private float id,sanPham_id,tongtien;
     private int soLuong;
 
     public BillDetails(float id, float SanPham_id, float Tongtien, int soLuong) {
         this.id = id;
-        this.SanPham_id = SanPham_id;
-        this.Tongtien = Tongtien;
+        this.sanPham_id = SanPham_id;
+        this.tongtien = Tongtien;
         this.soLuong = soLuong;
     }
 
@@ -29,19 +29,19 @@ public class BillDetails {
     }
 
     public float getSanPham_id() {
-        return SanPham_id;
+        return sanPham_id;
     }
 
     public void setSanPham_id(float SanPham_id) {
-        this.SanPham_id = SanPham_id;
+        this.sanPham_id = SanPham_id;
     }
 
     public float getTongtien() {
-        return Tongtien;
+        return tongtien;
     }
 
     public void setTongtien(float Tongtien) {
-        this.Tongtien = Tongtien;
+        this.tongtien = Tongtien;
     }
 
     public int getSoLuong() {

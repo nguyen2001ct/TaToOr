@@ -6,9 +6,12 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
+import com.tatoor.entity.Bill;
+import com.tatoor.entity.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +47,7 @@ public class CreateBill extends HttpServlet {
         String tongBill = request.getParameter("TongTienBill");
         float tongtienBill = Float.parseFloat(tongBill);
         String DiaChi = request.getParameter("DiaChi");
+        List<Bill> listbill = dao.getAllBill();
         int damua = 0;
         float ID = 0;
         long millis = System.currentTimeMillis();
@@ -53,7 +57,14 @@ public class CreateBill extends HttpServlet {
         for (int i = 0; i < dao.getAllBill().size(); i++) {
             ID = dao.getAllBill().get(i).getId() + 1;
         }
+        List<Order> list1 = dao.getOrderByUserID(user_id);
+        for (int i = 0; i < list1.size(); i++) {
+            float sp_id = list1.get(i).getProduct().getId();
+            int soLuong = list1.get(i).getSoLuong();
+            float tong = list1.get(i).getTongTien();
+        }
         dao.AddAllBill(ID, user_id, DiaChi, tongtienBill, NgayMua, PhuongThucThanhToan, damua);
+        dao.CreateBillDetails(ID, user_id, tongtienBill, damua);
         request.getRequestDispatcher("checkout.jsp").forward(request, response);
 
     }
