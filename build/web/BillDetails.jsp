@@ -39,6 +39,52 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <style>
+            body{
+                background:#eee;
+            }
+            .panel-order .row {
+                border-bottom: 1px solid #ccc;
+            }
+            .panel-order .row:last-child {
+                border: 0px;
+            }
+            .panel-order .row .col-md-1  {
+                text-align: center;
+                padding-top: 15px;
+            }
+            .panel-order .row .col-md-1 img {
+                width: 50px;
+                max-height: 50px;
+            }
+            .panel-order .row .row {
+                border-bottom: 0;
+            }
+            .panel-order .row .col-md-11 {
+                border-left: 1px solid #ccc;
+            }
+            .panel-order .row .row .col-md-12 {
+                padding-top: 7px;
+                padding-bottom: 7px; 
+            }
+            .panel-order .row .row .col-md-12:last-child {
+                font-size: 11px; 
+                color: #555;  
+                background: #efefef;
+            }
+            .panel-order .btn-group {
+                margin: 0px;
+                padding: 0px;
+            }
+            .panel-order .panel-body {
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+            .panel-order .panel-deading {
+                margin-bottom: 0;
+            }                    
+        </style>
     </head>
 
     <body>
@@ -151,100 +197,29 @@
         </header>
         <!-- Header Section End -->
 
-        <!-- Breadcrumb Begin -->
-        <div class="breadcrumb-option">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="breadcrumb__text">
-                            <h2>Shopping cart</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>Shopping cart</span>
+        <div class="breadcrumb__text">
+            <h2 style="text-align: center">Đơn hàng</h2>
+        </div>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <div class="container bootdey">
+            <div class="panel panel-default panel-order">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-1"><img src="" class="media-object img-thumbnail" /></div>
+                        <div class="col-md-11">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-right"><label class="label label-danger">rejected</label></div>
+                                    <span><strong>Order name</strong></span> <span class="label label-info">group name</span><br />
+                                    Quantity : 2, cost: $323.13 <br />
+                                </div>
+                                <div class="col-md-12">Ngày mua: 05/31/2014</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Breadcrumb End -->
-
-        <!-- Shopping Cart Section Begin -->
-        <section class="shopping-cart spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <form action="UpdateShopingCart" method="post">
-                            <div class="shopping__cart__table">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:set var="count" value="0"/>
-                                        <c:forEach var="Order" items="${Orders}">
-                                            <tr>
-                                                <td class="product__cart__item">
-                                                    <div class="product__cart__item__pic">
-                                                        <img src="${Order.product.anh}" alt="">
-                                                        <h6>${Order.product.ten}</h6>
-                                                    </div>
-                                                    <div class="product__cart__item__text">
-                                                        <h5>${Order.product.giatien}</h5>
-                                                    </div>
-                                                </td>
-                                                <td class="quantity__item">
-                                                    <div class="quantity">
-                                                        <div class="pro-qty">
-                                                            <input type="text" value="${Order.soLuong}" name="SoluongSP${count}">
-                                                            <c:set var="count" value="${count+1}"/>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="cart__price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Order.tongTien}"></fmt:formatNumber>VNĐ</td>
-                                                <td class="cart__close">
-                                                    <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="continue__btn">
-                                        <a href="IndexProduct">Tiếp tục mua hàng</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="continue__btn update__btn">
-                                        <input type="submit" name="submit" value="Cập nhật giỏ hàng" class="primary-btn">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-4">
-
-                        <div class="cart__total">
-                            <h6>Tổng tiền</h6>
-                            <ul>
-                                <li>Tổng <span><fmt:formatNumber type="number" maxFractionDigits="0" value="${tongbill}"></fmt:formatNumber>VNĐ</span></li>
-                            </ul>
-                            <a href="ShowBill" class="primary-btn">Thanh toán</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Shopping Cart Section End -->
 
         <!-- Footer Section Begin -->
         <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
