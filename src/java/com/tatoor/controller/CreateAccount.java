@@ -25,12 +25,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "CreateAccount", urlPatterns = {"/CreateAccount"})
 public class CreateAccount extends HttpServlet {
 
-<<<<<<< HEAD
     private final String Failed_Page = "shop.jsp";
-=======
-    private final String Success_Page = "LoginForm.jsp";
-    private final String Failed_Page = "Fail.jsp";
->>>>>>> 617c0e55c2c7031c024a8317a197e68ed99520c0
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -50,15 +45,15 @@ public class CreateAccount extends HttpServlet {
         String taiKhoan = request.getParameter("taiKhoan");
         String pass = request.getParameter("pass");
         String ten = request.getParameter("ten");
-        System.out.println(taiKhoan + "Nguyen");
         String gioitinh = request.getParameter("gioitinh");
         String namsinh = request.getParameter("namsinh");
         String sdt = request.getParameter("sdt");
         int loai = Integer.parseInt(session.getAttribute("loai").toString());
         float checktrung = 0;
+        DAO dao = new DAO();
+        float ID = 0;
         try {
-            DAO dao = new DAO();
-            float ID = 0;
+
             for (int i = 0; i < dao.getAllUser().size(); i++) {
                 ID = dao.getAllUser().get(i).getId() + 1;
             }
@@ -75,7 +70,6 @@ public class CreateAccount extends HttpServlet {
                 } else {
                     List<User> listuser = dao.getAllUser();
                     for (int i = 0; i < listuser.size(); i++) {
-                        System.out.println(listuser.get(i).getTaiKhoan().trim().toLowerCase().equals(taiKhoan.trim().toLowerCase()));
                         if (listuser.get(i).getTaiKhoan().trim().toLowerCase().equals(taiKhoan.trim().toLowerCase())) {
                             checktrung = 1;
                         }
@@ -90,7 +84,7 @@ public class CreateAccount extends HttpServlet {
                             dao.AddUserToCart(GioHang_id, ID);
                             request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
                         } else {
-                            url = Failed_Page;
+                            request.getRequestDispatcher(Failed_Page).forward(request, response);
                         }
                     }
                 }
@@ -121,7 +115,7 @@ public class CreateAccount extends HttpServlet {
 
             }
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            System.err.println(ex.getMessage());
         }
 
     }
