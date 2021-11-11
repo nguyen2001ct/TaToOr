@@ -541,6 +541,11 @@
                                                             <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
                                                                 <button type="submit">Cập Nhật</button>
                                                             </span>
+                                                            <br>
+                                                            <br>
+                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                <button><a href="ShowBillDetailAdmin?id=${bill.id}">Chi Tiết</a></button>
+                                                            </span>
                                                         </td>
                                                     </form>
 
@@ -612,6 +617,11 @@
                                                         <td class="px-4 py-3 text-xs">
                                                             <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
                                                                 <button type="submit">Cập Nhật</button>
+                                                            </span>
+                                                            <br>
+                                                            <br>
+                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                <button><a href="ShowBillDetailAdmin?id=${bill.id}">Chi Tiết</a></button>
                                                             </span>
                                                         </td>
                                                     </form>
