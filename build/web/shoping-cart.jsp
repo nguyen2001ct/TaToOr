@@ -188,32 +188,39 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:set var="count" value="0"/>
-                                        <c:forEach var="Order" items="${Orders}">
+                                        <c:if var="test" test="${tongbill==0}">
                                             <tr>
-                                                <td class="product__cart__item">
-                                                    <div class="product__cart__item__pic">
-                                                        <img src="${Order.product.anh}" alt="">
-                                                        <h6>${Order.product.ten}</h6>
-                                                    </div>
-                                                    <div class="product__cart__item__text">
-                                                        <h5>${Order.product.giatien}</h5>
-                                                    </div>
-                                                </td>
-                                                <td class="quantity__item">
-                                                    <div class="quantity">
-                                                        <div class="pro-qty">
-                                                            <input type="text" value="${Order.soLuong}" name="SoluongSP${count}">
-                                                            <c:set var="count" value="${count+1}"/>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="cart__price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Order.tongTien}"></fmt:formatNumber>VNĐ</td>
-                                                <td class="cart__close">
-                                                    <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
-                                                </td>
+                                                <td colspan="3" style="text-align: center">Bạn chưa có sản phẩm nào trong giỏ hàng</td>
                                             </tr>
-                                        </c:forEach>
+                                        </c:if>
+                                        <c:if var="test" test="${tongbill > 0}">
+                                            <c:set var="count" value="0"/>
+                                            <c:forEach var="Order" items="${Orders}">
+                                                <tr>
+                                                    <td class="product__cart__item">
+                                                        <div class="product__cart__item__pic">
+                                                            <img src="${Order.product.anh}" alt="">
+                                                            <h6>${Order.product.ten}</h6>
+                                                        </div>
+                                                        <div class="product__cart__item__text">
+                                                            <h5>${Order.product.giatien}</h5>
+                                                        </div>
+                                                    </td>
+                                                    <td class="quantity__item">
+                                                        <div class="quantity">
+                                                            <div class="pro-qty">
+                                                                <input type="text" value="${Order.soLuong}" name="SoluongSP${count}">
+                                                                <c:set var="count" value="${count+1}"/>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="cart__price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Order.tongTien}"></fmt:formatNumber>VNĐ</td>
+                                                        <td class="cart__close">
+                                                            <a href="DeleteCartByCartID?ghid=${Order.id}"><span class="icon_close"></span></a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:if>
                                     </tbody>
                                 </table>
                             </div>
