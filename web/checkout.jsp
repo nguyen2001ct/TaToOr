@@ -167,7 +167,7 @@
             }
             .thanks input{
                 margin-top: -50em;
-                margin-left: 1500px;
+                margin-left: 75%;
                 background-color:#f08632;
                 color: white;
                 width: 300px;
@@ -326,7 +326,7 @@
                                 <div class="text-gray-light"><strong>Thông tin khách hàng:</strong></div>
                                 <h2 class="to">${name}</h2>
                                 <div class="email">${phone}</div>
-                                <div class="address">Địa chỉ: <input name="DiaChi" value="${address}"></div>
+                                <div class="address">Địa chỉ: <input name="DiaChi" value="${fn:trim(address)}" placeholder=""></div>
                                 <span style="color: red">${error}</span>
                             </div>
                             <div class="col invoice-details">
@@ -344,14 +344,14 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach var="showOrder" items="${listOr}">
-                                            <tr>
-                                                <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
-                                                <td class="text-left">
-                                                    <h3>${showOrder.product.ten}</h3></td>
-                                                <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
-                                                <td class="qty">${showOrder.soLuong}</td>
-                                                <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
-                                                </tr>
+                                        <tr>
+                                            <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
+                                            <td class="text-left">
+                                                <h3>${showOrder.product.ten}</h3></td>
+                                            <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
+                                            <td class="qty">${showOrder.soLuong}</td>
+                                            <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
+                                            </tr>
                                     </c:forEach>
                                 </tbody>
                                 <tfoot>
@@ -382,7 +382,7 @@
                                 </tfoot>
                             </table>
                         </main>
-                        <div class="thanks text-center " style="margin-top:-60px;"> 
+                        <div class="thanks text-center "> 
                             <input type="submit" name="thanhtoan" value="Thanh toán">
                         </div>
                     </form>

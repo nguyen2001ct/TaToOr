@@ -6,8 +6,10 @@
 package com.tatoor.controller;
 
 import com.tatoor.Dao.DAO;
+import com.tatoor.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +25,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "CreateAccount", urlPatterns = {"/CreateAccount"})
 public class CreateAccount extends HttpServlet {
 
-    private final String Success_Page = "index.jsp";
-    private final String Failed_Page = "Fail.jsp";
+    private final String Failed_Page = "shop.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +45,12 @@ public class CreateAccount extends HttpServlet {
         String taiKhoan = request.getParameter("taiKhoan");
         String pass = request.getParameter("pass");
         String ten = request.getParameter("ten");
+        System.out.println(taiKhoan + "Nguyen");
         String gioitinh = request.getParameter("gioitinh");
         String namsinh = request.getParameter("namsinh");
         String sdt = request.getParameter("sdt");
         int loai = Integer.parseInt(session.getAttribute("loai").toString());
+        float checktrung = 0;
         try {
             DAO dao = new DAO();
             float ID = 0;
@@ -55,37 +58,65 @@ public class CreateAccount extends HttpServlet {
                 ID = dao.getAllUser().get(i).getId() + 1;
             }
             if (loai == 0) {
+
+                session.setAttribute("loai", 1);
                 String repass = request.getParameter("repass");
                 if (!pass.equals(repass)) {
-                    request.setAttribute("error5", "ko hop le");
+                    request.setAttribute("error5", "Mật Khẩu Nhập Lại Không Hợp Lệ");
                     request.getRequestDispatcher("Register.jsp").forward(request, response);
-                }else if (taiKhoan.isEmpty() || pass.isEmpty() || ten.isEmpty() || gioitinh.isEmpty() || namsinh.isEmpty() || sdt.isEmpty()) {
+                } else if (taiKhoan.isEmpty() || pass.isEmpty() || ten.isEmpty() || gioitinh.isEmpty() || namsinh.isEmpty() || sdt.isEmpty()) {
                     request.setAttribute("error5", "Vui lòng điền đầy đủ thông tin đăng ký!!!");
                     request.getRequestDispatcher("Register.jsp").forward(request, response);
                 } else {
-                    boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);
+                    List<User> listuser = dao.getAllUser();
+                    for (int i = 0; i < listuser.size(); i++) {
+                        System.out.println(listuser.get(i).getTaiKhoan().trim().toLowerCase().equals(taiKhoan.trim().toLowerCase()));
+                        if (listuser.get(i).getTaiKhoan().trim().toLowerCase().equals(taiKhoan.trim().toLowerCase())) {
+                            checktrung = 1;
+                        }
+                    }
+                    if (checktrung == 1) {
+                        request.setAttribute("error5", "Tài Khoản Đã Có Trong Hệ Thống");
+                        request.getRequestDispatcher("Register.jsp").forward(request, response);
+                    } else {
+                        boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, 0);
+                        if (check) {
+                            float GioHang_id = ID;
+                            dao.AddUserToCart(GioHang_id, ID);
+                            request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
+                        } else {
+                            url = Failed_Page;
+                        }
+                    }
+                }
+
+            } else if (loai == 1) {
+                int chinhloai = Integer.parseInt(request.getParameter("loai"));
+
+                List<User> listuser = dao.getAllUser();
+                for (int i = 0; i < listuser.size(); i++) {
+                    if (listuser.get(i).getTaiKhoan().trim().toLowerCase().equals(taiKhoan.trim().toLowerCase())) {
+                        checktrung = 1;
+
+                    }
+                }
+                if (checktrung == 1) {
+                    request.setAttribute("error5", "Tài Khoản Đã Có Trong Hệ Thống");
+                    request.getRequestDispatcher("Register.jsp").forward(request, response);
+                } else {
+                    boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, chinhloai);
                     if (check) {
                         float GioHang_id = ID;
                         dao.AddUserToCart(GioHang_id, ID);
-                        url = Success_Page;
+                        request.getRequestDispatcher("ShowAdmin").forward(request, response);
                     } else {
-                        url = Failed_Page;
+                        request.getRequestDispatcher("Guest").forward(request, response);
                     }
                 }
-            } else if (loai == 1) {
-                int chinhloai = Integer.parseInt(request.getParameter("loai"));
-                boolean check = dao.CreateAccount(ID, taiKhoan, pass, ten, gioitinh, namsinh, sdt, chinhloai);
-                if (check) {
-                    url = Success_Page;
-                } else {
-                    url = Failed_Page;
-                }
+
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        } finally {
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
         }
 
     }

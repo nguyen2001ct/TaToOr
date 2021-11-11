@@ -75,7 +75,7 @@ and open the template in the editor.
 
                                 <form action="CreateAccount" method="POST" >
                                     <div class="form-outline mb-7">
-                                        <input name="taiKhoan" type="text" id="txtUsername" class="form-control form-control-lg" placeholder="Tài Khoản" onblur="checkUsername()"/>
+                                        <input name="taiKhoan" type="text" id="txtUsername" class="form-control form-control-lg" placeholder="Tài Khoản"onblur="checkUsername()"/>
                                         <p class="form-label" for="form3Example1cg" id="txtUsernameMess" ></p>
                                     </div>
 

@@ -18,9 +18,9 @@ public class Bill {
     private String phuongthuc, diachi;
     private Date ngaymua;
     private int damua;
-    private BillDetails billDetails;
+    private List<BillDetails> billDetails;
 
-    public Bill(float id, float nguoiDungid, String diachi, float tongtien, Date ngaymua, String phuongthuc, int damua, BillDetails billDetails) {
+    public Bill(float id, float nguoiDungid, String diachi, float tongtien, Date ngaymua, String phuongthuc, int damua, List<BillDetails> billDetails) {
         this.id = id;
         this.nguoiDungid = nguoiDungid;
         this.tongtien = tongtien;
@@ -104,13 +104,15 @@ public class Bill {
         this.damua = damua;
     }
 
-    public BillDetails getBillDetails() {
+    public List<BillDetails> getBillDetails() {
         return billDetails;
     }
 
-    public void setBillDetails(BillDetails billDetails) {
+    public void setBillDetails(List<BillDetails> billDetails) {
         this.billDetails = billDetails;
     }
+
+ 
 
     
 }

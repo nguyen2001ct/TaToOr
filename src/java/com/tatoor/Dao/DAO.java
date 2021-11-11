@@ -905,7 +905,6 @@ public class DAO {
 
     public List<Bill> getBillSumByUserID(float ND_id) {
         List<Bill> list = new ArrayList<>();
-        List<BillDetails> listDetail = new ArrayList<>();
         try {
             String sql = "select * from HoaDonTong where NguoiDung_ID = ?";
             conn = DBConnection.getConnection();
@@ -913,22 +912,17 @@ public class DAO {
             ps.setFloat(1, ND_id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                for (int i = 0; i < listDetail.size(); i++) {
-                    if (listDetail.get(i).getId() == rs.getFloat(1)) {
-                        list.add(new Bill(
-                                rs.getFloat(1),
-                                rs.getFloat(2),
-                                rs.getString(3),
-                                rs.getFloat(4),
-                                rs.getDate(5),
-                                rs.getString(6),
-                                rs.getInt(7),
-                                listDetail.get(i)
-                        ));
-                    }
-                }
-
+                list.add(new Bill(
+                        rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getString(3),
+                        rs.getFloat(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+                ));
             }
+
         } catch (Exception e) {
             System.out.println(e.getMessage() + "loi truy van");
         }
@@ -986,10 +980,11 @@ public class DAO {
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
         //        }
-//        List<BillDetails> list = d.getBillDetailsByHoaDonID(0);
-//        for (BillDetails p : list) {
-//            System.out.println(p.getTongtien());
-//        }
+        List<Bill> list = d.getBillSumByUserID(4);
+        for (Bill p : list) {
+            System.out.println(p.getBillDetails().toString());
+            System.out.println(p.getNgaymua());
+        }
 
     }
 }

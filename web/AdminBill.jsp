@@ -74,7 +74,7 @@
                             </a>
                         </li>
                         <li class="relative px-6 py-3">
-                            
+
                             <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                                href="ShowReview">
                                 <svg
@@ -392,7 +392,7 @@
                             </div>
                             <span>View more &RightArrow;</span>
                         </a>
-                       <!-- Cards -->
+                        <!-- Cards -->
                         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                             <!-- Card -->
                             <a href="ShowBillAdmin">
@@ -541,6 +541,11 @@
                                                             <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
                                                                 <button type="submit">Cập Nhật</button>
                                                             </span>
+                                                            <br>
+                                                            <br>
+                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                <button><a href="ShowBillDetailAdmin?id=${bill.id}">Chi Tiết</a></button>
+                                                            </span>
                                                         </td>
                                                     </form>
 
@@ -612,6 +617,11 @@
                                                         <td class="px-4 py-3 text-xs">
                                                             <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
                                                                 <button type="submit">Cập Nhật</button>
+                                                            </span>
+                                                            <br>
+                                                            <br>
+                                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                                <button><a href="ShowBillDetailAdmin?id=${bill.id}">Chi Tiết</a></button>
                                                             </span>
                                                         </td>
                                                     </form>
