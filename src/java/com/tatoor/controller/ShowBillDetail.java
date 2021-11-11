@@ -44,13 +44,11 @@ public class ShowBillDetail extends HttpServlet {
         String user = session.getAttribute("User").toString();
         float user_id = dao.getIDByUser(user).getId();
         List<Bill> list = dao.getBillSumByUserID(user_id);
-        float HoaDon_ID = 0;
-        for (int i = 0; i < list.size(); i++) {
-            HoaDon_ID = list.get(i).getId();
-        }
+        List<Bill> list2 = dao.getAllBill();
         List<BillDetails> listdetail = dao.getAllBillDetails();
-        request.setAttribute("detail", listdetail);
         List<Product> listpro = dao.getAllProduct();
+        
+        request.setAttribute("detail", listdetail);
         request.setAttribute("product", listpro);
         request.setAttribute("BillSum", list);
         request.getRequestDispatcher("BillDetails.jsp").forward(request, response);

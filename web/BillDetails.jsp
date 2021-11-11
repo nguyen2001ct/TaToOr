@@ -218,7 +218,7 @@
                                             <td>${showBill.diachi}</td>
                                             <td>${showBill.phuongthuc}</td>
                                             <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${showBill.tongtien}"></fmt:formatNumber>VNĐ</td>
-                                            <c:if test="${showBill.damua==0}"> <td><span class="badge badge-danger">Đang xử lí</span></td></c:if> 
+                                            <c:if test="${showBill.damua==0}"> <td><span class="badge badge-danger">Đang xử lí...</span></td></c:if> 
                                             <c:if test="${showBill.damua==1}"> <td><span class="badge badge-success">Đã giao hàng </span></td></c:if>
                                             <td class="table-elipse" data-toggle="collapse" data-target="#demo-${count}"><i class="fa fa-ellipsis-h text-black-50"></i></td>
                                         </tr>
