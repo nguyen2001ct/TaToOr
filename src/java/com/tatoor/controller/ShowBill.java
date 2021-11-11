@@ -54,6 +54,7 @@ public class ShowBill extends HttpServlet {
         for (int i = 0; i < listOr.size(); i++) {
             Tongtien = Tongtien + listOr.get(i).getTongTien();
         }
+
         request.setAttribute("tongBill", Tongtien);
         long millis = System.currentTimeMillis();
         java.sql.Date date = new java.sql.Date(millis);

@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "CreateAccount", urlPatterns = {"/CreateAccount"})
 public class CreateAccount extends HttpServlet {
 
-    private final String Success_Page = "index.jsp";
+    private final String Success_Page = "LoginForm.jsp";
     private final String Failed_Page = "Fail.jsp";
 
     /**
@@ -40,7 +40,7 @@ public class CreateAccount extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        String url = "index.jsp";
+        String url = "LoginForm.jsp";
         String taiKhoan = request.getParameter("taiKhoan");
         String pass = request.getParameter("pass");
         String ten = request.getParameter("ten");

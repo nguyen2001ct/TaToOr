@@ -318,7 +318,7 @@
             <div class="invoice overflow-auto">
                 <div style="min-width: 600px">
                     <div class="breadcrumb__text">
-                        <h2 class="text-center">BILL ORDER</h2>
+                        <h2 class="text-center">Hoá đơn thanh toán</h2>
                     </div>
                     <form action="CreateBill" method="post">
                         <main>
@@ -344,6 +344,13 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach var="showOrder" items="${listOr}">
+                                        <c:if var="test1" test="${showOrder.id == null}">
+                                            <tr>
+                                                <td class="text-left" colspan="5">
+                                                    <h3 style="text-align: center">chưa có sản phẩm</h3></td>
+                                            </tr>
+                                        </c:if>
+                                        <c:if var="test" test="${showOrder.id != 0}">
                                         <tr>
                                             <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
                                             <td class="text-left">
@@ -352,6 +359,7 @@
                                             <td class="qty">${showOrder.soLuong}</td>
                                             <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
                                             </tr>
+                                        </c:if>
                                     </c:forEach>
                                 </tbody>
                                 <tfoot>
@@ -371,7 +379,7 @@
                                     <tr>
                                         <td colspan="2"></td>
                                         <td colspan="2">Phí ship</td>
-                                        <td>Free ship</td>
+                                        <td>miễn phí</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2"></td>
