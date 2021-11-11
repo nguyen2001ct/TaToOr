@@ -211,6 +211,7 @@
                                 </thead>
                                 <tbody class="table-body">
                                     <c:set var="count" value="1"/>
+                                    <c:set var="tungco" value="0"/>
                                     <c:forEach var="showBill" items="${BillSum}">
                                         <tr class="cell-1" data-toggle="collapse" data-target="#demo-${count}">
                                             <td class="text-center">${showBill.ngaymua}</td>
