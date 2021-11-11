@@ -33,8 +33,10 @@ public class Bill {
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Bill{" + "id=" + id + ", nguoiDungid=" + nguoiDungid + ", tongtien=" + tongtien + ", phuongthuc=" + phuongthuc + ", diachi=" + diachi + ", ngaymua=" + ngaymua + ", damua=" + damua + ", billDetails=" + billDetails + '}';
     }
+
+    
 
     public Bill(float id, float nguoiDungid, String diachi, float tongtien, Date ngaymua, String phuongthuc, int damua) {
         this.id = id;

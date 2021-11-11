@@ -74,7 +74,7 @@
                             </a>
                         </li>
                         <li class="relative px-6 py-3">
-                            
+
                             <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                                href="ShowReview">
                                 <svg
@@ -392,7 +392,7 @@
                             </div>
                             <span>View more &RightArrow;</span>
                         </a>
-                       <!-- Cards -->
+                        <!-- Cards -->
                         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                             <!-- Card -->
                             <a href="ShowBillAdmin">

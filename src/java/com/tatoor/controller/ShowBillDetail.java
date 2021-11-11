@@ -47,7 +47,6 @@ public class ShowBillDetail extends HttpServlet {
         float HoaDon_ID = 0;
         for (int i = 0; i < list.size(); i++) {
             HoaDon_ID = list.get(i).getId();
-
         }
         List<BillDetails> listdetail = dao.getBillDetailsByHoaDonID(HoaDon_ID);
         request.setAttribute("detail", listdetail);
