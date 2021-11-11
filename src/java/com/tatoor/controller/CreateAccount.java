@@ -59,7 +59,7 @@ public class CreateAccount extends HttpServlet {
             }
             if (loai == 0) {
 
-                session.setAttribute("loai", 1);
+                session.setAttribute("loai", 0);
                 String repass = request.getParameter("repass");
                 if (!pass.equals(repass)) {
                     request.setAttribute("error5", "Mật Khẩu Nhập Lại Không Hợp Lệ");
