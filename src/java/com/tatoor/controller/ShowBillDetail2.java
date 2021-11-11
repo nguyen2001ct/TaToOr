@@ -23,8 +23,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author MACBOOK PRO
  */
-@WebServlet(name = "ShowBillDetail", urlPatterns = {"/ShowBillDetail"})
-public class ShowBillDetail extends HttpServlet {
+@WebServlet(name = "ShowBillDetail2", urlPatterns = {"/ShowBillDetail2"})
+public class ShowBillDetail2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,7 +48,7 @@ public class ShowBillDetail extends HttpServlet {
         for (int i = 0; i < list.size(); i++) {
             HoaDon_ID = list.get(i).getId();
         }
-        List<BillDetails> listdetail = dao.getBillDetailsByHoaDonID(HoaDon_ID);
+        List<BillDetails> listdetail = dao.getAllBillDetails();
         request.setAttribute("detail", listdetail);
         List<Product> listpro = dao.getAllProduct();
         request.setAttribute("product", listpro);
