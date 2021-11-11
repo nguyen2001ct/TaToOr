@@ -343,24 +343,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach var="showOrder" items="${listOr}">
-                                        <c:if var="test1" test="${showOrder.id == null}">
-                                            <tr>
-                                                <td class="text-left" colspan="5">
-                                                    <h3 style="text-align: center">chưa có sản phẩm</h3></td>
-                                            </tr>
-                                        </c:if>
-                                        <c:if var="test" test="${showOrder.id != 0}">
+                                    <c:if var="test" test="${tongBill == 0}">
                                         <tr>
-                                            <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
-                                            <td class="text-left">
-                                                <h3>${showOrder.product.ten}</h3></td>
-                                            <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
-                                            <td class="qty">${showOrder.soLuong}</td>
-                                            <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
-                                            </tr>
-                                        </c:if>
-                                    </c:forEach>
+                                            <td class="text-left" colspan="5">
+                                                <h3 style="text-align: center; color: black">Bạn chưa thêm sản phẩm</h3></td>
+                                        </tr>
+                                    </c:if>
+                                    <c:if var="test" test="${tongBill > 0}">
+
+                                        <c:forEach var="showOrder" items="${listOr}">
+
+                                            <tr>
+                                                <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
+                                                <td class="text-left">
+                                                    <h3>${showOrder.product.ten}</h3></td>
+                                                <td class="unit"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.product.giatien}"></fmt:formatNumber>VNĐ</td>
+                                                <td class="qty">${showOrder.soLuong}</td>
+                                                <td class="total"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showOrder.tongTien}"></fmt:formatNumber>VNĐ</td>
+                                                </tr>
+                                        </c:forEach>
+                                    </c:if>
                                 </tbody>
                                 <tfoot>
                                     <tr>
