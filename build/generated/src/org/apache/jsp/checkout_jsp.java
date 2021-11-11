@@ -400,7 +400,7 @@ static {
       out.write("                                <div class=\"address\">Địa chỉ: <input name=\"DiaChi\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${address}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\" placeholder=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:trim(user.diaChi)}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_0));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:trim(address)}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_0));
       out.write("\"></div>\r\n");
       out.write("                                <span style=\"color: red\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${error}", java.lang.String.class, (PageContext)_jspx_page_context, null));

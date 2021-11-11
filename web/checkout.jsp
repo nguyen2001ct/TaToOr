@@ -326,7 +326,7 @@
                                 <div class="text-gray-light"><strong>Thông tin khách hàng:</strong></div>
                                 <h2 class="to">${name}</h2>
                                 <div class="email">${phone}</div>
-                                <div class="address">Địa chỉ: <input name="DiaChi" value="${address}" placeholder="${fn:trim(user.diaChi)}"></div>
+                                <div class="address">Địa chỉ: <input name="DiaChi" value="${fn:trim(address)}" placeholder=""></div>
                                 <span style="color: red">${error}</span>
                             </div>
                             <div class="col invoice-details">
