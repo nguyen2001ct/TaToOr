@@ -7,6 +7,12 @@ import javax.servlet.jsp.*;
 public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_0;
+
+static {
+  _jspx_fnmap_0= org.apache.jasper.runtime.ProtectedFunctionMapper.getMapForFunction("fn:trim", org.apache.taglibs.standard.functions.Functions.class, "trim", new Class[] {java.lang.String.class});
+}
+
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
@@ -74,7 +80,8 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \r\n");
       out.write("        \r\n");
       out.write("\r\n");
-      out.write("        <title>Cake | Template</title>\r\n");
+      out.write("        <title>Thanh toán</title>\r\n");
+      out.write("        <link rel=\"ICON\" href=\"./pictures/logo3.png\" type=\"image/ico\" />\r\n");
       out.write("\r\n");
       out.write("        <!-- Google Font -->\r\n");
       out.write("        <link href=\"https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap\"\r\n");
@@ -136,7 +143,7 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            }\r\n");
       out.write("\r\n");
       out.write("            .invoice main .thanks {\r\n");
-      out.write("                margin-top: -100px;\r\n");
+      out.write("\r\n");
       out.write("                font-size: 2em;\r\n");
       out.write("                margin-bottom: 50px;\r\n");
       out.write("            }\r\n");
@@ -221,7 +228,7 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            }\r\n");
       out.write("            .thanks input{\r\n");
       out.write("                margin-top: -50em;\r\n");
-      out.write("                margin-left: 1500px;\r\n");
+      out.write("                margin-left: 75%;\r\n");
       out.write("                background-color:#f08632;\r\n");
       out.write("                color: white;\r\n");
       out.write("                width: 300px;\r\n");
@@ -342,7 +349,7 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <a href=\"#\"><img src=\"img/icon/heart.png\" alt=\"\"></a>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"header__top__right__cart\">\r\n");
-      out.write("                                        <a href=\"#\"><img src=\"img/icon/cart.png\" alt=\"\"> <span>0</span></a>\r\n");
+      out.write("                                        <a href=\"ShowBillDetail\"><img src=\"img/icon/cart.png\" alt=\"\"> <span>0</span></a>\r\n");
       out.write("                                        <div class=\"cart__price\">Cart: <span>$0.00</span></div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
@@ -362,7 +369,7 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <li><a href=\"#\">Tùy chọn</a>\r\n");
       out.write("                                    <ul class=\"dropdown\">\r\n");
       out.write("                                        <li><a href=\"./ShowOrder\">Giỏ Hàng</a></li>\r\n");
-      out.write("                                        <li class=\"active\"><a href=\"./checkout.jsp\">Thanh Toán</a></li>\r\n");
+      out.write("                                        <li class=\"active\"><a href=\"./ShowBill\">Thanh Toán</a></li>\r\n");
       out.write("                                    </ul>\r\n");
       out.write("                                </li>\r\n");
       out.write("                                <li ><a href=\"./blog.jsp\">Thuyết Trình</a></li>\r\n");
@@ -392,6 +399,8 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</div>\r\n");
       out.write("                                <div class=\"address\">Địa chỉ: <input name=\"DiaChi\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${address}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" placeholder=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:trim(user.diaChi)}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_0));
       out.write("\"></div>\r\n");
       out.write("                                <span style=\"color: red\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${error}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -450,10 +459,8 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                                </tfoot>\r\n");
       out.write("                            </table>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
       out.write("                        </main>\r\n");
-      out.write("                        <div class=\"thanks text-center\">\r\n");
+      out.write("                        <div class=\"thanks text-center \"> \r\n");
       out.write("                            <input type=\"submit\" name=\"thanhtoan\" value=\"Thanh toán\">\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </form>\r\n");
@@ -757,32 +764,26 @@ public final class checkout_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                                            <tr>\r\n");
-          out.write("                                                <td></td>\r\n");
-          out.write("                                                <td><h3>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Rong}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</h3></td>\r\n");
-          out.write("                                            </tr>\r\n");
-          out.write("                                            <tr>\r\n");
-          out.write("                                                <td class=\"no\" style=\"background-image: url('");
+          out.write("                                        <tr>\r\n");
+          out.write("                                            <td class=\"no\" style=\"background-image: url('");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.product.anh}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'); background-size: 100%;\"></td>\r\n");
-          out.write("                                                <td class=\"text-left\">\r\n");
-          out.write("                                                    <h3>");
+          out.write("                                            <td class=\"text-left\">\r\n");
+          out.write("                                                <h3>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.product.ten}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</h3></td>\r\n");
-          out.write("                                                <td class=\"unit\">");
+          out.write("                                            <td class=\"unit\">");
           if (_jspx_meth_fmt_formatNumber_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("VNĐ</td>\r\n");
-          out.write("                                                <td class=\"qty\">");
+          out.write("                                            <td class=\"qty\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${showOrder.soLuong}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                                <td class=\"total\">");
+          out.write("                                            <td class=\"total\">");
           if (_jspx_meth_fmt_formatNumber_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("VNĐ</td>\r\n");
-          out.write("                                                </tr>\r\n");
+          out.write("                                            </tr>\r\n");
           out.write("                                    ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
