@@ -791,6 +791,33 @@ public class DAO {
         return list;
     }
 
+    public Bill getBillByID(float id) {
+        String sql = "select * from HoaDonTong where HoaDon_ID = ? ";
+
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setFloat(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Bill(rs.getFloat(1),
+                        rs.getFloat(2),
+                        rs.getString(3),
+                        rs.getFloat(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+                );
+            }
+            con.close();
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
     public void AddAllBill(float id, float Nd_id, String DiaChi, float TongBill, Date NgayMua, String Phuongthuc, int damua) {
         try {
             String sql = "insert into HoaDonTong Values(?,?,?,?,?,?,?)";
@@ -878,7 +905,7 @@ public class DAO {
 
     public List<Bill> getBillSumByUserID(float ND_id) {
         List<Bill> list = new ArrayList<>();
-        List<BillDetails> listDetail = new ArrayList<>();
+        List<BillDetails> listDetails = getAllBillDetails();
         try {
             String sql = "select * from HoaDonTong where NguoiDung_ID = ?";
             conn = DBConnection.getConnection();
@@ -886,8 +913,8 @@ public class DAO {
             ps.setFloat(1, ND_id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                for (int i = 0; i < listDetail.size(); i++) {
-                    if (listDetail.get(i).getId() == rs.getFloat(1)) {
+                for (int i = 0; i < listDetails.size(); i++) {
+                    if (listDetails.get(i).getId() == rs.getFloat(1)) {
                         list.add(new Bill(
                                 rs.getFloat(1),
                                 rs.getFloat(2),
@@ -896,7 +923,7 @@ public class DAO {
                                 rs.getDate(5),
                                 rs.getString(6),
                                 rs.getInt(7),
-                                listDetail.get(i)
+                                listDetails
                         ));
                     }
                 }
@@ -959,10 +986,11 @@ public class DAO {
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
         //        }
-//        List<BillDetails> list = d.getBillDetailsByHoaDonID(0);
-//        for (BillDetails p : list) {
-//            System.out.println(p.getTongtien());
-//        }
+        List<Bill> list = d.getBillSumByUserID(3);
+        for (Bill p : list) {
+            System.out.println(p.getBillDetails().toString());
+            System.out.println(p.getNgaymua());
+        }
 
     }
 }

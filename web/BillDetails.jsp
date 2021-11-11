@@ -221,19 +221,22 @@
                                             <td><span class="badge badge-danger">${showBill.damua}</span></td>
                                             <td class="table-elipse" data-toggle="collapse" data-target="#demo-${count}"><i class="fa fa-ellipsis-h text-black-50"></i></td>
                                         </tr>
-                                        <tr id="demo-${count}" class="collapse cell-1 row-child">
-                                            <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
-                                                <c:forEach var="pro" items="${product}">
-                                                    <c:if var="test" test="${showBill.billDetails.sanPham_id == pro.id}">
-                                                    <td colspan="1">tên sản phẩm:</td>
-                                                    <td colspan="1">${pro.ten}</td>
-                                                </c:if>
-                                            </c:forEach>
-                                            <td colspan="1">Số lượng:</td>
-                                            <td colspan="1">${showBill.billDetails.soLuong}</td>
-                                            <td colspan="1">Giá tiền:</td>
-                                            <td colspan="1"><fmt:formatNumber type="number" maxFractionDigits="0" value="${showBill.billDetails.tongtien}"></fmt:formatNumber>VNĐ</td>
-                                            </tr>
+                                        <c:forEach var="Showdetail" items="${detail}">
+                                            <c:if var="check" test="${showBill.id == Showdetail.id}"></c:if>
+                                            <tr id="demo-${count}" class="collapse cell-1 row-child">
+                                                <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                                    <c:forEach var="pro" items="${product}">
+                                                        <c:if var="test" test="${Showdetail.sanPham_id == pro.id}">
+                                                        <td colspan="1">tên sản phẩm:</td>
+                                                        <td colspan="1">${pro.ten}</td>
+                                                    </c:if>
+                                                </c:forEach>
+                                                <td colspan="1">Số lượng:</td>
+                                                <td colspan="1">${Showdetail.soLuong}</td>
+                                                <td colspan="1">Giá tiền:</td>
+                                                <td colspan="1"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Showdetail.tongtien}"></fmt:formatNumber>VNĐ</td>
+                                                </tr>
+                                        </c:forEach>
                                         <c:set var="count" value="${count+1}"/>
                                     </c:forEach>
                                     <!--                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">
