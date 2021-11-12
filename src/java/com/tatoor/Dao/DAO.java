@@ -299,6 +299,37 @@ public class DAO {
         }
         return list;
     }
+
+    public User getIDByUser(String User) {
+
+        String sql = "select * from NguoiDung where NguoiDung_TaiKhoan = ? ";
+
+        try {
+            Connection con = DBConnection.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, User);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new User(
+                        rs.getFloat(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9)
+                );
+            }
+            ps.close();
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
 //-------------------------------------------------------------------------------------------------------------------------------------      
 //-------------------------------------------------------------------------------------------------------------------------------------   
 //------------------------------------------------------PRODUCT------------------------------------------------------------------------
@@ -307,7 +338,7 @@ public class DAO {
 
     public List<Product> getAllProduct() {
         List<Product> list = new ArrayList<>();
-        ResultSet resultSet = DBConnection.querySet("select * from SanPham");
+        ResultSet resultSet = DBConnection.querySet("SELECT * FROM SanPham ORDER BY SanPham_ID DESC");
         if (resultSet != null) {
             try {
                 while (resultSet.next()) {
@@ -445,7 +476,7 @@ public class DAO {
     public List<Product> pagingProduct(int index) {
         List<Product> list = new ArrayList<>();
         String query = "select * from SanPham \n"
-                + "ORDER BY SanPham_ID\n"
+                + "ORDER BY SanPham_ID DESC\n"
                 + "OFFSET ? ROWS FETCH NEXT 12 ROWS ONLY;";
         try {
             Connection con = DBConnection.getConnection();
@@ -467,6 +498,11 @@ public class DAO {
         }
         return list;
     }
+//-------------------------------------------------------------------------------------------------------------------------------------      
+//-------------------------------------------------------------------------------------------------------------------------------------   
+//------------------------------------------------------REVIEW------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------   
+//-------------------------------------------------------------------------------------------------------------------------------------   
 
     public boolean CreateReview(float ID, float NguoiDung_ID, float SanPham_ID, int sao, String BinhLuan, String anh, int damua, int hienthi, int sua) throws SQLException {
         Connection con = null;
@@ -580,6 +616,11 @@ public class DAO {
         }
     }
 
+ //-------------------------------------------------------------------------------------------------------------------------------------      
+//-------------------------------------------------------------------------------------------------------------------------------------   
+//------------------------------------------------------ORDER------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------   
+//-------------------------------------------------------------------------------------------------------------------------------------   
     public boolean AddOrder(float ID, float GioHangTong_ID, float SanPham_ID, int SoLuong, float TongTien) {
         String sql = "INSERT INTO GioHangChiTiet VALUES (?,?,?,?,?);";
         try {
@@ -601,37 +642,6 @@ public class DAO {
 
         }
         return false;
-    }
-
-    public User getIDByUser(String User) {
-
-        String sql = "select * from NguoiDung where NguoiDung_TaiKhoan = ? ";
-
-        try {
-            Connection con = DBConnection.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setString(1, User);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                return new User(
-                        rs.getFloat(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getString(7),
-                        rs.getString(8),
-                        rs.getInt(9)
-                );
-            }
-            ps.close();
-            rs.close();
-            con.close();
-        } catch (Exception e) {
-
-        }
-        return null;
     }
 
     public List<Order> getAllOrder() {
@@ -765,7 +775,11 @@ public class DAO {
         }
         return list;
     }
-
+//-------------------------------------------------------------------------------------------------------------------------------------      
+//-------------------------------------------------------------------------------------------------------------------------------------   
+//------------------------------------------------------BILL------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------   
+//------------------------------------------------------------------------------------------------------------------------------------- 
     public List<Bill> getAllBill() {
         List<Bill> list = new ArrayList<>();
         try {
@@ -985,6 +999,5 @@ public class DAO {
             System.out.println(p.getBillDetails().toString());
             System.out.println(p.getNgaymua());
         }
-
     }
 }
