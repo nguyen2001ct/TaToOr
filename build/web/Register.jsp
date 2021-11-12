@@ -72,7 +72,7 @@ and open the template in the editor.
                                     <p class=" mb-7" style="background-image: url('./img/logo.jpg'); background-repeat: no-repeat;height: 98px; " ></p>
                                 </div>
                                 <h2 class="text-uppercase mb-5 text-center">Tạo tài khoản</h2>
-
+                                <p class="text-center text-danger" > ${error5} </p>
                                 <form action="CreateAccount" method="POST" >
                                     <div class="form-outline mb-7">
                                         <input name="taiKhoan" type="text" id="txtUsername" class="form-control form-control-lg" placeholder="Tài Khoản"onblur="checkUsername()"/>
@@ -88,47 +88,47 @@ and open the template in the editor.
                                         <input name="repass" type="password" id="txtPass2" class="form-control form-control-lg" placeholder="Nhập lại mật khẩu" />
                                         <p class="form-label" for="form3Example4cdg"></p>
                                     </div>
-                                    <h class="text-danger"> ${error5} </h>
-                                        <div class="form-outline mb-7">
-                                            <input name="ten" type="text" id="txtUsername" class="form-control form-control-lg" placeholder="Họ và Tên" onblur="checkUsername()"/>
-                                            <p class="form-label" for="form3Example1cg" id="txtUsernameMess" ></p>
-                                        </div>
-                                        <div class="form-outline mb-7" id="check">
-                                            <div class="form-check-inline">
-                                                <input name ="gioitinh" class="form-check-input" type="radio" id="exampleRadios1" value="nam" >
-                                                <label class="form-check-label" for="exampleRadios1">
-                                                    Nam
-                                                </label>
-                                            </div>
-                                            <div class="form-check-inline">
-                                                <input name ="gioitinh" class="form-check-input" type="radio" id="exampleRadios2" value="nu">
-                                                <label class="form-check-label" for="exampleRadios2">
-                                                    Nữ
-                                                </label>
-                                            </div>
-                                             <div class="form-check-inline">
-                                                <input name ="gioitinh" class="form-check-input" type="radio" id="exampleRadios2" value="khac">
-                                                <label class="form-check-label" for="exampleRadios2">
-                                                    Khác
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <p></p>
 
-                                        <div class="form-outline mb-7">
-                                            <input type="text" name="namsinh" id="txtYear" class="form-control form-control-lg" placeholder="Năm sinh(yyyy)" maxlength="4" pattern="[1-2][0-9]{3}" title="Nhập 4 kí tự chỉ bao gồm số." onblur="checkYear()"/>
-                                            <p class="form-label" for="form3Example4cdg" id="txtYearMess"></p>
+                                    <div class="form-outline mb-7">
+                                        <input name="ten" type="text" id="txtUsername" class="form-control form-control-lg" placeholder="Họ và Tên" onblur="checkUsername()"/>
+                                        <p class="form-label" for="form3Example1cg" id="txtUsernameMess" ></p>
+                                    </div>
+                                    <div class="form-outline mb-7" id="check">
+                                        <div class="form-check-inline">
+                                            <input name ="gioitinh" class="form-check-input" type="radio" id="exampleRadios1" value="nam" >
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Nam
+                                            </label>
                                         </div>
-                                        <div class="form-outline mb-7">
-                                            <input type="text" name="sdt" id="txtPhone" class="form-control form-control-lg" placeholder="Nhập số điện thoại" title="Nhập 10 kí tự chỉ bao gồm số." maxlength="10" pattern="[0][0-9]{9}"/>
-                                            <label class="form-label" for="form3Example4cdg"></label>
+                                        <div class="form-check-inline">
+                                            <input name ="gioitinh" class="form-check-input" type="radio" id="exampleRadios2" value="nu">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                                Nữ
+                                            </label>
                                         </div>
-                                        <div class="d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Đăng kí</button>
-                                            <p class="form-label" for="form3Example1cg" id="txtDkiMess" ></p>
+                                        <div class="form-check-inline">
+                                            <input name ="gioitinh" class="form-check-input" type="radio" id="exampleRadios2" value="khac">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                                Khác
+                                            </label>
                                         </div>
+                                    </div>
+                                    <p></p>
 
-                                        <p class="text-center text-muted mt-5 mb-0">Bạn đã có tài khoản? <a href="LoginForm.jsp" class="fw-bold text-body"><u>Đăng nhập</u></a></p>
+                                    <div class="form-outline mb-7">
+                                        <input type="text" name="namsinh" id="txtYear" class="form-control form-control-lg" placeholder="Năm sinh(yyyy)" maxlength="4" pattern="[1-2][0-9]{3}" title="Nhập 4 kí tự chỉ bao gồm số." onblur="checkYear()"/>
+                                        <p class="form-label" for="form3Example4cdg" id="txtYearMess"></p>
+                                    </div>
+                                    <div class="form-outline mb-7">
+                                        <input type="text" name="sdt" id="txtPhone" class="form-control form-control-lg" placeholder="Nhập số điện thoại" title="Nhập 10 kí tự chỉ bao gồm số." maxlength="10" pattern="[0][0-9]{9}"/>
+                                        <label class="form-label" for="form3Example4cdg"></label>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Đăng kí</button>
+                                        <p class="form-label" for="form3Example1cg" id="txtDkiMess" ></p>
+                                    </div>
+
+                                    <p class="text-center text-muted mt-5 mb-0">Bạn đã có tài khoản? <a href="LoginForm.jsp" class="fw-bold text-body"><u>Đăng nhập</u></a></p>
 
                                 </form>
 

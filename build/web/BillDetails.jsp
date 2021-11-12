@@ -156,8 +156,7 @@
                                 </div>
                                 <div class="header__top__right">
                                     <div class="header__top__right__cart">
-                                        <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                        <div class="cart__price">Cart: <span>$0.00</span></div>
+                                         <a href="ShowBillDetail" style="color: black">Lịch sử mua hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -210,38 +209,44 @@
                                     </tr>
                                 </thead>
                                 <tbody class="table-body">
-                                    <c:set var="count" value="1"/>
-                                    <c:set var="tungco" value="0"/>
-                                    <c:forEach var="showBill" items="${BillSum}">
-                                        <tr class="cell-1" data-toggle="collapse" data-target="#demo-${count}">
-                                            <td class="text-center">${showBill.ngaymua}</td>
-                                            <td>${count}</td>
-                                            <td>${showBill.diachi}</td>
-                                            <td>${showBill.phuongthuc}</td>
-                                            <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${showBill.tongtien}"></fmt:formatNumber>VNĐ</td>
-                                            <c:if test="${showBill.damua==0}"> <td><span class="badge badge-danger">Đang xử lí...</span></td></c:if> 
-                                            <c:if test="${showBill.damua==1}"> <td><span class="badge badge-success">Đã giao hàng </span></td></c:if>
-                                            <td class="table-elipse" data-toggle="collapse" data-target="#demo-${count}"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                    <c:if var="test" test="${BillSum == []}">
+                                        <tr>
+                                            <td colspan="7" style="text-align: center">Bạn chưa mua hàng</td>
                                         </tr>
-                                        <c:forEach var="Showdetail" items="${detail}">
-                                            <c:if var="check" test="${showBill.id == Showdetail.id}">
-                                                <tr id="demo-${count}" class="collapse cell-1 row-child">
-                                                    <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
-                                                        <c:forEach var="pro" items="${product}">
-                                                            <c:if var="test" test="${Showdetail.sanPham_id == pro.id}">
-                                                            <td colspan="1">tên sản phẩm:</td>
-                                                            <td colspan="1">${pro.ten}</td>
-                                                        </c:if>
-                                                    </c:forEach>
-                                                    <td colspan="1">Số lượng:</td>
-                                                    <td colspan="1">${Showdetail.soLuong}</td>
-                                                    <td colspan="1">Giá tiền:</td>
-                                                    <td colspan="1"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Showdetail.tongtien}"></fmt:formatNumber>VNĐ</td>
-                                                    </tr>
-                                            </c:if>
+                                    </c:if>
+                                    <c:if var="test" test="${BillSum != []}" >
+                                        <c:set var="count" value="1"/>
+                                        <c:forEach var="showBill" items="${BillSum}">
+                                            <tr class="cell-1" data-toggle="collapse" data-target="#demo-${count}">
+                                                <td class="text-center">${showBill.ngaymua}</td>
+                                                <td>${count}</td>
+                                                <td>${showBill.diachi}</td>
+                                                <td>${showBill.phuongthuc}</td>
+                                                <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${showBill.tongtien}"></fmt:formatNumber>VNĐ</td>
+                                                <c:if test="${showBill.damua==0}"> <td><span class="badge badge-danger">Đang xử lí...</span></td></c:if> 
+                                                <c:if test="${showBill.damua==1}"> <td><span class="badge badge-success">Đã giao hàng </span></td></c:if>
+                                                <td class="table-elipse" data-toggle="collapse" data-target="#demo-${count}"><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                            </tr>
+                                            <c:forEach var="Showdetail" items="${detail}">
+                                                <c:if var="check" test="${showBill.id == Showdetail.id}">
+                                                    <tr id="demo-${count}" class="collapse cell-1 row-child">
+                                                        <td class="text-center" colspan="1"><i class="fa fa-angle-up"></i></td>
+                                                            <c:forEach var="pro" items="${product}">
+                                                                <c:if var="test" test="${Showdetail.sanPham_id == pro.id}">
+                                                                <td colspan="1">tên sản phẩm:</td>
+                                                                <td colspan="1">${pro.ten}</td>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <td colspan="1">Số lượng:</td>
+                                                        <td colspan="1">${Showdetail.soLuong}</td>
+                                                        <td colspan="1">Giá tiền:</td>
+                                                        <td colspan="1"><fmt:formatNumber type="number" maxFractionDigits="0" value="${Showdetail.tongtien}"></fmt:formatNumber>VNĐ</td>
+                                                        </tr>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:set var="count" value="${count+1}"/>
                                         </c:forEach>
-                                        <c:set var="count" value="${count+1}"/>
-                                    </c:forEach>
+                                    </c:if>  
                                     <!--                                    <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">
                                                                             <td class="text-center">2</td>
                                                                             <td>#SO-13488</td>

@@ -46,7 +46,7 @@ public class LoginControl extends HttpServlet {
             String page = "LoginForm.jsp";
             if (users == null) {
                 request.setAttribute("error1", "Sai tài khoản hoặc mật khẩu ");
-                request.setAttribute("Username", user);
+                request.setAttribute("username", user);
             } else {
                 String url = "<a href=\"ProfileAll\" class=\"Login\">Thông tin</a>";
                 if (users.getLoai() == 0) {

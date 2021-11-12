@@ -168,7 +168,7 @@ and open the template in the editor.
 
                 <div class="container">
                     <div class="form">
-                        <input type="text" class="form-input" placeholder=" " name="Username" required>
+                        <input type="text" class="form-input" placeholder=" " name="Username" value="${username}" required>
                         <label for="Username" class="form-label">Tên Đăng Nhập</label><br>
                     </div>
                     <div class="form">
