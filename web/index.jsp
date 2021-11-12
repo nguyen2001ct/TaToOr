@@ -126,7 +126,7 @@
                     <div class="col-lg-12">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="Guest">Trang chủ</a></li>
+                                <li class="active"><a href="index.jsp">Trang chủ</a></li>
                                 <li><a href="IndexProduct">Chọn Món</a></li>
                                 <li><a href="#">Tùy chọn</a>
                                     <ul class="dropdown">
@@ -251,12 +251,12 @@
                                 <span>Thành viên chính thức nhóm 6 - Kiêm đầu bếp món tráng chính</span>
                                 <div class="team__item__social">
                                     <a href="https://www.facebook.com/hoang.thai.14855377"><i class="fa fa-facebook"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
         </section>
         <!-- Team Section End -->
 
@@ -274,6 +274,27 @@
 
                 <div class="row">
                     <div class="testimonial__slider owl-carousel">
+                        <div class="col-lg-6">
+                            <div class="testimonial__item">
+                                <div class="testimonial__author">
+                                    <div class="testimonial__author__pic">
+                                        <img src="https://i.vietgiaitri.com/2021/9/5/ba-phuong-hang-se-tang-luon-cai-dai-nam-neu-ai-tim-duoc-van-ban-nao-minh-keu-goi-quyen-gop-f94-6008990.jpg" alt="">
+                                    </div>
+                                    <div class="testimonial__author__text">
+                                        <h5>Nguyễn Phương Hằng</h5>
+                                        <span>Bình Dương</span>
+                                    </div>
+                                </div>
+                                <div class="rating">
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                </div>
+                                <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>
+                            </div>
+                        </div>
                         <div class="col-lg-6">
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
@@ -322,6 +343,27 @@
                             <div class="testimonial__item">
                                 <div class="testimonial__author">
                                     <div class="testimonial__author__pic">
+                                        <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.6435-9/149363543_2891514991127902_298257690163312688_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=6lhWfWbKHrUAX_NIyof&_nc_ht=scontent.fsgn5-1.fna&oh=deb41648e6a2893f6cf559db8f3b604c&oe=61A74348" alt="">
+                                    </div>
+                                    <div class="testimonial__author__text">
+                                        <h5>Nguyễn Trọng Nghĩa</h5>
+                                        <span>Trà Vinh</span>
+                                    </div>
+                                </div>
+                                <div class="rating">
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                </div>
+                                <p>Ăn xong có sức hít đất 30 ngày trend luôn</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="testimonial__item">
+                                <div class="testimonial__author">
+                                    <div class="testimonial__author__pic">
                                         <img src="https://image-us.24h.com.vn/upload/2-2020/images/2020-05-12/83395730_134841691333804_1955901610945150976_o-1589260776-4-width960height960.jpg" alt="">
                                     </div>
                                     <div class="testimonial__author__text">
@@ -362,48 +404,8 @@
                                 <p>Ngon lắm, 4.5 sao</p>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="testimonial__item">
-                                <div class="testimonial__author">
-                                    <div class="testimonial__author__pic">
-                                        <img src="https://i.vietgiaitri.com/2021/9/5/ba-phuong-hang-se-tang-luon-cai-dai-nam-neu-ai-tim-duoc-van-ban-nao-minh-keu-goi-quyen-gop-f94-6008990.jpg" alt="">
-                                    </div>
-                                    <div class="testimonial__author__text">
-                                        <h5>Nguyễn Phương Hằng</h5>
-                                        <span>Bình Dương</span>
-                                    </div>
-                                </div>
-                                <div class="rating">
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                </div>
-                                <p>Quá ok luôn nhe quí dị, rất là bình dân nhe quí dị.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="testimonial__item">
-                                <div class="testimonial__author">
-                                    <div class="testimonial__author__pic">
-                                        <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.6435-9/149363543_2891514991127902_298257690163312688_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=6lhWfWbKHrUAX_NIyof&_nc_ht=scontent.fsgn5-1.fna&oh=deb41648e6a2893f6cf559db8f3b604c&oe=61A74348" alt="">
-                                    </div>
-                                    <div class="testimonial__author__text">
-                                        <h5>Nguyễn Trọng Nghĩa</h5>
-                                        <span>Trà Vinh</span>
-                                    </div>
-                                </div>
-                                <div class="rating">
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                    <span class="icon_star"></span>
-                                </div>
-                                <p>Ăn xong có sức hít đất 30 ngày trend luôn</p>
-                            </div>
-                        </div>
+
+
                     </div>
                 </div>
             </div>
