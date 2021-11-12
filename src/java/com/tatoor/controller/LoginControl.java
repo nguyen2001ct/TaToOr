@@ -48,9 +48,9 @@ public class LoginControl extends HttpServlet {
                 request.setAttribute("error1", "Sai tài khoản hoặc mật khẩu ");
                 request.setAttribute("username", user);
             } else {
-                String url = "<a href=\"ProfileAll\" class=\"Login\">Thông tin</a>";
+                String tag = "<a href=\"ProfileAll\" class=\"Login\">Thông tin</a>";
                 if (users.getLoai() == 0) {
-                    session.setAttribute("Admin", url);
+                    session.setAttribute("Admin", tag);//Do lúc làm đặt tên nhầm thành Admin chứ thực ra là set header show
                     session.setAttribute("id", users.getId());
                     session.setAttribute("loai", users.getLoai());
                 } else {
