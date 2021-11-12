@@ -39,16 +39,20 @@ public class ShowOrder extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         DAO dao = new DAO();
-        String user = session.getAttribute("User").toString();
-        float User_id = dao.getIDByUser(user).getId();
-        List<Order> or = dao.getOrderByUserID(User_id);
-        request.setAttribute("Orders", or);
-        float Tongtien = 0;
-        for (int i = 0; i < or.size(); i++) {
-            Tongtien = Tongtien + or.get(i).getTongTien();
+        if (session.getAttribute("User") == null) {
+            request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
+        } else {
+            String user = session.getAttribute("User").toString();
+            float User_id = dao.getIDByUser(user).getId();
+            List<Order> or = dao.getOrderByUserID(User_id);
+            request.setAttribute("Orders", or);
+            float Tongtien = 0;
+            for (int i = 0; i < or.size(); i++) {
+                Tongtien = Tongtien + or.get(i).getTongTien();
+            }
+            request.setAttribute("tongbill", Tongtien);
+            request.getRequestDispatcher("shoping-cart.jsp").forward(request, response);
         }
-        request.setAttribute("tongbill", Tongtien);
-        request.getRequestDispatcher("shoping-cart.jsp").forward(request, response);
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
