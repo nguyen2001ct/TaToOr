@@ -3,49 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/CreateProduct.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ShowBill.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ShowBillDetail.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/UpdateUser.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/Filter/CheckAdminReview.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/SortShowBillAdmin.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/AdminIndex.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/shoping-cart.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ShowBillAdmin.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/checkout.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/LoginControl.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/AdminBill.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/AdminReview.jsp</file>
             <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/BillDetails.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/Watting.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/UpdateProduct.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ShowReview.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ShowProduct.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/AdminBillDetails.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/AddToCartProductDetails.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/Register.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/UpdateProduct.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ChangePassword.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/UpdateShopingCart.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/Filter/CheckShowProduct.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/UpdateUserAdmin.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/index.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ShowOrder.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/AdminProduct.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/connect/DBConnection.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/shop.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/UpdateReview.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/InfoPage.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/ShowUser.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/SortShowReviewAdmin.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/shop-details.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/web/contact.jsp</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/Filter/CheckAdminUser.java</file>
-            <file>file:/E:/FPTu/JAVAAPP/Project%20Nhom/TTT/TaToOr/src/java/com/tatoor/controller/UpdateBill.java</file>
-=======
-            <file>file:/C:/Users/MACBOOK%20PRO/Desktop/PROJECT_PRJ192/TaToOr/src/java/com/tatoor/controller/ShowOrder.java</file>
->>>>>>> 6724f138a96054ebb7df533e27e6883fad125a3a
         </group>
     </open-files>
 </project-private>
