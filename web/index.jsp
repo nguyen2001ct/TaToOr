@@ -50,8 +50,7 @@
                     <a href="#"><img src="img/icon/heart.png" alt=""></a>
                 </div>
                 <div class="offcanvas__cart__item">
-                    <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                    <div class="cart__price">Cart: <span>$0.00</span></div>
+                    <a href="ShowBillDetail" style="color: black">Lịch sử mua hàng</a>
                 </div>
             </div>
             <div class="offcanvas__logo">
@@ -113,8 +112,7 @@
                                 </div>
                                 <div class="header__top__right">
                                     <div class="header__top__right__cart">
-                                        <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                        <div class="cart__price">Cart: <span>$0.00</span></div>
+                                        <a href="ShowBillDetail" style="color: black">Lịch sử mua hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +134,6 @@
                                         <li><a href="./ShowBill">Thanh Toán</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="./blog.jsp">Thuyết Trình</a></li>
                                 <li><a href="./contact.jsp">Liên Hệ</a></li>
                             </ul>
                         </nav>
@@ -224,30 +221,25 @@
                     </div>
                 </div>
                 <div class="row">
+
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="team__item set-bg" data-setbg="img/team/team-1.jpg">
+                        <div class="team__item set-bg" data-setbg="img/team/team-2.jpg">
                             <div class="team__item__text">
-                                <h6>Nguyễn Thị Ngọc Yến</h6>
-                                <span>Cô giáo dạy tiếng Nhật</span>
+                                <h6>Nguyễn Chí Nguyên</h6>
+                                <span>Thành viên chính thức nhóm 6 - Kiêm đầu bếp món ăn vặt</span>
                                 <div class="team__item__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                    <a href="https://www.facebook.com/billy6289"><i class="fa fa-facebook"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="team__item set-bg" data-setbg="img/team/team-2.jpg">
+                        <div class="team__item set-bg" data-setbg="img/team/team-1.jpg">
                             <div class="team__item__text">
-                                <h6>Nguyễn Chí Nguyên</h6>
-                                <span>Nhà Bình Phẩm Thức Ăn - Tiktoker</span>
+                                <h6>Nguyễn Thị Ngọc Yến</h6>
+                                <span>Thành viên chính thức nhóm 6 - Kiêm đầu bếp món tráng miệng</span>
                                 <div class="team__item__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100004343148194"><i class="fa fa-facebook"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -256,13 +248,9 @@
                         <div class="team__item set-bg" data-setbg="img/team/team-3.jpg">
                             <div class="team__item__text">
                                 <h6>Lê Hoàng Thái</h6>
-                                <span>Đi làm để kiếm tiền để thành AppleFans</span>
+                                <span>Thành viên chính thức nhóm 6 - Kiêm đầu bếp món tráng chính</span>
                                 <div class="team__item__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-youtube-play"></i></a>
-                                </div>
+                                    <a href="https://www.facebook.com/hoang.thai.14855377"><i class="fa fa-facebook"></i></a>
                             </div>
                         </div>
                     </div>
