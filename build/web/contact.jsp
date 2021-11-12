@@ -175,13 +175,13 @@
                                 <ul>
                                     <li>
                                         <span class="icon_pin_alt"></span>
-                                        <p>795 W 5th St, San Bernardino, CA 92410, USA</p>
+                                        <p>Nhà Hàng TaToOr - 2P7J+JM Ninh Kiều, Cần Thơ</p>
                                     </li>
                                     <li><span class="icon_headphones"></span>
-                                        <p>+1 800-786-1000</p>
+                                        <p>+84 xx xxx xxx</p>
                                     </li>
                                     <li><span class="icon_mail_alt"></span>
-                                        <p>Sweetcake@support.com</p>
+                                        <p>tatoor@restaurant.tatoor.com</p>
                                     </li>
                                 </ul>
                             </div>
@@ -198,24 +198,24 @@
                                         <p>Không có SĐT</p>
                                     </li>
                                     <li><span class="icon_mail_alt"></span>
-                                        <p>Không có mail luôn</p>
+                                        <p>tatoor@office.tatoor.com</p>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="contact__address__item">
-                                <h6>san bernardino</h6>
+                                <h6>Tổng Đài Hỗ Trợ</h6>
                                 <ul>
                                     <li>
                                         <span class="icon_pin_alt"></span>
-                                        <p>1000 Lakepoint Dr, Frisco, CO 80443, USA</p>
+                                        <p>Bà Nà Hill</p>
                                     </li>
                                     <li><span class="icon_headphones"></span>
-                                        <p>+1 800-786-1000</p>
+                                        <p>+84 xx xxx xxx</p>
                                     </li>
                                     <li><span class="icon_mail_alt"></span>
-                                        <p>Sweetcake@support.com</p>
+                                        <p>tatoor@support.tatoor.com</p>
                                     </li>
                                 </ul>
                             </div>
