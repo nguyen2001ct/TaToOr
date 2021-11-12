@@ -41,17 +41,21 @@ public class ShowBillDetail extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         DAO dao = new DAO();
-        String user = session.getAttribute("User").toString();
-        float user_id = dao.getIDByUser(user).getId();
-        List<Bill> list = dao.getBillSumByUserID(user_id);
-        List<Bill> list2 = dao.getAllBill();
-        List<BillDetails> listdetail = dao.getAllBillDetails();
-        List<Product> listpro = dao.getAllProduct();
-        
-        request.setAttribute("detail", listdetail);
-        request.setAttribute("product", listpro);
-        request.setAttribute("BillSum", list);
-        request.getRequestDispatcher("BillDetails.jsp").forward(request, response);
+        if (session.getAttribute("User") == null) {
+            request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
+        } else {
+            String user = session.getAttribute("User").toString();
+            float user_id = dao.getIDByUser(user).getId();
+            List<Bill> list = dao.getBillSumByUserID(user_id);
+            List<Bill> list2 = dao.getAllBill();
+            List<BillDetails> listdetail = dao.getAllBillDetails();
+            List<Product> listpro = dao.getAllProduct();
+
+            request.setAttribute("detail", listdetail);
+            request.setAttribute("product", listpro);
+            request.setAttribute("BillSum", list);
+            request.getRequestDispatcher("BillDetails.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

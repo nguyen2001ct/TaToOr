@@ -187,7 +187,7 @@ and open the template in the editor.
                 </div>
 
                 <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Huỷ</button>
+                    <button type="button" class="cancelbtn"><a href="Guest" style="color: black;text-decoration: none">Huỷ</a></button>
                 </div>
             </form>
         </div>
