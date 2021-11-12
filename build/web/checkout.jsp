@@ -349,10 +349,8 @@
                                                 <h3 style="text-align: center; color: black">Bạn chưa thêm sản phẩm</h3></td>
                                         </tr>
                                     </c:if>
-                                    <c:if var="test" test="${tongBill > 0}">
-
+                                    <c:if var="test1" test="${tongBill > 0}">
                                         <c:forEach var="showOrder" items="${listOr}">
-
                                             <tr>
                                                 <td class="no" style="background-image: url('${showOrder.product.anh}'); background-size: 100%;"></td>
                                                 <td class="text-left">
