@@ -56,8 +56,7 @@
                     <a href="#"><img src="img/icon/heart.png" alt=""></a>
                 </div>
                 <div class="offcanvas__cart__item">
-                    <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                    <div class="cart__price">Cart: <span>$0.00</span></div>
+                    <a href="ShowBillDetail" style="color: black">Lịch sử mua hàng</a>
                 </div>
             </div>
             <div class="offcanvas__logo">
@@ -118,8 +117,7 @@
                                 </div>
                                 <div class="header__top__right">
                                     <div class="header__top__right__cart">
-                                        <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                        <div class="cart__price">Cart: <span>$0.00</span></div>
+                                       <a href="ShowBillDetail" style="color: black">Lịch sử mua hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +139,6 @@
                                         <li><a href="./ShowBill">Thanh Toán</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="./blog.jsp">Thuyết Trình</a></li>
                                 <li><a href="./contact.jsp">Liên Hệ</a></li>
                             </ul>
                         </nav>

@@ -277,13 +277,9 @@
                                     <a href="./index.html"><img src="img/logo.png" alt=""></a>
                                 </div>
                                 <div class="header__top__right">
-                                    <div class="header__top__right__links">
-                                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                                    </div>
+                                    
                                     <div class="header__top__right__cart">
-                                        <a href="ShowBillDetail"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                                        <div class="cart__price">Cart: <span>$0.00</span></div>
+                                        <a href="ShowBillDetail" style="color: black">Lịch sử mua hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -305,7 +301,6 @@
                                         <li class="active"><a href="./ShowBill">Thanh Toán</a></li>
                                     </ul>
                                 </li>
-                                <li ><a href="./blog.jsp">Thuyết Trình</a></li>
                                 <li><a href="./contact.jsp">Liên Hệ</a></li>
                             </ul>
                         </nav>
