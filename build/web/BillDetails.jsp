@@ -73,8 +73,8 @@
             }
 
             .row-child {
-                background-color: #000;
-                color: #fff
+                background-color: #ffcc99;
+                color: black;
             }               
         </style>
     </head>
