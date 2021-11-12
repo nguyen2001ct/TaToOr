@@ -993,11 +993,7 @@ public class DAO {
         //List<Order> lst = d.getOrderByUserID(3);
         //        for (int i = 0; i < lst.size(); i++) {
         //            System.out.println(lst.get(i));
-        //        }
-        List<Bill> list = d.getBillSumByUserID(4);
-        for (Bill p : list) {
-            System.out.println(p.getBillDetails().toString());
-            System.out.println(p.getNgaymua());
-        }
+        //        
+        
     }
 }

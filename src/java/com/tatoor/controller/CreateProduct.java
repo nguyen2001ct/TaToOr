@@ -38,16 +38,19 @@ public class CreateProduct extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String url = " ";
         String ten = request.getParameter("ten");
+        System.out.println(ten);
         String anh = request.getParameter("anh");
+        
         String thuoctinh = request.getParameter("thuoctinh");
+        System.out.println(thuoctinh);
         float gia = Float.parseFloat(request.getParameter("giatien"));
+        System.out.println(gia);
         String mota = request.getParameter("mota");
         try {
             float ID=0;
             DAO dao = new DAO();
-            for(int i=0;i<dao.getAllProduct().size();i++){
-                ID=dao.getAllProduct().get(i).getId()+1;
-            }
+            ID=dao.getAllProduct().get(0).getId()+1;
+            System.out.println(ID);
             boolean check = dao.CreateProduct(ID, ten, gia, thuoctinh, mota, 0, anh);
             if(check){
                 url = Success_Page;

@@ -91,7 +91,7 @@ public class CreateAccount extends HttpServlet {
 
             } else if (loai == 1) {
                 int chinhloai = Integer.parseInt(request.getParameter("loai"));
-
+                session.setAttribute("loai", 1);
                 List<User> listuser = dao.getAllUser();
                 for (int i = 0; i < listuser.size(); i++) {
                     if (listuser.get(i).getTaiKhoan().trim().toLowerCase().equals(taiKhoan.trim().toLowerCase())) {
@@ -107,7 +107,7 @@ public class CreateAccount extends HttpServlet {
                     if (check) {
                         float GioHang_id = ID;
                         dao.AddUserToCart(GioHang_id, ID);
-                        request.getRequestDispatcher("ShowAdmin").forward(request, response);
+                        request.getRequestDispatcher("ShowUser").forward(request, response);
                     } else {
                         request.getRequestDispatcher("Guest").forward(request, response);
                     }
