@@ -52,7 +52,7 @@ public class CreateBill extends HttpServlet {
         List<Order> listorder = dao.getAllOrder();
         List<OrderAll> listoa = dao.getOrderAll();
         int damua = 0;
-        float ID = 0;
+        float ID = 1;
         long millis = System.currentTimeMillis();
         java.sql.Date NgayMua = new java.sql.Date(millis);
         if (DiaChi.isEmpty()) {

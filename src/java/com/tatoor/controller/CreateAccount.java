@@ -51,7 +51,7 @@ public class CreateAccount extends HttpServlet {
         int loai = Integer.parseInt(session.getAttribute("loai").toString());
         float checktrung = 0;
         DAO dao = new DAO();
-        float ID = 0;
+        float ID = 1;
         try {
 
             for (int i = 0; i < dao.getAllUser().size(); i++) {

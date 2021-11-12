@@ -44,7 +44,7 @@ public class CreateReview extends HttpServlet {
         String binhluan = request.getParameter("binhluandanhgia");
         Float ProductID = Float.parseFloat(request.getParameter("productid"));
         String AnhDanhGia = request.getParameter("anhdanhgia");
-        float danhgia_id = 0;
+        float danhgia_id = 1;
         float nguoidung_id = Float.parseFloat(session.getAttribute("id").toString());
         DAO dao = new DAO();
         for (int i = 0; i < dao.getAllReview().size(); i++) {
